@@ -1,0 +1,20 @@
+title: Spine Event Engine documentation
+description: CQRS/ES framework for modern could applications
+baseurl: "" # the subpath of your site, e.g. /blog
+github_username:  SpineEventEngine
+
+# Gems
+plugins:
+  - jekyll-feed
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
