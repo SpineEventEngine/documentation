@@ -1,6 +1,10 @@
+# The result of Jekyll build
 _site
 .sass-cache
 .jekyll-metadata
+
+# Intermediate directory used by `embed-code` Jekyll subcommand
+.fragments
 
 # IntelliJ IDEA modules and interim config files
 *.iml
