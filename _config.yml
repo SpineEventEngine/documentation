@@ -14,3 +14,8 @@ sass:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+embed_code:
+  code_root: ./_code
+  documentation_root: ./docs
+  code_includes: ["**/*.proto", "**/*.java", "**/*.kt", "**/*.dart", "**/*.js", "**/*.html", "**/*.gradle", "**/*.gradle.kts"]
