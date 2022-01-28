@@ -1,7 +1,7 @@
 title: Spine Event Engine documentation
 description: CQRS/ES framework for modern could applications
 baseurl: ""
-github_username:  SpineEventEngine
+github_username: SpineEventEngine
 
 # Conversion
 markdown: kramdown
@@ -12,8 +12,13 @@ sass:
   style: compressed
 
 exclude:
+  - .github/
+  - .idea/
+  - .saas-cache/
   - Gemfile
   - Gemfile.lock
+  - LICENSE
+  - README.md
 
 embed_code:
   code_root: ./_code
