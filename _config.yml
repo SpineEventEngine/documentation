@@ -21,6 +21,11 @@ excerpt_separator: <!--more-->
 sass:
   style: compressed
 
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
 exclude:
   - .github/
   - .idea/
