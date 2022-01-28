@@ -3,6 +3,16 @@ description: CQRS/ES framework for modern could applications
 baseurl: ""
 github_username: SpineEventEngine
 
+core_java_repo: https://github.com/SpineEventEngine/core-java
+web_repo: https://github.com/SpineEventEngine/web
+dart_repo: https://github.com/SpineEventEngine/dart
+
+base_api_doc: https://spine.io/base/reference
+core_api_doc: https://spine.io/core-java/reference
+web_api_doc: https://spine.io/web/reference
+js_api_doc: https://spine.io/web/reference/client-js
+dart_api_doc: https://spine.io/dart/reference
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
