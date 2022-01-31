@@ -35,6 +35,9 @@ exclude:
   - LICENSE
   - README.md
 
+include:
+  - _fonts
+
 embed_code:
   code_root: ./_code
   documentation_root: ./docs
