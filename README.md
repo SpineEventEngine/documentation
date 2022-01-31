@@ -10,6 +10,12 @@ We have repository for the code of [spine.io](https://spine.io) site. Issues the
 
 Tasks for the content of the [spine.io](https://spine.io) site should belong to issues of _this_ repository.
 
+The code samples used in the framework documentation are added using
+the [`embed-code`](https://github.com/SpineEventEngine/embed-code) Jekyll subcommand.
+
+The code resides under the `_code` directory. For instructions on embedding the code into the pages,
+please see the [`EMBEDDING.md`](https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/_code/EMBEDDING.md) file.
+
 # Prerequisites
 
 1. Install Ruby.
