@@ -38,7 +38,7 @@ exclude:
 include:
   - _fonts
   - _css
-  - _favicon
+  - _favicons
 
 embed_code:
   code_root: ./_code
