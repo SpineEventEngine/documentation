@@ -1,0 +1,11 @@
+/* Styles that should only be used to build this site.
+They should not be imported into the main spine.io site
+to not override or duplicate styles there.
+
+If you add something important to these files, don't forget
+to add the same to the styles in the main spine.io site. */
+
+@import "common/mixins";
+@import "common/layout";
+@import "common/code-highlight";
+@import "common/feature-cards";
