@@ -19,7 +19,7 @@
   display: inline-block;
   width: $icon-size--s;
   height: $icon-size--s;
-  background: url('../../img/_x-black.svg') no-repeat center/cover;
+  background: url('https://spine.io/img/x-black.svg') no-repeat center/cover;
   opacity: .26;
   @include transition(all .3s ease-in-out);
 }
