@@ -15,6 +15,15 @@
   box-shadow: $args;
 }
 
+@mixin close-icon {
+  display: inline-block;
+  width: $icon-size--s;
+  height: $icon-size--s;
+  background: url('../../img/_x-black.svg') no-repeat center/cover;
+  opacity: .26;
+  @include transition(all .3s ease-in-out);
+}
+
 // Ordered and unordered list styles.
 // Usage: `@include list();`
 @mixin list($item-line-height: 1.6) {
