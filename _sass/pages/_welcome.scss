@@ -1,0 +1,41 @@
+@import "../base/config";
+@import "../base/colors";
+
+.welcome {
+  background-color: $body-light-gray-color;
+  font-family: $main-font;
+
+  .container {
+    background-color: white;
+    border: 1px solid #e6ecf1;
+    max-width: 760px;
+    padding: 48px 56px;
+
+    @media (max-width: $phone-medium) {
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: $font-size--xxxl;
+      font-weight: 300;
+      color: rgba(0, 0, 0, .4);
+      line-height: 1.2;
+      margin-bottom: 32px;
+      padding-top: 16px;
+
+      @media (max-width: $phone-medium) {
+        font-size: $font-size--xl;
+      }
+    }
+
+    a {
+      color: $main-brand-color;
+    }
+
+    .subtle {
+      color: rgba(0, 0, 0, .46);
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  }
+}
