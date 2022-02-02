@@ -70,7 +70,7 @@ in the `/docs/eventstorming/` folder. If the session is performed offline, the p
 of the EventStorming board are stored in the repository. In case of an online session, 
 the screenshots of the board are stored.</p>
 
-![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/eventstorming-board.jpg)
+![An example of the EventStorming board]({{ site.baseurl }}/img/docs/starting-a-new-project/eventstorming-board.jpg)
 <p class="text-center font-weight-light">An example of the EventStorming board</p>
 
 After the session, a dedicated person creates a Pull Request with the Artifact, and the team reviews 
@@ -93,7 +93,7 @@ we recommend limiting the development scope down to only one
 
 You may need another EventStorming session to go into more detail.
 
-![An example of a Bounded Context]({{ site.baseurl }}/img/starting-a-new-project/bounded-context.jpg)
+![An example of a Bounded Context]({{ site.baseurl }}/img/docs/starting-a-new-project/bounded-context.jpg)
 <p class="text-center font-weight-light">An example of a Bounded Context</p>
 
 ## Shaping the language
