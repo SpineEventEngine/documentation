@@ -2,6 +2,21 @@
   margin-top: 44px;
 }
 
+/* The JS that makes the diagram visible is in `tools/architecture-diagram.js` file. */
+#spine-architecture-diagram {
+  visibility: hidden;
+}
+
+.architecture-link {
+  cursor: pointer;
+  color: $link-color;
+  border-bottom:1px dotted $link-color;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
 .full-screen-preview {
   font-family: $main-font;
 
