@@ -1,0 +1,46 @@
+title: Spine Event Engine documentation
+description: CQRS/ES framework for modern could applications
+baseurl: ""
+github_username: SpineEventEngine
+
+core_java_repo: https://github.com/SpineEventEngine/core-java
+web_repo: https://github.com/SpineEventEngine/web
+dart_repo: https://github.com/SpineEventEngine/dart
+
+base_api_doc: https://spine.io/base/reference
+core_api_doc: https://spine.io/core-java/reference
+web_api_doc: https://spine.io/web/reference
+js_api_doc: https://spine.io/web/reference/client-js
+dart_api_doc: https://spine.io/dart/reference
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+
+sass:
+  style: compressed
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
+exclude:
+  - .github/
+  - .idea/
+  - .saas-cache/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+
+include:
+  - _fonts
+  - _css
+  - _favicons
+
+embed_code:
+  code_root: ./_code
+  documentation_root: ./docs
+  code_includes: ["**/*.proto", "**/*.java", "**/*.kt", "**/*.dart", "**/*.js", "**/*.html", "**/*.gradle", "**/*.gradle.kts"]
