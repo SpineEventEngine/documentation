@@ -59,5 +59,12 @@
     <script src="{{ site.baseurl }}/tools/code-tabs.js"
             type="text/javascript"
             charset="utf-8"></script>
+
+    {% if page.customjs %}
+        <script src="{{ page.customjs }}"
+                type="text/javascript"
+                charset="utf-8"
+                defer></script>
+    {% endif %}
 </body>
 </html>

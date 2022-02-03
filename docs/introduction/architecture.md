@@ -3,7 +3,7 @@ title: Architecture
 headline: Documentation 
 bodyclass: docs
 layout: docs
-customjs: /js/architecture-diagram.js
+customjs: /tools/architecture-diagram.js
 ---
 # Application Architecture
 
