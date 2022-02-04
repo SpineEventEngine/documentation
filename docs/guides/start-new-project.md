@@ -71,7 +71,7 @@ of the EventStorming board are stored in the repository. In case of an online se
 the screenshots of the board are stored.</p>
 
 ![An example of the EventStorming board]({{ site.baseurl }}/img/docs/starting-a-new-project/eventstorming-board.jpg)
-<p class="text-center font-weight-light">An example of the EventStorming board</p>
+<p class="text-center img-caption">An example of the EventStorming board</p>
 
 After the session, a dedicated person creates a Pull Request with the Artifact, and the team reviews 
 it once again. This first EventStorming is usually addressed as a "Big Picture" and gives 
@@ -94,7 +94,7 @@ we recommend limiting the development scope down to only one
 You may need another EventStorming session to go into more detail.
 
 ![An example of a Bounded Context]({{ site.baseurl }}/img/docs/starting-a-new-project/bounded-context.jpg)
-<p class="text-center font-weight-light">An example of a Bounded Context</p>
+<p class="text-center img-caption">An example of a Bounded Context</p>
 
 ## Shaping the language
 
