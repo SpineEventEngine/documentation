@@ -23,8 +23,8 @@ For example, `g-caption.command-dispatcher` will result `id="g-caption" class="c
 ## Export SVG
 
 1. Select the diagram artboard.
-2. Go to the right sidebar;
-3. Click the "Make exportable" button (needs to be done only once for the artboard);
+2. Go to the right sidebar.
+3. Click the "Make exportable" button (needs to be done only once for the artboard).
 4. Select the `SVG` file format and click "Export Selected..." at the bottom of the panel.
 
 
