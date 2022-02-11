@@ -39,6 +39,7 @@ include:
   - _fonts
   - _css
   - _favicons
+  - _libs
 
 embed_code:
   code_root: ./_code

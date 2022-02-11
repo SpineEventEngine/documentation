@@ -121,6 +121,13 @@ $article-line-height: 1.74;
     }
   }
 
+  .img-caption {
+    font-family: $main-font;
+    font-size: 14px;
+    color: $gray-500;
+    margin-bottom: 32px;
+  }
+
   @include list($item-line-height: $article-line-height);
 
   /* Section headlines */
