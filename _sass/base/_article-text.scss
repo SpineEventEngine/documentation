@@ -1,4 +1,7 @@
 $article-line-height: 1.74;
+
+/* Please be careful when renaming this class.
+It is used in the DocSearch configuration in the admin panel. */
 .article-text {
   a {
     text-decoration: none;
