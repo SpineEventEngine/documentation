@@ -298,7 +298,7 @@ an ACL prevents the new "clean" Contexts from merging back into the Mud. If you 
 a way to add functionality to a complex legacy system without increasing the technical debt, look
 no further. The Anticorruption Layer between **Takeoffs and Landings** and **Security Checks** 
 is composed of a [polling client](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java),
-which performs all the technical work of obtaining and validating data, and a [Process Manager](https://spine.io/docs/introduction/concepts.html#process-manager)
+which performs all the technical work of obtaining and validating data, and a [Process Manager]({{ site.baseurl }}/docs/introduction/concepts#process-manager)
 for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
 The **Security Checks** API provides data for each passenger independently. The client polls
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
