@@ -28,7 +28,7 @@ Place the config into your root `build.gradle` file and execute a Gradle build. 
 the Spine Bootstrap plugin to your project.
 
 You can also find this declaration on the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/io.spine.tools.gradle.bootstrap),
-or on our [Getting Started page]({{site.baseurl}}/docs/quick-start).
+or on our [Getting Started page]({{site.baseurl}}/docs/quick-start/).
 
 ## Spine Bootstrap plugin 
 
@@ -143,7 +143,7 @@ language and responsibility boundaries.
 If your server should be deployed as a whole, use a single `web-server` for all the contexts. If you
 would like to deploy different contexts separately, declare a specific `web-server` subprojects
 for each of those contexts. See the [API reference]({{site.core_api_doc}}/server/io/spine/server/ServerEnvironment.html#use-io.spine.server.transport.TransportFactory-io.spine.base.EnvironmentType-)
-for the instructions on integrating Bounded Contexts. Also, see [this guide]({{site.baseurl}}/docs/guides/integration.html)
+for the instructions on integrating Bounded Contexts. Also, see [this guide]({{site.baseurl}}/docs/guides/integration)
 on the principles of integrating separate Bounded Contexts and third-party systems in Spine.
 
 ## Verbose configuration

@@ -341,7 +341,7 @@ The arrangement with message classes nested under `Rejections` class and top-lev
 is required to avoid name clashes while keeping these generated classes under the same package.
 
 <p class="note">For details on rejections usage, refer to
-    [Defining Rejections Guide]({{site.baseurl}}/docs/guides/rejections.html).</p>
+    [Defining Rejections Guide]({{site.baseurl}}/docs/guides/rejections).</p>
 
 #### Server-side code
 
