@@ -326,28 +326,28 @@ $(
         // Link items to the corresponding pages.
 
         // Boxes:
-        makeClickable(".aggregate", "/docs/introduction/concepts.html#aggregate");
-        makeClickable(".bounded-context", "/docs/introduction/concepts.html#bounded-context");
-        makeClickable(".pm", "/docs/introduction/concepts.html#process-manager");
-        makeClickable(".projection", "/docs/introduction/concepts.html#projection");
-        makeClickable(".aggregate-repo", "/docs/introduction/concepts.html#repository");
-        makeClickable(".pm-repo", "/docs/introduction/concepts.html#repository");
-        makeClickable(".projection-repo", "/docs/introduction/concepts.html#repository");
-        makeClickable(".command-bus", "/docs/introduction/concepts.html#command-bus");
-        makeClickable(".event-bus", "/docs/introduction/concepts.html#event-bus");
-        makeClickable(".aggregate-mirror", "/docs/introduction/concepts.html#aggregate-mirror");
-        makeClickable(".command-store", "/docs/introduction/concepts.html#command-store");
-        makeClickable(".event-store", "/docs/introduction/concepts.html#event-store");
-        makeClickable(".command-service", "/docs/introduction/concepts.html#command-service");
-        makeClickable(".query-service", "/docs/introduction/concepts.html#query-service");
-        makeClickable(".subscription-service", "/docs/introduction/concepts.html#subscription-service");
-        makeClickable(".stand", "/docs/introduction/concepts.html#stand");
+        makeClickable(".aggregate", "/docs/introduction/concepts#aggregate");
+        makeClickable(".bounded-context", "/docs/introduction/concepts#bounded-context");
+        makeClickable(".pm", "/docs/introduction/concepts#process-manager");
+        makeClickable(".projection", "/docs/introduction/concepts#projection");
+        makeClickable(".aggregate-repo", "/docs/introduction/concepts#repository");
+        makeClickable(".pm-repo", "/docs/introduction/concepts#repository");
+        makeClickable(".projection-repo", "/docs/introduction/concepts#repository");
+        makeClickable(".command-bus", "/docs/introduction/concepts#command-bus");
+        makeClickable(".event-bus", "/docs/introduction/concepts#event-bus");
+        makeClickable(".aggregate-mirror", "/docs/introduction/concepts#aggregate-mirror");
+        makeClickable(".command-store", "/docs/introduction/concepts#command-store");
+        makeClickable(".event-store", "/docs/introduction/concepts#event-store");
+        makeClickable(".command-service", "/docs/introduction/concepts#command-service");
+        makeClickable(".query-service", "/docs/introduction/concepts#query-service");
+        makeClickable(".subscription-service", "/docs/introduction/concepts#subscription-service");
+        makeClickable(".stand", "/docs/introduction/concepts#stand");
 
         // Arrows:
 
-        makeClickable(".ui-command-service", "/docs/introduction/concepts.html#command");
-        makeClickable(".command-service-ui", "/docs/introduction/concepts.html#acknowledgement");
-        makeClickable(".event-bus-aggregate-repo", "/docs/introduction/concepts.html#event");
-        makeClickable(".integration-events", "/docs/introduction/concepts.html#integration-event");
+        makeClickable(".ui-command-service", "/docs/introduction/concepts#command");
+        makeClickable(".command-service-ui", "/docs/introduction/concepts#acknowledgement");
+        makeClickable(".event-bus-aggregate-repo", "/docs/introduction/concepts#event");
+        makeClickable(".integration-events", "/docs/introduction/concepts#integration-event");
     }
 );

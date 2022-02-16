@@ -6,8 +6,8 @@ layout: docs
 ---
 # Working with Rejections
 
-Compared with regular Events, [Rejections](/docs/introduction/concepts#rejection) are defined
-differently. Here is the summary of the differences:
+Compared with regular Events, [Rejections]({{ site.baseurl }}/docs/introduction/concepts#rejection) 
+are defined differently. Here is the summary of the differences:
 
 1. `java_multiple_files` file option must be set to `false`
 
