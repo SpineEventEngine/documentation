@@ -11,14 +11,14 @@ layout: docs
 ## Java
 <ul>
     <li><a target="_blank" href="https://github.com/spine-examples/hello">Hello World</a>
-     — a minimal client-server solution described in the <a href="{{site.baseurl}}/docs/quick-start/index.html">“Quick Start”</a> guide.</li>
+     — a minimal client-server solution described in the <a href="{{site.baseurl}}/docs/quick-start/">“Quick Start”</a> guide.</li>
     <li><a target="_blank" href="https://github.com/spine-examples/blog">Blog</a>
      — shows server-side functionality of a simple blog.</li>
     <li><a target="_blank" href="https://github.com/spine-examples/kanban">Kanban</a>
      — shows orchestrating Aggregates using Process Managers.</li>
     <li><a target="_blank" href="https://github.com/spine-examples/airport">Airport</a>
      — integrating a third-party systems using a Bounded Context.
-       This example accompanies the <a href="{{site.baseurl}}/docs/guides/integration.html">“Integration with a Third Party”</a> guide.</li>
+       This example accompanies the <a href="{{site.baseurl}}/docs/guides/integration">“Integration with a Third Party”</a> guide.</li>
     <li><a target="_blank" href="https://github.com/spine-examples/todo-list">ToDo List</a>
      — a simple task management system with multiple client applications. If&nbsp;you&nbsp;want&nbsp;to see
       a bigger picture of a Spine-based solution, have a look at this example.</li>

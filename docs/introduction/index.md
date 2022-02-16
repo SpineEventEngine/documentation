@@ -15,16 +15,16 @@ The purpose of this step is to find out what we're going to build and why.
 Consider using [EventStorming](https://eventstorming.com) or another domain discovery 
 approach for grasping the knowledge from the experts.
  
-Most likely that the solution would have several [Bounded Contexts](concepts.html#bounded-context). 
+Most likely that the solution would have several [Bounded Contexts](concepts#bounded-context). 
 For each context developers need to define:
   * <strong>Signals</strong>
-    - [Events](concepts.html#event)
-    - [Commands](concepts.html#command)
-    - [Rejections](concepts.html#rejection)
+    - [Events](concepts#event)
+    - [Commands](concepts#command)
+    - [Rejections](concepts#rejection)
   * <strong>Entities</strong>  
-    - [Aggregates](concepts.html#aggregate) 
-    - [Process Managers](concepts.html#process-manager)
-    - [Projections](concepts.html#projection).
+    - [Aggregates](concepts#aggregate) 
+    - [Process Managers](concepts#process-manager)
+    - [Projections](concepts#projection).
 
 It is likely that some of the bits of this picture would change during the process.
 But the whole team, including domain experts, need to have complete understanding of how the 
@@ -46,7 +46,7 @@ It would be natural to start implementing the context which initiates the busine
 
 Implementation starts from defining data types of the selected context as Protobuf messages.
 
-The first step is to define entity [IDs](concepts.html#identifier). For example:
+The first step is to define entity [IDs](concepts#identifier). For example:
 ```proto
 // The identifier for a task.
 message TaskId {
@@ -87,7 +87,7 @@ message Task {
 }
 ```
  
-[Value Objects]({{site.baseurl}}/docs/introduction/concepts.html#value-objects) are added when they 
+[Value Objects]({{site.baseurl}}/docs/introduction/concepts#value-objects) are added when they 
 are needed to describe entities or messages like commands or events.
 
 ### Adding business logic
@@ -165,7 +165,7 @@ BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
 ```
 
 This wires repositories into the message delivery mechanism of the corresponding
-[Buses]({{site.baseurl}}/docs/introduction/concepts.html#message-buses).
+[Buses]({{site.baseurl}}/docs/introduction/concepts#message-buses).
   
 #### Testing
 Implementation of the Bounded Context is tested using the messaging paradigm.
@@ -231,9 +231,9 @@ Server server = Server.atPort(portNumber)
 server.start();    
 ```
 
-This exposes [`CommandService`]({{site.baseurl}}/docs/introduction/concepts.html#command-service), 
-[`QueryService`]({{site.baseurl}}/docs/introduction/concepts.html#query-service), and 
-[`SubscriptionService`]({{site.baseurl}}/docs/introduction/concepts.html#subscription-service) to client-side connections.
+This exposes [`CommandService`]({{site.baseurl}}/docs/introduction/concepts#command-service), 
+[`QueryService`]({{site.baseurl}}/docs/introduction/concepts#query-service), and 
+[`SubscriptionService`]({{site.baseurl}}/docs/introduction/concepts#subscription-service) to client-side connections.
 
 ## Repeating the cycle
 
