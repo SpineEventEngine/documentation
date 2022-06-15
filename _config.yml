@@ -8,7 +8,7 @@ web_repo: https://github.com/SpineEventEngine/web
 dart_repo: https://github.com/SpineEventEngine/dart
 
 base_api_doc: https://spine.io/base/reference
-core_api_doc: https://spine.io/core-java/reference
+core_api_doc: https://spine.io/core-java/dokka-reference
 web_api_doc: https://spine.io/web/reference
 js_api_doc: https://spine.io/web/reference/client-js
 dart_api_doc: https://spine.io/dart/reference

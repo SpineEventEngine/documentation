@@ -8,9 +8,9 @@ layout: docs
 
 ## Java
 
-- [Server]({{site.core_api_doc}}/server/index.html)
+- [Server]({{site.core_api_doc}}/server)
 
-- [Client]({{site.core_api_doc}}/client/index.html)
+- [Client]({{site.core_api_doc}}/client)
 
 - [Spine Web API]({{site.web_api_doc}}/web/index.html).
 This reference defines the API for communicating with a Spine-based backend using web requests.

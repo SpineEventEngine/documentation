@@ -142,7 +142,7 @@ language and responsibility boundaries.
 
 If your server should be deployed as a whole, use a single `web-server` for all the contexts. If you
 would like to deploy different contexts separately, declare a specific `web-server` subprojects
-for each of those contexts. See the [API reference]({{site.core_api_doc}}/server/io/spine/server/ServerEnvironment.html#use-io.spine.server.transport.TransportFactory-io.spine.base.EnvironmentType-)
+for each of those contexts. See the [API reference]({{site.core_api_doc}}/server/server/io.spine.server/-server-environment)
 for the instructions on integrating Bounded Contexts. Also, see [this guide]({{site.baseurl}}/docs/guides/integration)
 on the principles of integrating separate Bounded Contexts and third-party systems in Spine.
 
