@@ -142,8 +142,7 @@ language and responsibility boundaries.
 
 If your server should be deployed as a whole, use a single `web-server` for all the contexts. If you
 would like to deploy different contexts separately, declare a specific `web-server` subprojects
-for each of those contexts. See the [API reference]({{site.core_api_doc}}/server/io/spine/server/ServerEnvironment.html#use-io.spine.server.transport.TransportFactory-io.spine.base.EnvironmentType-)
-for the instructions on integrating Bounded Contexts. Also, see [this guide]({{site.baseurl}}/docs/guides/integration)
+for each of those contexts. See [this guide]({{site.baseurl}}/docs/guides/integration)
 on the principles of integrating separate Bounded Contexts and third-party systems in Spine.
 
 ## Verbose configuration
@@ -161,8 +160,8 @@ Spine Model Compiler is a Gradle plugin which executes all the code generation r
 Gradle tasks as well as the `modelCompiler { }` extension, which allows you to configure those
 tasks.
 
-See the API reference for the list of the [declared tasks]({{site.base_api_doc}}/plugin-base/io/spine/tools/gradle/ModelCompilerTaskName.html)
-and the [codegen configuration options]({{site.base_api_doc}}/model-compiler/io/spine/tools/gradle/compiler/Extension.html)
+See the API reference for the list of the [declared tasks]({{site.base_api_doc}}/plugin-base/plugin-base/io.spine.tools.gradle/-model-compiler-task-name)
+and the [codegen configuration options]({{site.base_api_doc}}/model-compiler/model-compiler/io.spine.tools.gradle.compiler/-extension)
 
 ### ProtoJS Plugin
 
@@ -171,5 +170,5 @@ The plugin adds the `generateJsonParsers` task, which appends generated JS files
 Protobuf messages out of plain JS objects.
 
 The plugin also provides the `protoJs { }` extension, which allows you to configure JS code
-generation. See the [API reference]({{site.base_api_doc}}/proto-js-plugin/io/spine/js/gradle/Extension.html)
+generation. See the [API reference]({{site.base_api_doc}}/proto-js-plugin/proto-js-plugin/io.spine.js.gradle/-extension)
 for more info.
