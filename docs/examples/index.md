@@ -27,6 +27,6 @@ layout: docs
 ## JavaScript
 
 <ul>
-    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/html-js">Simple HTML/JS ToDo List client</a> — a client app with very basic features.</li>
-    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/angular">ToDo List client on Angular</a> — a more featured client built with Angular 7.</li>
+    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/html-js">Simple HTML/JS To-Do List client</a> — a client app with very basic features.</li>
+    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/angular">To-Do List client on Angular</a> — a more featured client built with Angular 10.</li>
 </ul>
