@@ -277,7 +277,6 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (1.8.0)
-    webrick (1.8.1)
     zeitwerk (2.5.3)
 
 PLATFORMS
@@ -288,8 +287,6 @@ DEPENDENCIES
   github-pages
   jekyll
   kramdown-parser-gfm
-  liquid (= 4.0.4)
-  webrick
 
 BUNDLED WITH
    2.4.13
