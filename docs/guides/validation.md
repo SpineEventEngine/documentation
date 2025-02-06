@@ -314,6 +314,10 @@ In this case, the `ChangeProfilePicture.id` field is not required, since it's no
 in the field. The field `ChangeProfilePicture.new_picture` is not required because the convention
 is overridden with an explicit option.
 
+This convention does not apply to [Events]({{site.baseurl}}/docs/introduction/naming-conventions#eventsproto).
+Unlike Commands, event routing can be more complex, using multiple fields or rules.
+Additionally, Events may lack identifiers. Therefore, all fields of Events are not required by default.
+
 ## Nested message validation
 
 When a message is validated, only the "shallow" constraints are checked by default. This means that
