@@ -273,10 +273,9 @@ the field declaring the option and second for the name of the field targeted by 
 
 ### When `(required)` is implicit
 
-When defining the domain [Commands]({{site.baseurl}}/docs/introduction/naming-conventions#commandsproto),
-[Events]({{site.baseurl}}/docs/introduction/naming-conventions#eventsproto), or entity states, we have found
-to be convenient that the first field of the respective Message is the identifier. Therefore, by
-convention, Spine treats the first fields of such objects as their IDs:
+When defining the domain [Commands]({{site.baseurl}}/docs/introduction/naming-conventions#commandsproto)
+or entity states, we have found to be convenient that the first field of the respective Message is the identifier.
+Therefore, by convention, Spine treats the first fields of such objects as their IDs:
 
 ```proto
 import "spine/options.proto";
@@ -296,23 +295,23 @@ message User {
 In this case, the `User.id` field is implicitly `(required) = true`. Note that the field __number__
 has nothing to do with this convention, only the field __order__. Thus, `User.name` is not required.
 
-For the next example, consider `user_events.proto`:
+For the next example, consider `user_commands.proto`:
 
 ```proto
 import "spine/options.proto";
 import "spine/net/url.proto";
 import "spine/core/user_id.proto";
 
-// An event emitted when a user's profile picture is changed.
-message ProfilePictureChanged {
+// A command to change a user's profile picture.
+message ChangeProfilePicture {
 
     spine.net.Url new_picture = 1 [(required) = false];
-    spine.core.UserId user = 2;
+    spine.core.UserId id = 2;
 }
 ```
 
-In this case, the `ProfilePictureChanged.id` field is not required, since it's not declared first
-in the field. The field `ProfilePictureChanged.new_picture` is not required because the convention
+In this case, the `ChangeProfilePicture.id` field is not required, since it's not declared first
+in the field. The field `ChangeProfilePicture.new_picture` is not required because the convention
 is overridden with an explicit option.
 
 ## Nested message validation
