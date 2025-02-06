@@ -298,25 +298,27 @@ has nothing to do with this convention, only the field __order__. Thus, `User.na
 For the next example, consider `user_commands.proto`:
 
 ```proto
-import "spine/options.proto";
 import "spine/net/url.proto";
 import "spine/core/user_id.proto";
 
 // A command to change a user's profile picture.
 message ChangeProfilePicture {
 
-    spine.net.Url new_picture = 1 [(required) = false];
-    spine.core.UserId id = 2;
+    spine.core.UserId id = 1;
+    spine.net.Url new_picture = 2;
 }
 ```
 
-In this case, the `ChangeProfilePicture.id` field is not required, since it's not declared first
-in the field. The field `ChangeProfilePicture.new_picture` is not required because the convention
-is overridden with an explicit option.
+In this case, the `ChangeProfilePicture.id` field is the first in the declaration order,
+therefore it is implicitly required. By default, the framework will use it in command routing,
+as an identifier of the entity handling this command.
 
 This convention does not apply to [Events]({{site.baseurl}}/docs/introduction/naming-conventions#eventsproto).
-Unlike Commands, event routing can be more complex, using multiple fields or rules.
-Additionally, Events may lack identifiers. Therefore, all fields of Events are not required by default.
+Unlike Commands, event routing is typically specific to the use case. For example, `UserView` projection
+may require a user ID to handle events, whereas the `ProfilePictureGallery` projection might use
+a different routing approach, such as grouping by a user group or an email domain associated with a user.
+
+Therefore, all Event fields are not required by default.
 
 ## Nested message validation
 
