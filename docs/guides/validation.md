@@ -273,10 +273,9 @@ the field declaring the option and second for the name of the field targeted by 
 
 ### When `(required)` is implicit
 
-When defining the domain [Commands]({{site.baseurl}}/docs/introduction/naming-conventions#commandsproto),
-[Events]({{site.baseurl}}/docs/introduction/naming-conventions#eventsproto), or entity states, we have found
-to be convenient that the first field of the respective Message is the identifier. Therefore, by
-convention, Spine treats the first fields of such objects as their IDs:
+When defining the domain [Commands]({{site.baseurl}}/docs/introduction/naming-conventions#commandsproto)
+or entity states, we have found to be convenient that the first field of the respective Message is the identifier.
+Therefore, by convention, Spine treats the first fields of such objects as their IDs:
 
 ```proto
 import "spine/options.proto";
@@ -296,24 +295,30 @@ message User {
 In this case, the `User.id` field is implicitly `(required) = true`. Note that the field __number__
 has nothing to do with this convention, only the field __order__. Thus, `User.name` is not required.
 
-For the next example, consider `user_events.proto`:
+For the next example, consider `user_commands.proto`:
 
 ```proto
-import "spine/options.proto";
 import "spine/net/url.proto";
 import "spine/core/user_id.proto";
 
-// An event emitted when a user's profile picture is changed.
-message ProfilePictureChanged {
+// A command to change a user's profile picture.
+message ChangeProfilePicture {
 
-    spine.net.Url new_picture = 1 [(required) = false];
-    spine.core.UserId user = 2;
+    spine.core.UserId id = 1;
+    spine.net.Url new_picture = 2;
 }
 ```
 
-In this case, the `ProfilePictureChanged.id` field is not required, since it's not declared first
-in the field. The field `ProfilePictureChanged.new_picture` is not required because the convention
-is overridden with an explicit option.
+In this case, the `ChangeProfilePicture.id` field is the first in the declaration order,
+therefore it is implicitly required. By default, the framework will use it in command routing,
+as an identifier of the entity handling this command.
+
+This convention does not apply to [Events]({{site.baseurl}}/docs/introduction/naming-conventions#eventsproto).
+Unlike Commands, event routing is typically specific to the use case. For example, `UserView` projection
+may require a user ID to handle events, whereas the `ProfilePictureGallery` projection might use
+a different routing approach, such as grouping by a user group or an email domain associated with a user.
+
+Therefore, all Event fields are not required by default.
 
 ## Nested message validation
 
