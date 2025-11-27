@@ -1,0 +1,86 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$article-border-color: #e6ecf1;
+$article-container-border: 1px solid $article-border-color;
+$article-side-padding: 56px;
+$article-container-padding: 32px $article-side-padding 40px;
+$article-container-padding-mobile: 0 15px;
+$article-container-margin-bottom: 32px;
+$article-container-border-radius: 3px;
+$article-container-min-height: 460px;
+
+.article-container {
+  background-color: white;
+  border: $article-container-border;
+  border-radius: $article-container-border-radius;
+  padding: $article-container-padding;
+  margin-bottom: $article-container-margin-bottom;
+  min-width: 0; // Fixes a bug when `pre` code breaks flex element.
+  min-height: $article-container-min-height;
+
+  @media (max-width: $phone-xlarge) {
+    padding: $article-container-padding-mobile;
+    border: none;
+  }
+
+  $code-block-offset: $article-side-padding;
+  $tablet-code-block-offset: 32px;
+  $mobile-code-block-offset: 20px;
+
+  pre.highlight {
+    border-radius: 0;
+    margin-right: -$code-block-offset;
+    margin-left: -$code-block-offset;
+    padding-right: $code-block-offset;
+    padding-left: $code-block-offset;
+
+    @media (max-width: $phone-xlarge) {
+      margin-right: -$tablet-code-block-offset;
+      margin-left: -$tablet-code-block-offset;
+      padding-right: $tablet-code-block-offset;
+      padding-left: $tablet-code-block-offset;
+    }
+
+    @media (max-width: $phone-medium) {
+      margin-right: -$mobile-code-block-offset;
+      margin-left: -$mobile-code-block-offset;
+      padding-right: $mobile-code-block-offset;
+      padding-left: $mobile-code-block-offset;
+    }
+  }
+
+  $code-block-padding: 24px 20px;
+
+  li {
+    pre.highlight {
+      margin-left: unset;
+      margin-right: unset;
+      padding: $code-block-padding;
+      border-radius: 4px;
+    }
+  }
+}
