@@ -24,8 +24,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {interactiveToc} from "js/docs/interactive-toc.js";
-import {setElementMaxHeight} from "js/docs/element-max-height";
+import {interactiveToc} from 'js/docs/interactive-toc';
+import {setElementMaxHeight} from 'js/docs/element-max-height';
 
 $(function() {
     if ($('body').hasClass('docs')) {
