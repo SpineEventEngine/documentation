@@ -28,14 +28,14 @@
 {{ $id := print $item.key "-section" }}
 
 <li>
-    <span class="side-nav-link collapsed"
+    <span class="sidenav-link tree-title collapsed"
           data-bs-toggle="collapse"
           data-bs-target="#{{ $id }}"
           aria-controls="{{ $id }}"
           aria-expanded="false">
         {{ $item.page }}
     </span>
-    <ul id="{{ $id }}" class="sub-nav collapse">
+    <ul id="{{ $id }}" class="subnav collapse">
         {{ range $item.children }}
             {{ if .children }}
                 {{ partial "docs/components/sidenav/category.html" . }}

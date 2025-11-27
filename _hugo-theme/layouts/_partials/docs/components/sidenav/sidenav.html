@@ -32,7 +32,7 @@
 
 {{ if $sidenavData }}
     {{ if $sidenavData.sidenav }}
-        <ul class="docs-side-nav sticky-element">
+        <ul class="doc-sidenav sticky-element">
             {{ partial "docs/components/sidenav/mobile-header.html" . }}
             {{ range $sidenavData.sidenav }}
                 {{ if .children }}
