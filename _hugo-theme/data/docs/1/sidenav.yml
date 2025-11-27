@@ -1,0 +1,18 @@
+- page: Overview
+  file_path: ""
+- page: Quick Start
+  file_path: quick-start
+- page: Introduction
+  key: introduction
+  children:
+    - page: Development Process
+      file_path: introduction
+    - page: Rules
+      file_path: introduction/rules
+    - page: Architecture
+      file_path: introduction/architecture
+    - page: Project Structure
+      file_path: introduction/project-structure
+      children:
+        - page: Test
+          file_path: test

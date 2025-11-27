@@ -24,14 +24,29 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $params := dict }}
-
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsDocsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-
-<script src="{{ $js.RelPermalink }}"></script>
+<div class="page-content">
+    <div class="content-holder">
+        <div class="content-columns three-column">
+            {{ partial "docs/components/sidenav/mobile-toggle.html" }}
+            <div class="doc-sidenav-col doc-sidenav-mobile sticky-col">
+                {{ partial "docs/components/sidenav/sidenav.html" . }}
+            </div>
+            <div class="content-col markdown">
+                <div class="article-container article-text">
+                    {{ .Content }}
+                </div>
+                <div class="bottom-nav">
+                    <p>Bottom navigation</p>
+                </div>
+            </div>
+            <div class="toc-col sticky-col">
+                <div class="set-max-height">
+                    <div class="interactive-toc with-indicator-line">
+                        <div class="toc-indicator"></div>
+                        {{ .TableOfContents }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

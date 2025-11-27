@@ -24,14 +24,24 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $params := dict }}
+{{ $item := . }}
+{{ $id := print $item.key "-section" }}
 
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsDocsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-
-<script src="{{ $js.RelPermalink }}"></script>
+<li>
+    <span class="side-nav-link collapsed"
+          data-bs-toggle="collapse"
+          data-bs-target="#{{ $id }}"
+          aria-controls="{{ $id }}"
+          aria-expanded="false">
+        {{ $item.page }}
+    </span>
+    <ul id="{{ $id }}" class="sub-nav collapse">
+        {{ range $item.children }}
+            {{ if .children }}
+                {{ partial "docs/components/sidenav/category.html" . }}
+            {{ else }}
+                {{ partial "docs/components/sidenav/page.html" . }}
+            {{ end }}
+        {{ end }}
+    </ul>
+</li>

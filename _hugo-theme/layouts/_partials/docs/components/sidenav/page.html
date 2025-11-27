@@ -24,14 +24,8 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $params := dict }}
+{{ $item := . }}
 
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsDocsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-
-<script src="{{ $js.RelPermalink }}"></script>
+<li>
+    <a class="side-nav-link" href="">{{ $item.page }}</a>
+</li>

@@ -24,29 +24,23 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/mobile-sidenav-toggle.html" }}
-            <div class="doc-sidenav-col doc-sidenav-mobile sticky-col">
-                {{ partial "docs/components/doc-sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ .Content }}
-                </div>
-                <div class="bottom-nav">
-                    <p>Bottom navigation</p>
-                </div>
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc with-indicator-line">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{ $currentURL := .RelPermalink }}
+{{ $currentVersion := partial "functions/get-doc-version.html" . }}
+{{ $currentSection := partial "functions/get-doc-section.html" . }}
+{{ $currentCategory := partial "functions/get-doc-category.html" . }}
+{{ $sidenavData := index site.Data.docs $currentVersion.short }}
+
+{{ if $sidenavData }}
+    {{ if $sidenavData.sidenav }}
+        <ul class="docs-side-nav sticky-element">
+            {{ partial "docs/components/sidenav/mobile-header.html" . }}
+            {{ range $sidenavData.sidenav }}
+                {{ if .children }}
+                    {{ partial "docs/components/sidenav/section.html" . }}
+                {{ else }}
+                    {{ partial "docs/components/sidenav/page.html" . }}
+                {{ end }}
+            {{ end }}
+        </ul>
+    {{ end }}
+{{ end }}

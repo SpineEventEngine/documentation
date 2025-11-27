@@ -24,3 +24,20 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+{{ $item := . }}
+{{ $id := print $item.key "-category" }}
+
+<li>
+    <span class="side-nav-link collapsed"
+          data-bs-toggle="collapse"
+          data-bs-target="#{{ $id }}"
+          aria-controls="{{ $id }}"
+          aria-expanded="false">
+        {{ $item.page }}
+    </span>
+    <ul id="{{ $id }}" class="sub-nav collapse">
+        {{ range $item.children }}
+            {{ partial "docs/components/sidenav/page.html" . }}
+        {{ end }}
+    </ul>
+</li>
