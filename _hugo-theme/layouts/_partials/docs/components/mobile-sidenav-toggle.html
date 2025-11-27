@@ -24,29 +24,7 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/mobile-sidenav-toggle.html" }}
-            <div class="doc-sidenav-col doc-sidenav-mobile sticky-col">
-                {{ partial "docs/components/doc-sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ .Content }}
-                </div>
-                <div class="bottom-nav">
-                    <p>Bottom navigation</p>
-                </div>
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc with-indicator-line">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="mobile-sidenav-toggle">
+    <i class="fas fa-list-ul"></i>
+    <span>Contents</span>
 </div>

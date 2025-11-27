@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,9 +24,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "fonts";
+import {interactiveToc} from "js/docs/interactive-toc.js";
+import {setElementMaxHeight} from "js/docs/element-max-height";
 
-@import "common/reset";
-@import "common/config";
-@import "common/mixins";
-@import "common/layout";
+$(function() {
+    if ($('body').hasClass('docs')) {
+        interactiveToc();
+        setElementMaxHeight();
+    }
+});

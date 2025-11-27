@@ -27,7 +27,7 @@
 @import "docs/base/colors";
 @import "docs/base/mixins";
 
+@import "docs/modules/layout";
 @import "docs/modules/article-container";
 @import "docs/modules/article-text";
-
-@import "docs/layout";
+@import "docs/modules/interactive-toc";
