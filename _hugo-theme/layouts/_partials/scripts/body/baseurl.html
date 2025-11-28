@@ -24,31 +24,13 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $params := dict }}
-
-{{ partial "scripts/body/baseurl.html" . }}
-
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsDocsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-
-<script src="{{ $js.RelPermalink }}"></script>
-
-{{ with .Page.Params.customjs }}
-    {{ $jsCustom := . }}
-    {{ if reflect.IsSlice $jsCustom }}
-        {{ range $jsCustom }}
-            {{ $path := strings.TrimPrefix "/" . }}
-            {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
-            <script src="{{ $js.RelPermalink }}"></script>
-        {{ end }}
-    {{ else }}
-        {{ $path := strings.TrimPrefix "/" $jsCustom }}
-        {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
-        <script src="{{ $js.RelPermalink }}"></script>
-    {{ end }}
-{{ end }}
+<!--
+The script with the `baseURL` variable is used to avoid the Hugo Pipes caching
+across languages. The problem with `params.baseURL` is that it is the same
+for all languages.
+-->
+<script>
+    /* eslint-disable */
+    window.BASE_URL = {{ site.BaseURL }};
+    /* eslint-enable */
+</script>

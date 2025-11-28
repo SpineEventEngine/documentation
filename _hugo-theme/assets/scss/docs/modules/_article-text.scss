@@ -73,6 +73,10 @@ It is used in the DocSearch configuration in the admin panel. */
     padding: 0;
   }
 
+  p {
+    margin-bottom: 16px;
+  }
+
   p, ol, ul {
     font-family: $main-serif-font;
     font-size: $article-font-size;
