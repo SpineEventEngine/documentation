@@ -39,39 +39,39 @@
  *     {{ .TableOfContents }}
  * </div>
  * ```
- *
- * To render the TOC with the animated indicator line, use this layout:
- * ```
- * <div class="interactive-toc with-indicator-line">
- *     <div class="toc-indicator"></div>
- *     {{ .TableOfContents }}
- * </div>
- * ```
  */
 export function interactiveToc() {
     const $interactiveToc = $('.interactive-toc');
     const $tocItems = $interactiveToc.find('#TableOfContents a');
-    const $tocIndicator = $interactiveToc.find('.toc-indicator');
     const currentClass = 'current';
     let anchors = null;
+    let lastActiveElement = null;
 
     if ($interactiveToc.length) {
-        getAnchors();
-        markCurrentItem();
+        $(window).on('load', function() {
+            getAnchors();
+            markCurrentTocItem();
+        });
 
         $(window).on('scroll', function() {
-            markCurrentItem();
+            markCurrentTocItem();
         });
     }
 
-    /**
-     * Marks the current TOC item with the `currentClass`. 
-     */
-    function markCurrentItem() {
-        const $currentItem = getCurrentItem();
+    $tocItems.on('click', function () {
+        const $current = $(this);
         $tocItems.removeClass(currentClass);
-        $currentItem.addClass(currentClass);
-        updateIndicator($currentItem);
+        $current.addClass(currentClass);
+    });
+
+    /**
+     * Marks the current TOC item with the `currentClass`.
+     */
+    function markCurrentTocItem() {
+        if (!anchors) return;
+        $tocItems.removeClass(currentClass);
+        const $active = getCurrentTocItem().addClass(currentClass);
+        scrollToActiveTocItem($active.get(0));
     }
 
     /**
@@ -79,7 +79,7 @@ export function interactiveToc() {
      *
      * @returns {jQuery|HTMLElement} the current TOC item
      */
-    function getCurrentItem() {
+    function getCurrentTocItem() {
         const scrollPosition = window.pageYOffset;
         const windowIncrement = 0.14;
         let currentAnchor = null;
@@ -90,7 +90,7 @@ export function interactiveToc() {
                 return;
             }
         })
-        return getItem(currentAnchor);
+        return getTocItem(currentAnchor);
     }
 
     /**
@@ -99,8 +99,8 @@ export function interactiveToc() {
      * @param {String} anchor the anchor of the visible heading
      * @returns {*|jQuery|HTMLElement} the TOC item corresponding to the `anchor`
      */
-    function getItem(anchor) {
-        return $(`#TableOfContents a[href="${anchor}"]`);
+    function getTocItem(anchor) {
+        return $('#TableOfContents a[href=\"' + anchor + '\"]');
     }
 
     /**
@@ -128,21 +128,22 @@ export function interactiveToc() {
     }
 
     /**
-     * Updates the position and height of the current TOC item indicator.
+     * Scrolls the TOC container to the active item.
      *
-     * @param {jQuery|HTMLElement} $currentItem the current TOC item
+     * @param {DOM node} activeElement the active element in the TOC
      */
-    function updateIndicator($currentItem) {
-        if (!$tocIndicator.length) return;
+    function scrollToActiveTocItem(activeElement) {
+        if (!activeElement) return;
 
-        if ($currentItem.length) {
-            const itemTopOffset = $currentItem.position().top;
-            const itemHeight = $currentItem.outerHeight();
-
-            $tocIndicator.css({
-                top: itemTopOffset,
-                height: itemHeight,
-            });
+        if ($interactiveToc && $interactiveToc[0].contains(activeElement)) {
+            if (activeElement !== lastActiveElement) {
+                activeElement.scrollIntoView({
+                    block: 'nearest',
+                    inline: 'nearest',
+                    behavior: 'smooth'
+                });
+                lastActiveElement = activeElement;
+            }
         }
     }
 }
