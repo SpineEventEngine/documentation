@@ -24,27 +24,18 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/sidenav/mobile-toggle.html" }}
-            <div class="doc-sidenav-col doc-sidenav-holder sticky-col">
-                {{ partial "docs/components/sidenav/sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ .Content }}
-                    {{ partial "docs/components/bottom-nav/next-prev-nav.html" . }}
-                </div>
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{ $page := .page_context }}
+{{ $item := .item_context }}
+
+{{ $currentVersion := partial "functions/get-doc-version.html" $page }}
+{{ $filePath := printf "docs/%s/%s" $currentVersion.short $item.file_path }}
+{{ $pageURL := "" }}
+{{ $pageTitle := $item.page }}
+
+{{ with site.GetPage $filePath }}
+    {{ $pageURL = .RelPermalink }}
+{{ end }}
+
+{{ $pageItem := dict "url" $pageURL "title" $pageTitle }}
+
+{{ return $pageItem }}

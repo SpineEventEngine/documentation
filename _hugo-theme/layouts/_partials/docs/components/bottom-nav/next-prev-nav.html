@@ -1,0 +1,66 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+{{ $currentURL := .RelPermalink }}
+{{ $currentVersion := partial "functions/get-doc-version.html" . }}
+{{ $currentSection := partial "functions/get-doc-section.html" . }}
+{{ $currentCategory := partial "functions/get-doc-category.html" . }}
+{{ $versionData := index site.Data.docs $currentVersion.short }}
+
+{{ if $versionData }}
+    {{ $sidenav := $versionData.sidenav }}
+    {{ if $sidenav }}
+        {{ partial "docs/components/bottom-nav/functions/get-pages" (dict
+            "context" .
+            "sidenav" $sidenav
+            "current_url" $currentURL
+        ) }}
+        {{ $pages := .Scratch.Get "bottomNavPages" }}
+        {{ $index := .Scratch.Get "bottomNavCurrentIndex" }}
+        <nav class="next-prev-nav" aria-label="Bottom navigation">
+            {{ if ge $index 1 }}
+                {{ $prev := index $pages (sub $index 1) }}
+                <div class="item previous">
+                    <a class="arrow-link prev"
+                       href="{{ $prev.url | relURL }}">
+                        <span>{{ $prev.title }}</span>
+                    </a>
+                </div>
+            {{ end }}
+            {{ if lt (add $index 1) (len $pages) }}
+                {{ $next := index $pages (add $index 1) }}
+                <div class="item next">
+                    <a class="arrow-link next"
+                       href="{{ $next.url | relURL }}">
+                        <span>{{ $next.title }}</span>
+                    </a>
+                </div>
+            {{ end }}
+        </nav>
+    {{ end }}
+    {{ .Scratch.Delete "bottomNavPages" }}
+    {{ .Scratch.Delete "bottomNavCurrentIndex" }}
+{{ end }}

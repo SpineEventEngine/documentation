@@ -24,12 +24,61 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "docs/base/colors";
-@import "docs/base/mixins";
+.next-prev-nav {
+  $space-between: 16px;
+  $label-offset: 24px;
+  $font-family: $main-font;
+  $icon-offset: 8px;
 
-@import "docs/modules/layout";
-@import "docs/modules/article-container";
-@import "docs/modules/article-text";
-@import "docs/modules/interactive-toc";
-@import "docs/modules/sidenav";
-@import "docs/modules/next-prev-nav";
+  display: flex;
+  padding: 32px 0 16px;
+  margin-top: auto;
+
+  .item {
+    flex: 1 1 auto;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .previous {
+    padding-right: $space-between/2;
+  }
+
+  .next {
+    padding-left: $space-between/2;
+    text-align: right;
+  }
+
+  .arrow-link {
+    display: flex;
+    align-items: center;
+
+    &:after,
+    &:before {
+      content: '';
+      display: none;
+      border: solid $main-brand-color;
+      border-width: 0 2px 2px 0;
+      padding: 3px;
+    }
+
+    &.prev {
+      &:before {
+        display: block;
+        transform: rotate(135deg);
+        margin-right: $icon-offset;
+      }
+    }
+
+    &.next {
+      justify-self: end;
+
+      &:after {
+        display: block;
+        transform: rotate(-45deg);
+        margin-left: $icon-offset;
+      }
+    }
+  }
+}

@@ -34,6 +34,8 @@ $article-container-border-radius: 3px;
 $article-container-min-height: 460px;
 
 .article-container {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border: $article-container-border;
   border-radius: $article-container-border-radius;

@@ -24,27 +24,43 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/sidenav/mobile-toggle.html" }}
-            <div class="doc-sidenav-col doc-sidenav-holder sticky-col">
-                {{ partial "docs/components/sidenav/sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ .Content }}
-                    {{ partial "docs/components/bottom-nav/next-prev-nav.html" . }}
-                </div>
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--
+Returns the array of the sidenav pages and the index of the current page.
+-->
+
+{{ $root := .context }}
+{{ $sidenav := .sidenav }}
+{{ $currentURL := .current_url }}
+
+{{ $root.Scratch.Set "bottomNavPages" (slice) }}
+{{ $root.Scratch.Set "bottomNavCurrentIndex" -1 }}
+
+{{ range $sidenav }}
+    {{ template "get-bottom-nav-pages" (dict "root" $root "node" .) }}
+{{ end }}
+
+{{ define "get-bottom-nav-pages" }}
+    {{ $root := .root }}
+    {{ $node := .node }}
+    {{ with $node.children }}
+        {{ range . }}
+            {{ template "get-bottom-nav-pages" (dict "root" $root "node" .) }}
+        {{ end }}
+    {{ else }}
+        {{ if $node.file_path }}
+            {{ $page := partial "docs/components/bottom-nav/functions/get-page.html" (dict
+                "page_context" $root
+                "item_context" $node
+            ) }}
+            {{ $root.Scratch.Add "bottomNavPages" (slice $page) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ $pages := $root.Scratch.Get "bottomNavPages" }}
+
+{{ range $i, $page := $pages }}
+    {{ if in $currentURL $page.url }}
+        {{ $root.Scratch.Set "bottomNavCurrentIndex" $i }}
+    {{ end }}
+{{ end }}
