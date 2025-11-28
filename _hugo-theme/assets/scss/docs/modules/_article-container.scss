@@ -28,7 +28,6 @@ $article-border-color: #e6ecf1;
 $article-container-border: 1px solid $article-border-color;
 $article-side-padding: 56px;
 $article-container-padding: 32px $article-side-padding 40px;
-$article-container-padding-mobile: 0 15px;
 $article-container-margin-bottom: 32px;
 $article-container-border-radius: 3px;
 $article-container-min-height: 460px;
@@ -45,7 +44,7 @@ $article-container-min-height: 460px;
   min-height: $article-container-min-height;
 
   @media (max-width: $phone-xlarge) {
-    padding: $article-container-padding-mobile;
+    padding: 0;
     border: none;
   }
 

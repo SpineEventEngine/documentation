@@ -61,6 +61,10 @@ $doc-sidenav-background: $gray-100;
   .content-columns {
     padding: 0 15px;
 
+    @media (max-width: $phone-xlarge) {
+      padding: 0;
+    }
+
     .doc-sidenav-col,
     .toc-col {
       padding: 24px 0 24px;
