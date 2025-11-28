@@ -24,14 +24,42 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {interactiveToc} from 'js/docs/interactive-toc';
-import {setElementMaxHeight} from 'js/docs/element-max-height';
-import {initSidenav} from 'js/docs/sidenav';
+/**
+ * Toggles the sidenav on mobile devices.
+ */
+export function initSidenav() {
+    const $body = $('body');
+    const $mobileSidenavToggle = $('#mobile-sidenav-toggle');
+    const $mobileSidenavCloseBtn = $('#close-mobile-sidenav');
+    const mobileSidenavOpenedClass = 'mobile-sidenav-opened';
 
-$(function() {
-    if ($('body').hasClass('docs')) {
-        interactiveToc();
-        setElementMaxHeight();
-        initSidenav();
+    $(window).on('resize', function() {
+        hideMobileSidenavOnResize();
+    });
+
+    /**
+     * Shows the mobile sidenav panel on the toggle click.
+     */
+    $mobileSidenavToggle.click(function () {
+        $body.addClass(mobileSidenavOpenedClass);
+    });
+
+    /**
+     * Closes the mobile sidenav panel on the close button click.
+     */
+    $mobileSidenavCloseBtn.click(function () {
+        $body.removeClass(mobileSidenavOpenedClass);
+    });
+
+    /**
+     * Hides the mobile sidenav on window resizing.
+     */
+    function hideMobileSidenavOnResize() {
+        const tabletWidth = 880;
+        const mobileWindow = $(window).width() <= tabletWidth;
+
+        if (!mobileWindow) {
+            $body.removeClass(mobileSidenavOpenedClass);
+        }
     }
-});
+}

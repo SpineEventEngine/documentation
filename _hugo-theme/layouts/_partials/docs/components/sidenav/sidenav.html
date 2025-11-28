@@ -31,8 +31,8 @@
 
 {{ if $sidenavData }}
     {{ if $sidenavData.sidenav }}
+        {{ partial "docs/components/sidenav/mobile-header.html" . }}
         <ul class="doc-sidenav sticky-element">
-            {{ partial "docs/components/sidenav/mobile-header.html" . }}
             {{ range $sidenavData.sidenav }}
                 {{ if .children }}
                     {{ partial "docs/components/sidenav/section.html" (dict
