@@ -32,7 +32,7 @@ In `docs/1/guides/installation/zip/` -> the section will be `guides`.
 -->
 
 {{ $segments := slice }}
-{{ if .File }}
+{{ if $.File }}
     {{ $segments = split .File.Path "/" }}
 {{ end }}
 {{ $section := index $segments 2 }}

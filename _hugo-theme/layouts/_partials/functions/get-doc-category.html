@@ -31,7 +31,7 @@ In `docs/1/guides/installation/zip/` -> the category will be `installation`.
 -->
 
 {{ $filePath := "" }}
-{{ if .File }}
+{{ if $.File }}
     {{ $filePath = .File.Path }}
 {{ end }}
 {{ $pathDir := path.Dir $filePath }}

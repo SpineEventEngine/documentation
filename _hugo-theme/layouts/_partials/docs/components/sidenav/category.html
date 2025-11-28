@@ -24,20 +24,28 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $item := . }}
-{{ $id := print $item.key "-category" }}
+{{ $page := .page_context }}
+{{ $item := .item_context }}
+
+{{ $currentCategory := partial "functions/get-doc-category.html" $page }}
+{{ $categoryKey := $item.key }}
+{{ $id := print $categoryKey "-category" }}
+{{ $isActive := eq $currentCategory $categoryKey }}
 
 <li>
-    <span class="sidenav-link tree-title collapsed"
+    <span class="sidenav-link tree-title {{ if not $isActive }}collapsed{{ end }}"
           data-bs-toggle="collapse"
           data-bs-target="#{{ $id }}"
           aria-controls="{{ $id }}"
-          aria-expanded="false">
+          aria-expanded="{{ $isActive }}">
         {{ $item.page }}
     </span>
-    <ul id="{{ $id }}" class="subnav collapse">
+    <ul id="{{ $id }}" class="subnav collapse {{ if $isActive }}show{{ end }}">
         {{ range $item.children }}
-            {{ partial "docs/components/sidenav/page.html" . }}
+            {{ partial "docs/components/sidenav/page.html" (dict
+                "page_context" $page
+                "item_context" .
+            ) }}
         {{ end }}
     </ul>
 </li>

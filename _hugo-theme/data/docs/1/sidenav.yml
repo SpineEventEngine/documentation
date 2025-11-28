@@ -2,6 +2,7 @@
   file_path: ""
 - page: Quick Start
   file_path: quick-start
+
 - page: Introduction
   key: introduction
   children:
@@ -13,6 +14,62 @@
       file_path: introduction/architecture
     - page: Project Structure
       file_path: introduction/project-structure
+    - page: Concepts
+      file_path: introduction/concepts
+    - page: Naming Conventions
+      file_path: introduction/naming-conventions
+
+- page: Guides
+  key: guides
+  children:
+    - page: Starting a new project
+      file_path: guides/start-new-project
+    - page: Gradle configuration
+      file_path: guides/gradle
+    - page: Validation
+      file_path: guides/validation
+    - page: Working with Rejections
+      file_path: guides/rejections
+    - page: Integration with a third party
+      file_path: guides/integration
+    - page: Related Guides
+      key: related-guides
       children:
-        - page: Test
-          file_path: test
+        - page: Protocol Buffers
+          url: https://developers.google.com/protocol-buffers/docs/overview
+        - page: gRPC
+          url: https://grpc.io/docs/guides/index.html
+
+- page: Client Libraries
+  key: client-libs
+  children:
+    - page: Java
+      file_path: client-libs
+    - page: JavaScript
+      file_path: client-libs/js
+    - page: Dart
+      file_path: client-libs/dart
+
+- page: API Reference
+  file_path: reference
+
+- page: Examples
+  file_path: examples
+
+- page: DDD Resources
+  key: resources
+  children:
+    - page: Overview
+      file_path: resources/
+    - page: Books
+      file_path: resources/books
+    - page: People
+      file_path: resources/people
+    - page: Blogs
+      file_path: resources/blogs
+    - page: Sites
+      file_path: resources/sites
+    - page: Communities
+      file_path: resources/communities
+    - page: Libraries and Frameworks
+      file_path: resources/libraries

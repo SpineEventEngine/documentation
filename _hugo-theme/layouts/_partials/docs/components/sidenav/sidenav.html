@@ -24,10 +24,9 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+{{ $page := . }}
 {{ $currentURL := .RelPermalink }}
-{{ $currentVersion := partial "functions/get-doc-version.html" . }}
-{{ $currentSection := partial "functions/get-doc-section.html" . }}
-{{ $currentCategory := partial "functions/get-doc-category.html" . }}
+{{ $currentVersion := partial "functions/get-doc-version.html" $page }}
 {{ $sidenavData := index site.Data.docs $currentVersion.short }}
 
 {{ if $sidenavData }}
@@ -36,9 +35,15 @@
             {{ partial "docs/components/sidenav/mobile-header.html" . }}
             {{ range $sidenavData.sidenav }}
                 {{ if .children }}
-                    {{ partial "docs/components/sidenav/section.html" . }}
+                    {{ partial "docs/components/sidenav/section.html" (dict
+                        "page_context" $page
+                        "item_context" .
+                    ) }}
                 {{ else }}
-                    {{ partial "docs/components/sidenav/page.html" . }}
+                    {{ partial "docs/components/sidenav/page.html" (dict
+                        "page_context" $page
+                        "item_context" .
+                    ) }}
                 {{ end }}
             {{ end }}
         </ul>

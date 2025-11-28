@@ -24,8 +24,41 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $item := . }}
+{{ $page := .page_context }}
+{{ $item := .item_context }}
 
-<li>
-    <a class="sidenav-link" href="">{{ $item.page }}</a>
-</li>
+{{ $currentURL := $page.RelPermalink }}
+{{ $currentVersion := partial "functions/get-doc-version.html" $page }}
+
+{{ if $item.file_path }}
+    {{ $filePath := printf "docs/%s/%s" $currentVersion.short $item.file_path }}
+    {{ with site.GetPage $filePath }}
+        <li>
+            {{ $pageURL := .RelPermalink }}
+            {{ $isActive := eq $currentURL $pageURL }}
+            <a class="sidenav-link {{ if $isActive }}active{{ end }}"
+               href="{{ $pageURL }}">
+                {{ $item.page }}
+            </a>
+        </li>
+    {{ end }}
+{{ else if $item.url }}
+    <li>
+        {{ $pageURL := $item.url }}
+        {{ $isExternalLink := partial "functions/is-external-link.html" $pageURL }}
+        {{ if $isExternalLink }}
+            <a class="sidenav-link external-link"
+               href="{{ $pageURL }}"
+               target="_blank"
+               rel="nofollow noopener">
+                {{ $item.page }}
+            </a>
+        {{ else}}
+            {{ $isActive := eq $currentURL $pageURL }}
+            <a class="sidenav-link {{ if $isActive }}active{{ end }}"
+               href="{{ $pageURL | relURL }}">
+                {{ $item.page }}
+            </a>
+        {{ end }}
+    </li>
+{{ end }}
