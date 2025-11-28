@@ -24,17 +24,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*
+The TOC can be with the left indicator line or without it.
+Manages by adding the corresponding class.
+*/
+
 .interactive-toc {
-  $toc-item-font-size: $font-size-sm;
+  $toc-item-font-size: 12px;
   $toc-item-color: $gray-700;
-  $toc-item-active-color: var(--text-color);
-  $toc-item-bottom-space: 10px;
+  $toc-item-active-color: $main-brand-color;
+  $toc-item-bottom-space: 12px;
   $toc-indicator-width: 1px;
   $toc-indicator-line-color: rgba(0, 0, 0, .12);
   $toc-indicator-color: $main-brand-color;
 
   #TableOfContents {
     margin-bottom: 0;
+    padding-left: 12px;
 
     ul {
       list-style: none;
