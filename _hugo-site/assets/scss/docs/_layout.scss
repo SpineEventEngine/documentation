@@ -24,15 +24,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
-
-@import "docs-common";
-@import "docs";
-
-/*
-Styles that should only be used to build this site.
-They should not be imported into the main spine.io site
-to not override or duplicate styles there.
-*/
-@import "docs/home";
-@import "docs/layout";
+.page-content {
+  .three-column {
+    .sticky-col {
+      top: 0;
+    }
+  }
+}
