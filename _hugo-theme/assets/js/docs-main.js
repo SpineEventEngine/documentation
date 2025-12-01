@@ -37,5 +37,5 @@ $(function() {
         initSidenav();
     }
     initCodeTheme();
-    initCopyCodeIcon();
+    /*initCopyCodeIcon();*/
 });

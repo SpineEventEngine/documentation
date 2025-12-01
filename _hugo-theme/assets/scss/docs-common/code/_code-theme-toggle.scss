@@ -24,40 +24,41 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#code-theme-toggle {
-  $toggle-size: 30px;
+.highlight {
+  position: relative;
+}
+
+.light-code-theme {
+  .code-theme-toggle {
+    opacity: .26;
+  }
+}
+
+.code-theme-toggle {
+  $toggle-size: 24px;
+  $icon-size: 18px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  position: absolute;
+  top: calc((#{$toggle-size} + 8px) * -1);
+  right: 0;
   width: $toggle-size;
   height: $toggle-size;
-  border: 1px solid $gray-200;
-  border-radius: 6px;
+  opacity: .38;
+  transition: opacity .2s ease-in-out;
   cursor: pointer;
 
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('img/icons/brightness.svg') no-repeat center/cover;
+    width: $icon-size;
+    height: $icon-size;
+  }
+
   &:hover {
-    i {
-      color: $gray-700;
-    }
-  }
-
-  &.dark {
-    i:before {
-      content: '\e927';
-    }
-  }
-
-  &.light {
-    i:before {
-      content: '\e928';
-    }
-  }
-
-  i {
-    font-size: 20px;
-    color: $gray-600;
-    transition: color .2s ease-in-out;
+    opacity: .54;
   }
 }

@@ -40,21 +40,40 @@ export function initCodeTheme() {
     const $body = $('body');
     const $themeCSS = $('#code-theme-css');
     const $themeToggle = $('#code-theme-toggle');
+    const $codeBlock = $('div.highlight');
     const themeClass = {
         dark: 'dark-code-theme',
         light: 'light-code-theme'
     }
     const toggleClass = {
+        toggle: 'code-theme-toggle',
         dark: 'dark',
         light: 'light'
     }
     const defaultTheme = params.defaultCodeTheme || 'dark';
-
     let theme = Cookies.get('code-theme') || defaultTheme;
 
     setTheme(theme);
+    createToggleIcon();
 
-    $themeToggle.on('click', function () {
+    /**
+     * Creates the theme toggle icon under each code block.
+     */
+    function createToggleIcon() {
+        if (!$codeBlock) return;
+
+        $codeBlock.each(function () {
+            const icon = $(`<i class="${toggleClass.toggle}"
+                               aria-label="Change code theme"
+                               title="Change code theme"></i>`)
+            $(this).append(icon);
+        });
+    }
+
+    /**
+     * Updates the theme on the toggle icon click.
+     */
+    $(document).on('click', `.${toggleClass.toggle}`, function () {
         const currentHref = $themeCSS.attr('href');
         const lightHref = $themeCSS.data('light');
         const isLight = currentHref === lightHref;
