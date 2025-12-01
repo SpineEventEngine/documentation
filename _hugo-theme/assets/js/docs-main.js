@@ -35,7 +35,7 @@ $(function() {
         interactiveToc();
         setElementMaxHeight();
         initSidenav();
-        initCodeTheme();
-        initCopyCodeIcon();
     }
+    initCodeTheme();
+    initCopyCodeIcon();
 });
