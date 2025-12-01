@@ -24,10 +24,40 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "fonts";
+#code-theme-toggle {
+  $toggle-size: 30px;
 
-@import "docs-common/reset";
-@import "docs-common/config";
-@import "docs-common/mixins";
-@import "docs-common/layout";
-@import "docs-common/code";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  width: $toggle-size;
+  height: $toggle-size;
+  border: 1px solid $gray-200;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    i {
+      color: $gray-700;
+    }
+  }
+
+  &.dark {
+    i:before {
+      content: '\e927';
+    }
+  }
+
+  &.light {
+    i:before {
+      content: '\e928';
+    }
+  }
+
+  i {
+    font-size: 20px;
+    color: $gray-600;
+    transition: color .2s ease-in-out;
+  }
+}

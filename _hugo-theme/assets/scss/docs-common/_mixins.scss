@@ -24,10 +24,47 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "fonts";
+/*TODO:2025-11-27:julia.evseeva: Add the list with breakpoints here
+   and remove from the `config`. */
+$breakpoints: (
+        sm-phone:     320px,
+        md-phone:     480px,
+        xmd-phone:    576px,
+        lg-phone:     640px,
+        tablet:       768px,
+        md-tablet:    860px,
+        lg-tablet:    960px,
+        sm-desktop:   991px,
+        desktop:     1024px,
+        md-desktop:  1280px,
+        lg-desktop:  1440px
+);
 
-@import "docs-common/reset";
-@import "docs-common/config";
-@import "docs-common/mixins";
-@import "docs-common/layout";
-@import "docs-common/code";
+/* Usage: `@include breakpoint(desktop)` */
+@mixin breakpoint($deviceWidth) {
+  @if map-has-key($breakpoints, $deviceWidth) {
+    $value: map-get($breakpoints, $deviceWidth);
+
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $deviceWidth) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-min($deviceWidth) {
+  @if map-has-key($breakpoints, $deviceWidth) {
+    $value: map-get($breakpoints, $deviceWidth);
+
+    @media screen and (min-width: $value + 1) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $deviceWidth + 1) {
+      @content;
+    }
+  }
+}

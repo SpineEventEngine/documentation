@@ -1,0 +1,39 @@
+{{- /*
+This template extends the Hugo Highlight shortcode with an optional header
+that is available if the `file` parameter is provided. Otherwise, renders
+the simple code block without layout changes.
+
+Parameters:
+  * `lang`. The language of the code block.
+  * `params`. Optional standard Hugo highlighting parameters as a string.
+  * `file`. An optional name of the code file to display on the code header panel.
+*/ -}}
+
+{{ $lang := .Get "lang" }}
+{{ $params := .Get "params" }}
+{{ $file := .Get "file" }}
+
+<!-- This condition is copied from the original Hugo's template. -->
+{{ $code := "" }}
+{{ if $params }}
+    {{ $code = highlight (trim .InnerDeindent "\n\r") $lang $params }}
+{{ else }}
+    {{ $code = highlight (trim .InnerDeindent "\n\r") $lang "" }}
+{{ end }}
+
+{{ if $file }}
+    <div class="code-block">
+        <div class="code-block-header">
+            <div class="file-name">
+                <span>{{ $file }}</span>
+            </div>
+        </div>
+        <div class="code-wrapper">
+            {{ $code }}
+        </div>
+    </div>
+{{ else }}
+    {{ $code }}
+{{ end }}
+
+{{- /* Strip trailing newline. */ -}}

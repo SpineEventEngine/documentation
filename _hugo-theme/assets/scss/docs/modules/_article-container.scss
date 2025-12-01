@@ -48,40 +48,41 @@ $article-container-min-height: 460px;
     border: none;
   }
 
-  $code-block-offset: $article-side-padding;
-  $tablet-code-block-offset: 32px;
-  $mobile-code-block-offset: 20px;
+  /* Full-width code block inside articles.
+  Extends styles provided in `scss/docs-common/code/_index.scss`. */
+  --code-block-padding: #{$article-side-padding};
 
-  pre.highlight {
-    border-radius: 0;
-    margin-right: -$code-block-offset;
-    margin-left: -$code-block-offset;
-    padding-right: $code-block-offset;
-    padding-left: $code-block-offset;
+  @media (max-width: $phone-xlarge) {
+    --code-block-padding: 32px;
+  }
+  @media (max-width: $phone-medium) {
+    --code-block-padding: 20px;
+  }
 
-    @media (max-width: $phone-xlarge) {
-      margin-right: -$tablet-code-block-offset;
-      margin-left: -$tablet-code-block-offset;
-      padding-right: $tablet-code-block-offset;
-      padding-left: $tablet-code-block-offset;
-    }
+  .highlight {
+    pre {
+      border-radius: 0;
+      margin-right: calc(var(--code-block-padding) * -1);
+      margin-left: calc(var(--code-block-padding) * -1);
 
-    @media (max-width: $phone-medium) {
-      margin-right: -$mobile-code-block-offset;
-      margin-left: -$mobile-code-block-offset;
-      padding-right: $mobile-code-block-offset;
-      padding-left: $mobile-code-block-offset;
+      code {
+        padding-right: var(--code-block-padding);
+        padding-left: var(--code-block-padding);
+      }
     }
   }
 
-  $code-block-padding: 24px 20px;
-
   li {
-    pre.highlight {
-      margin-left: unset;
-      margin-right: unset;
-      padding: $code-block-padding;
-      border-radius: 4px;
+    .highlight {
+      pre {
+        border-radius: $code-block-border-radius;
+        margin-left: unset;
+        margin-right: unset;
+
+        code {
+          padding: $code-block-padding;
+        }
+      }
     }
   }
 }

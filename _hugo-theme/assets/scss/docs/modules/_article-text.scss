@@ -216,14 +216,6 @@ It is used in the DocSearch configuration in the admin panel. */
     color: $black;
   }
 
-  pre {
-    margin: 0;
-
-    @media (max-width: $tablet) {
-      margin: 5px 0;
-    }
-  }
-
   .lead {
     font-family: $main-font;
     font-size: 18px;

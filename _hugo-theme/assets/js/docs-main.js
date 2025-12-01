@@ -27,11 +27,15 @@
 import {interactiveToc} from 'js/docs/interactive-toc';
 import {setElementMaxHeight} from 'js/docs/element-max-height';
 import {initSidenav} from 'js/docs/sidenav';
+import {initCopyCodeIcon} from 'js/docs/copy-code';
+import {initCodeTheme} from 'js/docs/code-theme';
 
 $(function() {
     if ($('body').hasClass('docs')) {
         interactiveToc();
         setElementMaxHeight();
         initSidenav();
+        initCodeTheme();
+        initCopyCodeIcon();
     }
 });

@@ -1,0 +1,96 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* The icon is added to the DOM in `assets/js/components/docs/copy-code.js`. */
+.copy-code-to-clipboard-icon {
+  $icon-container-size: 40px;
+  $icon-size: 16px;
+  $icon-color: var(--copy-code-icon-color);
+  $icon-color-hover: var(--copy-code-icon-hover-color);
+  $icon-bg-color: var(--code-block-background);
+
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $icon-container-size;
+  height: $icon-container-size;
+  font-size: $icon-size;
+  color: $icon-color;
+  background-color: $icon-bg-color;
+  border-radius: $code-block-border-radius;
+  top: 0;
+  right: 0;
+  transition: color .2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $icon-color-hover
+  }
+
+  $tooltip-top-position: -16px;
+  $tooltip-right-position: -5px;
+
+  + .copy-code-tooltip {
+    position: absolute;
+    visibility: hidden;
+    font-family: $main-font;
+    top: $tooltip-top-position;
+    right: $tooltip-right-position;
+    font-size: 12px;
+    background: rgba(0, 0, 0, .9);
+    color: white;
+    padding: 4px 6px;
+    border-radius: 3px;
+
+    &.show {
+      visibility: visible;
+      animation: tooltipFadeIn .5s, tooltipFadeOut .5s 2.5s;
+    }
+  }
+
+  @keyframes tooltipFadeIn {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    100% {
+      top: $tooltip-top-position;
+      opacity: 1;
+    }
+  }
+
+  @keyframes tooltipFadeOut {
+    0% {
+      top: $tooltip-top-position;
+      opacity: 1;
+    }
+    100% {
+      top: 0;
+      opacity: 0;
+    }
+  }
+}

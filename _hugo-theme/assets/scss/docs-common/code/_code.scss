@@ -1,0 +1,194 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+:root {
+  --code-background: #ffffff;
+  --code-text-color: inherit;
+  --code-padding: 0;
+}
+
+.dark-code-theme {
+  --code-block-background: #2b2b2b;
+  --code-block-text-color: #a9b7c6;
+  --code-block-header-divider-color: rgba(255, 255, 255, .08);
+  --code-block-highlighted-line-bg: #2c3035;
+  --copy-code-icon-color: #{$gray-600};
+  --copy-code-icon-hover-color: rgba(255, 255, 255, .8);
+  --code-tab-color: #{$gray-600};
+  --code-tab-active-color: #f8f8f2;
+  --code-tab-indicator-color: #{$gray-700};
+}
+
+.light-code-theme {
+  --code-block-background: #f8f8f8;
+  --code-block-text-color: var(--text-color);
+  --code-block-header-divider-color: rgba(0, 0, 0, .07);
+  --code-block-highlighted-line-bg: #e9f0e9;
+  --copy-code-icon-color: #{$gray-600};
+  --copy-code-icon-hover-color: #{$gray-700};
+  --code-tab-color: #{$gray-600};
+  --code-tab-active-color: var(--text-color);
+  --code-tab-indicator-color: $main-brand-color;
+}
+
+$mono-font-family: $main-mono-font;
+$code-block-font-size: 13px;
+$code-block-line-height: 1.6;
+$code-block-border-radius: 8px;
+$code-block-padding: 16px;
+
+pre,
+code {
+  font-family: $mono-font-family;
+  color: var(--code-text-color);
+}
+
+pre {
+  overflow-x: auto;
+  margin: 0;
+}
+
+code {
+  font-size: 95%;
+  background-color: var(--code-background);
+  padding: var(--code-padding);
+  margin: 0;
+  font-variant-ligatures: none;
+}
+
+/* The default Hugo Highlight.
+See the usage here https://gohugo.io/content-management/syntax-highlighting/.
+
+For better customization enable classes in the project `config`:
+```
+[markup.highlight]
+  noClasses = false
+```
+*/
+.highlight {
+  position: relative;
+
+  pre {
+    border-radius: $code-block-border-radius;
+  }
+
+  /* The first `div` that wraps `<code>` or `<table>`.
+   When classes are enabled the `div` has the `chroma` class.
+   Needed to make the code scrollable if the line numbers are enabled. */
+  > div {
+    overflow-x: auto;
+  }
+
+  code {
+    display: table;
+    width: 100%;
+    padding: $code-block-padding;
+    font-size: $code-block-font-size;
+    line-height: $code-block-line-height;
+    background-color: var(--code-block-background);
+    color: var(--code-block-text-color);
+    border-radius: unset;
+
+    /* Fixes iOS font sizing inside code blocks.
+     Font size is affected while using flexbox for `<span>` tag
+     inside code on Safari/Chrome iOS. */
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Makes highlighted line full-width. */
+  .hl {
+    margin: 0 -#{$code-block-padding};
+    padding: 0 $code-block-padding;
+  }
+
+  /* Hugo layout with numbered code lines.
+  The first column is the numbers, the second is the code.
+  The layout works if `{linenos=table} near the code backticks is specified. */
+  table {
+    &.lntable {
+      width: 100%;
+    }
+
+    tr {
+      td {
+        &:first-child {
+          user-select: none;
+
+          pre {
+            overflow: hidden;
+            border-radius: $code-block-border-radius 0 0 $code-block-border-radius;
+
+            code {
+              padding-right: 0;
+              padding-left: 16px;
+
+              span {
+                // Aligns numbers with the highlighted code line.
+                display: flex;
+              }
+            }
+          }
+        }
+
+        &:last-child {
+          // Prevents the first column from expanding arbitrarily.
+          width: 100%;
+
+          pre {
+            border-radius: 0 $code-block-border-radius $code-block-border-radius 0;
+
+            code {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.opaque-hl-lines {
+  .highlight {
+    code {
+      .hl {
+        background: none;
+      }
+
+      .line:not(.hl) {
+        opacity: .3;
+      }
+    }
+  }
+}
+
+.markdown {
+  .highlight {
+    margin-bottom: 40px;
+  }
+}

@@ -24,40 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- Common libs from `TeamDev-Ltd/site-commons`. -->
-{{ partial "scripts/libs.html" . }}
-
-{{ partial "scripts/body/baseurl.html" . }}
-
-{{ $environment := hugo.Environment }}
-{{ $defaultCodeTheme := site.Params.defaultCodeTheme }}
-
-{{ $params := (dict
-    "environment" $environment
-    "defaultCodeTheme" $defaultCodeTheme
-)}}
-
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsDocsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-
-<script src="{{ $js.RelPermalink }}"></script>
-
-{{ with .Page.Params.customjs }}
-    {{ $jsCustom := . }}
-    {{ if reflect.IsSlice $jsCustom }}
-        {{ range $jsCustom }}
-            {{ $path := strings.TrimPrefix "/" . }}
-            {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
-            <script src="{{ $js.RelPermalink }}"></script>
-        {{ end }}
-    {{ else }}
-        {{ $path := strings.TrimPrefix "/" $jsCustom }}
-        {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
-        <script src="{{ $js.RelPermalink }}"></script>
-    {{ end }}
+<!-- The code theme is managed in `assets/js/docs/code-theme.js`. -->
+{{ $lightTheme := "code-theme/light.css" }}
+{{ $darkTheme := "code-theme/dark.css" }}
+{{ $defaultCodeTheme := $darkTheme }}
+{{ if eq site.Params.defaultCodeTheme "light" }}
+    {{ $defaultCodeTheme = $lightTheme }}
 {{ end }}
+<link id="code-theme-css"
+      rel="stylesheet"
+      href="{{ $defaultCodeTheme | relURL }}"
+      data-light="{{ $lightTheme | relURL }}"
+      data-dark="{{ $darkTheme | relURL }}">
