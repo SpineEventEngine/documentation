@@ -30,7 +30,7 @@
 {{ $currentURL := $page.RelPermalink }}
 {{ $currentVersion := partial "functions/get-doc-version.html" $page }}
 
-{{ if $item.file_path }}
+{{ if or $item.file_path (eq $item.file_path "") }}
     {{ $filePath := printf "docs/%s/%s" $currentVersion.short $item.file_path }}
     {{ with site.GetPage $filePath }}
         <li>

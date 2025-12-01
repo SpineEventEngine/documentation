@@ -47,7 +47,7 @@ Returns the array of the sidenav pages and the index of the current page.
             {{ template "get-bottom-nav-pages" (dict "root" $root "node" .) }}
         {{ end }}
     {{ else }}
-        {{ if $node.file_path }}
+        {{ if or $node.file_path (eq $node.file_path "") }}
             {{ $page := partial "docs/components/bottom-nav/functions/get-page.html" (dict
                 "page_context" $root
                 "item_context" $node
