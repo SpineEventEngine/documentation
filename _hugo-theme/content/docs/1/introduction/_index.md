@@ -5,8 +5,10 @@ headline: Documentation
 
 # Development Process
 
-<p class="lead">Building a solution based on Spine Event Engine framework is an iterative process
-which consists of the stages described in this document.</p>
+{{% note-block class="lead" %}}
+Building a solution based on Spine Event Engine framework is an iterative process
+which consists of the stages described in this document.
+{{% /note-block %}}
  
 ## Getting domain knowledge
 
@@ -14,16 +16,16 @@ The purpose of this step is to find out what we're going to build and why.
 Consider using [EventStorming](https://eventstorming.com) or another domain discovery 
 approach for grasping the knowledge from the experts.
  
-Most likely that the solution would have several [Bounded Contexts](concepts#bounded-context). 
+Most likely that the solution would have several [Bounded Contexts](docs/introduction/concepts#bounded-context). 
 For each context developers need to define:
   * <strong>Signals</strong>
-    - [Events](concepts#event)
-    - [Commands](concepts#command)
-    - [Rejections](concepts#rejection)
+    - [Events](docs/introduction/concepts#event)
+    - [Commands](docs/introduction/concepts#command)
+    - [Rejections](docs/introduction/concepts#rejection)
   * <strong>Entities</strong>  
-    - [Aggregates](concepts#aggregate) 
-    - [Process Managers](concepts#process-manager)
-    - [Projections](concepts#projection).
+    - [Aggregates](docs/introduction/concepts#aggregate) 
+    - [Process Managers](docs/introduction/concepts#process-manager)
+    - [Projections](docs/introduction/concepts#projection).
 
 It is likely that some of the bits of this picture would change during the process.
 But the whole team, including domain experts, need to have complete understanding of how the 
@@ -45,7 +47,7 @@ It would be natural to start implementing the context which initiates the busine
 
 Implementation starts from defining data types of the selected context as Protobuf messages.
 
-The first step is to define entity [IDs](concepts#identifier). For example:
+The first step is to define entity [IDs](docs/introduction/concepts#identifier). For example:
 ```proto
 // The identifier for a task.
 message TaskId {
@@ -86,18 +88,18 @@ message Task {
 }
 ```
  
-[Value Objects]({{site.baseurl}}/docs/introduction/concepts#value-objects) are added when they 
+[Value Objects](docs/introduction/concepts#value-objects) are added when they 
 are needed to describe entities or messages like commands or events.
 
 ### Adding business logic
 
-The business logic of a Bounded Context is based on [Entities](#entities).
+The business logic of a Bounded Context is based on [Entities](docs/introduction#entities).
 They handle messages updating the state in response. Entities like `Aggregate`s and
 `ProcessManager`s can generate events. `ProcessManager`s can also generate new commands.
 `Projection`s only consume events. 
 
 Updating the state of the domain model in response to messages and generating new messages is
-the “life” of the domain model. Messages are delivered to entities by [Repositories](#repositories).
+the “life” of the domain model. Messages are delivered to entities by [Repositories](docs/introduction#repositories).
 
 #### Entities
 
@@ -164,7 +166,7 @@ BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
 ```
 
 This wires repositories into the message delivery mechanism of the corresponding
-[Buses]({{site.baseurl}}/docs/introduction/concepts#message-buses).
+[Buses](docs/introduction/concepts#message-buses).
   
 #### Testing
 Implementation of the Bounded Context is tested using the messaging paradigm.
@@ -214,7 +216,7 @@ assertEntity.hasStateThat()
 ### Configuring Server Environment
 
 For information on configuring server environment of a Spine-based application, please 
-see the reference documentation of the [`ServerEnvironment`]({{site.core_api_doc}}/server/server/io.spine.server/-server-environment)
+see the reference documentation of the [`ServerEnvironment`]({{< get-site-data "spine.core_api_doc" >}}/server/server/io.spine.server/-server-environment)
 class.
 
 ### Assembling Application
@@ -230,9 +232,9 @@ Server server = Server.atPort(portNumber)
 server.start();    
 ```
 
-This exposes [`CommandService`]({{site.baseurl}}/docs/introduction/concepts#command-service), 
-[`QueryService`]({{site.baseurl}}/docs/introduction/concepts#query-service), and 
-[`SubscriptionService`]({{site.baseurl}}/docs/introduction/concepts#subscription-service) to client-side connections.
+This exposes [`CommandService`](docs/introduction/concepts#command-service), 
+[`QueryService`](docs/introduction/concepts#query-service), and 
+[`SubscriptionService`](docs/introduction/concepts#subscription-service) to client-side connections.
 
 ## Repeating the cycle
 
@@ -241,7 +243,7 @@ or as some changes or extensions to the existing contexts are required.
  
 ## Client application development
 
-Development of client applications may start after the [data types are defined](#defining-data-types).
+Development of client applications may start after the [data types are defined](docs/introduction#defining-data-types).
 Once this is done, developers run the Spine Model Compiler to generate the code for all supported
 client platforms.
  
@@ -251,4 +253,4 @@ they are defied in the `.proto` files, and the Model Compiler finishes its job.
 Client applications can also subscribe to events generated by Bounded Contexts at the backend. 
 
 For more information on the client-side development, please refer to
-the [Client Libraries]({{site.baseurl}}/docs/client-libs/) section.
+the [Client Libraries](docs/client-libs/) section.
