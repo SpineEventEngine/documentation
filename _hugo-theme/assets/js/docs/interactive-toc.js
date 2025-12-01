@@ -46,6 +46,7 @@ export function interactiveToc() {
     const currentClass = 'current';
     let anchors = null;
     let lastActiveElement = null;
+    let disableScroll = false;
 
     if ($interactiveToc.length) {
         $(window).on('load', function() {
@@ -54,14 +55,33 @@ export function interactiveToc() {
         });
 
         $(window).on('scroll', function() {
+            if (disableScroll) return;
             markCurrentTocItem();
         });
     }
 
-    $tocItems.on('click', function () {
+    /**
+     * Makes the clicked TOC item active.
+     *
+     * <p>Prevents the default scroll to avoid active item overriding.
+     */
+    $tocItems.on('click', function (e) {
+        e.preventDefault();
         const $current = $(this);
+        const anchor = $current.attr('href');
+
+        disableScroll = true;
         $tocItems.removeClass(currentClass);
         $current.addClass(currentClass);
+        window.location.hash = anchor;
+
+        $('html, body').animate(
+            {scrollTop: $(anchor).offset().top - 80},
+            300,
+            function () {
+                disableScroll = false;
+            }
+        );
     });
 
     /**
