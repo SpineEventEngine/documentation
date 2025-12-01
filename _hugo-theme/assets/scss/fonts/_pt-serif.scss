@@ -2,7 +2,7 @@ $pt-serif-font-path: "fonts/pt-serif/" !default;
 
 @font-face {
   font-family: "PT Serif";
-  src: url("#{$roboto-font-path}PTSerif-Regular.ttf") format("truetype");
+  src: url("#{$pt-serif-font-path}PTSerif-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@ $pt-serif-font-path: "fonts/pt-serif/" !default;
 
 @font-face {
   font-family: "PT Serif";
-  src: url("#{$roboto-font-path}PTSerif-Italic.ttf") format("truetype");
+  src: url("#{$pt-serif-font-path}PTSerif-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -18,7 +18,7 @@ $pt-serif-font-path: "fonts/pt-serif/" !default;
 
 @font-face {
   font-family: "PT Serif";
-  src: url("#{$roboto-font-path}PTSerif-Bold.ttf") format("truetype");
+  src: url("#{$pt-serif-font-path}PTSerif-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@ $pt-serif-font-path: "fonts/pt-serif/" !default;
 
 @font-face {
   font-family: "PT Serif";
-  src: url("#{$roboto-font-path}PTSerif-BoldItalic.ttf") format("truetype");
+  src: url("#{$pt-serif-font-path}PTSerif-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
