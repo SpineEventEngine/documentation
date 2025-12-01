@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: calc((#{$toggle-size} + 8px) * -1);
+  top: calc((#{$toggle-size} + 2px) * -1);
   right: 0;
   width: $toggle-size;
   height: $toggle-size;
