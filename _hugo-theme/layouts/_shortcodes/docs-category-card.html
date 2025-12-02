@@ -26,7 +26,7 @@ Parameters:
         <p class="title">
             <span class="title-holder">{{ $title | markdownify }}</span>
         </p>
-        <p class="description">{{ .Inner }}</p>
+        <p class="description">{{ .Inner | markdownify }}</p>
     </div>
 </a>
 

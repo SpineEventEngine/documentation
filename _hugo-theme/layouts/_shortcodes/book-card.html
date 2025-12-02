@@ -37,7 +37,7 @@ Parameters:
             {{ end }}
         </a>
         <p class="author">by {{ $author | markdownify }}</p>
-        <p class="description">{{ .Inner }}</p>
+        <p class="description">{{ .Inner | markdownify }}</p>
     </div>
 </div>
 
