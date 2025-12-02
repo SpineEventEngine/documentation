@@ -32,8 +32,9 @@ Manages by adding the corresponding class.
 .interactive-toc {
   $toc-item-font-size: 12px;
   $toc-item-color: $gray-700;
+  $toc-item-line-height: 1.5;
   $toc-item-active-color: $main-brand-color;
-  $toc-item-bottom-space: 16px;
+  $toc-item-bottom-space: 12px;
   $toc-indicator-width: 1px;
   $toc-indicator-line-color: rgba(0, 0, 0, .12);
   $toc-indicator-color: $main-brand-color;
@@ -49,6 +50,7 @@ Manages by adding the corresponding class.
       li {
         font-size: $toc-item-font-size;
         margin-bottom: $toc-item-bottom-space;
+        line-height: $toc-item-line-height;
 
         a {
           text-decoration: none;
