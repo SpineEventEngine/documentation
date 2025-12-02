@@ -55,7 +55,7 @@ export function interactiveToc() {
         });
 
         $(window).on('scroll', function() {
-            if (disableScroll) return;
+            /*if (disableScroll) return;*/
             markCurrentTocItem();
         });
     }
@@ -155,7 +155,7 @@ export function interactiveToc() {
     function scrollToActiveTocItem(activeElement) {
         if (!activeElement) return;
 
-        if ($interactiveToc && $interactiveToc[0].contains(activeElement)) {
+        if ($interactiveToc && $interactiveToc[0].contains(activeElement) && !isElementInView(activeElement)) {
             if (activeElement !== lastActiveElement) {
                 activeElement.scrollIntoView({
                     block: 'nearest',
@@ -165,5 +165,18 @@ export function interactiveToc() {
                 lastActiveElement = activeElement;
             }
         }
+    }
+
+    /**
+     * Checks if the element is in view.
+     *
+     * <p>Helps to avoid scroll jumping at the top of the page.
+     *
+     * @param element the element that should be in the view
+     * @return {boolean}
+     */
+    function isElementInView(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
     }
 }
