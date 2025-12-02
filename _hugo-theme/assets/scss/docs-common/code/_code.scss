@@ -33,6 +33,7 @@
 .dark-code-theme {
   --code-block-background: #2b2b2b;
   --code-block-text-color: #a9b7c6;
+  --code-block-box-shadow: unset;
   --code-block-header-divider-color: rgba(255, 255, 255, .08);
   --code-block-highlighted-line-bg: #2c3035;
   --copy-code-icon-color: #{$gray-600};
@@ -43,8 +44,9 @@
 }
 
 .light-code-theme {
-  --code-block-background: #f8f8f8;
+  --code-block-background: #ffffff;
   --code-block-text-color: var(--text-color);
+  --code-block-box-shadow: 0 3px 12px 0 rgba(35, 37, 38, .1);
   --code-block-header-divider-color: rgba(0, 0, 0, .07);
   --code-block-highlighted-line-bg: #e9f0e9;
   --copy-code-icon-color: #{$gray-600};
@@ -93,6 +95,7 @@ For better customization enable classes in the project `config`:
 
   pre {
     border-radius: $code-block-border-radius;
+    box-shadow: var(--code-block-box-shadow);
   }
 
   /* The first `div` that wraps `<code>` or `<table>`.
