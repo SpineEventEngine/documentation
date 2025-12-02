@@ -3,10 +3,11 @@ languageCode = 'en-us'
 title = 'Documentation preview'
 
 [module]
-  [[module.imports]]
-    path = 'github.com/TeamDev-Ltd/site-commons'
+  # First theme has higher priority than later ones.
   [[module.imports]]
     path = '../../_hugo-theme'
+  [[module.imports]]
+    path = 'github.com/TeamDev-Ltd/site-commons'
 
 # Enables HTML rendering in markdown files.
 [markup]
