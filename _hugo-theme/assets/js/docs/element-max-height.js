@@ -34,11 +34,14 @@
  */
 export function setElementMaxHeight() {
     const $element = $('.set-max-height');
+    const $footer = $('.footer');
     const headerHeight = $('#header').length ? $('#header').outerHeight() : 0;
-    const docNavHeight = $('.doc-nav').length ? $('.doc-nav').outerHeight() : 0;
+    const footerTopPosition = $footer.length ? $footer.position().top : 0;
 
     if ($element.length) {
-        $(window).on('load resize', function () {
+        updateMaxHeight();
+
+        $(window).on('resize scroll', function () {
             updateMaxHeight();
         });
     }
@@ -50,9 +53,11 @@ export function setElementMaxHeight() {
     function updateMaxHeight() {
         const maxHeight = calculateMaxHeight();
 
-        $element.css({
-            'overflow': 'auto',
-            'max-height': maxHeight
+        $element.each(function() {
+            $(this).css({
+                'overflow': 'auto',
+                'max-height': maxHeight
+            });
         });
     }
 
@@ -64,10 +69,19 @@ export function setElementMaxHeight() {
      */
     function calculateMaxHeight() {
         const windowHeight = $(window).height();
+        const scrollTop = $(window).scrollTop();
         const elementTopMargin = 24;
         const elementBottomMargin = 20;
-        const elementTopPosition = headerHeight + docNavHeight + elementTopMargin;
+        const elementTopPosition = headerHeight + elementTopMargin;
         const maxHeight = windowHeight - elementTopPosition - elementBottomMargin;
+
+        if ($footer.length) {
+            const isFooterVisible = windowHeight + scrollTop > footerTopPosition;
+
+            if (isFooterVisible) {
+                return footerTopPosition - scrollTop - elementTopPosition - elementBottomMargin;
+            }
+        }
 
         return maxHeight;
     }
