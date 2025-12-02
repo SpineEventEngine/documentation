@@ -27,7 +27,7 @@
 'use strict';
 
 /**
- * Set the `max-height` property to an element with the `.set-max-height` class.
+ * Sets the `max-height` property to an element with the `.set-max-height` class.
  *
  * <p>The `max-height` value is calculated depending on the current window
  * height and will be updated on window resize.
