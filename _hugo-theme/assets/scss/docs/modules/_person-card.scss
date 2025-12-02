@@ -24,19 +24,60 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "docs/base/colors";
-@import "docs/base/mixins";
+.person-card {
+  $avatar-size: 100px;
+  $avatar-size-mobile: 60px;
 
-@import "docs/modules/layout";
-@import "docs/modules/article-container";
-@import "docs/modules/article-text";
-@import "docs/modules/interactive-toc";
-@import "docs/modules/sidenav";
-@import "docs/modules/next-prev-nav";
-@import "docs/modules/diagram";
-@import "docs/modules/note-block";
-@import "docs/modules/docs-category-card";
-@import "docs/modules/book-card";
-@import "docs/modules/person-card";
+  position: relative;
+  padding-bottom: 40px;
 
-@import "docs/pages/resources";
+  .avatar {
+    position: absolute;
+    padding: 0;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
+
+    @media (max-width: $phone-large) {
+      width: $avatar-size-mobile;
+      height: $avatar-size-mobile;
+    }
+  }
+
+  .person-info {
+    padding-left: $avatar-size + 20px;
+
+    @media (max-width: $phone-large) {
+      padding-left: $avatar-size-mobile + 20px;
+    }
+
+    .social-networks {
+      padding-bottom: 14px;
+
+      a {
+        padding-right: 16px;
+
+        &:after {
+          display: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+
+          i {
+            color: $gray-500;
+          }
+        }
+      }
+
+      i {
+        font-size: 18px;
+        color: $gray-200;
+      }
+    }
+
+    h3 {
+      padding-top: 4px;
+    }
+  }
+}

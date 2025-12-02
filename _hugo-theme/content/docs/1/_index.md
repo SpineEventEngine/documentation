@@ -5,8 +5,10 @@ headline: Documentation
 
 # Welcome
 
-<p class="lead">Welcome to the Spine developer documentation. This page gives 
-the overview of the documentation sections.</p>
+{{% note-block class="lead" %}}
+Welcome to the Spine developer documentation. This page gives 
+the overview of the documentation sections.
+{{% /note-block %}}
 
 ## [Quick Start](docs/quick-start/)
 In this section you can learn what it's like to develop with Spine by going 

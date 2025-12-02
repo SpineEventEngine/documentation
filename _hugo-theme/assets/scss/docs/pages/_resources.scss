@@ -24,19 +24,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "docs/base/colors";
-@import "docs/base/mixins";
+.resources {
+  h1 {
+    margin-bottom: 6px;
+  }
 
-@import "docs/modules/layout";
-@import "docs/modules/article-container";
-@import "docs/modules/article-text";
-@import "docs/modules/interactive-toc";
-@import "docs/modules/sidenav";
-@import "docs/modules/next-prev-nav";
-@import "docs/modules/diagram";
-@import "docs/modules/note-block";
-@import "docs/modules/docs-category-card";
-@import "docs/modules/book-card";
-@import "docs/modules/person-card";
-
-@import "docs/pages/resources";
+  h1 + p {
+    margin-bottom: 48px;
+  }
+}

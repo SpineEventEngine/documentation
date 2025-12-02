@@ -167,8 +167,8 @@ It is used in the DocSearch configuration in the admin panel. */
     font-weight: 300;
     color: rgba(black, .4);
     line-height: 1.2;
-    margin-bottom: 32px;
     padding-top: 16px;
+    margin-bottom: 32px;
 
     @media (max-width: $phone-xlarge) {
       margin-bottom: 16px;
@@ -180,8 +180,8 @@ It is used in the DocSearch configuration in the admin panel. */
     font-weight: 700;
     color: $black;
     line-height: 1.3;
-    margin-bottom: 12px;
     padding-top: 32px;
+    margin-bottom: 12px;
 
     &.top {
       padding-top: 8px;

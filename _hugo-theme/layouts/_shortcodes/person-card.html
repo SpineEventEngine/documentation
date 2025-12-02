@@ -1,0 +1,33 @@
+{{- /*
+A component that displays the information about a person.
+
+Parameters:
+  * `photo`. The person photo. The photo should be placed inside `static`.
+  * `name`. The person name.
+  * `socials`. An array with social icons `[{"url": "", "icon": ""}]`.
+*/ -}}
+
+{{ $photo := .Get "photo" }}
+{{ $name := .Get "name" }}
+{{ $socials := .Get "socials" | transform.Unmarshal }}
+
+{{ $photo = print "img/docs/resources/people/" $photo }}
+
+<div class="person-card">
+    <img class="avatar"
+         src="{{ $photo | relURL }}"
+         alt="{{ $name }} photo">
+    <div class="person-info">
+        <h3>{{ $name }}</h3>
+        <div class="social-networks">
+            {{ range $socials }}
+                <a href="{{ .url }}" target="_blank" rel="nofollow noopener">
+                    <i class="{{ .icon }}"></i>
+                </a>
+            {{ end }}
+        </div>
+        <p>{{ .Inner }}</p>
+    </div>
+</div>
+
+{{- /* Strip trailing newline. */ -}}

@@ -43,5 +43,11 @@ Returns the body class based on the page kind.
     {{ $type := replace .Type "/" " " }}
     {{ .Scratch.Set "bodyClass" $type }}
 {{ end }}
+
 {{ $bodyClass := .Scratch.Get "bodyClass" }}
+
+{{ with .Params.bodyclass }}
+    {{ $bodyClass = . }}
+{{ end }}
+
 {{ return $bodyClass }}
