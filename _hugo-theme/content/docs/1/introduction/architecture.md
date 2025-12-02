@@ -18,12 +18,11 @@ Click on a component to navigate to its definition from the
 [Concepts](docs/introduction/concepts/) page.
 
 <div class="diagram-box">
-{{< read-relative-asset "diagrams/spine-architecture-diagram.svg" >}}
-
 <p class="full-screen-link">
     <a href="{{% baseurl %}}docs/introduction/diagrams/spine-architecture-diagram-full-screen">
         <i class="far fa-expand"></i>
         <span>View full screen</span>
     </a>
 </p>
+{{< read-relative-asset "diagrams/spine-architecture-diagram.svg" >}}
 </div>

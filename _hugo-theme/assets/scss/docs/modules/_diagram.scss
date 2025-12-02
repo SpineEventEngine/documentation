@@ -25,7 +25,7 @@
  */
 
 .diagram-box {
-  margin-top: 44px;
+  margin: 24px 0 32px;
 }
 
 /* The diagram visibility controls by `js/docs/architecture-diagram.js`. */
@@ -74,8 +74,8 @@
         display: block;
         cursor: pointer;
         line-height: 0;
-        padding: 1rem;  // Makes a clickable zone bigger on 16px
-        margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text
+        padding: 1rem;
+        margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text.
 
         .close-icon {
           @include close-icon;
@@ -101,8 +101,8 @@
   }
 }
 
-.full-screen-link {
-  margin-top: 24px;
+p.full-screen-link {
+  margin-bottom: 24px;
 
   i {
     margin-right: 8px;
