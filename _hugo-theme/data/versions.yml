@@ -5,3 +5,9 @@
   switcher:
     visible: false
     item_visible: false
+- short: "2"
+  full: 2.0.0
+  path: docs/2
+  switcher:
+    visible: false
+    item_visible: false
