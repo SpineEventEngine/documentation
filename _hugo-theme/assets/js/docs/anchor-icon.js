@@ -24,21 +24,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {interactiveToc} from 'js/docs/interactive-toc';
-import {setElementMaxHeight} from 'js/docs/element-max-height';
-import {initSidenav} from 'js/docs/sidenav';
-import {initCopyCodeIcon} from 'js/docs/copy-code';
-import {initCodeTheme} from 'js/docs/code-theme';
-import {setupAnchorClick} from 'js/docs/anchor-icon';
+'use strict';
 
-$(function() {
-    if ($('body').hasClass('docs')) {
-        interactiveToc();
-        setElementMaxHeight();
-        initSidenav();
-        setupAnchorClick();
-    }
-    initCodeTheme();
-    /* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
-    /*initCopyCodeIcon();*/
-});
+import {copyToClipboard} from "js/components/copy-to-clipboard";
+
+/**
+ * Manages the anchor icon click.
+ *
+ * <p>Also, copies the `href` to clipboard.
+ */
+export function setupAnchorClick() {
+    const anchorIconClass = 'anchor-icon';
+    const $anchorLinks = $('a[href^="#"]');
+
+    $anchorLinks.on('click', function() {
+        const $this = $(this);
+        const anchor = $this.attr('href');
+
+        if ($this.hasClass(anchorIconClass)) {
+            window.location.hash = anchor;
+            copyToClipboard(window.location.href);
+        }
+    });
+}

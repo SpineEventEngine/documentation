@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,21 +24,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {interactiveToc} from 'js/docs/interactive-toc';
-import {setElementMaxHeight} from 'js/docs/element-max-height';
-import {initSidenav} from 'js/docs/sidenav';
-import {initCopyCodeIcon} from 'js/docs/copy-code';
-import {initCodeTheme} from 'js/docs/code-theme';
-import {setupAnchorClick} from 'js/docs/anchor-icon';
+$icon-color: #1a96de;
+$icon-opacity: .38;
+$icon-size-s: 24px;
 
-$(function() {
-    if ($('body').hasClass('docs')) {
-        interactiveToc();
-        setElementMaxHeight();
-        initSidenav();
-        setupAnchorClick();
-    }
-    initCodeTheme();
-    /* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
-    /*initCopyCodeIcon();*/
-});
+// Common theme styles from the `TeamDev-Ltd/site-commons`.
+@import "../anchor-icon";
+
+.anchor-icon {
+  color: $icon-color !important;
+  font-weight: 700;
+
+  &:after {
+    margin-bottom: 2px;
+  }
+}

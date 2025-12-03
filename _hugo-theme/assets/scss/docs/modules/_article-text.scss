@@ -28,7 +28,7 @@
 It is used in the DocSearch configuration in the admin panel. */
 
 .article-text {
-  a {
+  a:not(.anchor-icon) {
     text-decoration: none;
     color: $link-color;
     font-weight: 400;
