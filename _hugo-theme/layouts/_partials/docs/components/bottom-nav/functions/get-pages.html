@@ -52,7 +52,9 @@ Returns the array of the sidenav pages and the index of the current page.
                 "page_context" $root
                 "item_context" $node
             ) }}
-            {{ $root.Scratch.Add "bottomNavPages" (slice $page) }}
+            {{ if $page.url }}
+                {{ $root.Scratch.Add "bottomNavPages" (slice $page) }}
+            {{ end }}
         {{ end }}
     {{ end }}
 {{ end }}

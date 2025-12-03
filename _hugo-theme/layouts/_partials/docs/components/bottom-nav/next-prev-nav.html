@@ -26,8 +26,6 @@
 
 {{ $currentURL := .RelPermalink }}
 {{ $currentVersion := partial "functions/get-doc-version.html" . }}
-{{ $currentSection := partial "functions/get-doc-section.html" . }}
-{{ $currentCategory := partial "functions/get-doc-category.html" . }}
 {{ $versionData := index site.Data.docs $currentVersion.short }}
 
 {{ if $versionData }}
