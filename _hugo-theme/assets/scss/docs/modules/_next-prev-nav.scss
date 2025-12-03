@@ -72,7 +72,7 @@
     }
 
     &.next {
-      justify-self: end;
+      justify-content: flex-end;
 
       &:after {
         display: block;
