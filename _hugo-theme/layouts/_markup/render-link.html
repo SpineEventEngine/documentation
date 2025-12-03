@@ -6,7 +6,7 @@
 {{- $skipNofollow := partial "functions/whitelist-checker.html" $link -}}
 {{- $isExternalLink := partial "functions/is-external-link.html" $link -}}
 
-{{- if (or $isAbsolute $isSamePageAnchor) -}}
+{{- if or $isAbsolute $isSamePageAnchor -}}
     {{- $link = $link | safeURL -}}
 {{- else if (not $isMailto) }}
     {{- $link = partial "functions/get-doc-link.html" (dict

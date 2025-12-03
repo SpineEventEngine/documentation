@@ -28,16 +28,5 @@
 
 {{ $link := . }}
 
-{{ $isAbsolute := strings.HasPrefix $link "http" }}
-{{ $isHomePage := false }}
-{{ range site.Languages }}
-    {{ if not $isHomePage }}
-        {{ if strings.Contains $link .Params.siteURL }}
-            {{ $isHomePage = true }}
-        {{ end }}
-    {{ end }}
-{{ end }}
-
-{{ $isExternalLink := and $isAbsolute (not $isHomePage) }}
-
+{{ $isExternalLink := strings.HasPrefix $link "http" }}
 {{ return $isExternalLink }}
