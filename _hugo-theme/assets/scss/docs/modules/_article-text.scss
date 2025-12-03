@@ -96,8 +96,7 @@ It is used in the DocSearch configuration in the admin panel. */
     margin-top: -4px;
   }
 
-  .lead + h2,
-  .lead + div + h2 {
+  .lead + h2 {
     padding-top: 0;
   }
 
@@ -108,34 +107,30 @@ It is used in the DocSearch configuration in the admin panel. */
     }
   }
 
-  h1 + h2,
-  h1 + div + h2 {
+  h1 + h2 {
     padding-top: 0;
   }
 
   ul + h2,
-  ol + h2,
-  ul + div + h2,
-  ol + div + h2 {
+  ol + h2 {
     padding-top: 16px;
   }
 
-  // `div` is an invisible element that is created by Anchor JS library.
-  h2 + div + h3 {
+  h2 + h3 {
     padding-top: 4px;
   }
 
-  h3 + div + h4 {
+  h3 + h4 {
     margin-top: 12px;
   }
 
-  ol + div + h3,
-  ul + div + h3 {
+  ol + h3,
+  ul + h3 {
     padding-top: 0;
   }
 
-  ol + div + h4,
-  ul + div + h4 {
+  ol + h4,
+  ul + h4 {
     margin-top: 0;
   }
 
