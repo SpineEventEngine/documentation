@@ -81,14 +81,15 @@ code {
   font-variant-ligatures: none;
 }
 
-/* The default Hugo Highlight.
-See the usage here https://gohugo.io/content-management/syntax-highlighting/.
+/*
+  The default Hugo Highlight.
+  See the usage here https://gohugo.io/content-management/syntax-highlighting/.
 
-For better customization enable classes in the project `config`:
-```
-[markup.highlight]
-  noClasses = false
-```
+  For better customization enable classes in the project `config`:
+  ```
+  [markup.highlight]
+    noClasses = false
+  ```
 */
 .highlight {
   position: relative;
@@ -98,9 +99,9 @@ For better customization enable classes in the project `config`:
     box-shadow: var(--code-block-box-shadow);
   }
 
-  /* The first `div` that wraps `<code>` or `<table>`.
-   When classes are enabled the `div` has the `chroma` class.
-   Needed to make the code scrollable if the line numbers are enabled. */
+  // The first `div` that wraps `<code>` or `<table>`.
+  // When classes are enabled the `div` has the `chroma` class.
+  // Needed to make the code scrollable if the line numbers are enabled.
   > div {
     overflow-x: auto;
   }
@@ -115,24 +116,24 @@ For better customization enable classes in the project `config`:
     color: var(--code-block-text-color);
     border-radius: unset;
 
-    /* Fixes iOS font sizing inside code blocks.
-     Font size is affected while using flexbox for `<span>` tag
-     inside code on Safari/Chrome iOS. */
+    // Fixes iOS font sizing inside code blocks.
+    // Font size is affected while using flexbox for `<span>` tag
+    // inside code on Safari/Chrome iOS.
     text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
 
-  /* Makes highlighted line full-width. */
+  // Makes highlighted line full-width.
   .hl {
     margin: 0 -#{$code-block-padding};
     padding: 0 $code-block-padding;
   }
 
-  /* Hugo layout with numbered code lines.
-  The first column is the numbers, the second is the code.
-  The layout works if `{linenos=table} near the code backticks is specified. */
+  // Hugo layout with numbered code lines.
+  // The first column is the numbers, the second is the code.
+  // The layout works if `{linenos=table} near the code backticks is specified.
   table {
     &.lntable {
       width: 100%;

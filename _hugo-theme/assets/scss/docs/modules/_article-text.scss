@@ -24,9 +24,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Please be careful when renaming this class.
-It is used in the DocSearch configuration in the admin panel. */
-
+// Please be careful when renaming this class.
+// It is used in the DocSearch configuration in the admin panel.
 .article-text {
   a:not(.anchor-icon) {
     text-decoration: none;
@@ -156,7 +155,7 @@ It is used in the DocSearch configuration in the admin panel. */
 
   @include list($item-line-height: $article-line-height);
 
-  /* Section headlines */
+  // Section headlines
   h1 {
     font-size: $font-size--xxxl;
     font-weight: 300;

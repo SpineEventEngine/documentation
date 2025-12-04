@@ -48,8 +48,8 @@ $article-container-min-height: 460px;
     border: none;
   }
 
-  /* Full-width code block inside articles.
-  Extends styles provided in `scss/docs-common/code/_index.scss`. */
+  // Full-width code block inside articles.
+  // Extends styles provided in `scss/docs-common/code/_index.scss`.
   --code-block-padding: #{$article-side-padding};
 
   @media (max-width: $phone-xlarge) {

@@ -29,10 +29,8 @@
 @import "docs-common";
 @import "docs";
 
-/*
-Styles that should only be used to build this site.
-They should not be imported into the main spine.io site
-to not override or duplicate styles there.
-*/
+// Styles that should only be used to build this site.
+// They should not be imported into the main spine.io site
+// to not override or duplicate styles there.
 @import "docs/home";
 @import "docs/layout";

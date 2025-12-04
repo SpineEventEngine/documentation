@@ -24,11 +24,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Extends the `_code.scss` styles.
- *
- * The `.code-block` wrapper is available when using the `{{< highlight >}}`
- * shortcode with the file name parameter or with using the `code-tabs`.
- */
+/*
+  Extends the `_code.scss` styles.
+
+  The `.code-block` wrapper is available when using the `{{< highlight >}}`
+  shortcode with the file name parameter or with using the `code-tabs`.
+*/
 .code-block {
   $code-block-background: var(--code-block-background);
   $header-name-font-size: 12px;

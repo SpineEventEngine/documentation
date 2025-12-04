@@ -40,7 +40,7 @@ $breakpoints: (
         lg-desktop:  1440px
 );
 
-/* Usage: `@include breakpoint(desktop)` */
+// Usage: `@include breakpoint(desktop)`
 @mixin breakpoint($deviceWidth) {
   @if map-has-key($breakpoints, $deviceWidth) {
     $value: map-get($breakpoints, $deviceWidth);
