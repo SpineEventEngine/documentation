@@ -24,10 +24,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// Theme JS from the `TeamDev-Ltd/site-commons`.
+/* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
+/*import 'js/components/copy-code.js'*/
+
 import {interactiveToc} from 'js/docs/interactive-toc';
 import {setElementMaxHeight} from 'js/docs/element-max-height';
 import {initSidenav} from 'js/docs/sidenav';
-import {initCopyCodeIcon} from 'js/docs/copy-code';
 import {initCodeTheme} from 'js/docs/code-theme';
 import {setupAnchorClick} from 'js/docs/anchor-icon';
 
@@ -39,6 +42,4 @@ $(function() {
         setupAnchorClick();
     }
     initCodeTheme();
-    /* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
-    /*initCopyCodeIcon();*/
 });
