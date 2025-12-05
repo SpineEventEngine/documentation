@@ -1,8 +1,8 @@
 examples: https://github.com/spine-examples
 
 site_repo: https://github.com/SpineEventEngine/SpineEventEngine.github.io
-core_java_repo: https://github.com/SpineEventEngine/core-jvm
-base_repo: https://github.com/SpineEventEngine/base-libraries
+core_jvm_repo: https://github.com/SpineEventEngine/core-jvm
+base_libraries_repo: https://github.com/SpineEventEngine/base-libraries
 web_repo: https://github.com/SpineEventEngine/web
 gcloud_java_repo: https://github.com/SpineEventEngine/gcloud-java
 money_repo: https://github.com/SpineEventEngine/money
