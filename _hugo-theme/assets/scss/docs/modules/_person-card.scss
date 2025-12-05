@@ -24,23 +24,60 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+.person-card {
+  $avatar-size: 100px;
+  $avatar-size-mobile: 60px;
 
-@import "roboto";
-@import "pt-serif";
+  position: relative;
+  padding-bottom: 40px;
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
+  .avatar {
+    position: absolute;
+    padding: 0;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
 
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+    @media (max-width: $phone-large) {
+      width: $avatar-size-mobile;
+      height: $avatar-size-mobile;
+    }
+  }
+
+  .person-info {
+    padding-left: $avatar-size + 20px;
+
+    @media (max-width: $phone-large) {
+      padding-left: $avatar-size-mobile + 20px;
+    }
+
+    .social-networks {
+      padding-bottom: 14px;
+
+      a {
+        padding-right: 16px;
+
+        &:after {
+          display: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+
+          i {
+            color: $gray-500;
+          }
+        }
+      }
+
+      i {
+        font-size: 18px;
+        color: $gray-200;
+      }
+    }
+
+    h3 {
+      padding-top: 4px;
+    }
+  }
+}

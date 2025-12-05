@@ -28,6 +28,10 @@
   --text-color: #3a3a3a;
 }
 
+html {
+  scroll-padding-top: $header-height;
+}
+
 html,
 body {
   height: 100%;

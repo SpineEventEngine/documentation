@@ -1,0 +1,9 @@
+{{- /*
+Renders a content as a note block.
+*/ -}}
+
+<div class="note-block {{ .Get `class` | default `note` }}">
+    {{ .Inner }}
+</div>
+
+{{- /* Strip trailing newline. */ -}}

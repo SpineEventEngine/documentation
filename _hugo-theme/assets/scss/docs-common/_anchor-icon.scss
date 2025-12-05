@@ -24,23 +24,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+$icon-color: #1a96de;
+$icon-opacity: .38;
+$icon-size-s: 24px;
+
 // Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+@import "../anchor-icon";
 
-@import "roboto";
-@import "pt-serif";
+.anchor-icon {
+  color: $icon-color !important;
+  font-weight: 700;
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
-
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+  &:after {
+    margin-bottom: 2px;
+  }
+}
