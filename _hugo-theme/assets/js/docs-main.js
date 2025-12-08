@@ -35,11 +35,12 @@ import {initCodeTheme} from 'js/docs/code-theme';
 import {setupAnchorClick} from 'js/docs/anchor-icon';
 
 $(function() {
+    initCodeTheme();
+    setElementMaxHeight();
+
     if ($('body').hasClass('docs')) {
         interactiveToc();
-        setElementMaxHeight();
         initSidenav();
         setupAnchorClick();
     }
-    initCodeTheme();
 });

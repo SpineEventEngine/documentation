@@ -49,13 +49,16 @@ export function interactiveToc() {
     let disableScroll = false;
 
     if ($interactiveToc.length) {
+        getAnchors();
+        markCurrentTocItem();
+
         $(window).on('load', function() {
             getAnchors();
             markCurrentTocItem();
         });
 
         $(window).on('scroll', function() {
-            /*if (disableScroll) return;*/
+            if (disableScroll) return;
             markCurrentTocItem();
         });
     }
