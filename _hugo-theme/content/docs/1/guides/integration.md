@@ -91,7 +91,7 @@ parse and validate domain Events, which we then publish to a Bounded Context, im
 
 The Event Consumer, as depicted above, implements the Event transformation logic. In order to
 establish this communication channel, the **Airplane Supplies** system declares a [gRPC](https://grpc.io/)
-service. In [`supplies_service.proto`](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto):
+service. In [`supplies_service.proto`]({{% get-site-data "spine.examples" %}}/airport/blob/master/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto):
 
 <embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
             start="message Subscription*" 
@@ -116,7 +116,7 @@ enum EventType {
     PREFLIGHT_CHECK_COMPLETE = 3;
 }
 ```             
-The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java)
+The **Airplane Supplies** system [implements]({{% get-site-data "spine.examples" %}}/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java)
 the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
 <embed-code file="examples/airport/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java" 
@@ -143,7 +143,7 @@ public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
 ```
 The event producer obtains cached historical events, matches them to the received subscription,
 and sends them to the client. The **Takeoffs and Landings** system implements 
-an&nbsp;[event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
+an&nbsp;[event consumer]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
 which constructs a subscription and maintains it as long as the system needs to receive more events.
 The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.integration/-third-party-context/):
 
@@ -166,7 +166,7 @@ public void onNext(SuppliesEvent event) {
     context.emittedEvent(eventMessage, actorContext);
 }
 ```
-The [`AircraftAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java)
+The [`AircraftAggregate`]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java)
 reacts on those events. Note that all the events published through `ThirdPartyContext` are always
 `external`, so should be the subscriber and reactor methods.
 
@@ -199,8 +199,8 @@ the Customer/Supplier, **Takeoffs and Landings** Context is downstream from anot
 case from **Weather**. Unlike the Customer/Supplier, **Weather** does not provide a specific
 Event Producer, which would adapt **Weather** Events to the needs of **Takeoffs and Landings**.
 Also, the Event Consumer on the **Takeoffs and Landings** side is rather thin and devoid of logic.
-The Consumer consists of two parts: [`WeatherUpdateClient`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java)
-and [`WeatherUpdateEndpoint`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java).
+The Consumer consists of two parts: [`WeatherUpdateClient`]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java)
+and [`WeatherUpdateEndpoint`]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java).
 The client polls the pull-style API of the **Weather** system.
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java" 
@@ -255,7 +255,7 @@ public void receiveNew(WeatherMeasurement measurement) {
     previous = measurement;
 }
 ```
-The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
+The [`FlightAggregate`]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
 reacts on those events and changes its state as the result:
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java" 
@@ -299,9 +299,9 @@ a large monolithic legacy system (a.k.a. a Big Ball of Mud) into Bounded Context
 an ACL prevents the new "clean" Contexts from merging back into the Mud. If you are looking for
 a way to add functionality to a complex legacy system without increasing the technical debt, look
 no further. The Anticorruption Layer between **Takeoffs and Landings** and **Security Checks** 
-is composed of a [polling client](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java),
+is composed of a [polling client]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java),
 which performs all the technical work of obtaining and validating data, and a [Process Manager](docs/introduction/concepts#process-manager)
-for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
+for the [Boarding process]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
 The **Security Checks** API provides data for each passenger independently. The client polls
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
 events via [`ThirdPartyContext`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.integration/-third-party-context/):
@@ -332,9 +332,9 @@ private void emitIfStatusKnown(TsaPassenger tsaPassenger) {
     }
 }
 ```
-The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java)
+The [Process Manager]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java)
 accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event,
-which is later consumed by the&nbsp;[*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
+which is later consumed by the&nbsp;[*Flight* Aggregate]({{% get-site-data "spine.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java" 
             fragment="BoardingProcman"></embed-code>
@@ -362,4 +362,4 @@ your current system to work in an event-driven manner. A correct integration str
 isolate and perfect your own domain language while on the work of many external systems. Read more
 about Bounded Contexts and their interactions in the "Domain-Driven Design" book by Eric Evans.
 
-The full version of the source code used in this article could be found in the&nbsp;[Airport Example repository](https://github.com/spine-examples/airport).
+The full version of the source code used in this article could be found in the&nbsp;[Airport Example repository]({{% get-site-data "spine.examples" %}}/airport).
