@@ -16,16 +16,16 @@ The purpose of this step is to find out what we're going to build and why.
 Consider using [EventStorming](https://eventstorming.com) or another domain discovery 
 approach for grasping the knowledge from the experts.
  
-Most likely that the solution would have several [Bounded Contexts](concepts#bounded-context). 
+Most likely that the solution would have several [Bounded Contexts](docs/introduction/concepts#bounded-context). 
 For each context developers need to define:
   * <strong>Signals</strong>
-    - [Events](concepts#event)
-    - [Commands](concepts#command)
-    - [Rejections](concepts#rejection)
+    - [Events](docs/introduction/concepts#event)
+    - [Commands](docs/introduction/concepts#command)
+    - [Rejections](docs/introduction/concepts#rejection)
   * <strong>Entities</strong>  
-    - [Aggregates](concepts#aggregate) 
-    - [Process Managers](concepts#process-manager)
-    - [Projections](concepts#projection).
+    - [Aggregates](docs/introduction/concepts#aggregate) 
+    - [Process Managers](docs/introduction/concepts#process-manager)
+    - [Projections](docs/introduction/concepts#projection).
 
 It is likely that some of the bits of this picture would change during the process.
 But the whole team, including domain experts, need to have complete understanding of how the 
@@ -47,7 +47,7 @@ It would be natural to start implementing the context which initiates the busine
 
 Implementation starts from defining data types of the selected context as Protobuf messages.
 
-The first step is to define entity [IDs](concepts#identifier). For example:
+The first step is to define entity [IDs](docs/introduction/concepts#identifier). For example:
 ```proto
 // The identifier for a task.
 message TaskId {
