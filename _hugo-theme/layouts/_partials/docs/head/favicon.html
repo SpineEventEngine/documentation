@@ -24,13 +24,13 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/title.html" . }}
-    {{ partial "docs/head/favicon.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-</head>
+<link rel="apple-touch-icon" sizes="180x180" href="{{ `favicons/apple-touch-icon.png` | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ `favicons/favicon-32x32.png` | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ `favicons/favicon-16x16.png` | absURL }}">
+<link rel="manifest" href="{{ `site.webmanifest` | absURL }}">
+<link rel="mask-icon" href="{{ `favicons/safari-pinned-tab.svg` | absURL }}" color="#055deb">
+<link rel="shortcut icon" href="{{ `favicon.ico` | absURL }}">
+<meta name="apple-mobile-web-app-title" content="Spine">
+<meta name="application-name" content="Spine">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
