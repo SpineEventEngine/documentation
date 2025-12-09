@@ -24,23 +24,19 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+@import "docs/base/colors";
+@import "docs/base/mixins";
 
-@import "roboto";
-@import "pt-serif";
+@import "docs/modules/layout";
+@import "docs/modules/article-container";
+@import "docs/modules/article-text";
+@import "docs/modules/interactive-toc";
+@import "docs/modules/sidenav";
+@import "docs/modules/next-prev-nav";
+@import "docs/modules/diagram";
+@import "docs/modules/note-block";
+@import "docs/modules/docs-category-card";
+@import "docs/modules/book-card";
+@import "docs/modules/person-card";
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
-
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+@import "docs/pages/resources";

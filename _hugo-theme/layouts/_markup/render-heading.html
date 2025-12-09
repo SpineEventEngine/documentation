@@ -1,0 +1,9 @@
+<h{{ .Level }} id="{{ .Anchor }}" data-title>
+{{ .Text | safeHTML }}
+{{- if ne .Level 1 -}}
+{{- $href := printf "href=#%s" .Anchor -}}
+<span class="nowrap-icon">&nbsp;<a class="anchor-icon" {{ $href | safeHTMLAttr }}
+                              aria-label="Copy heading anchor"></a>
+</span>
+{{- end -}}
+</h{{ .Level }}>

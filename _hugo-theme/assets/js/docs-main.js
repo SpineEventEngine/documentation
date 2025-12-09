@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,23 +24,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+// Theme JS from the `TeamDev-Ltd/site-commons`.
+/* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
+/*import 'js/components/copy-code.js'*/
 
-@import "roboto";
-@import "pt-serif";
+import {interactiveToc} from 'js/docs/interactive-toc';
+import {setElementMaxHeight} from 'js/docs/element-max-height';
+import {initSidenav} from 'js/docs/sidenav';
+import {initCodeTheme} from 'js/docs/code-theme';
+import {setupAnchorClick} from 'js/docs/anchor-icon';
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
+$(function() {
+    initCodeTheme();
+    setElementMaxHeight();
 
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+    if ($('body').hasClass('docs')) {
+        interactiveToc();
+        initSidenav();
+        setupAnchorClick();
+    }
+});

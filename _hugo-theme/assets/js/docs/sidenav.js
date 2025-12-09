@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,23 +24,42 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+/**
+ * Toggles the sidenav on mobile devices.
+ */
+export function initSidenav() {
+    const $body = $('body');
+    const $mobileSidenavToggle = $('#mobile-sidenav-toggle');
+    const $mobileSidenavCloseBtn = $('#close-mobile-sidenav');
+    const mobileSidenavOpenedClass = 'mobile-sidenav-opened';
 
-@import "roboto";
-@import "pt-serif";
+    $(window).on('resize', function() {
+        hideMobileSidenavOnResize();
+    });
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
+    /**
+     * Shows the mobile sidenav panel on the toggle click.
+     */
+    $mobileSidenavToggle.click(function () {
+        $body.addClass(mobileSidenavOpenedClass);
+    });
 
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+    /**
+     * Closes the mobile sidenav panel on the close button click.
+     */
+    $mobileSidenavCloseBtn.click(function () {
+        $body.removeClass(mobileSidenavOpenedClass);
+    });
+
+    /**
+     * Hides the mobile sidenav on window resizing.
+     */
+    function hideMobileSidenavOnResize() {
+        const tabletWidth = 880;
+        const mobileWindow = $(window).width() <= tabletWidth;
+
+        if (!mobileWindow) {
+            $body.removeClass(mobileSidenavOpenedClass);
+        }
+    }
+}

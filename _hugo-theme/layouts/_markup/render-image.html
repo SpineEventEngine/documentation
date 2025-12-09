@@ -1,0 +1,5 @@
+<img src="{{ .Destination | relURL }}"
+  {{- with .Text }} alt="{{ . }}"{{ end -}}
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+>
+{{- /* Strip trailing newline. */ -}}

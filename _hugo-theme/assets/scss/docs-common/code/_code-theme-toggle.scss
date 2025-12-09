@@ -24,23 +24,41 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+.highlight {
+  position: relative;
+}
 
-@import "roboto";
-@import "pt-serif";
+.light-code-theme {
+  .code-theme-toggle {
+    opacity: .26;
+  }
+}
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
+.code-theme-toggle {
+  $toggle-size: 24px;
+  $icon-size: 18px;
 
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: calc((#{$toggle-size} + 2px) * -1);
+  right: 0;
+  width: $toggle-size;
+  height: $toggle-size;
+  opacity: .38;
+  transition: opacity .2s ease-in-out;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('img/icons/brightness.svg') no-repeat center/cover;
+    width: $icon-size;
+    height: $icon-size;
+  }
+
+  &:hover {
+    opacity: .54;
+  }
+}

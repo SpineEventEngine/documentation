@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,23 +24,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-@import "../fonts/icon-font";
+'use strict';
 
-@import "roboto";
-@import "pt-serif";
+import {copyToClipboard} from "js/components/copy-to-clipboard";
 
-$main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$main-mono-font: 'Roboto Mono', monospace;
-$main-serif-font: 'PT Serif', serif;
+/**
+ * Manages the anchor icon click.
+ *
+ * <p>Also, copies the `href` to clipboard.
+ */
+export function setupAnchorClick() {
+    const anchorIconClass = 'anchor-icon';
+    const $anchorLinks = $('a[href^="#"]');
 
-$font-size--primary  : 16px;
-$font-size--xxs      : .8rem;
-$font-size--xs       : 1rem;
-$font-size--s        : 1.15rem;
-$article-font-size   : 1.1rem;
-$font-size--m        : 1.65rem;
-$font-size--l        : 1.85rem;
-$font-size--xl       : 2rem;
-$font-size--xxl      : 2.5rem;
-$font-size--xxxl     : 2.625rem;
+    $anchorLinks.on('click', function() {
+        const $this = $(this);
+        const anchor = $this.attr('href');
+
+        if ($this.hasClass(anchorIconClass)) {
+            window.location.hash = anchor;
+            copyToClipboard(window.location.href);
+        }
+    });
+}

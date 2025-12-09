@@ -1,0 +1,26 @@
+---
+title: Application Architecture
+layout: full-screen
+customjs: js/docs/architecture-diagram.js
+---
+
+<div class="full-screen-preview">
+    <div class="preview-header">
+        <div class="close-btn-wrapper">
+            <a class="close-btn"
+               href="{{% baseurl %}}docs/introduction/architecture/">
+                <i class="close-icon" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="header-wrapper">
+            <h3 class="preview-title">Application Architecture</h3>
+            <p class="preview-subtitle">This diagram shows
+                <span id="display-all-components">all server-side components</span>
+                of a cloud application. When developing with Spine, you will be interacting with
+                <span id="display-user-facing-components"><em>some of them</em></span>.</p>
+        </div>
+    </div>
+    <div class="preview-body">
+        {{< read-relative-asset "spine-architecture-diagram.svg" >}}
+    </div>
+</div>

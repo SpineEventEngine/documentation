@@ -1,0 +1,44 @@
+{{- /*
+A component that displays the clickable book card.
+
+Parameters:
+  * `image`. The book cover image name. The image should be placed inside `static`.
+  * `title`. The book title.
+  * `subtitle`. An optional book subtitle.
+  * `author`. The book author.
+  * `book_url`. The URL on a store.
+*/ -}}
+
+{{ $image := .Get "image" }}
+{{ $title := .Get "title" }}
+{{ $subtitle := .Get "subtitle" }}
+{{ $author := .Get "author" }}
+{{ $bookURL := .Get "book_url" }}
+
+{{ $image = print "img/docs/resources/books/" $image }}
+
+<div class="book-card">
+    <a class="book"
+       href="{{ $bookURL }}"
+       target="_blank"
+       rel="nofollow noopener">
+        <img src="{{ $image | relURL }}"
+             class="book-cover"
+             alt="{{ $title }} book">
+    </a>
+    <div class="book-info">
+        <a class="book-title"
+           href="{{ $bookURL }}"
+           target="_blank"
+           rel="nofollow noopener">
+            <h3>{{ $title | markdownify }}</h3>
+            {{ with $subtitle }}
+                <p class="book-subtitle">{{ . | markdownify }}</p>
+            {{ end }}
+        </a>
+        <p class="author">by {{ $author | markdownify }}</p>
+        <p class="description">{{ .Inner | markdownify }}</p>
+    </div>
+</div>
+
+{{- /* Strip trailing newline. */ -}}
