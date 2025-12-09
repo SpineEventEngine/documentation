@@ -49,7 +49,7 @@ gradlew.bat :sayHello
 This would build and execute the example. 
 The process should finish with the output which looks like this:
 
-```
+```bat
 > Task :sayHello
 Dec 18, 2020 5:32:11 PM io.spine.base.Environment setCurrentType
 INFO: `Environment` set to `io.spine.base.Production`.
