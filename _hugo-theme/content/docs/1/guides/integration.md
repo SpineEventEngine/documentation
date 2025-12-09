@@ -46,7 +46,7 @@ describe the listed three patterns, because they are the most commonly used.
 
 ## The Domain
 
-![Big picture domain]({{% baseurl %}}img/docs/integrating-with-a-third-party/domain.jpg)
+![Big picture domain](img/docs/integrating-with-a-third-party/domain.jpg)
 
 For the sake of an example, let’s consider airport management software. An airport is a complex
 system which relies on many people and much software working together. Let’s consider the system
@@ -64,7 +64,7 @@ an accurate representation.
 ## Customer/Supplier Contexts
 
 {: .img-small}
-![Customer/Supplier Contexts domain]({{% baseurl %}}img/docs/integrating-with-a-third-party/customer-supplier.jpg)
+![Customer/Supplier Contexts domain](img/docs/integrating-with-a-third-party/customer-supplier.jpg)
 
 The **Takeoffs and Landings** system must know whether an *Aircraft* is ready for the *Flight*.
 This decision requires data on the supplies, which are provided for the *Aircraft*. To obtain this
@@ -83,7 +83,7 @@ Note that those Events are specifically tailored to be consumed by our system, a
 have to set up an elaborate Anticorruption Layer. However, a simple adapter is still required to
 parse and validate domain Events, which we then publish to a Bounded Context, implemented in Spine.
 
-![Customer/Supplier Contexts diagram]({{% baseurl %}}img/docs/integrating-with-a-third-party/customer-supplier-diagram.svg)
+![Customer/Supplier Contexts diagram](img/docs/integrating-with-a-third-party/customer-supplier-diagram.svg)
 
 The Event Consumer, as depicted above, implements the Event transformation logic. In order to
 establish this communication channel, the **Airplane Supplies** system declares a [gRPC](https://grpc.io/)
@@ -180,7 +180,7 @@ AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
 ```                                          
 ## Conformist
 
-![Conformist domain]({{% baseurl %}}img/docs/integrating-with-a-third-party/conformist.jpg)
+![Conformist domain](img/docs/integrating-with-a-third-party/conformist.jpg)
 
 **Weather** is an essential aspect of flying a plane, especially at low altitudes. The **Weather**
 Context wraps the data received from a meteorological station. This is a true third party to our
@@ -188,7 +188,7 @@ system, as our organization, the airport, does not own it. Nearly all the detail
 update are important to **Takeoffs and Landings**. The **Weather** Context forces
 **Takeoffs and Landings** to conform to its domain model.
 
-![Conformist diagram]({{% baseurl %}}img/docs/integrating-with-a-third-party/conformist-diagram.svg)
+![Conformist diagram](img/docs/integrating-with-a-third-party/conformist-diagram.svg)
 
 The schema of the conformist relation looks somewhat like the Customer/Supplier schema. Similar to
 the Customer/Supplier, **Takeoffs and Landings** Context is downstream from another Context, in this
@@ -270,7 +270,7 @@ EitherOf2<FlightRescheduled, Nothing> on(@External TemperatureChanged event) {
 ```
 ## Anticorruption Layer
 
-![ACL domain]({{% baseurl %}}img/docs/integrating-with-a-third-party/acl.jpg)
+![ACL domain](img/docs/integrating-with-a-third-party/acl.jpg)
 
 **Security Checks** Context has a rich model of its own. The system happens not to use domain Events
 at all. The **Security Checks** software,  used in our airport, must go through a complex audit and
@@ -283,7 +283,7 @@ Interaction with legacy software with known technical issues can be established 
 an Anticorruption Layer. This pattern suggests that we cope with the problems, imposed by the legacy
 system, outside our domain model.
 
-![ACL diagram]({{% baseurl %}}img/docs/integrating-with-a-third-party/acl-diagram.svg)
+![ACL diagram](img/docs/integrating-with-a-third-party/acl-diagram.svg)
 
 The Anticorruption Layer (ACL) acts as an interpreter from the language of **Security Checks**
 Context into the language of **Takeoffs and Landings** Context. The ACL takes care of polling data
