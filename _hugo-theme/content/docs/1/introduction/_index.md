@@ -93,13 +93,13 @@ are needed to describe entities or messages like commands or events.
 
 ### Adding business logic
 
-The business logic of a Bounded Context is based on [Entities](docs/introduction#entities).
+The business logic of a Bounded Context is based on [Entities](#entities).
 They handle messages updating the state in response. Entities like `Aggregate`s and
 `ProcessManager`s can generate events. `ProcessManager`s can also generate new commands.
 `Projection`s only consume events. 
 
 Updating the state of the domain model in response to messages and generating new messages is
-the “life” of the domain model. Messages are delivered to entities by [Repositories](docs/introduction#repositories).
+the “life” of the domain model. Messages are delivered to entities by [Repositories](#repositories).
 
 #### Entities
 
@@ -216,7 +216,7 @@ assertEntity.hasStateThat()
 ### Configuring Server Environment
 
 For information on configuring server environment of a Spine-based application, please 
-see the reference documentation of the [`ServerEnvironment`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server/-server-environment)
+see the reference documentation of the [`ServerEnvironment`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server/-server-environment/)
 class.
 
 ### Assembling Application
@@ -243,7 +243,7 @@ or as some changes or extensions to the existing contexts are required.
  
 ## Client application development
 
-Development of client applications may start after the [data types are defined](docs/introduction#defining-data-types).
+Development of client applications may start after the [data types are defined](#defining-data-types).
 Once this is done, developers run the Spine Model Compiler to generate the code for all supported
 client platforms.
  

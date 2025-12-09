@@ -1,18 +1,15 @@
 ---
 title: Getting Started in Java
 headline: Documentation
-bodyclass: docs
-layout: docs
-next_btn: 
-  page: Development Process Overview
 ---
 
 # Getting started with Spine in Java
 
-<p class="lead">This guide will walk you through a minimal client-server application in Java
+{{% note-block class="lead" %}}
+This guide will walk you through a minimal client-server application in Java
 which handles one command to print some text on behalf of the current computer user. The document
 goes through already written code which is quite simple. So, it won't take long.
-</p>
+{{% /note-block %}}
 
 ## What we'll do
 
@@ -26,7 +23,7 @@ tests the Hello context.
 
 1.  JDK version 8 or higher.
 2.  Git.
-3.  The source code of the [Hello World](https://github.com/spine-examples/hello) example.
+3.  The source code of the [Hello World]({{% get-site-data "spine.examples" %}}/hello) example.
     
     ```bash
     git clone git@github.com:spine-examples/hello.git
@@ -74,10 +71,12 @@ from the `Client`.
 The text in between brackets is the name of the current computer user. The name was passed as
 the argument of the `Print` command.
 
-<p class="note">We opted to show a `ProcessManager` — instead of an `Aggregate` — because
+{{% note-block class="note" %}}
+We opted to show a `ProcessManager` — instead of an `Aggregate` — because
 the console output is similar to an “External System”. Dealing with things like
 that is the job of Process Managers. We also want to highlight the importance of using
-this architectural pattern.</p>
+this architectural pattern.
+{{% /note-block %}}
 
 The output that follows is the logging produced by the `Client` class as it receives the `Printed`
 event from the server.
@@ -101,12 +100,13 @@ The root of the project contains the following files:
   * **`build.gradle`** — the project configuration. We'll review this file later
     [in details](#adding-spine-to-a-gradle-project).
 
-<p class="note">The root directory also contains “invisible” files, names of which start with
+{{% note-block class="note" %}}
+The root directory also contains “invisible” files, names of which start with
 the dot (e.g. `.gitattributes` and `.travis.yml`).
 These files configure Git and CI systems we use. They are not directly related to the subject
 of the example and this guide. If you're interested in this level of details,
 please look into the code and comments in these files.
-</p>    
+{{% /note-block %}}    
 
 Here are the directories of interest in the project root:
  * `gradle` — this directory contains the code of Gradle Wrapper and two Gradle scripts
@@ -162,10 +162,11 @@ spine.enableJava().server()
 
 This enables Java in the module and adds necessary dependencies and configurations.
 
-<p class="note">Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
+{{% note-block class="note" %}}
+Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
 This way a module of a Bounded Context “A” may be a client for a Bounded Context “B”. 
 Client-side applications or modules should call: `spine.enableJava().client()`.
-</p>
+{{% /note-block %}}
 
 ### Other project configuration
 
@@ -191,22 +192,27 @@ the following files:
 
   * **`commands.proto`** — this file defines the `Print` command.
   
-    <p class="note">By convention, commands are defined in a file with the `commands` suffix
+{{% note-block class="note" %}}
+By convention, commands are defined in a file with the `commands` suffix
      in its name. It can be, for example, `order_commands.proto` or just `commands.proto`
-     like in our example.</p>
+     like in our example.
+{{% /note-block %}}
      
   * **`events.proto`** — this file defines the `Printed` event.
   
-    <p class="note">Similarly to commands, events are defined in proto files having the `events`
-    suffix in their names.</p>
+{{% note-block class="note" %}}
+Similarly to commands, events are defined in proto files having the `events`
+    suffix in their names.
+{{% /note-block %}}
 
 These two files define signals used by the Hello context. There's also data of the `Console`
 Process Manager, which is defined in the package **`server`** in the file **`console.proto`**.
 
-<p class="note">
+{{% note-block class="note" %}}
 We arrange the sub-package `server` to highlight the fact that this is server-only data. It is not
 a convention used by the framework. We find the clarity of this infix useful when creating
-cloud applications. So, we share it as a recommendation in this example.</p>
+cloud applications. So, we share it as a recommendation in this example.
+{{% /note-block %}}
 
 Let's review the context data definition in details.
 
@@ -270,11 +276,13 @@ Protobuf Compiler for this `.proto` file:
 option java_outer_classname = "CommandsProto";
 ```
 
-<p class="note">Outer classes are used by Protobuf implementation internally.
+{{% note-block class="note" %}}
+Outer classes are used by Protobuf implementation internally.
 When the `java_outer_classname` option is omitted, Protobuf Compiler would calculate the Java
 class name taking the name of the corresponding `.proto` file. 
 We recommend setting the name directly to make it straight. This also avoids possible name clashes
-with the handcrafted code.</p> 
+with the handcrafted code.
+{{% /note-block %}} 
 
 The next standard option instructs the Protobuf Compiler to put each generated Java type into
 a separate file. This way it would be easier to analyze dependencies of the code which uses these
@@ -311,9 +319,10 @@ The second field is marked as `(required)` using the custom option imported in
 the `spine/options.proto` file above. This command does not make much sense if there is no text
 to print.
 
-<p class="note">In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
-If you're new to this language, you may want to look at the [Proto3 Language Guide][proto3-guide].  
-</p>
+{{% note-block class="note" %}}
+In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
+If you're new to this language, you may want to look at the [Proto3 Language Guide][proto3-guide].
+{{% /note-block %}}
 
 Now, let's see how to define events. 
 
@@ -367,14 +376,14 @@ message Printed {
 The event tells which text was printed for a user. Both of the fields are marked as `(required)`
 because the event does not make much sense if one of them is empty. 
 
-<p class="note">
+{{% note-block class="note" %}}
 Unlike for commands, the framework does not assume that the first event field is <em>always</em>
 populated. This is so because default routing rules for commands and events are different. 
 When an event is produced by some entity, it remembers the ID of this producer entity. 
 By default, the framework uses the producer ID to route events to their target entities — 
 if they have identifiers of the same type.  If the type of producer ID does not match one of the
 target entity, then event fields are analyzed. It is also possible to set custom routing rules.
-</p>   
+{{% /note-block %}}   
 
 Now, let's see the server-side data of the Hello context.
 
@@ -503,10 +512,12 @@ return Printed.newBuilder()
 
 The `vBuild()` call validates and builds the message. This method is generated by Spine Model
 Compiler. For instructions on adding validation attributes to your model please see 
-[Validation User Guide]({{site.baseurl}}/docs/guides/validation). 
+[Validation User Guide](docs/guides/validation/). 
 
-<p class="note">After the event is generated, it is posted to the `EventBus` and delivered to
-subscribers automatically. You don't need to write any code for this.</p>  
+{{% note-block class="note" %}}
+After the event is generated, it is posted to the `EventBus` and delivered to
+subscribers automatically. You don't need to write any code for this.
+{{% /note-block %}}  
 
 Now, let's see how the `Console` Process Manager is exposed to the outer world so that it can
 receive commands.
@@ -535,9 +546,11 @@ the `@BoundedContext` annotation:
 package io.spine.helloworld.server.hello;
 ```
 
-<p class="note">The framework assumes that all entity classes belonging to this and nested packages
+{{% note-block class="note" %}}
+The framework assumes that all entity classes belonging to this and nested packages
 belong to the Bounded Context with the name specified in the argument of the annotation.
-This arrangement is needed for routing events.</p>
+This arrangement is needed for routing events.
+{{% /note-block %}}
 
 The second thing the `HelloContext` does is creating a Builder for the Bounded Context:
 
@@ -554,10 +567,12 @@ public static BoundedContextBuilder newBuilder() {
 
 The context we create is single-tenant. It contains one entity type which we pass to the builder.
  
-<p class="note">If an entity uses default routing rules for the incoming events and commands,
+{{% note-block class="note" %}}
+If an entity uses default routing rules for the incoming events and commands,
 its type can be added to `BoundedContextBuilder` directly. If custom routing rules are needed,
 they are specified by a custom `Repository` class. In this case, an instance of such `Repository`
-is passed to `BoundedContextBuilder` instead of the entity type managed by this `Repository`.</p>
+is passed to `BoundedContextBuilder` instead of the entity type managed by this `Repository`.
+{{% /note-block %}}
 
 Once we assembled the Bounded Context, let's test it.
  
@@ -565,9 +580,11 @@ Once we assembled the Bounded Context, let's test it.
 
 Let's open the `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
 
-<p class="note">We already added JUnit dependency when defining the Gradle project.
+{{% note-block class="note" %}}
+We already added JUnit dependency when defining the Gradle project.
 The `testImplementation` dependency for `spine-testutil-server` is automatically added when
-you enable Spine in your project using `spine.enableJava().server()`. So, we're good to go testing.</p>
+you enable Spine in your project using `spine.enableJava().server()`. So, we're good to go testing.
+{{% /note-block %}}
 
 The class of the test suite extends the abstract base called `ContextAwareTest`:
 
@@ -735,10 +752,12 @@ public Server(String serverName) {
 The constructor accepts the name which is used for connecting clients. This name
 is passed to the `inProcess()` factory method of the `io.spine.server.Server` class. 
 
-<p class="note">In-process gRPC communications are normally used for testing.
+{{% note-block class="note" %}}
+In-process gRPC communications are normally used for testing.
 This example uses in-process client/server arrangement in the production code for
 the sake of simplicity. A real-world application would use a `Server` instance exposed
-via a TCP/IP port.</p>
+via a TCP/IP port.
+{{% /note-block %}}
 
 Once we have the `Server.Builder` instance returned by the `inProcess()` method,
 we add the Hello Context via its builder to the constructed `Server` instance.
@@ -764,10 +783,12 @@ public final class Client {
     private final io.spine.client.Client client;
 ```
 
-<p class="note">The `io.spine:spine-client` library is provided
+{{% note-block class="note" %}}
+The `io.spine:spine-client` library is provided
 to the example application project as a transitive dependency of
 the `io.spine:spine-server` library, which is added to the project when you do
-`spine.enableJava().server()` in your Gradle project.</p>
+`spine.enableJava().server()` in your Gradle project.
+{{% /note-block %}}
 
 Then, the `Client` class declares a field for keeping subscriptions to the results of a command
 execution. We'll see how this field is used in a minute. 

@@ -1,13 +1,14 @@
 ---
 title: Project Structure
 headline: Documentation
-bodyclass: docs
-layout: docs
 ---
+
 # Project Structure
 
-<p class="lead">This document describes standard structure of a Spine-based project. 
-It assumes that you are familiar with <a href="https://gradle.org" target="_blank">Gradle</a>.</p>
+{{% note-block class="lead" %}}
+This document describes standard structure of a Spine-based project. 
+It assumes that you are familiar with <a href="https://gradle.org" target="_blank">Gradle</a>.
+{{% /note-block %}}
 
 <p>Spine uses Gradle for project model definition and as the build tool. 
 It follows the standard structure of the Gradle project with extensions related to 
@@ -88,5 +89,4 @@ myproject/
   gradlew
   gradlew.bat
   settings.gradle
-``` 
-
+```
