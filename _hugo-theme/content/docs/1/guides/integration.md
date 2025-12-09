@@ -39,11 +39,9 @@ land". The *ACL* translates the language of the upstream into the native languag
 Context.
 
 {{% note-block class="note" %}}
-
 This list is not exhaustive. The ["Domain-Driven Design" book](https://dddcommunity.org/book/evans_2003/)
 offers a few more strategies, all worth considering. However, in this article, we are going to
 describe the listed three patterns, because they are the most commonly used.
-
 {{% /note-block %}}
 
 ## The Domain
@@ -58,11 +56,9 @@ integrates with the software responsible for **Security Checks**, **Airplane Sup
 other. Thus, each of them can be treated as a third party.
 
 {{% note-block class="note" %}}
-
 **Disclaimer.** The domain of an airport was chosen for being an "easy" example, familiar to many
 readers. The system reflects a general impression of an airport and should not be treated as
 an accurate representation.
-
 {{% /note-block %}}
 
 ## Customer/Supplier Contexts

@@ -89,7 +89,6 @@ When modelling a domain, we often come up to certain data points which cannot be
 represented by required fields of an entity state, a Command, an Event, etc. 
 
 {{% note-block class="note" %}}
-
 Protobuf 2 used to have a native support for required fields. 
 However, from the serialization perspective, that proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076). If a required field was missing,
@@ -207,9 +206,7 @@ In this case one of the fields `UserIdentity.email`, `UserIdentity.google`,
 and `UserIdentity.twitter` must be set.
 
 {{% note-block class="warning" %}}
-
 `(is_required)` option is not yet supported in Dart.
-
 {{% /note-block %}}
 
 In some other cases, a field may be either required or not, depending on the value of another field.
@@ -359,9 +356,7 @@ User user = User
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
 {{% note-block class="warning" %}}
-
 `(validate)` option is not yet supported in Dart.
-
 {{% /note-block %}}
 
 #### Invalid fields
@@ -439,12 +434,10 @@ mathematically, there is no hard upper limit which a field value can reach.
 Usage of the double dot separator ("`..`") between the bounds is mandatory.
 
 {{% note-block class="note" %}}
-
 In some languages, Protobuf unsigned integers are represented by signed language primitives.
 For example, in Java, a `uint64` is represented with a `long`. If a value of a field in Java will
 overflow into `long` negatives, it will be considered a negative by the validation library. Keep
 that in mind when defining lower bounds.
-
 {{% /note-block %}}
 
 ## Regular expressions
@@ -557,9 +550,7 @@ Validate.checkValidChange(old, changed);
 `Validate.checkValidChange()` throws a `ValidationException` if the constraint is violated.
 
 {{% note-block class="warning" %}}
-
 In Dart, there is no support for this feature.
-
 {{% /note-block %}}
 
 Many fields of an entity are immutable. They may be set once in the life of the entity and then
@@ -649,16 +640,12 @@ own, all of it is discarded and only the "substitute" rules from the `UserPictur
 used.
 
 {{% note-block class="warning" %}}
-
 External constraints are not yet supported in Dart.
-
 {{% /note-block %}}
 
 {{% note-block class="note" %}}
-
 Mind performance considerations when declaring external constraints. It is expected that the number
 of such constrains in the whole project is not large, significantly smaller than the number of
 normal constraints. This mechanism is not designed to override validation rules of an entire library
 of Protobuf definitions, merely a small amount of local patches.
-
 {{% /note-block %}}

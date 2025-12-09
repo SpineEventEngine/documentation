@@ -81,7 +81,6 @@ spine.enableJava {
 ```
 
 {{% note-block class="note" %}}
-
 Note the use of the `protobuf` configuration. This tells our tools that the Protobuf definitions
 in the subproject `model` must be converted into Java code in the current subproject.
 
@@ -89,7 +88,6 @@ Alternatively, if, for instance, the upstream project already contains code gene
 and no additional codegen is required, the `api`/`implementation` configurations should be used. See
 [this Gradle doc](https://docs.gradle.org/current/userguide/dependency_management_for_java_projects.html)
 for more info.
-
 {{% /note-block %}}
 
 ### Java web server

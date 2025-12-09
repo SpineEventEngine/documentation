@@ -11,7 +11,6 @@ next_btn:
 This guide will walk you through a minimal client-server application in Java
 which handles one command to print some text on behalf of the current computer user. The document
 goes through already written code which is quite simple. So, it won't take long.
-
 {{% /note-block %}}
 
 ## What we'll do
@@ -109,7 +108,6 @@ the dot (e.g. `.gitattributes` and `.travis.yml`).
 These files configure Git and CI systems we use. They are not directly related to the subject
 of the example and this guide. If you're interested in this level of details,
 please look into the code and comments in these files.
-
 {{% /note-block %}}    
 
 Here are the directories of interest in the project root:
@@ -170,7 +168,6 @@ This enables Java in the module and adds necessary dependencies and configuratio
 Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
 This way a module of a Bounded Context “A” may be a client for a Bounded Context “B”. 
 Client-side applications or modules should call: `spine.enableJava().client()`.
-
 {{% /note-block %}}
 
 ### Other project configuration
@@ -214,7 +211,6 @@ These two files define signals used by the Hello context. There's also data of t
 Process Manager, which is defined in the package **`server`** in the file **`console.proto`**.
 
 {{% note-block class="note" %}}
-
 We arrange the sub-package `server` to highlight the fact that this is server-only data. It is not
 a convention used by the framework. We find the clarity of this infix useful when creating
 cloud applications. So, we share it as a recommendation in this example.
@@ -327,8 +323,7 @@ to print.
 
 {{% note-block class="note" %}}
 In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
-If you're new to this language, you may want to look at the [Proto3 Language Guide][proto3-guide].  
-
+If you're new to this language, you may want to look at the [Proto3 Language Guide][proto3-guide].
 {{% /note-block %}}
 
 Now, let's see how to define events. 
@@ -384,14 +379,12 @@ The event tells which text was printed for a user. Both of the fields are marked
 because the event does not make much sense if one of them is empty. 
 
 {{% note-block class="note" %}}
-
 Unlike for commands, the framework does not assume that the first event field is <em>always</em>
 populated. This is so because default routing rules for commands and events are different. 
 When an event is produced by some entity, it remembers the ID of this producer entity. 
 By default, the framework uses the producer ID to route events to their target entities — 
 if they have identifiers of the same type.  If the type of producer ID does not match one of the
 target entity, then event fields are analyzed. It is also possible to set custom routing rules.
-
 {{% /note-block %}}   
 
 Now, let's see the server-side data of the Hello context.
