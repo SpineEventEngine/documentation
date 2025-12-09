@@ -120,9 +120,9 @@ You will find such naming pattern in the framework API. For example, `EventId`, 
 
 {{% note-block class="note" %}}
 This convention is not a requirement. We find `Id` suffix short yet meaningful for
-    building a rich type-safe API. You can also select another convention that fits your domain
-    best. Please note that future version of the framework tools will use the `Id` suffix of the
-    types for code scaffolding and improving intelligence of code generation.
+building a rich type-safe API. You can also select another convention that fits your domain
+best. Please note that future version of the framework tools will use the `Id` suffix of the
+types for code scaffolding and improving intelligence of code generation.
 {{% /note-block %}}
 
 While the identifier type is usually defined with the `Id` suffix, we do not recommend following
@@ -132,51 +132,49 @@ is usually excessive because the identifier type already has the `Id` suffix.
 Instead, we name the fields by their respective type reference, so `user_id` becomes
 `user` and `project_id` becomes `project`.
 
-<div class="row">
-<div class="col-xl-6">
-<p>In events:</p>
-{% highlight proto %}
-message TaskCreated {
+{{< docs-card-container >}}
+
+{{< code-with-label 
+    label="In events:" 
+    lang="proto" >}}message TaskCreated {
     TaskId task = 1;
     ProjectId project = 2;
 }
-{% endhighlight %}
-</div>
-<div class="col-xl-6">
-<p>And entity states:</p>
-{% highlight proto %}
-message TaskProjection {
+{{< /code-with-label >}}
+
+{{< code-with-label
+    label="And entity states:"
+    lang="proto" >}}message TaskProjection {
     TaskId task = 1;
     ProjectId project = 2
     string name = 3;
 }
-{% endhighlight %}
-</div>
-</div>
+{{< /code-with-label >}}
+
+{{< /docs-card-container >}}
 
 The only exception from the suggestion is when the ID is a part of the root aggregate state, 
 or a command that creates the aggregate directly.
 
-<div class="row">
-<div class="col-xl-6">
-<p>In aggregates:</p>
-{% highlight proto %}
-message Task {
+{{< docs-card-container >}}
+
+{{< code-with-label 
+    label="In aggregates:" 
+    lang="proto" >}}message Task {
     TaskId id = 1;
     ProjectId project = 2;
 }
-{% endhighlight %}
-</div>
-<div class="col-xl-6">
-<p>And entity creation commands:</p>
-{% highlight proto %}
-message CreateTask {
+{{< /code-with-label >}}
+
+{{< code-with-label
+    label="And entity creation commands:"
+    lang="proto" >}}message CreateTask {
     TaskId id = 1;
     ProjectId project = 2;
 }
-{% endhighlight %}
-</div>
-</div>
+{{< /code-with-label >}}
+
+{{< /docs-card-container >}}
 
 ### `repeated` and `map` fields
 
@@ -196,28 +194,27 @@ the consistency with the style guide.
 
 So when defining `repeated` and `map` fields use:
 
-<div class="row">
-<div class="col-xl-6">
-<p>Singulars</p>
-{% highlight proto %}
-message Task {
+{{< docs-card-container >}}
+
+{{< code-with-label 
+    label="Singulars:" 
+    lang="proto" >}}message Task {
     TaskId id = 1;
     repeated SubTaskId subtask = 2;
     map<string, string> user_label = 3;
 }
-{% endhighlight %}
-</div>
-<div class="col-xl-6">
-<p>Over pluralized names</p>
-{% highlight proto %}
-message CreateTask {
+{{< /code-with-label >}}
+
+{{< code-with-label
+    label="Over pluralized names:"
+    lang="proto" >}}message CreateTask {
     TaskId id = 1;
     repeated SubTaskId subtasks = 2;
     map<string, string> user_labels = 3;
 }
-{% endhighlight %}
-</div>
-</div>
+{{< /code-with-label >}}
+
+{{< /docs-card-container >}}
 
 ### Commands
 
