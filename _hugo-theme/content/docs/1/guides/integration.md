@@ -63,8 +63,7 @@ an accurate representation.
 
 ## Customer/Supplier Contexts
 
-{: .img-small}
-![Customer/Supplier Contexts domain]({{% baseurl %}}img/docs/integrating-with-a-third-party/customer-supplier.jpg)
+![Customer/Supplier Contexts domain](img/docs/integrating-with-a-third-party/customer-supplier.jpg#small)
 
 The **Takeoffs and Landings** system must know whether an *Aircraft* is ready for the *Flight*.
 This decision requires data on the supplies, which are provided for the *Aircraft*. To obtain this

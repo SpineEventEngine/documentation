@@ -194,17 +194,17 @@ the following files:
 
   * **`commands.proto`** — this file defines the `Print` command.
   
-    {{% note-block class="note" %}}
+{{% note-block class="note" %}}
 By convention, commands are defined in a file with the `commands` suffix
-     in its name. It can be, for example, `order_commands.proto` or just `commands.proto`
-     like in our example.
+in its name. It can be, for example, `order_commands.proto` or just `commands.proto`
+like in our example.
 {{% /note-block %}}
      
   * **`events.proto`** — this file defines the `Printed` event.
   
-    {{% note-block class="note" %}}
+{{% note-block class="note" %}}
 Similarly to commands, events are defined in proto files having the `events`
-    suffix in their names.
+suffix in their names.
 {{% /note-block %}}
 
 These two files define signals used by the Hello context. There's also data of the `Console`
