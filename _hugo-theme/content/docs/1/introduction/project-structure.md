@@ -46,7 +46,7 @@ By not including the generated code into the version control we minimise the “
 for developer eyes when a model changes.  So, if you are using Git, for example, consider adding
  the following line to your `.gitignore` file:
 
-```
+```text
 **/generated/**
 ``` 
 
@@ -54,7 +54,7 @@ for developer eyes when a model changes.  So, if you are using Git, for example,
 
 Here's how a typical project structure would look like:
 
-```
+```text
 myproject/
   gradle/
   module-one/
