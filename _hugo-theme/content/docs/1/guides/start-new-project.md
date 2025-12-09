@@ -241,10 +241,10 @@ a context and split it into scenarios. Make sure each of the development steps r
 in a separate Pull Request with dedicated artifacts in the source code repository. 
 Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated ones.
 
-[introduction]: docs/introduction/ "Check the Introduction"/
+[introduction]: docs/introduction/ "Check the Introduction"
 [project-structure]: docs/introduction/project-structure#example "Check out the Example Project structure"
-[naming-conventions]: docs/introduction/naming-conventions "Check out the Naming Conventions"/
-[validation-guide]: docs/guides/validation "Learn more about the Validation"/
+[naming-conventions]: docs/introduction/naming-conventions/ "Check out the Naming Conventions"
+[validation-guide]: docs/guides/validation/ "Learn more about the Validation"
 [BoundedContext-concept]: docs/introduction/concepts#bounded-context "Check out the Bounded Context definition"
 [aggregate-concept]: docs/introduction/concepts#aggregate "Check out the Aggregate definition"
 [process-manager-concept]: docs/introduction/concepts#process-manager "Check out the Process Manager definition"
@@ -263,7 +263,7 @@ Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated 
 
 [rejection-concept]: docs/introduction/concepts#rejection "Learn more about Rejections"
 [rejections-proto]: docs/introduction/naming-conventions#rejectionsproto "Learn more about Rejections proto structure"
-[rejections-guide]: docs/guides/rejections "Learn more about Rejections"/
+[rejections-guide]: docs/guides/rejections/ "Learn more about Rejections"
 
 [entities]: docs/introduction/#entities "See more examples on entities"
 [entity-concept]: docs/introduction/concepts#entities "Learn more about Entities"
