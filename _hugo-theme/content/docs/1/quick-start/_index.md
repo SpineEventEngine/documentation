@@ -1,8 +1,6 @@
 ---
 title: Getting Started in Java
 headline: Documentation
-next_btn:
-  page: Development Process Overview
 ---
 
 # Getting started with Spine in Java
