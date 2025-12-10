@@ -7,7 +7,8 @@ Renders the code block that is provided as `Inner` element and its label.
 
 <div class="code-with-label">
     <p>{{ $label }}</p>
-    {{- highlight .Inner $lang -}}
+    {{- $code := strings.TrimLeft "\r\n" .Inner -}}
+    {{- highlight $code $lang -}}
 </div>
 
 {{- /* Strip trailing newline. */ -}}

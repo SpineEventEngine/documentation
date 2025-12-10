@@ -136,7 +136,8 @@ Instead, we name the fields by their respective type reference, so `user_id` bec
 
 {{< code-with-label 
     label="In events:" 
-    lang="proto" >}}message TaskCreated {
+    lang="proto" >}}
+message TaskCreated {
     TaskId task = 1;
     ProjectId project = 2;
 }
@@ -144,7 +145,8 @@ Instead, we name the fields by their respective type reference, so `user_id` bec
 
 {{< code-with-label
     label="And entity states:"
-    lang="proto" >}}message TaskProjection {
+    lang="proto" >}}
+message TaskProjection {
     TaskId task = 1;
     ProjectId project = 2
     string name = 3;
@@ -160,7 +162,8 @@ or a command that creates the aggregate directly.
 
 {{< code-with-label 
     label="In aggregates:" 
-    lang="proto" >}}message Task {
+    lang="proto" >}}
+message Task {
     TaskId id = 1;
     ProjectId project = 2;
 }
@@ -168,7 +171,8 @@ or a command that creates the aggregate directly.
 
 {{< code-with-label
     label="And entity creation commands:"
-    lang="proto" >}}message CreateTask {
+    lang="proto" >}}
+message CreateTask {
     TaskId id = 1;
     ProjectId project = 2;
 }
@@ -198,7 +202,8 @@ So when defining `repeated` and `map` fields use:
 
 {{< code-with-label 
     label="Singulars:" 
-    lang="proto" >}}message Task {
+    lang="proto" >}}
+message Task {
     TaskId id = 1;
     repeated SubTaskId subtask = 2;
     map<string, string> user_label = 3;
@@ -207,7 +212,8 @@ So when defining `repeated` and `map` fields use:
 
 {{< code-with-label
     label="Over pluralized names:"
-    lang="proto" >}}message CreateTask {
+    lang="proto" >}}
+message CreateTask {
     TaskId id = 1;
     repeated SubTaskId subtasks = 2;
     map<string, string> user_labels = 3;
@@ -343,8 +349,7 @@ The arrangement with message classes nested under `Rejections` class and top-lev
 is required to avoid name clashes while keeping these generated classes under the same package.
 
 {{% note-block class="note" %}}
-For details on rejections usage, refer to
-    [Defining Rejections Guide](docs/guides/rejections/).
+For details on rejections usage, refer to [Defining Rejections Guide](docs/guides/rejections/).
 {{% /note-block %}}
 
 #### Server-side code
