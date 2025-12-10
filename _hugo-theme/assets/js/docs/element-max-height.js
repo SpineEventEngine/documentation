@@ -34,6 +34,8 @@
  */
 export function setElementMaxHeight() {
     const $element = $('.set-max-height');
+    const $navbar = $('#header');
+    const navbarHeight = $navbar.innerHeight();
     let scrollTop = 0;
 
     if (!$element) return;
@@ -87,7 +89,7 @@ export function setElementMaxHeight() {
      * @return {number} the top position of the element
      */
     function getTopOffset($element) {
-        const stickyTop = parseInt($element.css('top'), 10) || 0;
+        const stickyTop = parseInt($element.css('top'), 10) || navbarHeight || 0;
         const isSticky = $element[0].getBoundingClientRect().top <= stickyTop;
         let topPosition;
 
