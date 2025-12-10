@@ -24,6 +24,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+$sidenav-top-offset: 24px;
 $sidenav-link-top-level-font-size: 14px;
 $sidenav-link-font-size: 13px;
 $sidenav-link-color: rgba(0, 0, 0, .54);
@@ -41,6 +42,7 @@ $sidenav-holder-padding: 32px 24px 32px 16px;
 $sidenav-title-left-padding: 22px;
 
 .doc-sidenav {
+  padding-top: $sidenav-top-offset;
   margin-left: -$sidenav-first-level-left-padding;
   width: $sticky-docs-sidenav-width;
   list-style: none;
