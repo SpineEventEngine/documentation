@@ -15,4 +15,4 @@ Here are the ground rules the framework is built upon:
 
 4. A command _must_ result in an event, a rejection, or other commands.
 
-5. Events are <em>always</em> appended. Never deleted or edited.
+5. Events are _always_ appended. Never deleted or edited.
