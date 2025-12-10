@@ -26,6 +26,8 @@
 
 .code-with-label {
   .highlight {
+    margin-bottom: 0 !important;
+
     pre {
       border-radius: $code-block-border-radius !important;
       margin: 0 !important;
