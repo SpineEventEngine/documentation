@@ -15,7 +15,7 @@ The creators and drivers of the DDD ideas.
     name="Eric Evans"
     socials=`[
         {"url":"https://domainlanguage.com/", "icon":"far fa-globe"},
-        {"url":"https://twitter.com/ericevans0", "icon":"fab fa-twitter"}
+        {"url":"https://x.com/ericevans0", "icon":"fab fa-twitter"}
     ]`>}}
 The author of the DDD methodology. Domain linguist. The author
 of&nbsp;“Domain-Driven Design: Tackling Complexity in Software”.
@@ -26,7 +26,7 @@ of&nbsp;“Domain-Driven Design: Tackling Complexity in Software”.
     name="Vaughn Vernon"
     socials=`[
         {"url":"https://github.com/VaughnVernon", "icon":"fab fa-github"},
-        {"url":"https://twitter.com/VaughnVernon", "icon":"fab fa-twitter"}
+        {"url":"https://x.com/VaughnVernon", "icon":"fab fa-twitter"}
     ]`>}}
 Domain Model Whisperer. The author of “Implementing Domain-Driven Design”
 and “Domain-Driven Design Distilled”. Founder of [Vlingo Platform](https://vlingo.io/).
@@ -37,7 +37,7 @@ and “Domain-Driven Design Distilled”. Founder of [Vlingo Platform](https://v
     name="Greg Young"
     socials=`[
         {"url":"https://github.com/gregoryyoung", "icon":"fab fa-github"},
-        {"url":"https://twitter.com/gregyoung", "icon":"fab fa-twitter"}
+        {"url":"https://x.com/gregyoung", "icon":"fab fa-twitter"}
     ]`>}}
 Creator of CQRS and the driver of Event Sourcing.
 Founder of the [Event Store](https://eventstore.com/).
@@ -48,7 +48,7 @@ Founder of the [Event Store](https://eventstore.com/).
     name="Alberto Brandolini"
     socials=`[
         {"url":"https://github.com/ziobrando", "icon":"fab fa-github"},
-        {"url":"https://twitter.com/ziobrando", "icon":"fab fa-twitter"}
+        {"url":"https://x.com/ziobrando", "icon":"fab fa-twitter"}
     ]`>}}
 The inventor of #EventStorming. Practicing engineer and a coach. The author of
 Introducing “EventStorming – An act of deliberate collective learning”.

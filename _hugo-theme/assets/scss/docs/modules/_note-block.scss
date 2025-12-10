@@ -61,36 +61,3 @@
     margin-bottom: 0;
   }
 }
-
-/* TODO:2025-12-01:julia.evseeva: Delete the following styles after migrating content. */
-.lead {
-    font-family: $main-font;
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: .2px;
-    padding-top: 8px;
-    margin-bottom: 32px;
-  }
-
-.note,
-.warning {
-  padding: 12px 24px 13px;
-  color: $black;
-  border-radius: $border-radius-s;
-  margin-bottom: 24px;
-
-  code {
-    background-color: transparent;
-    padding: 0;
-  }
-}
-
-.note {
-  background-color: $note-bg-color;
-  border-left: 4px solid $main-brand-color;
-}
-
-.warning {
-  background-color: #fffde6;
-  border-left: 4px solid $warning-color;
-}

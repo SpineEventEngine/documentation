@@ -140,17 +140,52 @@
     padding-bottom: 8px;
   }
 
-  .img-small {
-    img {
-      width: 70%;
+  // Use anchors in markdown as an image style modifier.
+  // `![Title](image-name.webp#medium)`
+  img[src$="#medium"],
+  img[src$="#small"] {
+    margin: 0 auto;
+    display: block;
+
+    @media (max-width: $phone-xlarge) {
+      max-width: 100%;
     }
   }
 
-  .img-caption {
-    font-family: $main-font;
-    font-size: 14px;
-    color: $gray-500;
-    margin-bottom: 32px;
+  img[src$="#medium"] {
+    max-width: 85%;
+  }
+
+  img[src$="#small"] {
+    max-width: 70%;
+  }
+
+  .image-caption {
+    $caption-color: rgba(0, 0, 0, .54);
+    $caption-size: 15px;
+
+    text-align: center;
+    font-size: $caption-size !important;
+    line-height: 1.5 !important;
+    color: $caption-color;
+    margin-top: 0;
+
+    @include breakpoint-min(lg-phone) {
+      margin-bottom: 32px;
+    }
+
+    &.left {
+      text-align: left;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $caption-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
   }
 
   @include list($item-line-height: $article-line-height);

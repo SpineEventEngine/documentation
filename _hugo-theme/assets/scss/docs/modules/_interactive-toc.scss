@@ -25,8 +25,8 @@
  */
 
 /*
-The TOC can be with the left indicator line or without it.
-Manages by adding the corresponding class.
+  The TOC can be with the left indicator line or without it.
+  Manages by adding the corresponding class.
 */
 
 .interactive-toc {
@@ -66,6 +66,10 @@ Manages by adding the corresponding class.
             color: $toc-item-active-color;
             font-weight: 600;
           }
+        }
+
+        code {
+          background-color: transparent;
         }
 
         ul {

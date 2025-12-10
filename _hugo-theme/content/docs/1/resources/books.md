@@ -27,7 +27,7 @@ discussing domain design.
     author="Eric Evans"
     book_url="https://www.amazon.com/Domain-Driven-Design-Reference-Definitions-Summaries/dp/1457501198" >}}
 This book provides a brief overview of the DDD methodology.
-It also defines the terms, which were coined in this topic since 2004.
+It also defines the terms, which were coined in this topic since&nbsp;2004.
 {{< /book-card >}}
 
 {{< book-card

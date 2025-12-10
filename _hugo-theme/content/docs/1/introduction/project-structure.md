@@ -7,12 +7,12 @@ headline: Documentation
 
 {{% note-block class="lead" %}}
 This document describes standard structure of a Spine-based project. 
-It assumes that you are familiar with <a href="https://gradle.org" target="_blank">Gradle</a>.
+It assumes that you are familiar with [Gradle](https://gradle.org).
 {{% /note-block %}}
 
-<p>Spine uses Gradle for project model definition and as the build tool. 
+Spine uses Gradle for project model definition and as the build tool. 
 It follows the standard structure of the Gradle project with extensions related to 
-the code generation done by Protobuf Compiler and Spine Model Compiler.</p>
+the code generation done by Protobuf Compiler and Spine Model Compiler.
 
 ## Handcrafted code
 

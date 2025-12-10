@@ -65,9 +65,17 @@ $doc-sidenav-background: $gray-100;
       padding: 0;
     }
 
+    $col-top-padding: 24px;
+    $col-top-extra: 8px;
+
     .doc-sidenav-col,
     .toc-col {
-      padding: 24px 0 24px;
+      padding: $col-top-padding 0 24px;
+    }
+
+    // Aligns TOC column with the sidenav.
+    .toc-col {
+      padding-top: $col-top-padding + $col-top-extra;
     }
 
     .content-col {
