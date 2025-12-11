@@ -14,9 +14,9 @@ Originally, this tool was written as a plugin for Jekyll, but now it is also
 available as a binary executable written in Go.
 
 1. Open [embed-code][embed-code-repo] repository.
-2. Switch to `embed-code-go` branch.
-3. Go to `embed-code-go/bin` and download an executable suitable for you OS.
-4. Put it to `_code` directory of this repository.
+2. Switch to the `embed-code-go` branch.
+3. Go to the `embed-code-go/bin` and download an executable suitable for you OS.
+4. Put it in the `_code` directory of this repository.
 
 ### Download code snippets
 
@@ -51,7 +51,7 @@ to the documentation files using the tool. The most important points here are:
 
 1. Update the snippet in the appropriate repository.
 2. Make sure it builds successfully: `./gradlew build`.
-3. Go to `SpineEventEngine/documentation` project.
+3. Go to the `SpineEventEngine/documentation` project.
 4. Navigate to the `_code` directory.
 5. Execute the binary based on your operating system and architecture: 
    `./embed-code-<os> -config-path="config-of-your-choice.yml" -mode="embed"`.
@@ -65,9 +65,9 @@ to the documentation files using the tool. The most important points here are:
 
 1. Add a new snippet in the appropriate repository.
 2. Make sure it builds successfully: `./gradlew build`.
-3. Go to `SpineEventEngine/documentation` project and insert code 
+3. Go to the `SpineEventEngine/documentation` project and insert code 
    embedding directives where needed.
-4. Navigate to `_code` directory.
+4. Navigate to the `_code` directory.
 5. Execute: `./embed-code -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
@@ -78,7 +78,7 @@ to the documentation files using the tool. The most important points here are:
 ### How to remove a code snippet?
 
 1. Remove the snippet in the appropriate repository.
-2. Remove its code embeddings in the markdown files.
+2. Remove its code embeddings from the markdown files.
 3. Make sure there are no embeddings of the removed snippet anymore:
    `./embed-code-<os> -config-path="config-of-your-choice.yml" -mode="check"`.
 
