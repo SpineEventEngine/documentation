@@ -4,7 +4,7 @@ headline: DDD Resources
 bodyclass: docs resources
 ---
 
-# Resources on Domain-Driven&nbsp;Design
+# Resources on Domain-Driven Design
 
 {{% note-block class="lead" %}}
 A brief selection of learning materials we recommend to the colleagues in DDD.
