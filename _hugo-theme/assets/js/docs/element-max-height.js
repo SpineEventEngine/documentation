@@ -67,6 +67,7 @@ export function setElementMaxHeight() {
      * Calculates the possible element `max-height` based on the window
      * and navigation heights.
      *
+     * @param $element the element whose max-height needs to be calculated
      * @return {number} maxHeight the value of the maximum possible height
      */
     function calculateMaxHeight($element) {
