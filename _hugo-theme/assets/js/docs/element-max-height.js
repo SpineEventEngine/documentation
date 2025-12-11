@@ -34,26 +34,28 @@
  */
 export function setElementMaxHeight() {
     const $element = $('.set-max-height');
-    const $footer = $('.footer');
-    const headerHeight = $('#header').length ? $('#header').outerHeight() : 0;
-    const footerTopPosition = $footer.length ? $footer.position().top : 0;
+    const $navbar = $('#header');
+    const navbarHeight = $navbar.innerHeight();
+    let scrollTop = 0;
 
-    if ($element.length) {
+    if (!$element) return;
+
+    updateMaxHeight();
+
+    $(window).on('load resize scroll', function () {
+        scrollTop = $(window).scrollTop();
         updateMaxHeight();
-
-        $(window).on('resize scroll', function () {
-            updateMaxHeight();
-        });
-    }
+    });
 
     /**
      * Sets the `max-height` value to the element
      * to be sure that it always fits on the page.
      */
     function updateMaxHeight() {
-        const maxHeight = calculateMaxHeight();
-
         $element.each(function() {
+            const $this = $(this);
+            const maxHeight = calculateMaxHeight($this);
+
             $(this).css({
                 'overflow': 'auto',
                 'max-height': maxHeight
@@ -65,24 +67,39 @@ export function setElementMaxHeight() {
      * Calculates the possible element `max-height` based on the window
      * and navigation heights.
      *
+     * @param $element the element whose max-height needs to be calculated
      * @return {number} maxHeight the value of the maximum possible height
      */
-    function calculateMaxHeight() {
+    function calculateMaxHeight($element) {
         const windowHeight = $(window).height();
-        const scrollTop = $(window).scrollTop();
-        const elementTopMargin = 24;
+        const elementTopPosition = getTopOffset($element);
         const elementBottomMargin = 20;
-        const elementTopPosition = headerHeight + elementTopMargin;
         const maxHeight = windowHeight - elementTopPosition - elementBottomMargin;
 
-        if ($footer.length) {
-            const isFooterVisible = windowHeight + scrollTop > footerTopPosition;
+        return maxHeight;
+    }
 
-            if (isFooterVisible) {
-                return footerTopPosition - scrollTop - elementTopPosition - elementBottomMargin;
-            }
+    /**
+     * Returns the provided element top position relative to the window.
+     *
+     * <p>If the element is sticky, returns the CSS `top` value, otherwise
+     * calculates the top position. It is useful when the hero section
+     * is present on the page.
+     *
+     * @param $element the element whose position needs to be calculated
+     * @return {number} the top position of the element
+     */
+    function getTopOffset($element) {
+        const stickyTop = parseInt($element.css('top'), 10) || navbarHeight || 0;
+        const isSticky = $element[0].getBoundingClientRect().top <= stickyTop;
+        let topPosition;
+
+        if (isSticky) {
+            topPosition = stickyTop;
+        } else {
+            topPosition = $element.offset().top - scrollTop;
         }
 
-        return maxHeight;
+        return topPosition;
     }
 }

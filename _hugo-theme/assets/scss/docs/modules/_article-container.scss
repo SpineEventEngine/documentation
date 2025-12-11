@@ -28,7 +28,6 @@ $article-border-color: #e6ecf1;
 $article-container-border: 1px solid $article-border-color;
 $article-side-padding: 56px;
 $article-container-padding: 32px $article-side-padding 40px;
-$article-container-margin-bottom: 32px;
 $article-container-border-radius: 3px;
 $article-container-min-height: 460px;
 
@@ -39,7 +38,6 @@ $article-container-min-height: 460px;
   border: $article-container-border;
   border-radius: $article-container-border-radius;
   padding: $article-container-padding;
-  margin-bottom: $article-container-margin-bottom;
   min-width: 0; // Fixes a bug when `pre` code breaks flex element.
   min-height: $article-container-min-height;
 

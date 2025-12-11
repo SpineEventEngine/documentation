@@ -30,6 +30,7 @@
 */
 
 .interactive-toc {
+  $toc-top-offset: 24px;
   $toc-item-font-size: 12px;
   $toc-item-color: $gray-700;
   $toc-item-line-height: 1.5;
@@ -38,6 +39,8 @@
   $toc-indicator-width: 1px;
   $toc-indicator-line-color: rgba(0, 0, 0, .12);
   $toc-indicator-color: $main-brand-color;
+
+  padding-top: $toc-top-offset + 8px;
 
   #TableOfContents {
     margin-bottom: 0;
