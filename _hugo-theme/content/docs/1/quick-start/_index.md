@@ -150,7 +150,7 @@ Bootstrap&nbsp;plugin:
             end="^}"></embed-code>
 ```gradle
 plugins {
-    id("io.spine.tools.gradle.bootstrap").version("1.7.0")
+    id("io.spine.tools.gradle.bootstrap").version("1.9.0")
 }
 ```
 
@@ -710,9 +710,16 @@ the class configures the server environment:
             start="static {" 
             end="    }"></embed-code>
 ```java
-static {
-    configureEnvironment();
-}
+import static io.spine.server.Server.inProcess;
+
+/**
+ * Backend implementation of the Hello Context.
+ */
+public final class Server {
+
+    static {
+        configureEnvironment();
+    }
 ```
 
 ### Configuring the environment
@@ -725,7 +732,7 @@ the settings that are normally used for testing:
             end="    }"></embed-code>
 ```java
 private static void configureEnvironment() {
-    ServerEnvironment.when(Production.class)
+    ServerEnvironment.when(DefaultMode.class)
             .use(InMemoryStorageFactory.newInstance())
             .use(Delivery.localAsync())
             .use(InMemoryTransportFactory.newInstance());

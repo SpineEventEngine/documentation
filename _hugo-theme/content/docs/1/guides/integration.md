@@ -119,20 +119,20 @@ the service and exposes it on an endpoint available to the **Takeoffs and Landin
 ```java
 public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
 ...
-    @Override
-    public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
-...
-        Timestamp timestamp = request.getStartingFrom();
-        historicalEvents
-                .stream()
-                .filter(event -> compare(event.getWhenOccurred(), timestamp) >= 0)
-                .filter(event -> matches(event, request.getEventType()))
-                .map(event -> event.toBuilder()
-                                   .setSubscription(request)
-                                   .build())
-                .onClose(responseObserver::onCompleted)
-                .forEach(responseObserver::onNext);
-    }
+@Override
+public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
+    ...
+    Timestamp timestamp = request.getStartingFrom();
+    historicalEvents
+            .stream()
+            .filter(event -> compare(event.getWhenOccurred(), timestamp) >= 0)
+            .filter(event -> matches(event, request.getEventType()))
+            .map(event -> event.toBuilder()
+                               .setSubscription(request)
+                               .build())
+            .onClose(responseObserver::onCompleted)
+            .forEach(responseObserver::onNext);
+}
 ...
 }
 ```
