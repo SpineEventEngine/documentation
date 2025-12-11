@@ -707,19 +707,12 @@ Let's open the `Server` class of our example application suite. The static initi
 the class configures the server environment:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
-            start="static {" 
+            start="    static {" 
             end="    }"></embed-code>
 ```java
-import static io.spine.server.Server.inProcess;
-
-/**
- * Backend implementation of the Hello Context.
- */
-public final class Server {
-
-    static {
-        configureEnvironment();
-    }
+static {
+    configureEnvironment();
+}
 ```
 
 ### Configuring the environment
