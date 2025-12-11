@@ -38,7 +38,7 @@
     height: $avatar-size;
     border-radius: 50%;
 
-    @media (max-width: $phone-large) {
+    @include breakpoint(xmd-phone) {
       width: $avatar-size-mobile;
       height: $avatar-size-mobile;
     }
@@ -47,7 +47,7 @@
   .person-info {
     padding-left: $avatar-size + 20px;
 
-    @media (max-width: $phone-large) {
+    @include breakpoint(xmd-phone) {
       padding-left: $avatar-size-mobile + 20px;
     }
 

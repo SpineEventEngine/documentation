@@ -64,17 +64,17 @@ $layout-padding-phone: 20px;
 .content-holder {
   max-width: $layout-max-width;
 
-  @media(max-width: $desktop-medium) {
+  @include breakpoint(md-desktop) {
     padding-right: $layout-padding-medium;
     padding-left: $layout-padding-medium;
   }
 
-  @media(max-width: $tablet) {
+  @include breakpoint(tablet) {
     padding-right: $layout-padding-tablet;
     padding-left: $layout-padding-tablet;
   }
 
-  @media(max-width: $phone-medium) {
+  @include breakpoint(md-phone) {
     padding-right: $layout-padding-phone;
     padding-left: $layout-padding-phone;
   }

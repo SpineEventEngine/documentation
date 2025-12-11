@@ -32,7 +32,7 @@ $doc-sidenav-background: $gray-100;
 .docs {
   background-color: $body-light-gray-color;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     background-color: white;
   }
 
@@ -61,7 +61,7 @@ $doc-sidenav-background: $gray-100;
   .content-columns {
     padding: 0 15px;
 
-    @media (max-width: $doc-sidenav-mobile-breakpoint) {
+    @include breakpoint($doc-sidenav-mobile-breakpoint) {
       padding: 0;
     }
 

@@ -30,7 +30,7 @@
   gap: 24px;
   margin-bottom: 24px;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     grid-template-columns: 1fr;
   }
 

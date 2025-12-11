@@ -47,7 +47,7 @@ $sidenav-title-left-padding: 22px;
   width: $sticky-docs-sidenav-width;
   list-style: none;
 
-  @media(max-width: $tablet-large){
+  @include breakpoint(sm-desktop) {
     margin: 0;
     width: 100%;
     max-height: none !important; // Unsets calculated max-height for the sticky element on mobile.
@@ -68,7 +68,7 @@ $sidenav-title-left-padding: 22px;
     font-weight: 400;
     cursor: pointer;
 
-    @media (max-width: $tablet-large) {
+    @include breakpoint(sm-desktop) {
       padding: 12px $sidenav-first-level-left-padding;
     }
 
@@ -89,7 +89,7 @@ $sidenav-title-left-padding: 22px;
         transform: rotate(45deg);
         transition: all .3s ease-in-out;
 
-        @media (max-width: $tablet-large) {
+        @include breakpoint(sm-desktop) {
           top: 18px;
         }
       }
@@ -103,7 +103,7 @@ $sidenav-title-left-padding: 22px;
           top: 15px;
           transform: rotate(-45deg);
 
-          @media (max-width: $tablet-large) {
+          @include breakpoint(sm-desktop) {
             top: 19px;
           }
         }
@@ -173,7 +173,7 @@ $sidenav-title-left-padding: 22px;
 .mobile-sidenav-header {
   display: none;
 
-  @media(max-width: $doc-sidenav-mobile-breakpoint) {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
     display: flex;
     justify-content: flex-end;
 
@@ -204,7 +204,7 @@ $sidenav-title-left-padding: 22px;
 }
 
 .mobile-sidenav-holder {
-  @media(max-width: $doc-sidenav-mobile-breakpoint) {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
     display: none;
     position: fixed !important;
     background-color: white;
@@ -220,7 +220,7 @@ $sidenav-title-left-padding: 22px;
 }
 
 .mobile-sidenav-opened {
-  @media(max-width: $doc-sidenav-mobile-breakpoint) {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
     overflow: hidden;
   }
 
@@ -232,7 +232,7 @@ $sidenav-title-left-padding: 22px;
 #mobile-sidenav-toggle {
   display: none;
 
-  @media(max-width: $doc-sidenav-mobile-breakpoint) {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
     display: block;
     padding: 0 15px;
     cursor: pointer;
@@ -240,7 +240,7 @@ $sidenav-title-left-padding: 22px;
     font-size: 15px;
     margin: 24px 0 8px;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       padding: 0;
     }
 
