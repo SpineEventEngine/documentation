@@ -9,7 +9,7 @@ how it works.
 
 ### Obtain `embed-code` executable
 
-Firstly, you need to download the last available executable of `embed-code`.
+Firstly, we need to download the last available executable of `embed-code`.
 Originally, this tool was written as a plugin for Jekyll, but now it is also
 available as a binary executable written in Go.
 
@@ -20,15 +20,15 @@ available as a binary executable written in Go.
 
 ### Download code snippets
 
-This directory contains the source code which is embedded into the pages 
+The `_code` directory contains the source code, which is embedded into the pages 
 of the spine.io documentation:
 
 * `examples` — contains examples selected from the repositories under `spine-examples`
-  organization. These repositories added to this project as Git submodules.
+  organization. These repositories are added to this project as Git submodules.
 
-Update submodules to get the latest versions of the code snippets:
+To get the latest version of the code snippets, update the submodules:
 
-```bash
+```shell
 git submodule update --remote
 ```
 
@@ -38,9 +38,8 @@ As for now, there is the `_code/config-v1.yml` config file for Spine v1.
 
 ## Usage patterns
 
-Usually, we firstly update the snippets and then transfer the updated fragments
-to documentation files using the tool. The most important moments here are 
-the following:
+First, update the code snippets, and then migrate the updated snippets 
+to the documentation files using the tool. The most important points here are:
 
 1. Choose the correct config file (or create / modify one).
 2. Check out the correct branch in the repository with snippets.
@@ -53,12 +52,12 @@ the following:
 1. Update the snippet in the appropriate repository.
 2. Make sure it builds successfully: `./gradlew build`.
 3. Go to `SpineEventEngine/documentation` project.
-4. Navigate to `_code` directory.
+4. Navigate to the `_code` directory.
 5. Execute the binary based on your operating system and architecture: 
    `./embed-code-<os> -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
-   ```bash
+   ```shell
    ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
    ```
 
@@ -72,21 +71,31 @@ the following:
 5. Execute: `./embed-code -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
-   ```bash
+   ```shell
    ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
    ```
 
 ### How to remove a code snippet?
 
 1. Remove the snippet in the appropriate repository.
-2. Remove its code embeddings.
+2. Remove its code embeddings in the markdown files.
 3. Make sure there are no embeddings of the removed snippet anymore:
    `./embed-code-<os> -config-path="config-of-your-choice.yml" -mode="check"`.
 
    For example:
-   ```bash
+   ```shell
    ./embed-code-macos -config-path="config-v1.yml" -mode="check"
    ```
+
+## Troubleshooting
+
+If you encounter an error indicating that the executable file cannot be run,
+it likely does not have execution permissions. To grant execution rights 
+on Linux or macOS, run the following command from the `_code` directory:
+
+```shell
+chmod +x embed-code-macos
+```
 
 [embed-code-repo]: https://github.com/SpineEventEngine/embed-code
 [embed-code-readme]: https://github.com/SpineEventEngine/embed-code/blob/embed-code-go/embed-code-go/README.md
