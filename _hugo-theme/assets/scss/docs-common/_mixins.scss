@@ -66,3 +66,19 @@ $breakpoints: (
     }
   }
 }
+
+// Usage: `@include breakpoint-min-and-max(md-tablet, desktop) {}`
+@mixin breakpoint-min-and-max($minWidth, $maxWidth) {
+  @if map-has-key($breakpoints, $minWidth) and map-has-key($breakpoints, $maxWidth) {
+    $minValue: map-get($breakpoints, $minWidth);
+    $maxValue: map-get($breakpoints, $maxWidth);
+
+    @media (min-width: $minValue + 1) and (max-width: $maxValue) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $minWidth + 1) and (max-width: $maxWidth) {
+      @content;
+    }
+  }
+}
