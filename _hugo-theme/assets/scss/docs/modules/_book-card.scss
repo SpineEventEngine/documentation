@@ -26,10 +26,10 @@
 
 .book-card {
   $book-mobile-breakpoint: xmd-phone;
-  
+
   position: relative;
   padding-bottom: 32px;
-  
+
   @include breakpoint-min($book-mobile-breakpoint) {
     min-height: 240px;
     padding-bottom: 48px;
