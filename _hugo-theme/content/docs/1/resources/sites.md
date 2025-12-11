@@ -1,6 +1,7 @@
 ---
 title: Sites
 headline: DDD Resources
+bodyclass: docs resources
 ---
 
 # Sites

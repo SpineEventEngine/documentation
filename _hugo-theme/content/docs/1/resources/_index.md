@@ -1,7 +1,14 @@
 ---
 title: Resources
 headline: DDD Resources
+bodyclass: docs resources
 ---
+
+# Resources on Domain-Driven&nbsp;Design
+
+{{% note-block class="lead" %}}
+A brief selection of learning materials we recommend to the colleagues in DDD.
+{{% /note-block %}}
 
 {{< docs-card-container >}}
 

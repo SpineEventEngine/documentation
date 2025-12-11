@@ -1,6 +1,7 @@
 ---
 title: Communities
 headline: DDD Resources
+bodyclass: docs resources
 ---
 
 # Communities
