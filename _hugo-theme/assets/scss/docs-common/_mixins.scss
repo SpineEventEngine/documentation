@@ -24,8 +24,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/*TODO:2025-11-27:julia.evseeva: Add the list with breakpoints here
-   and remove from the `config`. */
 $breakpoints: (
         sm-phone:     320px,
         md-phone:     480px,
@@ -64,6 +62,22 @@ $breakpoints: (
     }
   } @else {
     @media screen and (min-width: $deviceWidth + 1) {
+      @content;
+    }
+  }
+}
+
+// Usage: `@include breakpoint-min-and-max(md-tablet, desktop) {}`
+@mixin breakpoint-min-and-max($minWidth, $maxWidth) {
+  @if map-has-key($breakpoints, $minWidth) and map-has-key($breakpoints, $maxWidth) {
+    $minValue: map-get($breakpoints, $minWidth);
+    $maxValue: map-get($breakpoints, $maxWidth);
+
+    @media (min-width: $minValue + 1) and (max-width: $maxValue) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $minWidth + 1) and (max-width: $maxWidth) {
       @content;
     }
   }

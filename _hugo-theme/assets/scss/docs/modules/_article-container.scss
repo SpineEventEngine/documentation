@@ -41,7 +41,7 @@ $article-container-min-height: 460px;
   min-width: 0; // Fixes a bug when `pre` code breaks flex element.
   min-height: $article-container-min-height;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     padding: 0;
     border: none;
   }
@@ -50,10 +50,11 @@ $article-container-min-height: 460px;
   // Extends styles provided in `scss/docs-common/code/_index.scss`.
   --code-block-padding: #{$article-side-padding};
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     --code-block-padding: 32px;
   }
-  @media (max-width: $phone-medium) {
+
+  @include breakpoint(md-phone) {
     --code-block-padding: 20px;
   }
 

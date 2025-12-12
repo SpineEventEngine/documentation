@@ -65,7 +65,8 @@ export function initCodeTheme() {
         $codeBlock.each(function () {
             const icon = $(`<i class="${toggleClass.toggle}"
                                aria-label="Change code theme"
-                               title="Change code theme"></i>`)
+                               title="Change code theme"></i>`);
+            icon.tooltip('enable');
             $(this).append(icon);
         });
     }

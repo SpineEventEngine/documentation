@@ -82,11 +82,11 @@
     line-height: $article-line-height;
     text-align: justify;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       font-size: $font-size--s;
     }
 
-    @media (max-width: $phone-medium) {
+    @include breakpoint(md-phone) {
       text-align: left;
     }
   }
@@ -147,7 +147,7 @@
     margin: 0 auto;
     display: block;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       max-width: 100%;
     }
   }
@@ -199,7 +199,7 @@
     padding-top: 16px;
     margin-bottom: 32px;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       margin-bottom: 16px;
     }
   }

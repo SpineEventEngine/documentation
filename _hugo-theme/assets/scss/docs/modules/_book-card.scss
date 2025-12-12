@@ -25,10 +25,12 @@
  */
 
 .book-card {
+  $book-mobile-breakpoint: xmd-phone;
+
   position: relative;
   padding-bottom: 32px;
 
-  @media (min-width: $phone-large) {
+  @include breakpoint-min($book-mobile-breakpoint) {
     min-height: 240px;
     padding-bottom: 48px;
   }
@@ -59,7 +61,7 @@
       transform: skewX(40deg);
     }
 
-    @media (max-width: $phone-large) {
+    @include breakpoint($book-mobile-breakpoint) {
       width: $book-size-mobile;
     }
 
@@ -71,7 +73,7 @@
   .book-info {
     padding-left: $book-size + 32px;
 
-    @media (max-width: $phone-large) {
+    @include breakpoint($book-mobile-breakpoint) {
       padding-left: $book-size-mobile + 20px;
     }
 
@@ -106,7 +108,7 @@
     }
 
     .description {
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         text-align: left;
       }
     }
@@ -115,7 +117,7 @@
       padding-top: 4px;
       margin-bottom: 6px;
 
-      @media (max-width: $phone-large) {
+      @include breakpoint($book-mobile-breakpoint) {
         padding-top: 0;
       }
     }

@@ -34,7 +34,7 @@
     max-width: 760px;
     padding: 48px 56px;
 
-    @media (max-width: $phone-medium) {
+    @include breakpoint(md-phone) {
       padding: 24px;
     }
 
@@ -46,7 +46,7 @@
       margin-bottom: 32px;
       padding-top: 16px;
 
-      @media (max-width: $phone-medium) {
+      @include breakpoint(md-phone) {
         font-size: $font-size--xl;
       }
     }

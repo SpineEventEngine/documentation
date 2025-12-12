@@ -24,69 +24,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-.person-card {
-  $avatar-size: 100px;
-  $avatar-size-mobile: 60px;
+/* Overrides styles of the Bootstrap tooltip. */
 
-  position: relative;
-  padding-bottom: 40px;
+.tooltip {
+  --bs-tooltip-padding-y: .5rem;
+  --bs-tooltip-padding-x: .7rem;
+  --bs-tooltip-bg: #232526;
+  --bs-tooltip-opacity: .87;
+  --bs-tooltip-font-size: 12px;
+  --bs-tooltip-border-radius: 5px;
 
-  .avatar {
-    position: absolute;
-    padding: 0;
-    width: $avatar-size;
-    height: $avatar-size;
-    border-radius: 50%;
-
-    @include breakpoint(xmd-phone) {
-      width: $avatar-size-mobile;
-      height: $avatar-size-mobile;
-    }
-  }
-
-  .person-info {
-    padding-left: $avatar-size + 20px;
-
-    @include breakpoint(xmd-phone) {
-      padding-left: $avatar-size-mobile + 20px;
-    }
-
-    .social-networks {
-      padding-bottom: 14px;
-
-      a {
-        padding-right: 12px;
-
-        &:after {
-          display: none;
-        }
-
-        &:hover {
-          text-decoration: none;
-
-          i {
-            color: $gray-500;
-          }
-        }
-      }
-
-      i {
-        font-size: 18px;
-        color: $gray-200;
-
-        &.fa-twitter {
-          font-size: 20px;
-          color: #8a8a8a;
-
-          &:before {
-            content: '\1d54f';
-          }
-        }
-      }
-    }
-
-    h3 {
-      padding-top: 4px;
-    }
-  }
+  line-height: 1.4;
 }
