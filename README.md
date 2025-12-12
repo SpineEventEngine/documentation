@@ -85,7 +85,7 @@ To get theme updates:
 4. Commit and push changes from `go.mod` and `go.sum` files.
    In the `go.sum` file keep only two last records to avoid file cluttering.
 
-# Code samples
+## Code samples
 
 The code samples used in the framework documentation are added using
 the [`embed-code`][embed-code] Go subcommand.
@@ -93,12 +93,16 @@ the [`embed-code`][embed-code] Go subcommand.
 The code resides under the `_code` directory. For instructions on embedding 
 the code into the pages, please see the [`EMBEDDING.md`](./_code/EMBEDDING.md) file.
 
-# Authoring
+## Product release
+
+To release a new version of Spine documentation, see the [SPINE_RELEASE.md](SPINE_RELEASE.md).
+
+## Authoring
 
 For instructions on adding the content to the documentation, please see
 the [`AUTHORING.md`][authoring-guide] file.
 
-# Styles and assets
+## Styles and assets
 
 The documentation related styles are placed inside `_hugo-theme/assets/scss`.
 There are two main import files:
