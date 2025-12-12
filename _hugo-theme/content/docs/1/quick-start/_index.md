@@ -150,7 +150,7 @@ Bootstrap&nbsp;plugin:
             end="^}"></embed-code>
 ```gradle
 plugins {
-    id("io.spine.tools.gradle.bootstrap").version("1.7.0")
+    id("io.spine.tools.gradle.bootstrap").version("1.9.0")
 }
 ```
 
@@ -707,7 +707,7 @@ Let's open the `Server` class of our example application suite. The static initi
 the class configures the server environment:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
-            start="static {" 
+            start="    static {" 
             end="    }"></embed-code>
 ```java
 static {
@@ -725,7 +725,7 @@ the settings that are normally used for testing:
             end="    }"></embed-code>
 ```java
 private static void configureEnvironment() {
-    ServerEnvironment.when(Production.class)
+    ServerEnvironment.when(DefaultMode.class)
             .use(InMemoryStorageFactory.newInstance())
             .use(Delivery.localAsync())
             .use(InMemoryTransportFactory.newInstance());
