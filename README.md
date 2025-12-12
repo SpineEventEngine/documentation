@@ -38,18 +38,18 @@ The project has two directories:
 
 To run the documentation locally:
 
-1. Navigate to the `_hugo-site`.
+1. Navigate to the `_hugo-site` directory.
 2. Install project dependencies:
 
-```shell
-npm install
-```
+   ```shell
+   npm install
+   ```
 
 3. Run the site locally:
-    
-```shell
-hugo server
-```
+
+   ```shell
+   hugo server
+   ```
 
 If you receive a `permission denied` message, but you are sure that you have 
 all the rights to the [required repositories](#prerequisites), try clearing 
@@ -69,7 +69,7 @@ be updated in the main `spine.io` site repository.
 
 To get theme updates:
 
-1. Navigate to the `_hugo-site`.
+1. Navigate to the `_hugo-site` directory.
 2. Clean the module cache:
 
    ```shell
