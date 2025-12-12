@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,6 +24,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import 'bootstrap/js/dist/collapse';
-import 'bootstrap/js/dist/dropdown';
-import 'bootstrap/js/dist/tooltip';
+/* Overrides styles of the Bootstrap tooltip. */
+
+.tooltip {
+  --bs-tooltip-padding-y: .5rem;
+  --bs-tooltip-padding-x: .7rem;
+  --bs-tooltip-bg: #232526;
+  --bs-tooltip-opacity: .87;
+  --bs-tooltip-font-size: 12px;
+  --bs-tooltip-border-radius: 5px;
+
+  line-height: 1.4;
+}
