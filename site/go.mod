@@ -1,4 +1,4 @@
-module github.com/SpineEventEngine/documentation/_hugo-site
+module github.com/SpineEventEngine/documentation/site
 
 go 1.22.0
 
