@@ -1,10 +1,18 @@
-# The result of Jekyll build
-_site
-.sass-cache
-.jekyll-metadata
+# Hugo cache files
+/site/resources
+public
 
-# Intermediate directory used by `embed-code` Jekyll subcommand
-.fragments
+# Cache folder for Hugo Modules
+/site/_vendor
+
+# Node modules
+node_modules
+
+# Used to control concurrency between multiple Hugo instances
+/site/.hugo_build.lock
+
+# Needed for navigation/intellisense help inside code editors
+jsconfig.json
 
 # IntelliJ IDEA modules and interim config files
 *.iml
