@@ -11,7 +11,7 @@ Release new version of the documentation
 This site supports documentation versioning. All links within the
 documentation are rendered automatically.
 
-The versions are managed in the `_hugo-theme/data/versions.yml` file.
+The versions are managed in the `docs/data/versions.yml` file.
 
 ```yml
 - short: "1"
@@ -95,7 +95,7 @@ data
         item_visible: false
     ```
 
-4. Update the `_hugo-site/config/_default/hugo.toml` to make the version `2` as main.
+4. Update the `site/config/_default/hugo.toml` to make the version `2` as main.
 
     - Navigate to the end of the file to the section "Version control config".
     - Find the `path` parameters and update as follows:
@@ -113,8 +113,8 @@ Get updates into the main website:
 
 1. Go to the [`SpineEventEngine.github.io`](https://github.com/SpineEventEngine/SpineEventEngine.github.io) 
    repository.
-2. Get theme updates `hugo mod get -u github.com/SpineEventEngine/documentation/_hugo-theme`.
-3. Update the `_hugo-site/config/_default/hugo.toml` to make the version `2` as main.
+2. Get theme updates `hugo mod get -u github.com/SpineEventEngine/documentation/docs`.
+3. Update the `config/_default/hugo.toml` to make the version `2` as main.
 
 ### URLs
 

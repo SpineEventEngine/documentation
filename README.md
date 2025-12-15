@@ -30,15 +30,15 @@ are working as intended. It allows making changes more convenient for authors.
 
 The project has two directories:
 
-* `_hugo-theme` – contains the documentation files along with all the necessary
+* `docs` – contains the documentation files along with all the necessary
   JS and CSS files. This directory will be added to
   `SpineEventEngine/SpineEventEngine.github.io` as a Hugo Module.
-* `_hugo-site` – contains the HTML and CSS files needed only to run the
+* `site` – contains the HTML and CSS files needed only to run the
   documentation locally.
 
 To run the documentation locally:
 
-1. Navigate to the `_hugo-site` directory.
+1. Navigate to the `site` directory.
 2. Install project dependencies:
 
    ```shell
@@ -69,7 +69,7 @@ be updated in the main `spine.io` site repository.
 
 To get theme updates:
 
-1. Navigate to the `_hugo-site` directory.
+1. Navigate to the `site` directory.
 2. Clean the module cache:
 
    ```shell
@@ -104,7 +104,9 @@ the [`AUTHORING.md`][authoring-guide] file.
 
 ## Styles and assets
 
-The documentation related styles are placed inside `_hugo-theme/assets/scss`.
+The documentation related styles are placed inside `docs/assets/scss`.
+The `docs` directory will be automatically added to the main site using Hugo Modules.
+
 There are two main import files:
 
 * `docs-common.scss` — contains the common styles that are also necessary for
@@ -115,9 +117,7 @@ There are two main import files:
   Should be imported into the `main.scss` of the `spine.io` site as well.
 
 Styles needed only for running the documentation locally are located 
-in `_hugo-site/assets/scss`. They will not be available on `spine.io`.
-
-The `_hugo-theme/static` directory will be automatically included in the main site.
+in `site/assets/scss`. They will not be available on `spine.io`.
 
 ## Troubleshooting
 
