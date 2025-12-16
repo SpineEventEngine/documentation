@@ -13,7 +13,7 @@ Please see the selected list of the examples with the descriptions below.
 ## Java
 
 - [Hello World]({{% get-site-data "spine.examples" %}}/hello/) — a minimal 
-  client-server solution described in the [Quick Start](docs/guick-start/) guide.
+  client-server solution described in the [Quick Start](docs/quick-start/) guide.
 - [Blog]({{% get-site-data "spine.examples" %}}/blog/) — shows server-side 
   functionality of a simple blog.
 - [Kanban]({{% get-site-data "spine.examples" %}}/kanban/) — shows orchestrating 

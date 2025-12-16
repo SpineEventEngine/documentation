@@ -269,4 +269,4 @@ Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated 
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
 [UbiquitousLanguage]: https://martinfowler.com/bliki/UbiquitousLanguage.html "Learn more about the Ubiquitous Language"
 [ReactiveDDD]: https://www.infoq.com/presentations/reactive-ddd/ "Check out the Reactive DDD presentation"
-[VaughnVernon]: https://vaughnvernon.co/
+[VaughnVernon]: https://vaughnvernon.com/
