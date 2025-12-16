@@ -25,6 +25,7 @@ of the spine.io documentation:
 
 * `examples` — contains examples selected from the repositories under `spine-examples`
   organization. These repositories are added to this project as Git submodules.
+* `samples` — smaller pieces of code embedded to the site.
 
 To get the latest version of the code snippets, update the submodules:
 
@@ -93,6 +94,14 @@ to the documentation files using the tool. The most important points here are:
    ```shell
    ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
    ```
+
+### Adding a new small piece
+
+1. Add the code under `_code/samples/src` directory.
+2. Make sure tests for the new code pass.
+3. Add the new piece using the [`embed-code` guide][embed-code-readme].
+4. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
+   file `includeBuild("./_code/samples")`.
 
 ### How to remove a code snippet?
 
