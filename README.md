@@ -101,6 +101,8 @@ the [`embed-code`][embed-code] Go subcommand.
 The code resides under the `_code` directory. For instructions on embedding 
 the code into the pages, please see the [`EMBEDDING.md`](./_code/EMBEDDING.md) file.
 
+Please note that the following part of the script requires an ARM-based Mac.
+
 To embed the code samples, run:
 
 ```shell
