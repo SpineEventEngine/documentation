@@ -1,12 +1,7 @@
 name: Check Code Embedding
 
 on:
-  push:
-    branches:
-      - all
   pull_request:
-    branches:
-      - master
 
 jobs:
   build-embedded-code:
