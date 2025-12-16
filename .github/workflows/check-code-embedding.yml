@@ -19,6 +19,9 @@ jobs:
       - run: ./gradlew :buildAll
 
   check-embedded-samples:
+    # TODO:2025-12-16:julia.evseeva: Remove the `if: false` when the issue
+    # will be fixed https://github.com/SpineEventEngine/embed-code/issues/66
+    if: false
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v5
