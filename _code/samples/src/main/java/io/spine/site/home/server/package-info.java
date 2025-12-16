@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2020, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "spine.io"
+/**
+ * This package contains server-side implementation of the Mini PM example which is used
+ * at the site home page.
+ */
+@CheckReturnValue
+@ParametersAreNonnullByDefault
+@BoundedContext(NanoPmContext.NAME)
+package io.spine.site.home.server;
 
-includeBuild("./_code/samples")
+import com.google.errorprone.annotations.CheckReturnValue;
+import io.spine.core.BoundedContext;
 
-includeBuild("./_code/examples/airport")
-includeBuild("./_code/examples/hello")
+import javax.annotation.ParametersAreNonnullByDefault;

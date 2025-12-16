@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2020, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "spine.io"
+package io.spine.site.home.server;
 
-includeBuild("./_code/samples")
+import io.spine.server.BoundedContext;
+import io.spine.server.BoundedContextBuilder;
 
-includeBuild("./_code/examples/airport")
-includeBuild("./_code/examples/hello")
+/**
+ * Defines the Mini PM context.
+ */
+public final class NanoPmContext {
+
+    static final String NAME = "Nano PM";
+
+    /** Prevents instantiation of this utility class. */
+    private NanoPmContext() {
+    }
+
+    /** Creates a builder for single-tenant context filled in with entity types. */
+    public static BoundedContextBuilder newBuilder() {
+        return BoundedContext.singleTenant(NAME)
+                .add(TaskAggregate.class)
+                .add(TaskProjection.class);
+    }
+}

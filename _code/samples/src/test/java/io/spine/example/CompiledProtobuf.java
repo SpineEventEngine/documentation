@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2020, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,20 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package io.spine.example;
 
-rootProject.name = "spine.io"
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-includeBuild("./_code/samples")
+import static com.google.common.truth.Truth.assertThat;
 
-includeBuild("./_code/examples/airport")
-includeBuild("./_code/examples/hello")
+@DisplayName("Project should contain Protobuf types:")
+class CompiledProtobuf {
+
+    @Test
+    @DisplayName("ProjectCreated")
+    void projectCreated() {
+        assertThat(ProjectCreated.class)
+                .isNotNull();
+    }
+}

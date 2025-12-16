@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2020, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,33 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+syntax = "proto3";
 
-rootProject.name = "spine.io"
+package spine.site.home;
 
-includeBuild("./_code/samples")
+import "spine/options.proto";
 
-includeBuild("./_code/examples/airport")
-includeBuild("./_code/examples/hello")
+option (type_url_prefix) = "type.spine.io";
+option java_package = "io.spine.site.home.command";
+option java_outer_classname = "CommandsProto";
+option java_multiple_files = true;
+
+import "spine/site/home/identifiers.proto";
+
+// Create a new task.
+message CreateTask {
+    TaskId id = 1; // assumed `required`
+    string name = 2 [(required) = true];
+    string description = 3;
+}
+
+// Assign a task on a user.
+message AssignTask {
+    TaskId task = 1;
+    spine.core.UserId assignee = 2 [(required) = true];
+}
+
+// Mark a task as completed.
+message CompleteTask {
+    TaskId task = 1;
+}
