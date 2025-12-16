@@ -23,8 +23,7 @@ are working as intended. It allows making changes more convenient for authors.
 3. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
 4. Get access to the [`site-commons`][site-commons] repository from the admins
    to be able to download the theme.
-5. Make sure SSH is configured correctly and the passphrase is stored in the keychain.
-   See the corresponding guide. TBD.
+5. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase is stored in the keychain.
 
 ## Running the documentation locally
 
@@ -141,6 +140,7 @@ in `site/assets/scss`. They will not be available on `spine.io`.
 [nodejs]: https://nodejs.org/en/download/current
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
 [site-commons]: https://github.com/TeamDev-Ltd/site-commons
+[site-commons-ssh]: https://github.com/TeamDev-Ltd/site-commons/tree/master?tab=readme-ov-file#configure-go-to-use-ssh-for-github
 [embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
 [spine-repo]: https://github.com/SpineEventEngine/SpineEventEngine.github.io

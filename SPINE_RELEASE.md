@@ -53,7 +53,7 @@ content
     │   └── _index.md
     └── 2
         ├── client-libs
-        ├── guick-start
+        ├── quick-start
         └── _index.md
 ```
 
