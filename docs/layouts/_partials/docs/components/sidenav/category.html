@@ -26,11 +26,12 @@
 
 {{ $page := .page_context }}
 {{ $item := .item_context }}
+{{ $isActive := .is_active | default false }}
 
 {{ $currentCategory := partial "functions/get-doc-category.html" $page }}
 {{ $categoryKey := $item.key }}
 {{ $id := print $categoryKey "-category" }}
-{{ $isActive := eq $currentCategory $categoryKey }}
+{{ $isActive = or (eq $currentCategory $categoryKey) $isActive }}
 
 <li>
     <span class="sidenav-link tree-title {{ if not $isActive }}collapsed{{ end }}"
