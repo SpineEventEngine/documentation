@@ -35,3 +35,7 @@ _code/build
 
 # Gradle interim configs
 .gradle/
+
+# Gradle build files
+build/
+generated/
