@@ -32,3 +32,6 @@ _code/build
 
 # Local Java version for this project
 .java-version
+
+# Gradle interim configs
+.gradle/
