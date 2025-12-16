@@ -25,5 +25,10 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - uses: actions/setup-java@v5
+        with:
+          java-version: 11
+          distribution: zulu
+
       - name: Check Embedding
         run: ./gradlew :checkSamples
