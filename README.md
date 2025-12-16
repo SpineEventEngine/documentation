@@ -18,12 +18,15 @@ are working as intended. It allows making changes more convenient for authors.
 
 ## Prerequisites
 
-1. Install [Go][go] at least version `1.12`.
-2. Install [Node.js][nodejs]. Its version should be `18+`.
-3. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
-4. Get access to the [`site-commons`][site-commons] repository from the admins
+1. Install [Java JDK] version `11` to build the site.
+2. Install [Go][go] at least version `1.12`.
+3. Install [Node.js][nodejs]. Its version should be `18+`.
+4. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
+5. Get access to the [`site-commons`][site-commons] repository from the admins
    to be able to download the theme.
-5. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase is stored in the keychain.
+6. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase 
+   is stored in the keychain.
+7. Install project dependencies from the `site` directory by running `npm install`.
 
 ## Running the documentation locally
 
@@ -35,16 +38,22 @@ The project has two directories:
 * `site` – contains the HTML and CSS files needed only to run the
   documentation locally.
 
-To run the documentation locally:
+To build and launch the site on the local server:
 
-1. Navigate to the `site` directory.
-2. Install project dependencies:
+```shell
+./gradlew :runSite
+```
 
-   ```shell
-   npm install
-   ```
+To build the site without running the server:
 
-3. Run the site locally:
+```shell
+./gradlew :buildSite
+```
+
+Another way to run the site locally is to follow these steps:
+
+1. Navigate to the `site` folder.
+2. Start the local server with this command:
 
    ```shell
    hugo server
@@ -91,6 +100,18 @@ the [`embed-code`][embed-code] Go subcommand.
 
 The code resides under the `_code` directory. For instructions on embedding 
 the code into the pages, please see the [`EMBEDDING.md`](./_code/EMBEDDING.md) file.
+
+To embed the code samples, run:
+
+```shell
+./gradlew :embedCode
+```
+
+To verify that the source code samples embedded into the pages are up-to-date, run:
+
+```shell
+./gradlew :checkSamples
+```
 
 ## Product release
 
