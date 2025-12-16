@@ -66,15 +66,12 @@ to the documentation files using the tool. The most important points here are:
 
 1. Make sure the project you're going to add has a top-level `buildAll` Gradle task.
 
-   See the [build of the Hello Example](https://github.com/spine-examples/hello/blob/master/build.gradle)
-   for the declaration of such a task. This task must present in both single- 
+   See the build script of [Hello Example](https://github.com/spine-examples/hello/blob/master/build.gradle)
+   for the declaration of such a task. This task must be present in both single- 
    and multi-module Gradle example projects that are going to be used for 
    embedding into this site.
 
-   If you are interested in the details on why the `buildAll` task is needed, 
-   please see the `buildAll` task from the [`build.gradle.kts`](build.gradle.kts) 
-   of this project for the links to discussions of the problem of building 
-   composite builds, and the solution we use.
+   See the declaration of `buildAll` task for more details.
 
 2. Add the example code as a submodule for this project:
 
