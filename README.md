@@ -16,6 +16,12 @@ This repository is made to be self-sustainable in terms of editing.
 A fully-fledged Hugo site has been set up for it. All the contents and links 
 are working as intended. It allows making changes more convenient for authors.
 
+The code samples used on the site and in the framework documentation are added 
+using the [`embed-code`][embed-code] tool (Go version).
+
+The code resides under the `_code` directory. For instructions on embedding the code
+into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
+
 ## Prerequisites
 
 1. Install [Java JDK] version `11` to build the site.
