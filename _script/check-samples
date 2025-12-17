@@ -42,7 +42,7 @@ fi
 # Navigate to the folder with samples.
 cd _code
 
-# Decide which binary to use.
+# Use the Ubuntu binary for GitHub Actions and macOS binary in other cases.
 if [ "$GITHUB_ACTIONS" = "true" ]; then
   echo "Running in GitHub Action."
   TOOL="./embed-code-ubuntu"
