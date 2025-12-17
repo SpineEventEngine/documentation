@@ -4,7 +4,7 @@ This repository serves for three purposes:
 
 1. The [Wiki][spine-wiki] provides documentation for developers contributing to the framework, Commiters.
 2. Gathering issues improving the documentation of the framework and tasks on writing articles at spine.io and other web resources.
-3. Storing documentation files that are added as a submodule to the [spine.io][spine-repo] repository.
+3. Storing documentation files that are added as a Hugo module to the [spine.io][spine-repo] repository.
 
 We have repository for the code of [spine.io](https://spine.io) site. 
 Issues there are for improving the site features. 
