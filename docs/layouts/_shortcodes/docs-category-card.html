@@ -1,0 +1,33 @@
+{{- /*
+A component that displays a clickable category card.
+
+Parameters:
+  * `icon`. The icon class.
+  * `title`. The title of the card.
+  * `url`. The card destination URL.
+  * `badges`. The list of badges to be shown near the title.
+  * `class`. An optional class for extending the styles of a specific card.
+*/ -}}
+
+{{ $icon := .Get "icon" }}
+{{ $title := .Get "title" }}
+{{ $url := .Get "url" }}
+{{ $class := .Get "class" }}
+
+{{ $url = partial "functions/get-doc-link.html" (dict
+    "link" $url
+    "page" .Page
+) }}
+
+<a class="docs-category-card {{ with $class }}{{ . }}{{ end }}"
+   href="{{ $url }}">
+    <i class="card-icon {{ $icon }}"></i>
+    <div class="card-content">
+        <p class="title">
+            <span class="title-holder">{{ $title | markdownify }}</span>
+        </p>
+        <p class="description">{{ .Inner | markdownify }}</p>
+    </div>
+</a>
+
+{{- /* Strip trailing newline. */ -}}

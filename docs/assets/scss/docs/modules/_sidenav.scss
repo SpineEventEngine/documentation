@@ -1,0 +1,252 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$sidenav-top-offset: 24px;
+$sidenav-link-top-level-font-size: 14px;
+$sidenav-link-font-size: 13px;
+$sidenav-link-color: rgba(0, 0, 0, .54);
+$sidenav-link-color-active: $black;
+$sidenav-link-chevron-border-size: 1px solid rgba(0, 0, 0, .4);
+$sidenav-link-chevron-border-size-active: 1px solid rgba(0, 0, 0, .7);
+$sidenav-link-chevron-size: 6px;
+$sidenav-first-level-left-padding: 24px;
+$sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 16px);
+$sidenav-third-level-left-padding: calc(#{$sidenav-second-level-left-padding} + 16px);
+$sticky-docs-sidenav-width: $doc-sidenav-desktop-width + $sidenav-first-level-left-padding;
+$divider-color: rgba(0, 0, 0, .08);
+
+$sidenav-holder-padding: 32px 24px 32px 16px;
+$sidenav-title-left-padding: 22px;
+
+.doc-sidenav {
+  padding-top: $sidenav-top-offset;
+  margin-left: -$sidenav-first-level-left-padding;
+  width: $sticky-docs-sidenav-width;
+  list-style: none;
+
+  @include breakpoint(sm-desktop) {
+    margin: 0;
+    width: 100%;
+    max-height: none !important; // Unsets calculated max-height for the sticky element on mobile.
+  }
+
+  li {
+    list-style: none;
+    line-height: 22px;
+  }
+
+  .sidenav-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    font-size: $sidenav-link-top-level-font-size;
+    padding: 8px $sidenav-first-level-left-padding;
+    color: $sidenav-link-color;
+    font-weight: 400;
+    cursor: pointer;
+
+    @include breakpoint(sm-desktop) {
+      padding: 12px $sidenav-first-level-left-padding;
+    }
+
+    // Tree title with chevron.
+    &.tree-title {
+      color: $sidenav-link-color-active;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        border-right: $sidenav-link-chevron-border-size-active;
+        border-bottom: $sidenav-link-chevron-border-size-active;
+        width: $sidenav-link-chevron-size;
+        height: $sidenav-link-chevron-size;
+        top: 14px;
+        left: 8px;
+        transform: rotate(45deg);
+        transition: all .3s ease-in-out;
+
+        @include breakpoint(sm-desktop) {
+          top: 18px;
+        }
+      }
+
+      &.collapsed {
+        color: $sidenav-link-color;
+
+        &:before {
+          border-right: $sidenav-link-chevron-border-size;
+          border-bottom: $sidenav-link-chevron-border-size;
+          top: 15px;
+          transform: rotate(-45deg);
+
+          @include breakpoint(sm-desktop) {
+            top: 19px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .03);
+      text-decoration: none;
+      border-radius: $border-radius-s;
+    }
+
+    &.active {
+      color: $sidenav-link-color-active;
+      font-weight: 600;
+    }
+  }
+
+  .subnav {
+    .sidenav-link {
+      font-size: $sidenav-link-font-size;
+      padding-left: $sidenav-second-level-left-padding;
+
+      // Tree title with chevron
+      &.tree-title {
+        &:before {
+          left:  calc(#{$sidenav-first-level-left-padding} - 3px);
+        }
+      }
+    }
+
+    .subnav {
+      position: relative;
+
+      // Side nav vertical progress bar
+      &:before {
+        content: '';
+        position: absolute;
+        background: $divider-color;
+        display: block;
+        left: $sidenav-second-level-left-padding;
+        top: 13px;
+        bottom: 13px;
+        width: 2px;
+      }
+
+      .sidenav-link {
+        padding-left: $sidenav-third-level-left-padding;
+
+        &.active {
+          &:before {
+            content: '';
+            position: absolute;
+            background: rgba(0, 0, 0, .6);
+            display: block;
+            width: 2px;
+            height: 20px;
+            top: 9px;
+            left: $sidenav-second-level-left-padding;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-sidenav-header {
+  display: none;
+
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    display: flex;
+    justify-content: flex-end;
+
+    .icon-wrapper {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 16px;
+      right: 16px;
+      width: 48px;
+      height: 48px;
+      background-color: rgba(255, 255, 255, .9);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+      z-index: 1;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .03);
+      }
+
+      .close-icon {
+        @include close-icon;
+      }
+    }
+  }
+}
+
+.mobile-sidenav-holder {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    display: none;
+    position: fixed !important;
+    background-color: white;
+    top: 0 !important;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: $sidenav-holder-padding !important;
+    overflow-x: auto;
+    transition: all .4s ease-in-out;
+    z-index: map_get($z-index, 'side-nav-mobile');
+  }
+}
+
+.mobile-sidenav-opened {
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    overflow: hidden;
+  }
+
+  .mobile-sidenav-holder {
+    display: block !important;
+  }
+}
+
+#mobile-sidenav-toggle {
+  display: none;
+
+  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    color: $main-brand-color;
+    font-size: 15px;
+    margin: 24px 0 8px;
+
+    @include breakpoint(lg-phone) {
+      padding: 0;
+    }
+
+    i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+  }
+}

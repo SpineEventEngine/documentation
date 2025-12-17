@@ -1,0 +1,11 @@
+{{- /*
+Renders an image caption.
+
+The possible alignment variants: `center` and `left`.
+*/ -}}
+
+{{ $align := .Get "align" | default "center" }}
+
+<p class="image-caption {{ $align }}">{{ .Inner }}</p>
+
+{{- /* Strip trailing newline. */ -}}

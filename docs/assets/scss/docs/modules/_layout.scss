@@ -1,0 +1,116 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$doc-sidenav-desktop-width: 200px;
+$doc-sidenav-tablet-width: 200px;
+$doc-toc-width: 220px;
+$doc-sidenav-background: $gray-100;
+
+.docs {
+  background-color: $body-light-gray-color;
+
+  @include breakpoint(lg-phone) {
+    background-color: white;
+  }
+
+  .page-content {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0;
+    padding: 0;
+    margin-top: 0;
+
+    &.with-colored-sidenav {
+      @include breakpoint-min($doc-sidenav-mobile-breakpoint) {
+        background: linear-gradient(90deg, $doc-sidenav-background 0%, white 50%);
+      }
+
+      .content-col {
+        background-color: white;
+      }
+    }
+  }
+
+  .content-holder {
+    width: 100%;
+  }
+
+  .content-columns {
+    padding: 0 15px;
+
+    @include breakpoint($doc-sidenav-mobile-breakpoint) {
+      padding: 0;
+    }
+
+    .doc-sidenav-col,
+    .toc-col {
+      padding: 0 0 24px;
+    }
+
+    .content-col {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 15px 48px;
+
+      @include breakpoint($doc-sidenav-mobile-breakpoint) {
+        padding: 16px 0 48px;
+      }
+    }
+
+    .article-container {
+      flex-grow: 1;
+    }
+
+    .sticky-col {
+      position: sticky;
+      align-self: start;
+      top: $header-height;
+    }
+  }
+
+  .three-column {
+    position: relative;
+    display: grid;
+    grid-template-columns: $doc-sidenav-desktop-width minmax(0, 1fr) $doc-toc-width;
+    height: 100%;
+
+    @include breakpoint(desktop) {
+      grid-template-columns: $doc-sidenav-tablet-width minmax(0, 1fr);
+
+      .toc-col {
+        display: none;
+      }
+    }
+
+    @include breakpoint($doc-sidenav-mobile-breakpoint) {
+      display: block;
+
+      .doc-sidenav-col {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.next-prev-nav {
+  $space-between: 16px;
+  $label-offset: 24px;
+  $font-family: $main-font;
+  $icon-offset: 8px;
+
+  display: flex;
+  padding: 32px 0 16px;
+  margin-top: auto;
+
+  .item {
+    flex: 1 1 auto;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .previous {
+    padding-right: $space-between/2;
+  }
+
+  .next {
+    padding-left: $space-between/2;
+    text-align: right;
+  }
+
+  .arrow-link {
+    display: flex;
+    align-items: center;
+
+    &:after,
+    &:before {
+      content: '';
+      display: none;
+      border: solid $main-brand-color;
+      border-width: 0 2px 2px 0;
+      padding: 3px;
+    }
+
+    &.prev {
+      &:before {
+        display: block;
+        transform: rotate(135deg);
+        margin-right: $icon-offset;
+      }
+    }
+
+    &.next {
+      justify-content: flex-end;
+
+      &:after {
+        display: block;
+        transform: rotate(-45deg);
+        margin-left: $icon-offset;
+      }
+    }
+  }
+}

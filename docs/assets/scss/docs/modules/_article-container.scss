@@ -1,0 +1,87 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$article-border-color: #e6ecf1;
+$article-container-border: 1px solid $article-border-color;
+$article-side-padding: 56px;
+$article-container-padding: 32px $article-side-padding 40px;
+$article-container-border-radius: 3px;
+$article-container-min-height: 460px;
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: $article-container-border;
+  border-radius: $article-container-border-radius;
+  padding: $article-container-padding;
+  min-width: 0; // Fixes a bug when `pre` code breaks flex element.
+  min-height: $article-container-min-height;
+
+  @include breakpoint(lg-phone) {
+    padding: 0;
+    border: none;
+  }
+
+  // Full-width code block inside articles.
+  // Extends styles provided in `scss/docs-common/code/_index.scss`.
+  --code-block-padding: #{$article-side-padding};
+
+  @include breakpoint(lg-phone) {
+    --code-block-padding: 32px;
+  }
+
+  @include breakpoint(md-phone) {
+    --code-block-padding: 20px;
+  }
+
+  .highlight {
+    pre {
+      border-radius: 0;
+      margin-right: calc(var(--code-block-padding) * -1);
+      margin-left: calc(var(--code-block-padding) * -1);
+
+      code {
+        padding-right: var(--code-block-padding);
+        padding-left: var(--code-block-padding);
+      }
+    }
+  }
+
+  li {
+    .highlight {
+      pre {
+        border-radius: $code-block-border-radius;
+        margin-left: unset;
+        margin-right: unset;
+
+        code {
+          padding: $code-block-padding;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{{- /*
+Renders the code block that is provided as `Inner` element and its label.
+*/ -}}
+
+{{ $label := .Get "label" }}
+{{ $lang := .Get "lang" }}
+
+<div class="code-with-label">
+    <p>{{ $label }}</p>
+    {{- $code := strings.TrimLeft "\r\n" .Inner -}}
+    {{- highlight $code $lang -}}
+</div>
+
+{{- /* Strip trailing newline. */ -}}
