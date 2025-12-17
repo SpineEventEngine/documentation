@@ -25,6 +25,7 @@ of the spine.io documentation:
 
 * `examples` — contains examples selected from the repositories under `spine-examples`
   organization. These repositories are added to this project as Git submodules.
+* `samples` — smaller pieces of code embedded to the site.
 
 To get the latest version of the code snippets, update the submodules:
 
@@ -50,7 +51,7 @@ to the documentation files using the tool. The most important points here are:
 ### How to update an existing code snippet?
 
 1. Update the snippet in the appropriate repository.
-2. Make sure it builds successfully: `./gradlew build`.
+2. Make sure it builds successfully.
 3. Go to the `SpineEventEngine/documentation` project.
 4. Navigate to the `_code` directory.
 5. Execute the binary based on your operating system and architecture: 
@@ -61,19 +62,43 @@ to the documentation files using the tool. The most important points here are:
    ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
    ```
 
-### How to add a new code snippet?
+### Adding a new example project
 
-1. Add a new snippet in the appropriate repository.
-2. Make sure it builds successfully: `./gradlew build`.
-3. Go to the `SpineEventEngine/documentation` project and insert code 
-   embedding directives where needed.
-4. Navigate to the `_code` directory.
-5. Execute: `./embed-code -config-path="config-of-your-choice.yml" -mode="embed"`.
+1. Make sure the project you're going to add has a top-level `buildAll` Gradle task.
+
+   See the build script of [Hello Example](https://github.com/spine-examples/hello/blob/master/build.gradle)
+   for the declaration of such a task. This task must be present in both single- 
+   and multi-module Gradle example projects that are going to be used for 
+   embedding into this site.
+
+   See the declaration of `buildAll` task for more details.
+
+2. Add the example code as a submodule for this project:
+
+   ```bash
+   git submodule add https://github.com/spine-examples/<example-name> _code/examples/<example-name>
+   ```
+   Please make sure the new submodule goes under the `_code/examples` directory, as shown in
+   the command line template above.
+
+3. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
+   file.
+4. Insert code embedding directives where needed in the `docs/content/` folder.
+5. Navigate to the `_code` directory.
+6. Execute: `./embed-code -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
    ```shell
    ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
    ```
+
+### Adding a new small piece
+
+1. Add the code under `_code/samples/src` directory.
+2. Make sure tests for the new code pass.
+3. Add the new piece using the [`embed-code` guide][embed-code-readme].
+4. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
+   file `includeBuild("./_code/samples")`.
 
 ### How to remove a code snippet?
 

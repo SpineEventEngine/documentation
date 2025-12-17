@@ -29,3 +29,13 @@ jsconfig.json
 
 # The `embed-code` temporary directory
 _code/build
+
+# Local Java version for this project
+.java-version
+
+# Gradle interim configs
+.gradle/
+
+# Gradle build files
+build/
+generated/
