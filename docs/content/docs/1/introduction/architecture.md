@@ -15,14 +15,13 @@ with only <em><span id="display-user-facing-components">some of them</span></em>
 are not shaded on the diagram. The rest is handled by the framework.
 
 Click on a component to navigate to its definition from the 
-[Concepts](docs/introduction/concepts/) page.
+[Concepts](docs/introduction/concepts/)&nbsp;page.
 
 <div class="diagram-box">
-<p class="full-screen-link">
-    <a href="{{% baseurl %}}docs/introduction/diagrams/spine-architecture-diagram-full-screen">
-        <i class="far fa-expand"></i>
-        <span>View full screen</span>
-    </a>
-</p>
+<a class="diagram-link" 
+   href="{{% baseurl %}}docs/introduction/diagrams/spine-architecture-diagram-full-screen">
+    <i class="far fa-expand"></i>
+    <span>View full screen</span>
+</a>
 {{< read-relative-asset "diagrams/spine-architecture-diagram.svg" >}}
 </div>
