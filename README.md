@@ -26,7 +26,7 @@ are working as intended. It allows making changes more convenient for authors.
 
 ## Configuration
 
-1. [SSH][site-commons-ssh] configured correctly and the passphrase is stored in the keychain.
+1. Make sure [SSH][site-commons-ssh] configured correctly and the passphrase is stored in the keychain.
 2. Install project dependencies from the `site` directory by running `npm install`.
 
 ## Running the documentation locally
