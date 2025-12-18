@@ -18,7 +18,7 @@ are working as intended. It allows making changes more convenient for authors.
 
 ## Prerequisites
 
-1. [JDK 11][jdk-11].
+1. JDK 8 (x86_64).
 2. [Go][go] `1.12` or newer.
 3. [Node.js][nodejs] `18+`.
 4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
@@ -171,4 +171,3 @@ in `site/assets/scss`. They will not be available on `spine.io`.
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
 [spine-repo]: https://github.com/SpineEventEngine/SpineEventEngine.github.io
 [spine-wiki]: https://github.com/SpineEventEngine/documentation/wiki
-[jdk-11]: https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
