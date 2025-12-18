@@ -16,23 +16,18 @@ This repository is made to be self-sustainable in terms of editing.
 A fully-fledged Hugo site has been set up for it. All the contents and links 
 are working as intended. It allows making changes more convenient for authors.
 
-The code samples used on the site and in the framework documentation are added 
-using the [`embed-code`][embed-code] tool (Go version).
-
-The code resides under the `_code` directory. For instructions on embedding the code
-into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
-
 ## Prerequisites
 
-1. Install [Java JDK] version `11` to build the site.
-2. Install [Go][go] at least version `1.12`.
-3. Install [Node.js][nodejs]. Its version should be `18+`.
-4. Install [Hugo Extended][hugo-quick-start] at least version `v0.150.0` or higher.
-5. Get access to the [`site-commons`][site-commons] repository from the admins
-   to be able to download the theme.
-6. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase 
-   is stored in the keychain.
-7. Install project dependencies from the `site` directory by running `npm install`.
+1. JDK 8 (x86_64).
+2. [Go][go] `1.12` or newer.
+3. [Node.js][nodejs] `18+`.
+4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
+5. Access to the [`site-commons`][site-commons] repository — to download the theme.
+
+## Configuration
+
+1. Make sure [SSH][site-commons-ssh] configured correctly and the passphrase is stored in the keychain.
+2. Install project dependencies from the `site` directory by running `npm install`.
 
 ## Running the documentation locally
 
@@ -67,11 +62,13 @@ Another way to run the site locally is to follow these steps:
 
 If you receive a `permission denied` message, but you are sure that you have 
 all the rights to the [required repositories](#prerequisites), try clearing 
-the cache and run the `hugo serve` again:
+the cache:
 
 ```shell
 hugo mod clean --all
 ```
+
+Then run the `hugo serve` again.
 
 ## Theme updates
 
@@ -102,7 +99,7 @@ To get theme updates:
 ## Code samples
 
 The code samples used in the framework documentation are added using
-the [`embed-code`][embed-code] Go subcommand.
+the [`embed-code`][embed-code] tool (Go version).
 
 The code resides under the `_code` directory. For instructions on embedding 
 the code into the pages, please see the [`EMBEDDING.md`](./_code/EMBEDDING.md) file.

@@ -67,12 +67,16 @@ $article-container-min-height: 460px;
     }
 
     pre {
-      border-radius: 0 !important;
+      border-radius: 0;
 
       code {
         padding-right: var(--code-block-padding);
         padding-left: var(--code-block-padding);
       }
+    }
+
+    table tr td pre {
+      border-radius: 0;
     }
 
     .hl {
@@ -84,7 +88,7 @@ $article-container-min-height: 460px;
   li {
     .highlight {
       > .chroma {
-        border-radius: $code-block-border-radius !important;
+        border-radius: $code-block-border-radius;
         margin-left: unset;
         margin-right: unset;
 
