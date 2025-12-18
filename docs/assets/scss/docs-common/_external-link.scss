@@ -24,14 +24,30 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "fonts";
+.external-link {
+  white-space: nowrap;
 
-@import "docs-common/reset";
-@import "docs-common/config";
-@import "docs-common/mixins";
-@import "docs-common/layout";
-@import "docs-common/code";
-@import "docs-common/snackbar";
-@import "docs-common/tooltip";
-@import "docs-common/external-link";
-@import "docs-common/anchor-icon";
+  &:after {
+    content: '\2192';
+    font-weight: 300;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    text-align: right;
+    line-height: 6px;
+    text-indent: -11px;
+    opacity: .8;
+    transform: rotate(-45deg);
+    transition: opacity .16s ease-in;
+    vertical-align: super;
+    font-size: smaller;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  &:hover {
+    &:after {
+      color: inherit;
+    }
+  }
+}

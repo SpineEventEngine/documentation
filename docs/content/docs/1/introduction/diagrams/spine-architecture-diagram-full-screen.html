@@ -13,11 +13,19 @@ customjs: js/docs/architecture-diagram.js
             </a>
         </div>
         <div class="header-wrapper">
-            <h3 class="preview-title">Application Architecture</h3>
-            <p class="preview-subtitle">This diagram shows
-                <span id="display-all-components">all server-side components</span>
-                of a cloud application. When developing with Spine, you will be interacting with
-                <span id="display-user-facing-components"><em>some of them</em></span>.</p>
+            <h1 class="preview-title">Application Architecture</h1>
+            <div class="preview-text-container">
+                <p class="preview-subtitle">This diagram shows
+                    <span id="display-all-components">all server-side components</span>
+                    of a cloud application. When developing with Spine, you will be interacting with
+                    <span id="display-user-facing-components"><em>some of them</em></span>.</p>
+                {{< diagram-link
+                    label="Download PDF"
+                    icon_class="icon-pdf"
+                    url="docs/introduction/diagrams/Spine-Architecture-Diagram.pdf"
+                    is_external="true"
+                    class="download-pdf-link" >}}
+            </div>
         </div>
     </div>
     <div class="preview-body">

@@ -1,0 +1,19 @@
+{{- /*
+Renders the diagram link with an icon.
+*/ -}}
+
+{{ $label := .Get "label" }}
+{{ $iconClass := .Get "icon_class" }}
+{{ $url := .Get "url" }}
+{{ $isExternal := .Get "is_external" | default false }}
+{{ $class := .Get "class" }}
+
+<a class="diagram-link {{ $class }}"
+   href="{{ $url | relURL }}"
+   {{ if $isExternal }}target="_blank"{{ end }}>
+    {{ with $iconClass }}
+        <i class="{{ . }}"></i>
+    {{ end }}
+    <span {{ if $isExternal }}class="external-link"{{ end }}>
+        {{ $label }}</span>
+</a>
