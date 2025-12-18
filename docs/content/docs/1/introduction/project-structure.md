@@ -19,7 +19,7 @@ the code generation done by Protobuf Compiler and Spine Model Compiler.
 Following standard Gradle conventions a manually written code is created under the 
 `src/main/` directory with subdirectories `proto`, `java`, etc. for corresponding languages.
 
-After a project is defined in Gradle, a work on a module usually starts in the  
+After a project is defined in Gradle, a work on a module usually starts in 
 the `proto` directory.
 
 ## Generated code
