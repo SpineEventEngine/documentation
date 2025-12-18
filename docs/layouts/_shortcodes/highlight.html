@@ -7,11 +7,15 @@ Parameters:
   * `lang`. The language of the code block.
   * `params`. Optional standard Hugo highlighting parameters as a string.
   * `file`. An optional name of the code file to display on the code header panel.
+  * `class`. An optional class name that the code block will be wrapped in.
+
+See more in the `https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md`.
 */ -}}
 
 {{ $lang := .Get "lang" }}
 {{ $params := .Get "params" }}
 {{ $file := .Get "file" }}
+{{ $class := .Get "class" }}
 
 <!-- This condition is copied from the original Hugo's template. -->
 {{ $code := "" }}
@@ -22,7 +26,7 @@ Parameters:
 {{ end }}
 
 {{ if $file }}
-    <div class="code-block">
+    <div class="code-block {{ $class }}">
         <div class="code-block-header">
             <div class="file-name">
                 <span>{{ $file }}</span>
@@ -31,6 +35,10 @@ Parameters:
         <div class="code-wrapper">
             {{ $code }}
         </div>
+    </div>
+{{ else if $class }}
+    <div class="{{ $class }}">
+        {{ $code }}
     </div>
 {{ else }}
     {{ $code }}

@@ -59,22 +59,32 @@ $article-container-min-height: 460px;
   }
 
   .highlight {
-    pre {
-      border-radius: 0;
+    // Applies negative margins only to the parent `chroma` element.
+    // Useful for the default and table views with the numbered lines.
+    > .chroma {
       margin-right: calc(var(--code-block-padding) * -1);
       margin-left: calc(var(--code-block-padding) * -1);
+    }
+
+    pre {
+      border-radius: 0 !important;
 
       code {
         padding-right: var(--code-block-padding);
         padding-left: var(--code-block-padding);
       }
     }
+
+    .hl {
+      margin: 0 calc(var(--code-block-padding) * -1);
+      padding: 0 var(--code-block-padding);
+    }
   }
 
   li {
     .highlight {
-      pre {
-        border-radius: $code-block-border-radius;
+      > .chroma {
+        border-radius: $code-block-border-radius !important;
         margin-left: unset;
         margin-right: unset;
 
