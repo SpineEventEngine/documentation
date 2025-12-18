@@ -16,12 +16,6 @@ This repository is made to be self-sustainable in terms of editing.
 A fully-fledged Hugo site has been set up for it. All the contents and links 
 are working as intended. It allows making changes more convenient for authors.
 
-The code samples used on the site and in the framework documentation are added 
-using the [`embed-code`][embed-code] tool (Go version).
-
-The code resides under the `_code` directory. For instructions on embedding the code
-into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
-
 ## Prerequisites
 
 1. [JDK 11][jdk-11].
@@ -105,7 +99,7 @@ To get theme updates:
 ## Code samples
 
 The code samples used in the framework documentation are added using
-the [`embed-code`][embed-code] Go subcommand.
+the [`embed-code`][embed-code] tool (Go version).
 
 The code resides under the `_code` directory. For instructions on embedding 
 the code into the pages, please see the [`EMBEDDING.md`](./_code/EMBEDDING.md) file.
