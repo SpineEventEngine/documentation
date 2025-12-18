@@ -29,34 +29,30 @@ We find it convenient to define ID types in one file called `identifiers.proto`.
 A typical project is likely to have more than one Bounded Context. Thus, you will have several
 `identifiers.proto` files. 
 Each of them resides under the directory with proto files defining the data model of the
-corresponding Bounded Context. For example:
+corresponding Bounded Context. For&nbsp;example:
 
-<div class="highlighter-rouge">
-<pre class="highlight">
-<code>
-    myproject/
-      users/
-        src/
-          main/
-            java/
-            proto/
-              user.proto
-              group.proto
-              ...
-              <span class="kd">identifiers.proto</span>
-      tasks/
-        src/
-          main/
-            java/    
-            proto/
-              task.proto
-              project.proto
-              ...
-              <span class="kd">identifiers.proto</span>
-        ...
-</code>
-</pre>
-</div>
+{{< highlight class="hl-text-only" lang="text" params="hl_lines=10 19" >}}
+myproject/
+  users/
+    src/
+      main/
+        java/
+        proto/
+          user.proto
+          group.proto
+          ...
+          identifiers.proto
+  tasks/
+    src/
+      main/
+        java/    
+        proto/
+          task.proto
+          project.proto
+          ...
+          identifiers.proto
+    ...
+{{< /highlight >}}
 
 ### `commands.proto`
 

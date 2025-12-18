@@ -69,6 +69,11 @@ $article-container-min-height: 460px;
         padding-left: var(--code-block-padding);
       }
     }
+
+    .hl {
+      margin: 0 calc(var(--code-block-padding) * -1);
+      padding: 0 var(--code-block-padding);
+    }
   }
 
   li {
