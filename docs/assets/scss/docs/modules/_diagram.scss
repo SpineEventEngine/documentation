@@ -24,6 +24,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+$diagram-content-text-size: 15px;
+
 .diagram-box {
   margin: 24px 0 32px;
 }
@@ -43,29 +45,12 @@
   }
 }
 
-.diagram-link {
+.diagram-actions {
   display: flex;
   align-items: center;
-  width: max-content;
-  font-family: $main-serif-font;
+  flex-wrap: wrap;
+  gap: 24px;
   margin-bottom: 32px;
-
-  i {
-    font-size: 18px;
-    margin-right: 10px;
-  }
-
-  span {
-    font-size: 15px;
-  }
-
-  &:hover {
-    text-decoration: none !important;
-
-    span {
-      text-decoration: underline;
-    }
-  }
 }
 
 .full-screen-preview {
@@ -92,7 +77,7 @@
     }
 
     .preview-subtitle {
-      font-size: 15px;
+      font-size: $diagram-content-text-size;
       color: $text-color;
       line-height: 1.6;
       margin: 8px 0 16px;
@@ -100,22 +85,7 @@
     }
 
     .download-pdf-link {
-      font-family: $main-font;
-      font-size: 15px;
-      color: $main-brand-color;
-      margin: 0 0 16px;
-
-      i {
-        font-size: 24px;
-      }
-
-      &:hover {
-        color: $link-hover-color;
-
-        span {
-          text-decoration: underline;
-        }
-      }
+      margin-bottom: 16px;
     }
 
     .close-btn-wrapper {
@@ -148,6 +118,39 @@
       display: block;
       margin: 0 auto;
       max-width: 1424px;
+    }
+  }
+}
+
+.diagram-link {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-family: $main-font;
+  font-size: $diagram-content-text-size;
+  color: $link-color;
+
+  i {
+    font-size: 18px;
+    margin-right: 10px;
+
+    &.icon-pdf {
+      margin-right: 8px;
+
+      &:before {
+        font-size: 22px;
+        margin-left: -3px;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: none !important;
+
+    span {
+      text-decoration: underline;
     }
   }
 }

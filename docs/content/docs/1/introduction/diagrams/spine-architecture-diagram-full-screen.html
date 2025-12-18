@@ -19,12 +19,12 @@ customjs: js/docs/architecture-diagram.js
                     <span id="display-all-components">all server-side components</span>
                     of a cloud application. When developing with Spine, you will be interacting with
                     <span id="display-user-facing-components"><em>some of them</em></span>.</p>
-                <a class="diagram-link download-pdf-link"
-                   target="_blank"
-                   href="{{% baseurl %}}docs/introduction/diagrams/Spine-Architecture-Diagram.pdf">
-                    <i class="icon-pdf"></i>
-                    <span class="external-link">Download PDF</span>
-                </a>
+                {{< diagram-link
+                    label="Download PDF"
+                    icon_class="icon-pdf"
+                    url="docs/introduction/diagrams/Spine-Architecture-Diagram.pdf"
+                    is_external="true"
+                    class="download-pdf-link">}}
             </div>
         </div>
     </div>
