@@ -22,7 +22,7 @@ Click on a component to navigate to its definition from the
 {{< diagram-link
     label="View full screen"
     icon_class="far fa-expand"
-    url="docs/introduction/diagrams/spine-architecture-diagram-full-screen" >}}
+    url="docs/introduction/diagrams/spine-architecture-diagram-full-screen/" >}}
 
 {{< diagram-link
     label="Download PDF"
