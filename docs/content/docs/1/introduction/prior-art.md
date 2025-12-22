@@ -50,7 +50,7 @@ programming and immutable data.
 In Spine Event Engine we combined all of our experience and observations of the best-breed market
 products and solutions like [Axon](http://www.axonframework.org/), [Spring](https://spring.io/), [Kurrent](https://www.kurrent.io/) 
 (formerly Event Store), [InfluxDB](https://influxdata.com/), [Apache Zest](https://zest.apache.org/) and many others. 
-Spine has yet to find its own niche.
+Spine has yet to find its own&nbsp;niche.
 
 Spine probably won’t be the best fit for trading or highly loaded applications, where, for example,
 [LMAX](https://www.lmax.com/) does an excellent job. Our motivation is to make development of
