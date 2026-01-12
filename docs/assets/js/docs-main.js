@@ -25,6 +25,7 @@
  */
 
 // Theme JS from the `TeamDev-Ltd/site-commons`.
+import 'js/components/code-tabs.js';
 /* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
 /*import 'js/components/copy-code.js'*/
 

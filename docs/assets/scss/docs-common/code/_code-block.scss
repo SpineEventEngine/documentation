@@ -31,9 +31,9 @@
   shortcode with the file name parameter or with using the `code-tabs`.
 */
 .code-block {
-  $code-block-background: var(--code-block-background);
+  $code-block-background: transparent;
   $header-name-font-size: 12px;
-  $header-bg-color: var(--code-block-background);
+  $header-bg-color: var(--code-block-header-background);
   $header-divider-color: var(--code-block-header-divider-color);
 
   margin-bottom: 40px;

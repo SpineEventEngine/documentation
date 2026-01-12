@@ -58,7 +58,15 @@ $article-container-min-height: 460px;
     --code-block-padding: 20px;
   }
 
+  .code-tabs {
+    margin: 8px 0 40px;
+  }
+
   .highlight {
+    &:not(.code-tabs .highlight) {
+      margin: 8px 0 40px;
+    }
+
     // Applies negative margins only to the parent `chroma` element.
     // Useful for the default and table views with the numbered lines.
     > .chroma {

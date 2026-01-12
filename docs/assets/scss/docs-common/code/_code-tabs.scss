@@ -65,7 +65,7 @@
       font-family: $code-tab-font;
       color: $code-tab-color;
       font-weight: bold;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1;
       transition: color .2s ease-in-out;
       cursor: pointer;
@@ -82,7 +82,7 @@
             bottom: -1px;
             width: 100%;
             height: $indicator-line-height;
-            background: red;
+            background: $code-tab-indicator-color;
           }
         }
       }
@@ -96,9 +96,17 @@
   }
 
   .code-tab-content {
+    &:not(:has(.highlight)) {
+      padding-top: 16px;
+    }
+
     p {
       padding-top: 0 !important;
       margin-bottom: 8px;
+    }
+
+    ul:last-child {
+      margin-bottom: 0;
     }
   }
 }
