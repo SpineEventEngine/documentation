@@ -34,7 +34,7 @@
   $code-tab-indicator-color: var(--code-tab-indicator-color);
   $code-tab-font: var(--main-font);
   $code-tab-padding: 4px 0;
-  $code-tab-font-size: 15px;
+  $code-tab-font-size: var(--code-tab-font-size);
   $border-radius: 3px;
   $indicator-line-height: 2px;
   $indicator-line-border-radius: calc($indicator-line-height / 2);
