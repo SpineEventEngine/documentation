@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,10 @@
   shortcode with the file name parameter or with using the `code-tabs`.
 */
 .code-block {
-  $code-block-background: var(--code-block-background);
-  $header-name-font-size: 12px;
-  $header-bg-color: var(--code-block-background);
+  $code-block-background: transparent;
+  $header-name-font-size: var(--code-tab-font-size);
+  $header-name-padding: 4px 0;
+  $header-bg-color: var(--code-block-header-background);
   $header-divider-color: var(--code-block-header-divider-color);
 
   margin-bottom: 40px;
@@ -49,11 +50,11 @@
     border-bottom: 1px solid $header-divider-color;
 
     .file-name {
-      color: var(--code-block-text-color);
+      color: #3a3a3a;
       font-size: $header-name-font-size;
-      font-weight: bold;
+      font-weight: 400;
       line-height: 1;
-      padding: 14px $code-block-padding;
+      padding: $header-name-padding;
     }
 
     .copy-code-to-clipboard-icon {

@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,15 @@ $article-container-min-height: 460px;
     --code-block-padding: 20px;
   }
 
+  .code-tabs {
+    margin: 8px 0 40px;
+  }
+
   .highlight {
+    &:not(.code-tabs .highlight) {
+      margin: 8px 0 40px;
+    }
+
     // Applies negative margins only to the parent `chroma` element.
     // Useful for the default and table views with the numbered lines.
     > .chroma {

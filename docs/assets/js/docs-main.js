@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
  */
 
 // Theme JS from the `TeamDev-Ltd/site-commons`.
+import 'js/components/code-tabs.js';
 /* TODO:2025-12-03:julia.evseeva: Enable when the icon position will be approved. */
 /*import 'js/components/copy-code.js'*/
 
