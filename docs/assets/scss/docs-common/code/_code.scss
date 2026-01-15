@@ -28,34 +28,30 @@
   --code-background: #ffffff;
   --code-text-color: inherit;
   --code-padding: 0;
+
+  --code-block-header-divider-color: transparent;
+  --code-block-header-background: transparent;
+  --code-tab-color: #818181;
+  --code-tab-active-color: #1a96de;
+  --code-tab-indicator-color: #1a96de;
 }
 
 .dark-code-theme {
   --code-block-background: #2b2b2b;
   --code-block-text-color: #a9b7c6;
   --code-block-box-shadow: unset;
-  --code-block-header-divider-color: transparent;
-  --code-block-header-background: transparent;
   --code-block-highlighted-line-bg: #383636;
   --copy-code-icon-color: #{$gray-600};
   --copy-code-icon-hover-color: rgba(255, 255, 255, .8);
-  --code-tab-color: #{$gray-600};
-  --code-tab-active-color: var(--text-color);
-  --code-tab-indicator-color: #1a96de;
 }
 
 .light-code-theme {
   --code-block-background: #ffffff;
   --code-block-text-color: var(--text-color);
   --code-block-box-shadow: 0 3px 12px 0 rgba(35, 37, 38, .1);
-  --code-block-header-divider-color: transparent;
-  --code-block-header-background: transparent;
   --code-block-highlighted-line-bg: #e9f0e9;
   --copy-code-icon-color: #{$gray-600};
   --copy-code-icon-hover-color: #{$gray-700};
-  --code-tab-color: #{$gray-600};
-  --code-tab-active-color: var(--text-color);
-  --code-tab-indicator-color: #1a96de;
 }
 
 $mono-font-family: $main-mono-font;
