@@ -1,5 +1,5 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@
  * Builds and runs the site locally.
  */
 task<Exec>("runSite") {
+    dependsOn("installDependencies")
     commandLine("./_script/hugo-serve")
 }
 
@@ -35,7 +36,15 @@ task<Exec>("runSite") {
  * Builds the site without starting the server.
  */
 task<Exec>("buildSite") {
+    dependsOn("installDependencies")
     commandLine("./_script/hugo-build")
+}
+
+/**
+ * Installs the Node.js dependencies required for building the site.
+ */
+task<Exec>("installDependencies") {
+    commandLine("./_script/install-dependencies")
 }
 
 /**
@@ -56,10 +65,11 @@ task<Exec>("checkSamples") {
  * Builds all included projects via depending on the top-level "buildAll" tasks
  * declared in these projects.
  *
- * @see https://discuss.gradle.org/t/defining-a-composite-build-only-to-build-all-subprojects/25070/6
- * @see https://github.com/AlexMAS/gradle-composite-build-example
- * @see https://docs.gradle.org/current/userguide/composite_builds.html
+ * See also:
+ *  * [Composite build to build subprojects](https://discuss.gradle.org/t/defining-a-composite-build-only-to-build-all-subprojects/25070/6)
+ *  * [Gradlew composite build example](https://github.com/AlexMAS/gradle-composite-build-example)
+ *  * [Composite builds](https://docs.gradle.org/current/userguide/composite_builds.html)
  */
-tasks.register("buildAll")  {
+tasks.register("buildAll") {
     dependsOn(gradle.includedBuilds.map { it.task(":buildAll") })
 }
