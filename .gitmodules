@@ -1,15 +1,15 @@
-[submodule "_code/examples/airport"]
-	path = _code/examples/airport
+[submodule "docs/_code/examples/airport"]
+	path = docs/_code/examples/airport
 	url = https://github.com/spine-examples/airport.git
-[submodule "_code/examples/blog"]
-	path = _code/examples/blog
+[submodule "docs/_code/examples/blog"]
+	path = docs/_code/examples/blog
 	url = https://github.com/spine-examples/blog.git
-[submodule "_code/examples/hello"]
-	path = _code/examples/hello
+[submodule "docs/_code/examples/hello"]
+	path = docs/_code/examples/hello
 	url = https://github.com/spine-examples/hello.git
-[submodule "_code/examples/kanban"]
-	path = _code/examples/kanban
+[submodule "docs/_code/examples/kanban"]
+	path = docs/_code/examples/kanban
 	url = https://github.com/spine-examples/kanban.git
-[submodule "_code/examples/todo-list"]
-	path = _code/examples/todo-list
+[submodule "docs/_code/examples/todo-list"]
+	path = docs/_code/examples/todo-list
 	url = https://github.com/spine-examples/todo-list.git
