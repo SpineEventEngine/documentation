@@ -16,11 +16,11 @@ available as a binary executable written in Go.
 1. Open [embed-code][embed-code-repo] repository.
 2. Switch to the `embed-code-go` branch.
 3. Go to the `embed-code-go/bin` and download an executable suitable for you OS.
-4. Put it in the `_code` directory of this repository.
+4. Put it in the `docs/_bin` directory of this repository.
 
 ### Download code snippets
 
-The `_code` directory contains the source code, which is embedded into the pages 
+The `docs/_code` directory contains the source code, which is embedded into the pages 
 of the spine.io documentation:
 
 * `examples` — contains examples selected from the repositories under `spine-examples`
@@ -35,7 +35,7 @@ git submodule update --remote
 
 ### Config files
 
-As for now, there is the `_code/config-v1.yml` config file for Spine v1.
+As for now, there is the `docs/_settings/v1.embed-code.yml` config file for Spine v1.
 
 ## Usage patterns
 
@@ -53,13 +53,13 @@ to the documentation files using the tool. The most important points here are:
 1. Update the snippet in the appropriate repository.
 2. Make sure it builds successfully.
 3. Go to the `SpineEventEngine/documentation` project.
-4. Navigate to the `_code` directory.
+4. Navigate to the `docs/_bin` directory.
 5. Execute the binary based on your operating system and architecture: 
    `./embed-code-<os> -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
    ```shell
-   ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
+   ./embed-code-macos -config-path="../_settings/v1.embed-code.yml" -mode="embed"
    ```
 
 ### Adding a new example project
@@ -76,29 +76,29 @@ to the documentation files using the tool. The most important points here are:
 2. Add the example code as a submodule for this project:
 
    ```bash
-   git submodule add https://github.com/spine-examples/<example-name> _code/examples/<example-name>
+   git submodule add https://github.com/spine-examples/<example-name> docs/_code/examples/<example-name>
    ```
-   Please make sure the new submodule goes under the `_code/examples` directory, as shown in
-   the command line template above.
+   Please make sure the new submodule goes under the `docs/_code/examples` directory, 
+   as shown in the command line template above.
 
 3. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
    file.
 4. Insert code embedding directives where needed in the `docs/content/` folder.
-5. Navigate to the `_code` directory.
+5. Navigate to the `docs/_bin` directory.
 6. Execute: `./embed-code -config-path="config-of-your-choice.yml" -mode="embed"`.
 
    For example:
    ```shell
-   ./embed-code-macos -config-path="config-v1.yml" -mode="embed"
+   ./embed-code-macos -config-path="../_settings/v1.embed-code.yml" -mode="embed"
    ```
 
 ### Adding a new small piece
 
-1. Add the code under `_code/samples/src` directory.
+1. Add the code under `docs/_code/samples/src` directory.
 2. Make sure tests for the new code pass.
 3. Add the new piece using the [`embed-code` guide][embed-code-readme].
 4. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
-   file `includeBuild("./_code/samples")`.
+   file `includeBuild("./docs/_code/samples")`.
 
 ### How to remove a code snippet?
 
@@ -109,7 +109,7 @@ to the documentation files using the tool. The most important points here are:
 
    For example:
    ```shell
-   ./embed-code-macos -config-path="config-v1.yml" -mode="check"
+   ./embed-code-macos -config-path="../_settings/v1.embed-code.yml" -mode="check"
    ```
 
 ## Troubleshooting

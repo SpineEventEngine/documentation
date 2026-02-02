@@ -26,7 +26,7 @@
 
 rootProject.name = "spine-docs"
 
-includeBuild("./_code/samples")
+includeBuild("./docs/_code/samples")
 
-includeBuild("./_code/examples/airport")
-includeBuild("./_code/examples/hello")
+includeBuild("./docs/_code/examples/airport")
+includeBuild("./docs/_code/examples/hello")

@@ -25,6 +25,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+set -e
+
 # Load environment variables for the case of execution from the Gradle build if they exist.
 BASH_PROFILE=~/.bash_profile
 BASH_RC=~/.bashrc
@@ -37,11 +39,17 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-# Ensure `_code` files are fetched.
-git submodule update --remote --merge --recursive
+# Navigate to the folder with embed-code binaries.
+cd docs/_bin
 
-# Navigate to the folder with samples.
-cd _code
+# Use the Ubuntu binary for GitHub Actions and macOS binary in other cases.
+if [ "$GITHUB_ACTIONS" = "true" ]; then
+  echo "Running in GitHub Action."
+  TOOL="./embed-code-ubuntu"
+else
+  echo "Running locally on macOS."
+  TOOL="./embed-code-macos"
+fi
 
-# Update code samples.
-./embed-code-macos -config-path="config-v1.yml" -mode="embed"
+# Check code samples.
+"$TOOL" -config-path="../_settings/v1.embed-code.yml" -mode="check"

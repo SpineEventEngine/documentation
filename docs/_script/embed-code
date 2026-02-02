@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
 #
-# Copyright 2026, TeamDev. All rights reserved.
+# Copyright 2020, TeamDev. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -38,5 +37,11 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-cd site
-npm install
+# Ensure `docs/_code` files are fetched.
+git submodule update --remote --merge --recursive
+
+# Navigate to the folder with embed-code binaries.
+cd docs/_bin
+
+# Update code samples.
+./embed-code-macos -config-path="../_settings/v1.embed-code.yml" -mode="embed"

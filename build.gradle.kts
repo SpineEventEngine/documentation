@@ -29,7 +29,7 @@
  */
 task<Exec>("runSite") {
     dependsOn("installDependencies")
-    commandLine("./_script/hugo-serve")
+    commandLine("./docs/_script/hugo-serve")
 }
 
 /**
@@ -37,28 +37,28 @@ task<Exec>("runSite") {
  */
 task<Exec>("buildSite") {
     dependsOn("installDependencies")
-    commandLine("./_script/hugo-build")
+    commandLine("./docs/_script/hugo-build")
 }
 
 /**
  * Installs the Node.js dependencies required for building the site.
  */
 task<Exec>("installDependencies") {
-    commandLine("./_script/install-dependencies")
+    commandLine("./docs/_script/install-dependencies")
 }
 
 /**
  * Embeds the code samples into pages of the site.
  */
 task<Exec>("embedCode") {
-    commandLine("./_script/embed-code")
+    commandLine("./docs/_script/embed-code")
 }
 
 /**
  * Verifies that the source code samples embedded into the pages are up-to-date.
  */
 task<Exec>("checkSamples") {
-    commandLine("./_script/check-samples")
+    commandLine("./docs/_script/check-samples")
 }
 
 /**

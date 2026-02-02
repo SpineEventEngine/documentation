@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2020, TeamDev. All rights reserved.
+# Copyright 2025, TeamDev. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,8 +25,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-set -e
-
 # Load environment variables for the case of execution from the Gradle build if they exist.
 BASH_PROFILE=~/.bash_profile
 BASH_RC=~/.bashrc
@@ -39,17 +37,5 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-# Navigate to the folder with samples.
-cd _code
-
-# Use the Ubuntu binary for GitHub Actions and macOS binary in other cases.
-if [ "$GITHUB_ACTIONS" = "true" ]; then
-  echo "Running in GitHub Action."
-  TOOL="./embed-code-ubuntu"
-else
-  echo "Running locally on macOS."
-  TOOL="./embed-code-macos"
-fi
-
-# Check code samples.
-"$TOOL" -config-path="config-v1.yml" -mode="check"
+cd docs/_site
+hugo server
