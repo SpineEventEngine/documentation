@@ -38,5 +38,5 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-cd site
+cd docs/_site
 npm install

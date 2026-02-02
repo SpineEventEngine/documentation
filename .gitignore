@@ -1,15 +1,15 @@
 # Hugo cache files
-/site/resources
+docs/_site/resources
 public
 
 # Cache folder for Hugo Modules
-/site/_vendor
+docs/_site/_vendor
 
 # Node modules
 node_modules
 
 # Used to control concurrency between multiple Hugo instances
-/site/.hugo_build.lock
+docs/_site/.hugo_build.lock
 
 # Needed for navigation/intellisense help inside code editors
 jsconfig.json
