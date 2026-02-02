@@ -24,7 +24,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "spine.io"
+rootProject.name = "spine-docs"
 
 includeBuild("./_code/samples")
 
