@@ -8,7 +8,7 @@ disableKinds = ['taxonomy', 'term']
   [[module.imports]]
     path = '../..'
   [[module.imports]]
-    path = 'github.com/TeamDev-Ltd/site-commons'
+    path = 'github.com/SpineEventEngine/site-commons'
 
 # Enables HTML rendering in markdown files.
 [markup]

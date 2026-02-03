@@ -173,7 +173,7 @@ $sidenav-title-left-padding: 22px;
 .mobile-sidenav-header {
   display: none;
 
-  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+  @include breakpoint(mobile-sidenav) {
     display: flex;
     justify-content: flex-end;
 
@@ -204,7 +204,7 @@ $sidenav-title-left-padding: 22px;
 }
 
 .mobile-sidenav-holder {
-  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+  @include breakpoint(mobile-sidenav) {
     display: none;
     position: fixed !important;
     background-color: white;
@@ -220,7 +220,7 @@ $sidenav-title-left-padding: 22px;
 }
 
 .mobile-sidenav-opened {
-  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+  @include breakpoint(mobile-sidenav) {
     overflow: hidden;
   }
 
@@ -232,7 +232,7 @@ $sidenav-title-left-padding: 22px;
 #mobile-sidenav-toggle {
   display: none;
 
-  @include breakpoint($doc-sidenav-mobile-breakpoint) {
+  @include breakpoint(mobile-sidenav) {
     display: block;
     padding: 0 15px;
     cursor: pointer;

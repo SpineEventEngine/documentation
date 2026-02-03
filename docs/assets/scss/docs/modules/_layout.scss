@@ -44,7 +44,7 @@ $doc-sidenav-background: $gray-100;
     margin-top: 0;
 
     &.with-colored-sidenav {
-      @include breakpoint-min($doc-sidenav-mobile-breakpoint) {
+      @include breakpoint-min(mobile-sidenav) {
         background: linear-gradient(90deg, $doc-sidenav-background 0%, white 50%);
       }
 
@@ -61,7 +61,7 @@ $doc-sidenav-background: $gray-100;
   .content-columns {
     padding: 0 15px;
 
-    @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    @include breakpoint(mobile-sidenav) {
       padding: 0;
     }
 
@@ -75,7 +75,7 @@ $doc-sidenav-background: $gray-100;
       flex-direction: column;
       padding: 24px 15px 48px;
 
-      @include breakpoint($doc-sidenav-mobile-breakpoint) {
+      @include breakpoint(mobile-sidenav) {
         padding: 16px 0 48px;
       }
     }
@@ -105,7 +105,7 @@ $doc-sidenav-background: $gray-100;
       }
     }
 
-    @include breakpoint($doc-sidenav-mobile-breakpoint) {
+    @include breakpoint(mobile-sidenav) {
       display: block;
 
       .doc-sidenav-col {
