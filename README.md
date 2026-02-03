@@ -167,7 +167,7 @@ in `docs/_site/assets/scss`. They will not be available on `spine.io`.
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
 [site-commons]: https://github.com/TeamDev-Ltd/site-commons
 [site-commons-ssh]: https://github.com/TeamDev-Ltd/site-commons/tree/master?tab=readme-ov-file#configure-go-to-use-ssh-for-github
-[embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go
+[embed-code]: https://github.com/SpineEventEngine/embed-code-go
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
 [spine-repo]: https://github.com/SpineEventEngine/SpineEventEngine.github.io
 [spine-wiki]: https://github.com/SpineEventEngine/documentation/wiki

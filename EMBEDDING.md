@@ -14,9 +14,8 @@ Originally, this tool was written as a plugin for Jekyll, but now it is also
 available as a binary executable written in Go.
 
 1. Open [embed-code][embed-code-repo] repository.
-2. Switch to the `embed-code-go` branch.
-3. Go to the `embed-code-go/bin` and download an executable suitable for you OS.
-4. Put it in the `docs/_bin` directory of this repository.
+2. Go to the `bin` directory and download an executable suitable for you OS.
+3. Put it in the `docs/_bin` directory of this repository.
 
 ### Download code snippets
 
@@ -122,5 +121,5 @@ on Linux or macOS, run the following command from the `_code` directory:
 chmod +x embed-code-macos
 ```
 
-[embed-code-repo]: https://github.com/SpineEventEngine/embed-code
-[embed-code-readme]: https://github.com/SpineEventEngine/embed-code/blob/embed-code-go/embed-code-go/README.md
+[embed-code-repo]: https://github.com/SpineEventEngine/embed-code-go
+[embed-code-readme]: https://github.com/SpineEventEngine/embed-code-go/blob/master/README.md
