@@ -90,24 +90,7 @@ $diagram-content-text-size: 15px;
 
     .close-btn-wrapper {
       float: right;
-
-      .close-btn {
-        display: block;
-        cursor: pointer;
-        line-height: 0;
-        padding: 1rem;
-        margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text.
-
-        .close-icon {
-          @include close-icon;
-        }
-
-        &:hover {
-          .close-icon {
-            opacity: .87;
-          }
-        }
-      }
+      margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text.
     }
   }
 

@@ -179,26 +179,8 @@ $sidenav-title-left-padding: 22px;
 
     .icon-wrapper {
       position: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       top: 16px;
       right: 16px;
-      width: 48px;
-      height: 48px;
-      background-color: rgba(255, 255, 255, .9);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color .2s ease-in-out;
-      z-index: 1;
-
-      &:hover {
-        background-color: rgba(0, 0, 0, .03);
-      }
-
-      .close-icon {
-        @include close-icon;
-      }
     }
   }
 }
