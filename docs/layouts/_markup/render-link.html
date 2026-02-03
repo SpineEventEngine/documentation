@@ -3,8 +3,8 @@
 {{- $isAbsolute := strings.HasPrefix $link "http" -}}
 {{- $isSamePageAnchor := strings.HasPrefix $link "#" -}}
 
-{{- $skipNofollow := partial "functions/whitelist-checker.html" $link -}}
-{{- $isExternalLink := partial "functions/is-external-link.html" $link -}}
+{{- $skipNofollow := partial "theme/functions/whitelist-checker.html" $link -}}
+{{- $isExternalLink := partial "theme/functions/is-external-link.html" $link -}}
 
 {{- if or $isAbsolute $isSamePageAnchor -}}
     {{- $link = $link | safeURL -}}

@@ -45,7 +45,7 @@
 {{ else if $item.url }}
     <li>
         {{ $pageURL := $item.url }}
-        {{ $isExternalLink := partial "functions/is-external-link.html" $pageURL }}
+        {{ $isExternalLink := partial "theme/functions/is-external-link.html" $pageURL }}
         {{ if $isExternalLink }}
             <a class="sidenav-link external-link"
                href="{{ $pageURL }}"
