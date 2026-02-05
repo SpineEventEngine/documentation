@@ -26,11 +26,4 @@
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "theme-main";
-
-@import "docs";
-
-// Styles that should only be used to build this site.
-// They should not be imported into the main spine.io site
-// to not override or duplicate styles there.
-@import "docs/home";
-@import "docs/layout";
+@import "preview-main";
