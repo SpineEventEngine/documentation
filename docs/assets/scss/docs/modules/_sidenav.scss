@@ -35,7 +35,7 @@ $sidenav-link-chevron-size: 6px;
 $sidenav-first-level-left-padding: 24px;
 $sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 16px);
 $sidenav-third-level-left-padding: calc(#{$sidenav-second-level-left-padding} + 16px);
-$sticky-docs-sidenav-width: $doc-sidenav-desktop-width + $sidenav-first-level-left-padding;
+$sticky-docs-sidenav-width: 200px + $sidenav-first-level-left-padding;
 $divider-color: rgba(0, 0, 0, .08);
 
 $sidenav-holder-padding: 32px 24px 32px 16px;
