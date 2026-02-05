@@ -36,7 +36,7 @@ The project has two directories:
 * `docs` – contains the documentation files along with all the necessary
   JS and CSS files. This directory will be added to
   `SpineEventEngine/SpineEventEngine.github.io` as a Hugo Module.
-* `docs/_site` – contains the HTML and CSS files needed only to run the
+* `docs/_preview` – contains the HTML and CSS files needed only to run the
   documentation locally.
 
 To build and launch the site on the local server:
@@ -53,7 +53,7 @@ To build the site without running the server:
 
 Another way to run the site locally is to follow these steps:
 
-1. Navigate to the `docs/_site` folder.
+1. Navigate to the `docs/_preview` folder.
 2. Start the local server with this command:
 
    ```shell
@@ -80,7 +80,7 @@ be updated in the main `spine.io` site repository.
 
 To get theme updates:
 
-1. Navigate to the `docs/_site` directory.
+1. Navigate to the `docs/_preview` directory.
 2. Clean the module cache:
 
    ```shell
@@ -142,7 +142,7 @@ There are two main import files:
   Should be imported into the `main.scss` of the `spine.io` site as well.
 
 Styles needed only for running the documentation locally are located 
-in `docs/_site/assets/scss`. They will not be available on `spine.io`.
+in `docs/_preview/assets/scss`. They will not be available on `spine.io`.
 
 ## Troubleshooting
 
