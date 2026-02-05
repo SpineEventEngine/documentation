@@ -8,7 +8,8 @@ Go to the [documentation section](docs/).
 
 Read the [Authoring][authoring] guide on adding the content to the documentation.
 
-<p class="subtle">The page is only available on this site and will not be 
-rendered on the <a href="https://spine.io">spine.io</a>.</p>
+The page is only available on this site and will not be rendered on the
+[spine.io](https://spine.io).
+{class="subtle"}
 
 [authoring]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
