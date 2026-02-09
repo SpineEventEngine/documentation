@@ -1,13 +1,16 @@
-- short: "1"
-  full: 1.9.0
-  path: docs
-  is_main: true
-  switcher:
-    visible: false
-    item_visible: false
-- short: "2"
-  full: 2.0.0
-  path: docs/2
-  switcher:
-    visible: false
-    item_visible: false
+docs:
+  - short: "1"
+    full: 1.9.0
+    path: docs/1
+    url: docs
+    is_main: true
+    switcher:
+      visible: false
+      item_visible: false
+  - short: "2"
+    full: 2.0.0
+    path: docs/2
+    url: docs/2
+    switcher:
+      visible: false
+      item_visible: false
