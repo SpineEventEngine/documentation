@@ -158,8 +158,8 @@ Spine Model Compiler is a Gradle plugin which executes all the code generation r
 Gradle tasks as well as the `modelCompiler { }` extension, which allows you to configure those
 tasks.
 
-See the API reference for the list of the [declared tasks]({{% get-site-data "spine.base_api_doc" %}}/plugin-base/plugin-base/io.spine.tools.gradle/-model-compiler-task-name/)
-and the [codegen configuration options]({{% get-site-data "spine.base_api_doc" %}}/model-compiler/model-compiler/io.spine.tools.gradle.compiler/-extension/)
+See the API reference for the list of the [declared tasks]({{% get-site-data "repositories.base_api_doc" %}}/plugin-base/plugin-base/io.spine.tools.gradle/-model-compiler-task-name/)
+and the [codegen configuration options]({{% get-site-data "repositories.base_api_doc" %}}/model-compiler/model-compiler/io.spine.tools.gradle.compiler/-extension/)
 
 ### ProtoJS Plugin
 
@@ -168,5 +168,5 @@ The plugin adds the `generateJsonParsers` task, which appends generated JS files
 Protobuf messages out of plain JS objects.
 
 The plugin also provides the `protoJs { }` extension, which allows you to configure JS code
-generation. See the [API reference]({{% get-site-data "spine.base_api_doc" %}}/proto-js-plugin/proto-js-plugin/io.spine.js.gradle/-extension/)
+generation. See the [API reference]({{% get-site-data "repositories.base_api_doc" %}}/proto-js-plugin/proto-js-plugin/io.spine.js.gradle/-extension/)
 for more info.

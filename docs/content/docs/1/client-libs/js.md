@@ -5,5 +5,5 @@ headline: Documentation
 
 # JavaScript Client Library
 
- * [Reference documentation]({{% get-site-data "spine.js_api_doc" %}})
- * [Source code]({{% get-site-data "spine.web_repo" %}}/tree/master/client-js/)
+ * [Reference documentation]({{% get-site-data "repositories.js_api_doc" %}})
+ * [Source code]({{% get-site-data "repositories.web_repo" %}}/tree/master/client-js/)
