@@ -24,7 +24,7 @@ tests the Hello&nbsp;context.
 
 1. JDK version 8 or higher.
 2. Git.
-3. The source code of the [Hello World]({{% get-site-data "spine.examples" %}}/hello) example.
+3. The source code of the [Hello World]({{% get-site-data "repositories.examples" %}}/hello) example.
     
     ```bash
     git clone git@github.com:spine-examples/hello.git

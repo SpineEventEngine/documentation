@@ -216,7 +216,7 @@ assertEntity.hasStateThat()
 ### Configuring Server Environment
 
 For information on configuring server environment of a Spine-based application, please 
-see the reference documentation of the [`ServerEnvironment`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server/-server-environment/)
+see the reference documentation of the [`ServerEnvironment`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server/-server-environment/)
 class.
 
 ### Assembling Application

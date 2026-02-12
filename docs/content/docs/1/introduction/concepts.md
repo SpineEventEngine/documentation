@@ -108,7 +108,7 @@ generates events in response to changes in the domain.
 {{% note-block class="note" %}}
 In some cases, Event Reactor may ignore the event, returning `Nothing`.
     It usually happens when a method returns one of the
-    [`Either`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.tuple/-either/) types, with `Nothing` as
+    [`Either`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.tuple/-either/) types, with `Nothing` as
     one of the possible options: `EitherOf2<TaskReAssigned, Nothing>`.
 {{% /note-block %}}
 
@@ -186,9 +186,9 @@ Repository encapsulates storage, retrieval, and search of Entities as if it were
 a collection of objects. It isolates domain objects from the details of the database access code. 
 
 The applications you develop using Spine usually have the following types of repositories:
-* [`AggregateRepository`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.aggregate/-aggregate-repository/),
-* [`ProcessManagerRepository`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.procman/-process-manager/),
-* [`ProjectionRepository`]({{% get-site-data "spine.core_api_doc" %}}/server/server/io.spine.server.projection/-projection-repository/).
+* [`AggregateRepository`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.aggregate/-aggregate-repository/),
+* [`ProcessManagerRepository`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.procman/-process-manager/),
+* [`ProjectionRepository`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.projection/-projection-repository/).
 
 ### Snapshot
 
