@@ -2,11 +2,11 @@ Release new version of the documentation
 ========
 
 **Table of Contents**
-* [Release major version](#release-major-version)
+* [Release new version](#release-new-version)
     * [Release steps](#release-steps)
     * [URLs](#urls)
 
-## Release major version
+## Release new version
 
 This site supports documentation versioning. All links within the
 documentation are rendered automatically.
@@ -14,16 +14,18 @@ documentation are rendered automatically.
 The versions are managed in the `docs/data/versions.yml` file.
 
 ```yml
-- short: "1"
-  full: 1.9.0
-  path: docs
+- version_id: "1"
+  label: 1.9.0
+  content_path: docs/1
+  route_url: docs
   is_main: true
   switcher:
     visible: false
     item_visible: false
-- short: "2"
-  full: 2.0.0
-  path: docs/2
+- version_id: "2-0-x"
+  label: 2.0.x
+  content_path: docs/2-0-x
+  route_url: docs/2-0-x
   switcher:
     visible: false
     item_visible: false
@@ -31,13 +33,14 @@ The versions are managed in the `docs/data/versions.yml` file.
 
 Where:
 
-* `short` shows the major version number, which will be used primarily for the link generation.
-* `full` the full version that will be visible in the version switcher.
-* `path` will be used when generating links inside a documentation version.
-* `is_main` the optional flag that marks the current main version.
+* `version_id` – a major or minor version identifier used to generate the correct side navigation structure.
+* `label` – the full version label displayed in the version switcher and available via the `{{< version >}}` shortcode.
+* `content_path` – the relative path (from the `content/` directory) to the documentation files for this version.
+* `route_url` – the base URL used when generating internal links within this documentation version.
+* `is_main` – optional flag indicating that this version is the main documentation version.
 * `switcher`:
-    * `visible` specifies whether the version switcher will be visible on the page.
-    * `item_visible` specifies whether the version will be available in the switcher dropdown.
+    * `visible` – specifies whether the version switcher will be visible on the page.
+    * `item_visible` – specifies whether the version will be available in the switcher dropdown.
     
 The `switcher` component is under development.
 
@@ -51,7 +54,7 @@ content
     │   ├── client-libs
     │   ├── quick-start
     │   └── _index.md
-    └── 2
+    └── 2-0-x
         ├── client-libs
         ├── quick-start
         └── _index.md
@@ -60,12 +63,14 @@ content
 Also, each version should have its own `sidenav` config inside 
 the `data/docs/<version>` directory.
 
+For modules with documentation, the config should live in `data/docs/<module>/<version>`.
+
 ```
 data
 └── docs
     ├── 1
     │   └── sidenav.yml
-    └── 2
+    └── 2-0-x
         └── sidenav.yml
 ```
 
@@ -75,39 +80,29 @@ data
 2. Create the `sidenav.yml` inside `data/docs/<new-version>/` directory.
 3. Update the `data/versions.yml` config.
 
-   For example, if you release the version `2` as the main version,
+   For example, if you release the version `2-0-x` as the main version,
    the config should be updated as follows:
-
+   
     ```yml
-    - short: "1"
-      full: 1.9.0
-      path: docs           # Change the path from `docs` to `docs/1`.
-      is_main: true        # Change the flag to `false` or delete the line.
+    - version_id: "1"
+      label: 1.9.0
+      content_path: docs/1
+      route_url: docs            # Change the route from `docs` to `docs/1`.
+      is_main: true              # Change the flag to `false` or delete the line.
       switcher:
         visible: false
         item_visible: false
-    - short: "2"
-      full: 2.0.0-eap      # Change the version to `2.0.0` if needed.
-      path: docs/2         # Change the path from `docs/2` to `docs`.
-      is_main: false       # Set `is_main` as `true`.
+    - version_id: "2-0-x"
+      label: 2.0.x
+      content_path: docs/2-0-x   # Change the content path to `docs` if the documentation will be copied to the root.
+      route_url: docs/2-0-x      # Change the route from `docs/2-0-x` to `docs`.
+      is_main: false             # Set `is_main` as `true`.
       switcher:
         visible: false
         item_visible: false
     ```
 
-4. Update the `site/config/_default/hugo.toml` to make the version `2` as main.
-
-    - Navigate to the end of the file to the section "Version control config".
-    - Find the `path` parameters and update as follows:
-      ```
-      path = '{/docs/1}' -> path = '{/docs/2}'
-      path = '{/docs/1/**}' -> path = '{/docs/2/**}'
-      ```
-
-   Now the version `2` will be available at the `<domain>/docs/` URL and
-   will be opened by default.
-
-5. Commit and push the new version release.
+4. Commit and push the new version release.
 
 Get updates into the main website:
 

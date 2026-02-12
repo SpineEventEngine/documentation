@@ -1,0 +1,8 @@
+[params]
+  # Specifies the order of the sidenav modules.
+  moduleOrder = ["framework", "validation", "compiler"]
+
+[module]
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/validation/docs'
+    disable = true

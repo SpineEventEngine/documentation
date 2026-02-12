@@ -1,5 +1,11 @@
-module github.com/SpineEventEngine/documentation/site
+module github.com/SpineEventEngine/documentation/docs/_preview
 
 go 1.22.0
 
-require github.com/TeamDev-Ltd/site-commons v0.0.0-20251202150534-a795438915ff // indirect
+require (
+	github.com/SpineEventEngine/site-commons v0.0.0-20260212124406-a312b6eab34c // indirect
+	github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 // indirect
+	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 // indirect
+	github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 // indirect
+	github.com/twbs/bootstrap v5.3.8+incompatible // indirect
+)
