@@ -129,7 +129,8 @@ This example shows how to switch from version 1 to version 2.
 The current main version can be located either in the root folder or in its
 versioned folder and configured via `module.mounts`.
 
-1. If the main version is in the root, we also need to manually adjust folder structures:
+1. If the main version is in the root, we also need to manually adjust folder 
+   structures and move:
    - `content/docs/*` -> `content/docs/1/`
    - `content/docs/2` -> `content/docs`
 
