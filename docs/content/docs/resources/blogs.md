@@ -1,7 +1,7 @@
 ---
 title: Blogs
 headline: DDD Resources
-bodyclass: docs resources
+body_class: docs resources
 ---
 
 # Blogs
