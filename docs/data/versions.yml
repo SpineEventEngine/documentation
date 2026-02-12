@@ -1,7 +1,7 @@
 docs:
   - version_id: "1"
     label: 1.9.0
-    content_path: docs/1
+    content_path: docs
     route_url: docs
     is_main: true
     switcher:
