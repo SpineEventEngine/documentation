@@ -12,7 +12,7 @@ the overview of the documentation sections.
 
 ## [Quick Start](docs/quick-start/)
 In this section you can learn what it's like to develop with Spine by going 
-through the code of the [Hello World]({{% get-site-data "spine.examples" %}}/hello/) 
+through the code of the [Hello World]({{% get-site-data "repositories.examples" %}}/hello/) 
 example.
 
 ## [Introduction](docs/introduction/)
@@ -31,7 +31,7 @@ This sections provides links to the generated documentation.
 
 ## [Examples](docs/examples/)
 This page is the entry point for learning from the code of
-the [example applications]({{% get-site-data "spine.examples" %}}).
+the [example applications]({{% get-site-data "repositories.examples" %}}).
 
 ## [DDD Resources](docs/resources/)
 A brief selection of learning materials we recommend to the colleagues in DDD.

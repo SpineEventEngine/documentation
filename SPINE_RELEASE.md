@@ -137,7 +137,7 @@ use `{{% version %}}` shortcode:
 ```markdown
 [CoreJvm]({{% version %}})
 
-[CoreJvm {{% version %}}]({{% get-site-data "spine.core_jvm_repo" %}}/index.html)
+[CoreJvm {{% version %}}]({{% get-site-data "repositories.core_jvm_repo" %}}/index.html)
 ```
 
 Will be rendered as:
@@ -150,8 +150,8 @@ Will be rendered as:
 
 Where:
 
-* {{% get-site-data "spine.core_jvm_repo" %}} will apply the `core_jvm_repo`
-  from the `data/spine.yml` file.
+* {{% get-site-data "repositories.core_jvm_repo" %}} will apply the `core_jvm_repo`
+  from the `site-commons` -> `data/repositories.yml` file.
 * {{% version %}} adds the full version of the current page -> `1.9.0`, or `2.0.0`.
 
 To provide a specific version for example in FAQ or Release Notes, use:
