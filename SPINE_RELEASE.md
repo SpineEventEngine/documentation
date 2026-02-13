@@ -74,7 +74,7 @@ Where:
 
 ### Content
 
-The documentation content should be placed under `content/docs/<version>/` directory.
+The documentation content should be placed under `content/docs/<version_id>/` directory.
 
 For the main version, content can either be under its version directory or at
 the root – this is controlled by the `content_path`.
@@ -109,8 +109,8 @@ content
 ### Sidenav
 
 Each version should have its own sidenav configuration file, located either in:
-- `data/docs/<version>/sidenav.yml` for this repository; 
-- `data/docs/<module>/<version>/sidenav.yml` for documentation modules in their corresponding repositories.
+- `data/docs/<version_id>/sidenav.yml` for this repository; 
+- `data/docs/<module>/<version_id>/sidenav.yml` for documentation modules in their corresponding repositories.
 
 ## Release new version
 
@@ -166,7 +166,7 @@ Get updates into the main website:
 
 ## URLs
 
-All URLs inside `content/docs/<version>/` are automatically managed
+All URLs inside `content/docs/<version_id>/` are automatically managed
 according to the current documentation version.
 
 Use links in documentation as follows, without including a version.
@@ -185,6 +185,8 @@ The link above will be automatically rendered as:
 - `"<baseurl>/docs/guides/requirements/"` – for main version.
 - `"<baseurl>/docs/2/guides/requirements/"` – for the version `2`.
 - `"<baseurl>/docs/3/guides/requirements/"` – for the version `3`.
+- `"<baseurl>/docs/validation/guides/requirements/"` – for main version.
+- `"<baseurl>/docs/validation/2-0-x/guides/requirements/"` – for the version `2-0-x`. 
 
 To render the current documentation full version inside API URL,
 use `{{% version %}}` shortcode:
@@ -207,9 +209,9 @@ Where:
 
 * {{% get-site-data "repositories.core_jvm_repo" %}} will apply the `core_jvm_repo`
   from the `site-commons` -> `data/repositories.yml` file.
-* {{% version %}} adds the full version label of the current page -> `1.9.0`, or `2.0.0`.
+* {{% version %}} adds the version label of the current page -> `1.9.0`, or `2.0.0`.
 
-To provide a specific version for example in FAQ or Release Notes, use:
+To provide a specific version for example in FAQ or Release Notes, provide the `version_id`:
 
 ```markdown
 {{% version "1" %}}
