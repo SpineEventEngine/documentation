@@ -211,7 +211,7 @@ Where:
   from the `site-commons` -> `data/repositories.yml` file.
 * {{% version %}} adds the version label of the current page -> `1.9.0`, or `2.0.0`.
 
-To provide a specific version for example in FAQ or Release Notes, provide the `version_id`:
+To use a specific version for example in FAQ or Release Notes, provide the `version_id`:
 
 ```markdown
 {{% version "1" %}}
