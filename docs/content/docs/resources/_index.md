@@ -1,7 +1,7 @@
 ---
 title: Resources
 headline: DDD Resources
-bodyclass: docs resources
+body_class: docs resources
 ---
 
 # Resources on Domain-Driven Design

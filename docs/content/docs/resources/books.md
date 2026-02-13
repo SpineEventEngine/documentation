@@ -1,7 +1,7 @@
 ---
 title: Books
 headline: DDD Resources
-bodyclass: docs resources
+body_class: docs resources
 ---
 
 # Books
