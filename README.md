@@ -22,22 +22,20 @@ are working as intended. It allows making changes more convenient for authors.
 2. [Go][go] `1.12` or newer.
 3. [Node.js][nodejs] `18+`.
 4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
-5. Access to the [`site-commons`][site-commons] repository — to download the theme.
 
 ## Configuration
 
-1. Make sure [SSH][site-commons-ssh] configured correctly and the passphrase is stored in the keychain.
-2. Install project dependencies from the `site` directory by running `npm install`.
+1. Install project dependencies from the `docs/_preview` directory by running `npm install`.
 
 ## Running the documentation locally
 
 The project has two directories:
 
-* `docs` – contains the documentation files along with all the necessary
-  JS and CSS files. This directory will be added to
+* `docs` – contains the documentation files along with all the necessary 
+   page JS and images. This directory will be added to
   `SpineEventEngine/SpineEventEngine.github.io` as a Hugo Module.
-* `docs/_preview` – contains the HTML and CSS files needed only to run the
-  documentation locally.
+* `docs/_preview` – contains the setup needed only to run the
+   documentation locally.
 
 To build and launch the site on the local server:
 
@@ -72,8 +70,8 @@ Then run the `hugo serve` again.
 
 ## Theme updates
 
-This project uses several components from the [`site-commons`][site-commons] 
-Hugo theme.
+This project uses components, layouts, and styles from the 
+[`site-commons`][site-commons] Hugo theme.
 
 Please note that if you update a theme with any critical changes, it must also
 be updated in the main `spine.io` site repository.
@@ -90,11 +88,63 @@ To get theme updates:
 3. Update the Hugo Modules:
 
    ```shell
-   hugo mod get -u
+   hugo mod get -u github.com/SpineEventEngine/site-commons
    ```
 
 4. Commit and push changes from `go.mod` and `go.sum` files.
-   In the `go.sum` file keep only two last records to avoid file cluttering.
+   In the `go.sum` file, keep only the two required entries for each theme to avoid file clutter.
+
+## Other documentation modules
+
+This repository is set up as a documentation aggregator.
+That means it can pull documentation from other repositories and build 
+everything together into one site with the common side-navigation.
+
+### Add a new documentation module
+
+1. Open `docs/hugo.toml`.
+2. Add the module to the `module.imports` list.
+3. Update `moduleOrder` to control how modules appear in the sidenav.
+   By default, all modules are rendered in alphabetical order.
+
+The config example:
+
+```toml
+[params]
+  # Specifies the order of the sidenav modules.
+  moduleOrder = ["framework", "validation", "compiler"]
+
+[module]
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/validation/docs'
+    disable = false
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/framework/docs'
+    disable = false
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/compiler/docs'
+    disable = false
+```
+
+Setting `disable = true` temporarily excludes a module from building without 
+removing its config.
+
+### Get documentation module updates
+
+1. Navigate to the `docs/_preview` directory.
+2. Update the needed module:
+   ```shell
+   hugo mod get -u github.com/SpineEventEngine/validation/docs
+   ```
+
+   or update all the modules recursively (including the `site-commons`):
+
+   ```shell
+   hugo mod get -u ./...
+   ```
+
+3. Commit and push changes from `go.mod` and `go.sum` files.
+4. Get documentation updates to the `SpineEventEngine.github.io` according to the [guide][spine-docs-update].
 
 ## Code samples
 
@@ -127,27 +177,10 @@ To release a new version of Spine documentation, see the [SPINE_RELEASE.md](SPIN
 For instructions on adding the content to the documentation, please see
 the [`AUTHORING.md`][authoring-guide] file.
 
-## Styles and assets
-
-The documentation related styles are placed inside `docs/assets/scss`.
-The `docs` directory will be automatically added to the main site using Hugo Modules.
-
-There are two main import files:
-
-* `docs-common.scss` — contains the common styles that are also necessary for
-  the `SpineEventEngine/SpineEventEngine.github.io` repository. To not duplicate
-  global variables and layout styles, import the file in the main repository 
-  _at the top_ of the `main.scss`
-* `docs.scss` — contains styles responsible for the appearance of the documentation. 
-  Should be imported into the `main.scss` of the `spine.io` site as well.
-
-Styles needed only for running the documentation locally are located 
-in `docs/_preview/assets/scss`. They will not be available on `spine.io`.
-
 ## Troubleshooting
 
 1. If you are getting the terminal `prompts disabled error` when trying to get
-   theme updates, make sure you have allowed 2FA to do its job. Also if you have
+   theme updates, make sure you have allowed 2FA to do its job. Also, if you have
    authentication issues during submodules update. You can resolve it with this
    command:
 
@@ -165,9 +198,9 @@ in `docs/_preview/assets/scss`. They will not be available on `spine.io`.
 [go]: https://go.dev/doc/install
 [nodejs]: https://nodejs.org/en/download/current
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
-[site-commons]: https://github.com/TeamDev-Ltd/site-commons
-[site-commons-ssh]: https://github.com/TeamDev-Ltd/site-commons/tree/master?tab=readme-ov-file#configure-go-to-use-ssh-for-github
+[site-commons]: https://github.com/SpineEventEngine/site-commons
 [embed-code]: https://github.com/SpineEventEngine/embed-code-go
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
 [spine-repo]: https://github.com/SpineEventEngine/SpineEventEngine.github.io
 [spine-wiki]: https://github.com/SpineEventEngine/documentation/wiki
+[spine-docs-update]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/README.md#documentation

@@ -2,33 +2,63 @@ Release new version of the documentation
 ========
 
 **Table of Contents**
+* [Version configuration](#version-configuration)
+  * [Content](#content)
+  * [Sidenav](#sidenav)
 * [Release new version](#release-new-version)
-    * [Release steps](#release-steps)
-    * [URLs](#urls)
+  * [Change the current main version](#change-the-current-main-version)
+* [URLs](#urls)
 
-## Release new version
+## Version configuration
 
-This site supports documentation versioning. All links within the
-documentation are rendered automatically.
+This site supports documentation versioning. All links within the documentation
+are rendered automatically.
 
-The versions are managed in the `docs/data/versions.yml` file.
+Each documentation module manages its versions in its own `docs/data/versions.yml` file.
+The structure is the same for all modules, but the top-level key must match the module name.
+
+In the current repository, versions are defined under the `docs` key:
 
 ```yml
-- version_id: "1"
-  label: 1.9.0
-  content_path: docs/1
-  route_url: docs
-  is_main: true
-  switcher:
-    visible: false
-    item_visible: false
-- version_id: "2-0-x"
-  label: 2.0.x
-  content_path: docs/2-0-x
-  route_url: docs/2-0-x
-  switcher:
-    visible: false
-    item_visible: false
+docs:
+  - version_id: "1"
+    label: 1.9.0
+    content_path: docs
+    route_url: docs
+    is_main: true
+    switcher:
+      visible: false
+      item_visible: false
+
+  - version_id: "2"
+    label: 2.0.0
+    content_path: docs/2
+    route_url: docs/2
+    switcher:
+      visible: false
+      item_visible: false
+```
+
+In the `validation` repository:
+
+```yml
+validation:
+  - version_id: "2-0-0-snapshot"
+    label: 2.0.0-SNAPSHOT
+    content_path: docs/validation
+    route_url: docs/validation
+    is_main: true
+    switcher:
+      visible: false
+      item_visible: false
+
+  - version_id: "2-0-x"
+    label: 2.0.x
+    content_path: docs/validation/2-0-x
+    route_url: docs/validation/2-0-x
+    switcher:
+      visible: false
+      item_visible: false
 ```
 
 Where:
@@ -41,84 +71,109 @@ Where:
 * `switcher`:
     * `visible` – specifies whether the version switcher will be visible on the page.
     * `item_visible` – specifies whether the version will be available in the switcher dropdown.
-    
-The `switcher` component is under development.
 
-The documentation content should be created under the `content/<version>/` directory.
-Note that the current main version is also placed under its `version` directory.
+### Content
+
+The documentation content should be placed under `content/docs/<version_id>/` directory.
+
+For the main version, content can either be under its version directory or at
+the root – this is controlled by the `content_path`.
+
+For example if the main version is in the root:
 
 ```
 content
 └── docs
-    ├── 1
-    │   ├── client-libs
-    │   ├── quick-start
-    │   └── _index.md
-    └── 2-0-x
+    ├── client-libs
+    ├── quick-start
+    ├── _index.md
+    └── 2
         ├── client-libs
         ├── quick-start
         └── _index.md
 ```
 
-Also, each version should have its own `sidenav` config inside 
-the `data/docs/<version>` directory.
-
-For modules with documentation, the config should live in `data/docs/<module>/<version>`.
+In the `validation` repository:
 
 ```
-data
+content
 └── docs
-    ├── 1
-    │   └── sidenav.yml
-    └── 2-0-x
-        └── sidenav.yml
+    └── validation
+        ├── client-libs
+        ├── _index.md
+        └── 2-0-x
+            ├── client-libs
+            └── _index.md
 ```
 
-### Release steps
+### Sidenav
+
+Each version should have its own sidenav configuration file, located either in:
+- `data/docs/<version_id>/sidenav.yml` for this repository; 
+- `data/docs/<module>/<version_id>/sidenav.yml` for documentation modules in their corresponding repositories.
+
+## Release new version
 
 1. Create a new directory for the documentation inside the `content/docs/<new-version>/`.
 2. Create the `sidenav.yml` inside `data/docs/<new-version>/` directory.
-3. Update the `data/versions.yml` config.
+3. Add the new version to `data/versions.yml` config.
 
-   For example, if you release the version `2-0-x` as the main version,
-   the config should be updated as follows:
-   
-    ```yml
-    - version_id: "1"
-      label: 1.9.0
-      content_path: docs/1
-      route_url: docs            # Change the route from `docs` to `docs/1`.
-      is_main: true              # Change the flag to `false` or delete the line.
-      switcher:
-        visible: false
-        item_visible: false
-    - version_id: "2-0-x"
-      label: 2.0.x
-      content_path: docs/2-0-x   # Change the content path to `docs` if the documentation will be copied to the root.
-      route_url: docs/2-0-x      # Change the route from `docs/2-0-x` to `docs`.
-      is_main: false             # Set `is_main` as `true`.
-      switcher:
-        visible: false
-        item_visible: false
-    ```
+### Change the current main version
 
-4. Commit and push the new version release.
+This flow applies to the current documentation repository. For modules, the same
+steps must be done in the corresponding repository using the appropriate paths
+for that module.
+
+This example shows how to switch from version 1 to version 2.
+
+The current main version can be located either in the root folder or in its
+versioned folder and configured via `module.mounts`.
+
+1. If the main version is in the root, we also need to manually adjust folder 
+   structures and move:
+   - `content/docs/*` -> `content/docs/1/`
+   - `content/docs/2` -> `content/docs`
+
+2. Update the version configuration in `docs/data/versions.yml`:
+
+   ```yml
+   docs:
+     - version_id: "1"
+       label: 1.9.0
+       content_path: docs     # Change the path from `docs` to `docs/1`.
+       route_url: docs        # Change the route from `docs` to `docs/1`.
+       is_main: true          # Change the flag to `false` or delete the line.
+       switcher:
+         visible: false
+         item_visible: false
+     - version_id: "2"
+       label: 2.0.0
+       content_path: docs/2   # Change the content path to `docs` if the documentation will be copied to the root.
+       route_url: docs/2      # Change the route from `docs/2` to `docs`.
+       is_main: false         # Set `is_main` as `true`.
+       switcher:
+         visible: false
+         item_visible: false
+   ```
+
+Now the version 2 will be available at the `https://spine.io/docs/` URL.
 
 Get updates into the main website:
 
 1. Go to the [`SpineEventEngine.github.io`](https://github.com/SpineEventEngine/SpineEventEngine.github.io) 
    repository.
 2. Get theme updates `hugo mod get -u github.com/SpineEventEngine/documentation/docs`.
-3. Update the `config/_default/hugo.toml` to make the version `2` as main.
 
-### URLs
+## URLs
 
-All URLs inside `content/docs/<version>/` are automatically managed
+All URLs inside `content/docs/<version_id>/` are automatically managed
 according to the current documentation version.
 
-Use links in documentation as follows, without including a version:
+Use links in documentation as follows, without including a version.
 
-`[Requirements](docs/guides/requirements/)`.
+For this repository: `[Requirements](docs/guides/requirements/)`.
+
+In the `validation` repository: `[Requirements](docs/validation/guides/requirements/)`.
 
 Please note:
 
@@ -130,34 +185,38 @@ The link above will be automatically rendered as:
 - `"<baseurl>/docs/guides/requirements/"` – for main version.
 - `"<baseurl>/docs/2/guides/requirements/"` – for the version `2`.
 - `"<baseurl>/docs/3/guides/requirements/"` – for the version `3`.
+- `"<baseurl>/docs/validation/guides/requirements/"` – for main version.
+- `"<baseurl>/docs/validation/2-0-x/guides/requirements/"` – for the version `2-0-x`. 
 
 To render the current documentation full version inside API URL,
 use `{{% version %}}` shortcode:
 
 ```markdown
-[CoreJvm]({{% version %}})
 
-[CoreJvm {{% version %}}]({{% get-site-data "repositories.core_jvm_repo" %}}/index.html)
+
+[Introduction](docs/{{% version %}}/)
+
+[Hello World v{{% version %}}]({{% get-site-data "repositories.examples" %}}/hello/)
 ```
 
 Will be rendered as:
 
 ```html
-<a href="/1.9.0">CoreJvm</a>
+<a href="/docs/1.9.0/">Introduction</a>
 
-<a href="https://github.com/SpineEventEngine/core-jvm" target="_blank">CoreJvm 1.9.0</a>
+<a href="https://github.com/spine-examples/hello/" target="_blank">Hello World v1.9.0</a>
 ```
 
 Where:
 
 * {{% get-site-data "repositories.core_jvm_repo" %}} will apply the `core_jvm_repo`
   from the `site-commons` -> `data/repositories.yml` file.
-* {{% version %}} adds the full version of the current page -> `1.9.0`, or `2.0.0`.
+* {{% version %}} adds the version label of the current page -> `1.9.0`, or `2.0.0`.
 
-To provide a specific version for example in FAQ or Release Notes, use:
+To use a specific version for example in FAQ or Release Notes, provide the `version_id`:
 
 ```markdown
 {{% version "1" %}}
 ```
 
-It will always render the latest “full” version of `1`, for example now it is `1.9.0`.
+It will always render the latest “full” label version of `1`, for example now it is `1.9.0`.
