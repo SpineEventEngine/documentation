@@ -192,17 +192,19 @@ To render the current documentation full version inside API URL,
 use `{{% version %}}` shortcode:
 
 ```markdown
-[CoreJvm]({{% version %}})
 
-[CoreJvm {{% version %}}]({{% get-site-data "repositories.core_jvm_repo" %}}/index.html)
+
+[Introduction](docs/{{% version %}}/)
+
+[Hello World v{{% version %}}]({{% get-site-data "repositories.examples" %}}/hello/)
 ```
 
 Will be rendered as:
 
 ```html
-<a href="/1.9.0">CoreJvm</a>
+<a href="/docs/1.9.0/">Introduction</a>
 
-<a href="https://github.com/SpineEventEngine/core-jvm" target="_blank">CoreJvm 1.9.0</a>
+<a href="https://github.com/spine-examples/hello/" target="_blank">Hello World v1.9.0</a>
 ```
 
 Where:

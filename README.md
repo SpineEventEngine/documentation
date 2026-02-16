@@ -143,6 +143,9 @@ removing its config.
    hugo mod get -u ./...
    ```
 
+3. Commit and push changes from `go.mod` and `go.sum` files.
+4. Get documentation updates to the `SpineEventEngine.github.io` according to the [guide][spine-docs-update].
+
 ## Code samples
 
 The code samples used in the framework documentation are added using
@@ -200,3 +203,4 @@ the [`AUTHORING.md`][authoring-guide] file.
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
 [spine-repo]: https://github.com/SpineEventEngine/SpineEventEngine.github.io
 [spine-wiki]: https://github.com/SpineEventEngine/documentation/wiki
+[spine-docs-update]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/README.md#documentation
