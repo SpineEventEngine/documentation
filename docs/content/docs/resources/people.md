@@ -1,7 +1,7 @@
 ---
 title: People
 headline: DDD Resources
-bodyclass: docs resources
+body_class: docs resources
 ---
 
 # People
