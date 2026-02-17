@@ -150,11 +150,11 @@ final class TaskItemProjection
 #### Repositories
 The framework provides default implementations for repositories.
 A custom `Repository` class may be needed for:
-  * <strong>Dispatching messages to entities in a non-standard way</strong>.
+  * **Dispatching messages to entities in a non-standard way**.
     By default, a command is dispatched using the first field of the command message
     as an ID of the target entity.
     An event is dispatched by the ID of the entity which emitted the event.
-  * <strong>Domain-specific operations</strong> on entities of this kind.
+  * **Domain-specific operations** on entities of this kind.
   
 Repositories are added to the Bounded Context they belong when it is created:
 
@@ -170,8 +170,8 @@ This wires repositories into the message delivery mechanism of the corresponding
   
 #### Testing
 Implementation of the Bounded Context is tested using the messaging paradigm.
-The following code snippet asserts that handling a command `CreateTask` produces one 
-`TaskCreated` event with expected arguments.
+The following code snippet asserts that handling a command {{< code "command" "CreateTask" >}} 
+produces one {{< code "event" "TaskCreated" >}} event with expected arguments.
 
 ```java
 // Given

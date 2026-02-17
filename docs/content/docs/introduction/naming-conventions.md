@@ -222,26 +222,26 @@ message CreateTask {
 
 A command is defined as an imperative:
 
- * `CreateProject`
- * `AssignTask`
- * `RemoveComment`
+ * {{< code "command" "CreateProject" >}}
+ * {{< code "command" "AssignTask" >}}
+ * {{< code "command" "RemoveComment" >}}
  
 ### Events
 
 Events are named as facts formulated as past participles, for example:
 
-  * `ProjectCreated`
-  * `TaskAssigned`
-  * `CommentRemoved`   
+  * {{< code "event" "ProjectCreated" >}}
+  * {{< code "event" "TaskAssigned" >}}
+  * {{< code "event" "CommentRemoved" >}}
 
 ### Rejections
 
 A rejection is named after a reason of why a command cannot be handled. In fact, rejection notifies
 on a state of the domain model, for example:
 
-  * `TaskAlreadyExists`
-  * `InsufficientFunds` 
-  * `ProjectAlreadyCompleted`
+  * {{< code "rejection" "TaskAlreadyExists" >}}
+  * {{< code "rejection" "InsufficientFunds" >}}
+  * {{< code "rejection" "ProjectAlreadyCompleted" >}}
 
 ### Entity states
 

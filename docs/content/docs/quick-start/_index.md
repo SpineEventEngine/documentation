@@ -193,7 +193,7 @@ Now, let's look into the data structure of the Hello context.
 The data types of the Hello context are defined under the `src/main/proto/hello` directory with
 the following files:
 
-  * **`commands.proto`** — this file defines the `Print` command.
+  * **`commands.proto`** — this file defines the {{< code "command" "Print" >}} command.
   
 {{% note-block class="note" %}}
 By convention, commands are defined in a file with the `commands` suffix
@@ -201,15 +201,16 @@ in its name. It can be, for example, `order_commands.proto` or just `commands.pr
 like in our example.
 {{% /note-block %}}
      
-  * **`events.proto`** — this file defines the `Printed` event.
+  * **`events.proto`** — this file defines the {{< code "event" "Printed" >}} event.
   
 {{% note-block class="note" %}}
 Similarly to commands, events are defined in proto files having the `events`
 suffix in their names.
 {{% /note-block %}}
 
-These two files define signals used by the Hello context. There's also data of the `Console`
-Process Manager, which is defined in the package **`server`** in the file **`console.proto`**.
+These two files define signals used by the Hello context. There's also data of the 
+{{< code "process-manager" "Console" >}} Process Manager, which is defined in the 
+package **`server`** in the file **`console.proto`**.
 
 {{% note-block class="note" %}}
 We arrange the sub-package `server` to highlight the fact that this is server-only data. It is not
@@ -237,7 +238,7 @@ required for all proto files of a Spine-based project.
 import "spine/options.proto";
 ```
 
-The following file-wide option defines the prefix for type names used in this file.
+The following file-wide option defines the prefix for type names used in this&nbsp;file.
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="type_url_prefix"
@@ -284,7 +285,7 @@ Outer classes are used by Protobuf implementation internally.
 When the `java_outer_classname` option is omitted, Protobuf Compiler would calculate the Java
 class name taking the name of the corresponding `.proto` file. 
 We recommend setting the name directly to make it straight. This also avoids possible name clashes
-with the handcrafted code.
+with the handcrafted&nbsp;code.
 {{% /note-block %}} 
 
 The next standard option instructs the Protobuf Compiler to put each generated Java type into
@@ -396,7 +397,7 @@ The header of the file is similar to those we saw in `commands.proto` and `event
 The difference is that we use `server` for the proto and Java package names to make sure the 
 server-only is not used by the client code.
  
-This file defines a single data type. It is the state of the entity handling the `Print` command:
+This file defines a single data type. It is the state of the entity handling the {{< code "command" "Print" >}} command:
 
 <embed-code file="examples/hello/src/main/proto/hello/server/console.proto" 
             start="message Output" 
@@ -464,7 +465,7 @@ Printed handle(Print command) {
 Let's review the method in details.
 
 The `@Assign` annotation tells that we assign this method to handle the command which the
-method accepts as the parameter. The method returns the event message `Printed`.
+method accepts as the parameter. The method returns the event message {{< code "event" "Printed" >}}.
 
 The following code obtains the name of the user, and the text to print from the received command,
 and then applies them to the state of the Process Manager. Instances of the `Console` class store
@@ -615,9 +616,10 @@ protected BoundedContextBuilder contextBuilder() {
     return HelloContext.newBuilder();
 }
 ```
-Now we can get down to the tests. The suite verifiers the outcome of the `Print` command.
-The test methods are gathered under the nested class called
-`PrintCommand`. The class holds the reference to the command as its field:
+Now we can get down to the tests. The suite verifiers the outcome of the 
+{{< code "command" "Print" >}} command. The test methods are gathered under 
+the nested class called `PrintCommand`. The class holds the reference to the 
+command as its field:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Nested" 
@@ -822,7 +824,7 @@ Again, similarly to a `Server`, a `Client` is created using in-process connectio
 The `shutdownTimeout` parameter configures the amount of time allowed for completing ongoing
 client-server communications. 
 
-Now, let's review the main thing the `Client` class does, sending the `Print` command.
+Now, let's review the main thing the `Client` class does, sending the {{< code "command" "Print" >}} command.
 
 ### Sending the command
 
@@ -847,9 +849,9 @@ public void sendCommand() {
 
 The method does three things:
    1. Creates a command message using the login name of the current computer user.
-   2. Subscribes to the `Printed` event which will be generated as the result of
-      handling the command we are going to post (and only this instance of the command,
-      not all `Print` commands).  
+   2. Subscribes to the {{< code "event" "Printed" >}} event which will be generated 
+      as the result of handling the command we are going to post (and only this instance 
+      of the command, not all {{< code "command" "Print" >}} commands).  
    3. Posts the command. 
       
 Let's review subscribing and posting in details.
@@ -860,18 +862,18 @@ most of the commands using `client.onBehalfOf(UserId)`.
 
 The `command(commandMessage)` call tells we want to send a command with the passed message.
 
-Then, we subscribe to the `Printed` event which would be generated as the result of handling
-the command. The events obtained from the server would be passed to the `onPrinted()` method
-of the `Client` class.
+Then, we subscribe to the {{< code "event" "Printed" >}} event which would be
+generated as the result of handling the command. The events obtained from the
+server would be passed to the `onPrinted()` method of the `Client` class.
 
 The `post()` method sends the command to the server, returning the set with one `Subscription`
-to the `Printed` event. We store the returned set in the field to use later for cancelling
-the subscription.  
+to the {{< code "event" "Printed" >}} event. We store the returned set in the field 
+to use later for cancelling the subscription.  
 
 ### Handling the event
 
-When the client code receives the `Printed` event, it prints its data and then 
-cancels the subscription:
+When the client code receives the {{< code "event" "Printed" >}} event, it prints 
+its data and then cancels the subscription:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="void onPrinted(" 
@@ -1001,7 +1003,8 @@ using Protobuf. Using these `.proto` files Spine Model Compiler generates the co
 the defined data types.
 
 After that, we add the business logic for handling commands or events in entity classes derived from
-`Aggregate`, `ProcessManager`, or `Projection`. 
+{{< code "aggregate" "Aggregate" >}}, {{< code "process-manager" "ProcessManager" >}}, 
+or {{< code "projection" "Projection" >}}.
 
 Then,  these entity types are assembled into a Bounded Context and tested as a whole.
 A test suite sends signals (i.e. commands or events) to the implementation of the Bounded Context
