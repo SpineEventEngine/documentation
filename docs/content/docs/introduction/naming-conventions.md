@@ -91,10 +91,10 @@ an event, and it is likely there are conditions under which a command cannot be 
 ### Entity states
 
 We recommend gathering definition of related entity states in a file named after a business model
-thing. Suppose we have a `Task` aggregate, `TaskItem` and `TaskDetails` projections, and
-a Process Manager which is responsible for movement of a task from one project to another, there
-would be `task.proto` file, with all Task-related data types definitions. A project-related data
-types would be defined in a `project.proto` file. 
+thing. Suppose we have a {{< code "aggregate" "Task" >}} aggregate, {{< code "projection" "TaskItem" >}} 
+and {{< code "projection" "TaskDetails" >}} projections, and a Process Manager which is responsible for 
+movement of a task from one project to another, there would be `task.proto` file, with all Task-related 
+data types definitions. The project-related data types would be defined in a `project.proto` file. 
 
 As it was already mentioned, `TaskId` and `ProjectId` are defined in the `identifiers.proto` file,
 and `task.proto` and `project.proto` import this file.

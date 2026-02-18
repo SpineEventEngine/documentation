@@ -15,7 +15,7 @@ it won't take long.
 ## What we'll do
 
 We'll go through the example which shows a Bounded Context called “Hello”. 
-The context has one `ProcessManager`, which handles the `Print` command
+The context has one `ProcessManager`, which handles the {{< code "command" "Print" >}} command
 sent from the client-side code to the server-side code hosting the context. 
 We'll go through the production code of the example suite, and through the code which
 tests the Hello&nbsp;context.
@@ -65,12 +65,11 @@ The first line tells which Gradle task we run. The following couple of lines is 
 logging that informs us that the server was started. 
 
 The line with the `Environment` tells that we're running the application in the `Production` 
-environment.
-The line with “Hello World!” text is the “meat” of this example suite. 
-It is what our `ProcessManager` (called `Console`) does in response to the `Print` command received
-from the `Client`. 
-The text in between brackets is the name of the current computer user. The name was passed as
-the argument of the `Print` command.
+environment. The line with “Hello World!” text is the “meat” of this example suite. 
+It is what our `ProcessManager` (called `Console`) does in response to the 
+{{< code "command" "Print" >}} command received from the `Client`. The text 
+in between brackets is the name of the current computer user. The name was passed 
+as the argument of the {{< code "command" "Print" >}} command.
 
 {{% note-block class="note" %}}
 We opted to show a `ProcessManager` — instead of an `Aggregate` — because
@@ -79,8 +78,8 @@ that is the job of Process Managers. We also want to highlight the importance of
 this architectural pattern.
 {{% /note-block %}}
 
-The output that follows is the logging produced by the `Client` class as it receives the `Printed`
-event from the server.
+The output that follows is the logging produced by the `Client` class as it receives the
+{{< code "event" "Printed" >}} event from the server.
 
 Then, the server shuts down concluding the example.   
 
@@ -433,7 +432,7 @@ final class Console extends ProcessManager<String, Output, Output.Builder> {
 
 The generic arguments passed to `ProcessManager` are:
  1. `String` — the type of the ID of the entity. Remember the type
-of the first field of the `Print` command?
+    of the first field of the {{< code "command" "Print" >}} command?
 
  2. `Output` — the type of the entity state, which we reviewed in the previous section.
 
@@ -523,8 +522,8 @@ After the event is generated, it is posted to the `EventBus` and delivered to
 subscribers automatically. You don't need to write any code for this.
 {{% /note-block %}}  
 
-Now, let's see how the `Console` Process Manager is exposed to the outer world so that it can
-receive commands.
+Now, let's see how the {{< code "process-manager" "Console" >}} Process Manager 
+is exposed to the outer world so that it can receive commands.
 
 ## Assembling the Hello context
 
@@ -679,8 +678,9 @@ void event() {
 
 ### Testing entity state update
 
-For testing the state of the `Console` Process Manager was updated, we construct the expected
-state and pass it to the `assertState()` method of the test fixture:
+For testing the state of the {{< code "process-manager" "Console" >}} Process Manager 
+was updated, we construct the expected state and pass it to the `assertState()` 
+method of the test fixture:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Test @DisplayName(*entity*)" 

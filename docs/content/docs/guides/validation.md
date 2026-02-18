@@ -318,8 +318,8 @@ therefore it is implicitly required. By default, the framework will use it in co
 as an identifier of the entity handling this command.
 
 This convention does not apply to [Events](docs/introduction/naming-conventions#eventsproto).
-Unlike Commands, event routing is typically specific to the use case. For example, `UserView` projection
-may require a user ID to handle events, whereas the `ProfilePictureGallery` projection might use
+Unlike Commands, event routing is typically specific to the use case. For example, {{< code "projection" "UserView" >}} projection
+may require a user ID to handle events, whereas the {{< code "projection" "ProfilePictureGallery" >}} projection might use
 a different routing approach, such as grouping by a user group or an email domain associated with a user.
 
 Therefore, all Event fields are not required by default.
