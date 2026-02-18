@@ -148,7 +148,7 @@ and polish the code of this important development step.
 ### Events
 
 When the IDs are defined it’s time to define [event][event-concept] messages. The events are named 
-as facts formulated as past participles, e.g. `RepositoryRegistered` or `TaskCreated`. 
+as facts formulated as past participles, e.g. {{< code "event" "RepositoryRegistered" >}} or {{< code "event" "TaskCreated" >}}. 
 They are defined in files with the [`_events.proto`][events-proto] suffix (e.g. `order_events.proto`, 
 `customer_events.proto`). If your context is small it can be just `events.proto`.
 
@@ -158,8 +158,8 @@ Create a Pull Request with the event definitions when they are ready.
 
 Similar to events, [command][command-concept] messages are defined in files having the names ending 
 with the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
-Commands are defined as imperative in a form of “do something”, e.g. `RegisterRepository` 
-or `CreateTask`.
+Commands are defined as imperative in a form of “do something”, e.g. 
+{{< code "command" "RegisterRepository" >}} or {{< code "command" "CreateTask" >}}.
 
 Finalize defining commands with a Pull Request.
 
@@ -189,8 +189,8 @@ The [entity state][entity-state-naming] is a holder of the entity data. It does 
 a whole [entity][entity-concept] but depicts the shape of its data.
 
 The definitions of entity states are [gathered][entity-state-proto] in a file named after 
-a business model thing. E.g. for a `Task` aggregate, the definitions would be defined in 
-a `task.proto` file.
+a business model thing. E.g. for a {{< code "aggregate" "Task" >}} aggregate, the definitions 
+would be defined in a `task.proto` file.
 
 As with the other steps, create a Pull Request to review the entity states with the&nbsp;team.
 
@@ -208,7 +208,7 @@ the business logic the same way it works in the application.
 All the code must conform to your standards of the code and documentation quality 
 and be tested thoroughly.
 
-When a backend for the scenario is done a new PR is created and reviewed.
+When a backend for the scenario is done a new PR is created and&nbsp;reviewed.
 
 ### Fulfilling the vertical
 
@@ -221,7 +221,7 @@ with the previous one.
 As noted, the scope of this iteration is to prepare the front-facing part for the scenario: 
 either a UI if one is needed, or the public API, or a dedicated idiomatic client.
 
-As soon as the implementation is ready, another PR and review come along.
+As soon as the implementation is ready, another PR and review come&nbsp;along.
 
 ## Start over again
 

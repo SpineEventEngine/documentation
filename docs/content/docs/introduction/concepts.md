@@ -40,9 +40,9 @@ regular events. If an event is a fact of something that happened to a domain mod
 a fact that states the reason why a command was not handled.  
 
 Consider the following examples of rejections: 
-* `CreditCardValidationDeclined`, 
-* `OrderCannotBeEmpty`, 
-* `InsufficientFunds`.
+* {{< code "rejection" "CreditCardValidationDeclined" >}},
+* {{< code "rejection" "OrderCannotBeEmpty" >}},
+* {{< code "rejection" "InsufficientFunds" >}}.
 
 In Spine, rejections are defined as Protobuf messages in the file which names ends with
 `rejections.proto`. 
@@ -85,8 +85,8 @@ final class TaskAggregate
 
 Event Subscriber is an object which subscribes to receive events.
 
-The example below shows how a [Projection](#projection) class subscribed to the `TaskCompleted`
-event.
+The example below shows how a [Projection](#projection) class subscribed 
+to the {{< code "event" "TaskCompleted" >}} event.
 
 ```java
 final class TaskProjection

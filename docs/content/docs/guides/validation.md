@@ -23,7 +23,7 @@ that define correctness of data are also defined at this level using custom Prot
 
 {{% note-block class="note" %}}
 In order to use validation features, you don't need to understand how custom
-options work. Those who are interested in the details of this <em>advanced feature</em> of Protobuf,
+options work. Those who are interested in the details of this _advanced feature_ of Protobuf,
 please see the [Protobuf Guide](https://developers.google.com/protocol-buffers/docs/proto3#custom_options)
 for details.
 {{% /note-block %}}
@@ -318,8 +318,8 @@ therefore it is implicitly required. By default, the framework will use it in co
 as an identifier of the entity handling this command.
 
 This convention does not apply to [Events](docs/introduction/naming-conventions#eventsproto).
-Unlike Commands, event routing is typically specific to the use case. For example, `UserView` projection
-may require a user ID to handle events, whereas the `ProfilePictureGallery` projection might use
+Unlike Commands, event routing is typically specific to the use case. For example, {{< code "projection" "UserView" >}} projection
+may require a user ID to handle events, whereas the {{< code "projection" "ProfilePictureGallery" >}} projection might use
 a different routing approach, such as grouping by a user group or an email domain associated with a user.
 
 Therefore, all Event fields are not required by default.

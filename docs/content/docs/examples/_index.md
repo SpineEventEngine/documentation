@@ -19,7 +19,7 @@ Please see the selected list of the examples with the descriptions below.
 - [Kanban]({{% get-site-data "repositories.examples" %}}/kanban/) — shows orchestrating 
   Aggregates using Process Managers.
 - [Airport]({{% get-site-data "repositories.examples" %}}/airport/) — integrating 
-  a third-party systems using a Bounded Context. This example accompanies 
+  a third-party system using a Bounded Context. This example accompanies 
   the [“Integration with a Third Party”](docs/guides/integration/) guide.
 - [To-Do List]({{% get-site-data "repositories.examples" %}}/todo-list/) — a simple 
   task management system with multiple client applications. 
@@ -31,4 +31,4 @@ Please see the selected list of the examples with the descriptions below.
 - [Simple HTML/JS To-Do List client]({{% get-site-data "repositories.examples" %}}/todo-list/tree/master/client/html-js/)
   — a client app with very basic features.
 - [To-Do List client on Angular]({{% get-site-data "repositories.examples" %}}/todo-list/tree/master/client/angular/)
-  — a more featured client built with Angular 10.
+  — a more featured client built with Angular&nbsp;10.
