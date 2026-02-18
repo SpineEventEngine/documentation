@@ -19,7 +19,7 @@ Please see the selected list of the examples with the descriptions below.
 - [Kanban]({{% get-site-data "repositories.examples" %}}/kanban/) — shows orchestrating 
   Aggregates using Process Managers.
 - [Airport]({{% get-site-data "repositories.examples" %}}/airport/) — integrating 
-  a third-party systems using a Bounded Context. This example accompanies 
+  a third-party system using a Bounded Context. This example accompanies 
   the [“Integration with a Third Party”](docs/guides/integration/) guide.
 - [To-Do List]({{% get-site-data "repositories.examples" %}}/todo-list/) — a simple 
   task management system with multiple client applications. 
