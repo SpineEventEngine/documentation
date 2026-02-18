@@ -1003,8 +1003,7 @@ using Protobuf. Using these `.proto` files Spine Model Compiler generates the co
 the defined data types.
 
 After that, we add the business logic for handling commands or events in entity classes derived from
-{{< code "aggregate" "Aggregate" >}}, {{< code "process-manager" "ProcessManager" >}}, 
-or {{< code "projection" "Projection" >}}.
+`Aggregate`, `ProcessManager`, or `Projection`.
 
 Then,  these entity types are assembled into a Bounded Context and tested as a whole.
 A test suite sends signals (i.e. commands or events) to the implementation of the Bounded Context
