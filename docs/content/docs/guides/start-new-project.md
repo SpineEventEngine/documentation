@@ -158,8 +158,8 @@ Create a Pull Request with the event definitions when they are ready.
 
 Similar to events, [command][command-concept] messages are defined in files having the names ending 
 with the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
-Commands are defined as imperative in a form of “do something”, e.g. {{< code "command" "RegisterRepository" >}} 
-or {{< code "command" "CreateTask" >}}.
+Commands are defined as imperative in a form of “do something”, e.g. 
+{{< code "command" "RegisterRepository" >}} or {{< code "command" "CreateTask" >}}.
 
 Finalize defining commands with a Pull Request.
 
