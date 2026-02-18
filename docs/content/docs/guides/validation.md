@@ -23,7 +23,7 @@ that define correctness of data are also defined at this level using custom Prot
 
 {{% note-block class="note" %}}
 In order to use validation features, you don't need to understand how custom
-options work. Those who are interested in the details of this <em>advanced feature</em> of Protobuf,
+options work. Those who are interested in the details of this _advanced feature_ of Protobuf,
 please see the [Protobuf Guide](https://developers.google.com/protocol-buffers/docs/proto3#custom_options)
 for details.
 {{% /note-block %}}

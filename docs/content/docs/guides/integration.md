@@ -328,7 +328,7 @@ private void emitIfStatusKnown(TsaPassenger tsaPassenger) {
 }
 ```
 The [Process Manager]({{% get-site-data "repositories.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java)
-accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event,
+accumulates the Events and, once the whole *Flight* is boarded, emits a {{< code "event" "BoardingComplete" >}} event,
 which is later consumed by the&nbsp;[*Flight* Aggregate]({{% get-site-data "repositories.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java" 
