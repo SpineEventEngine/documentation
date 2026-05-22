@@ -70,7 +70,7 @@ all the rights to the required repositories, try clearing the cache:
 hugo mod clean --all
 ```
 
-Then run the `hugo serve` again.
+Then run the `hugo server` again.
 
 ## Theme updates
 
