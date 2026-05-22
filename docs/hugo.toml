@@ -5,4 +5,3 @@
 [module]
   [[module.imports]]
     path = 'github.com/SpineEventEngine/validation/docs'
-    disable = true
