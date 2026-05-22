@@ -2,7 +2,7 @@
 
 This repository serves for three purposes:
 
-1. The [Wiki][spine-wiki] provides documentation for developers contributing to the framework, Commiters.
+1. The [Wiki][spine-wiki] provides documentation for developers contributing to the framework, Committers.
 2. Gathering issues improving the documentation of the framework and tasks on writing articles at spine.io and other web resources.
 3. Storing documentation files that are added as a Hugo module to the [spine.io][spine-repo] repository.
 
@@ -19,7 +19,7 @@ are working as intended. It allows making changes more convenient for authors.
 ## Prerequisites
 
 1. JDK 8 (x86_64).
-2. [Go][go] `1.12` or newer.
+2. [Go][go] `1.22` or newer (matches `docs/go.mod`).
 3. [Node.js][nodejs] `18+`.
 4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
 
@@ -52,15 +52,19 @@ To build the site without running the server:
 Another way to run the site locally is to follow these steps:
 
 1. Navigate to the `docs/_preview` folder.
-2. Start the local server with this command:
+2. Install Node dependencies (if you haven't already — see [Configuration](#configuration)):
+
+   ```shell
+   npm install
+   ```
+3. Start the local server with this command:
 
    ```shell
    hugo server
    ```
 
 If you receive a `permission denied` message, but you are sure that you have 
-all the rights to the [required repositories](#prerequisites), try clearing 
-the cache:
+all the rights to the required repositories, try clearing the cache:
 
 ```shell
 hugo mod clean --all
