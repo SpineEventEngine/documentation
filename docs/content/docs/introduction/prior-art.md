@@ -48,7 +48,7 @@ getting so many things absolutely right: a simple, predictable state model; an e
 programming and immutable data.
 
 In Spine Event Engine we combined all of our experience and observations of the best-breed market
-products and solutions like [Axon](https://www.axoniq.io/axon-framework), [Spring](https://spring.io/), [Kurrent](https://www.kurrent.io/) 
+products and solutions like [Axon](https://www.axoniq.io/axon-framework), [Spring](https://spring.io/), [Kurrent](https://www.kurrent.io/)
 (formerly Event Store), [InfluxDB](https://influxdata.com/), [Apache Zest](https://zest.apache.org/) and many others. 
 Spine has yet to find its own&nbsp;niche.
 
