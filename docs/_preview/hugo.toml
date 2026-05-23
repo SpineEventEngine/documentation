@@ -14,6 +14,8 @@ disableKinds = ['taxonomy', 'term']
     path = '../..'
   [[module.imports]]
     path = 'github.com/SpineEventEngine/site-commons'
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/validation/docs'
 
 # Enables HTML rendering in markdown files.
 [markup]
