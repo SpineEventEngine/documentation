@@ -42,3 +42,7 @@ _code/build
 # Gradle build files
 build/
 generated/
+
+# The `check-links` cache directory and Lychee cache.
+/.agents/skills/check-links/.cache/
+/.lycheecache
