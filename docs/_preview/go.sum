@@ -4,6 +4,8 @@ github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107/go.mod h1:STHyjXejVvPmfrxujfDvhofmjg55mMk+fwI3TVL0b4Y=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea h1:YEMSlr5KJXkZdK7epMSnN+6HSr2K41n8O3c8OhtF8pM=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea/go.mod h1:4RnP1hlrfBI7ZlTsJkllaOEyluhzmz4mOBrRgbc/tts=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260523180634-dd65da5abb65 h1:gLlFsu7ZznIurecioKUHTP+sKD4EapeKFhtEqL/JvdU=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260523180634-dd65da5abb65/go.mod h1:4RnP1hlrfBI7ZlTsJkllaOEyluhzmz4mOBrRgbc/tts=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400/go.mod h1:uekq1D4ebeXgduLj8VIZy8TgfTjrLdSl6nPtVczso78=
 github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 h1:GZxx4Hc+yb0/t3/rau1j8XlAxLE4CyXns2fqQbyqWfs=
