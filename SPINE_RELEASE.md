@@ -1,4 +1,4 @@
-Release new version of the documentation
+Release a new version of the documentation
 ========
 
 **Table of Contents**
