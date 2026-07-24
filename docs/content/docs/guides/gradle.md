@@ -30,7 +30,7 @@ or on our [Getting Started page](docs/quick-start/).
 
 ## Spine Bootstrap plugin 
 
-Spine Bootstrap plugin (Bootstrap for short) serves to automate the configuration of the modules
+The Spine Bootstrap plugin (Bootstrap for short) serves to automate the configuration of the modules
 in your Spine-based app.
 
 We recommend having separate Gradle subprojects for domain model definition, server implementation,
@@ -103,7 +103,7 @@ dependencies {
 ```
 Using `webServer()` has the same effect as just declaring the subproject to be a part of `server()`
 and also adds the `io.spine:spine-web` dependency to the subproject. This dependency provides
-components for handling requests from a JavaScript frontend See also `firebaseWebServer()` for using
+components for handling requests from a JavaScript frontend. See also `firebaseWebServer()` for using
 a Firebase database to communicate between the server and the client.
 
 ### JavaScript client
@@ -134,7 +134,7 @@ dependencies {
 ```
 
 For domain logic implementation, also use a single subproject per Bounded Context. The convention
-for calling those projects by the context names: `users` , `trains`, `billing`, etc. It is a good
+for calling those projects by the context names: `users`, `trains`, `billing`, etc. It is a good
 idea to have a server implementation subproject depend only on one model subproject to preserve
 language and responsibility boundaries.
 
@@ -146,7 +146,7 @@ on the principles of integrating separate Bounded Contexts and third-party syste
 ## Verbose configuration
 
 If the Bootstrap configuration is not customizable enough for you, there are other Gradle plugins
-which may provide fine-grained API.
+that may provide a fine-grained API.
 
 Those plugins are Spine Model Compiler for Java subprojects and Spine ProtoJs plugin for JavaScript
 submodules. Under the hood, Bootstrap uses those plugins to do the work. This means that Bootstrap
@@ -154,16 +154,16 @@ automatically applies the correct low-level plugin for you.
 
 ### Model Compiler
 
-Spine Model Compiler is a Gradle plugin which executes all the code generation routines via several
+Spine Model Compiler is a Gradle plugin that executes all the code generation routines via several
 Gradle tasks as well as the `modelCompiler { }` extension, which allows you to configure those
 tasks.
 
 See the API reference for the list of the [declared tasks]({{% get-site-data "repositories.base_api_doc" %}}/plugin-base/plugin-base/io.spine.tools.gradle/-model-compiler-task-name/)
-and the [codegen configuration options]({{% get-site-data "repositories.base_api_doc" %}}/model-compiler/model-compiler/io.spine.tools.gradle.compiler/-extension/)
+and the [codegen configuration options]({{% get-site-data "repositories.base_api_doc" %}}/model-compiler/model-compiler/io.spine.tools.gradle.compiler/-extension/).
 
 ### ProtoJS Plugin
 
-ProtoJs Gradle plugin manages and enhances JavaScript code generation from Protobuf definitions.
+The ProtoJs Gradle plugin manages and enhances JavaScript code generation from Protobuf definitions.
 The plugin adds the `generateJsonParsers` task, which appends generated JS files with code parsing
 Protobuf messages out of plain JS objects.
 

@@ -30,7 +30,7 @@ for details.
 
 Here are simple steps in adding validation to the data model:
  1. The programmer adds validation constraints to the Protobuf types of the model.
- 2. Spine Model Compiler generates the code which provides validation features.
+ 2. Spine Model Compiler generates the code that provides validation features.
  3. The programmer calls the validation API of these data types as their instances are created. 
 
 ## Java validation API
@@ -45,7 +45,7 @@ MyMessage.newBuilder()
          .vBuild(); // ← Throws ValidationException. 
 ``` 
 
-If the validation is not required, you may call `build()` or `buildPartial()` provided by Protobuf
+If the validation is not required, you may call `build()` or `buildPartial()` provided by the Protobuf
 Java API.
 
 The message class also gets an extra method — `validate()`. This method does not throw exceptions.
@@ -72,14 +72,14 @@ var validate = theKnownTypes.validatorFor(msg);
 ValidationError error = validate(msg);
 ```  
 
-Similarly to `validate()` method in Java, the validation function does not throw exceptions. A list
+Similarly to the `validate()` method in Java, the validation function does not throw exceptions. A list
 of `ConstraintViolation`s can be obtained from the `ValidationError`.
 
 ## Validation options overview
 <a name="validation-options"></a>
 
 In most cases validation constraints are defined for Protobuf message fields such as if a field
-must be populated or it must be withing a range, or match a regular expression. Not so often
+must be populated or it must be within a range, or match a regular expression. Not so often
 it may be necessary to require a combination of fields. In this case, validation options are defined
 at the level of a corresponding message type. 
 
@@ -89,7 +89,7 @@ When modelling a domain, we often come up to certain data points which cannot be
 represented by required fields of an entity state, a Command, an Event, etc. 
 
 {{% note-block class="note" %}}
-Protobuf 2 used to have a native support for required fields. 
+Protobuf 2 used to have native support for required fields. 
 However, from the serialization perspective, that proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076). If a required field was missing,
 the message could not be serialized and sent over the wire. Also, it is often too easy to add a new
@@ -98,7 +98,7 @@ the fields are optional.
 {{% /note-block %}}
 
 In the Validation Library, we've revived the concept of required fields, but on a different level.
-The difference to the Protobuf 2 way is that out required fields do not affect the serialization
+The difference to the Protobuf 2 way is that our required fields do not affect the serialization
 of the message.
 If a required field is missing, it still can be serialized and passed over the wire. By separating
 validation from serialization, we allow users to choose to ignore validation errors and still
@@ -156,8 +156,8 @@ For collection fields (i.e. `repeated` and `map`), a field is considered set if:
   1. The collection is not empty.
   2. At least one of the entries (values for `map`s) matches the rules described above.
 
-Note that collections of numeric fields can be required. In those cases, only the rule 1. applies
-and the rule 2. is ignored.
+Note that collections of numeric fields can be required. In those cases, only rule 1 applies
+and rule 2 is ignored.
 
 ### Declaring required fields
 
@@ -183,7 +183,7 @@ PhoneNumber.newBuilder()
 
 There are more complex cases for required fields than just a single field. Consider a `oneof` field
 group, which always has to be set. Applying `(required)` to the fields does not make sense, since
-only one field in the group can be set at a time. Instead, Spine provides `(is_required)` option:
+only one field in the group can be set at a time. Instead, Spine provides the `(is_required)` option:
 
 ```proto
 import "spine/options.proto";
@@ -206,7 +206,7 @@ In this case one of the fields `UserIdentity.email`, `UserIdentity.google`,
 and `UserIdentity.twitter` must be set.
 
 {{% note-block class="warning" %}}
-`(is_required)` option is not yet supported in Dart.
+The `(is_required)` option is not yet supported in Dart.
 {{% /note-block %}}
 
 In some other cases, a field may be either required or not, depending on the value of another field.
@@ -249,7 +249,7 @@ message PersonName {
 }
 ``` 
 
-In case of `PersonName`, either `given_name` or both `honorific_prefix` and `family_name` must be
+In the case of `PersonName`, either `given_name` or both `honorific_prefix` and `family_name` must be
 set. All three can be set at the same time.
 
 ### Missing fields
@@ -271,7 +271,7 @@ message PhoneNumber {
 Note that this option only applies to fields marked with `(required)` and not to the fields
 referenced via any other options.
 
-If `(goes)` option is used, the error message can be customized with the `(goes).msg_format`
+If the `(goes)` option is used, the error message can be customized with the `(goes).msg_format`
 parameter. Note that the message should contain two "`%s`" insertion points: first for the name of
 the field declaring the option and second for the name of the field targeted by the option.
 
@@ -313,12 +313,12 @@ message ChangeProfilePicture {
 }
 ```
 
-In this case, the `ChangeProfilePicture.id` field is the first in the declaration order,
+In this case, the `ChangeProfilePicture.id` field is the first in the declaration order;
 therefore it is implicitly required. By default, the framework will use it in command routing,
 as an identifier of the entity handling this command.
 
 This convention does not apply to [Events](docs/introduction/naming-conventions#eventsproto).
-Unlike Commands, event routing is typically specific to the use case. For example, {{< code "projection" "UserView" >}} projection
+Unlike Commands, event routing is typically specific to the use case. For example, the {{< code "projection" "UserView" >}} projection
 may require a user ID to handle events, whereas the {{< code "projection" "ProfilePictureGallery" >}} projection might use
 a different routing approach, such as grouping by a user group or an email domain associated with a user.
 
@@ -329,7 +329,7 @@ Therefore, all Event fields are not required by default.
 When a message is validated, only the "shallow" constraints are checked by default. This means that
 the message fields can be invalid and the container message is still considered valid.
 
-In order to enable message field checks, use `(validate)` option:
+In order to enable message field checks, use the `(validate)` option:
 
 ```proto
 import "spine/options.proto";
@@ -361,7 +361,7 @@ User user = User
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
 {{% note-block class="warning" %}}
-`(validate)` option is not yet supported in Dart.
+The `(validate)` option is not yet supported in Dart.
 {{% /note-block %}}
 
 #### Invalid fields
@@ -388,9 +388,9 @@ For numeric fields, Spine defines a few options to limit the range of expected v
 
 ### `(min)`/`(max)`
 
-`(min)` and `(max)` are twin options which define the lower and higher bounds for a numeric fields.
+`(min)` and `(max)` are twin options that define the lower and higher bounds for a numeric fields.
 The value is specified as a string. Note that the string must be parsable into the field's number
-format (e.g. a `int32` field cannot have a `"2.5"` bound).
+format (e.g. an `int32` field cannot have a `"2.5"` bound).
 
 By default, the bounds are __inclusive__. Use the `exclusive` property to make a bound exclusive. 
 
@@ -410,7 +410,7 @@ message Distance {
 ### Ranges
 
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
-boundaries for a numeric field. `(range)` is a `string` option. The `(range)` notation allow
+boundaries for a numeric field. `(range)` is a `string` option. The `(range)` notation allows
 declaring inclusive and exclusive boundaries. A round bracket ("`(`" or "`)`") denotes an exclusive
 boundary and a square bracket ("`[`" or "`]`") denotes an inclusive one.
 
@@ -434,7 +434,7 @@ message LocalTime {
 In the example above, the `LocalTime.hours` field can span between 0 and 23, the `LocalTime.minutes`
 field can span between 0 and 59, and the `LocalTime.seconds` field can span between 0.0 and 60.0,
 but can never reach 60. Exclusive boundaries are especially powerful for fractional numbers, since,
-mathematically, there is no hard upper limit which a field value can reach.
+mathematically, there is no hard upper limit that a field value can reach.
 
 Usage of the double dot separator ("`..`") between the bounds is mandatory.
 
@@ -451,13 +451,13 @@ For `string` fields, the library provides the `(pattern)` option. Users can defi
 expression to match the field values. Also, some common pattern modifiers are available:
  - `dot_all` (a.k.a. "single line") — enables the dot (`.`) symbol to match all the characters,
    including line breaks;
- - `case_insensitive` — allows to ignore the case of the matched symbols;
+ - `case_insensitive` — allows ignoring the case of the matched symbols;
  - `multiline` — enables the `^` (caret) and `$` (dollar) signs to match a start and an end of
    a line instead of a start and an end of the whole expression;
  - `unicode` — enables matching the whole UTF-8 sequences;
  - `partial_match` — allows the matched strings to contain a full match to the pattern and some 
    other characters as well. By default, a string only matches a pattern if it is a full match,
-   i.e. there are no unaccounted for leading and/or trailing characters.
+   i.e. there are no unaccounted-for leading and/or trailing characters.
    
 Example:
 
@@ -488,10 +488,10 @@ Spine provides an option for validating time-bearing types. Those are:
  - `spine.time.LocalDateTime`;
  - `spine.time.OffsetDateTime`;
  - `spine.time.ZonedDateTime`;
- - any user-defined type which implements the Temporal interface (`io.spine.time.Temporal` for
+ - any user-defined type that implements the Temporal interface (`io.spine.time.Temporal` for
    Java).
 
-Using the option `(when)`, you may declare that the timestamp should lie in past or in future.
+Using the option `(when)`, you may declare that the timestamp should lie in the past or in the future.
 
 ```proto
 import "spine/time_options.proto";
@@ -510,14 +510,14 @@ message PlaceOrder {
 Note that the value is checked in relation to the current server time. In most cases, this should
 not be an issue. However, be aware that using `FUTURE` in Events and entity states may cause
 validation errors when the future comes. Since entity states are validated upon each state change,
-and historical events can be replayed, avoid declaring parts of those domain objects to be in
-future. Commands, on the other hand, are not replayed or stored automatically. Thus, It is safe
+and historical events can be replayed, avoid declaring parts of those domain objects to be in the
+future. Commands, on the other hand, are not replayed or stored automatically. Thus, it is safe
 to use `FUTURE` in Commands.
 
 ## Distinct collections
 
 Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
-a native support for sets. Moreover, it is often an invalid operation to add a duplicate element to
+native support for sets. Moreover, it is often an invalid operation to add a duplicate element to
 a set. For such cases, Spine provides the `(distinct)` option, which constrains a `repeated` or
 a `map` field to only contain non-duplicating elements (values in case of `map`s).
 
@@ -583,7 +583,7 @@ Once the `Order.when_deleted` field is filled, it can never change.
 ## External constraints
 
 Sometimes, you need to impose extra validation rules on types you do not control. Consider
-the example of an image URL which should always have the `ftp` protocol. In Spine, a `Url` is a tiny
+the example of an image URL that should always have the `ftp` protocol. In Spine, a `Url` is a tiny
 type for representing URL strings:
 
 ```proto
@@ -639,7 +639,7 @@ message UserPictureConstraint {
 The definition of `User` itself need not change.
 
 Note that the fields of an external constraint declaration should replicate the fields of the target
-type. In our example, the `Url` type. If the `Url` type had many fields, only those which need any
+type. In our example, the `Url` type. If the `Url` type had many fields, only those that need any
 validation should be declared. However, note that if the `Url` type declares any validation on its
 own, all of it is discarded and only the "substitute" rules from the `UserPictureConstraint` are
 used.
@@ -650,7 +650,7 @@ External constraints are not yet supported in Dart.
 
 {{% note-block class="note" %}}
 Mind performance considerations when declaring external constraints. It is expected that the number
-of such constrains in the whole project is not large, significantly smaller than the number of
+of such constraints in the whole project is not large, significantly smaller than the number of
 normal constraints. This mechanism is not designed to override validation rules of an entire library
 of Protobuf definitions, merely a small amount of local patches.
 {{% /note-block %}}

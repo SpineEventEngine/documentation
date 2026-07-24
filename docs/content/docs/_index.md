@@ -27,7 +27,7 @@ This section provides detailed instructions on the framework use.
 This section provides language-specific guides for building client-side applications.
 
 ## [API Reference](docs/reference/)
-This sections provides links to the generated documentation.
+This section provides links to the generated documentation.
 
 ## [Examples](docs/examples/)
 This page is the entry point for learning from the code of

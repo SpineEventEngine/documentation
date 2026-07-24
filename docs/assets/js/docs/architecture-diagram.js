@@ -1,11 +1,11 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -25,7 +25,7 @@
  */
 
 /**
- * This is a JavaScript file which backs the Spine architecture diagram.
+ * This is a JavaScript file that backs the Spine architecture diagram.
  *
  * Please see `/docs/1/introduction/architecture.md` for usage.
  */
@@ -42,7 +42,7 @@ $(
         console.log(`baseurl ${baseURL}`)
 
         /**
-         * CSS classes used as selectors to manipulate the elements of SVG diagram.
+         * CSS classes used as selectors to manipulate the elements of the SVG diagram.
          */
         const endUserClass = "end-user";
         const boxCaptionClass = "box-caption";
@@ -105,7 +105,7 @@ $(
 
 
         /**
-         * Changes opacity of the elements, not marked as "end-user".
+         * Changes the opacity of the elements, not marked as "end-user".
          *
          * The opacity value is expected to be [0; 1] range.
          *
@@ -176,7 +176,7 @@ $(
         }
 
         /**
-         * Disables a link behaviour of an element.
+         * Disables a link behavior of an element.
          *
          * @param linkElement the jQuery object wrapping the DOM element
          */
@@ -338,7 +338,7 @@ $(
         }
 
         /**
-         * Changes the diagram visibility to make it visible on UI.
+         * Changes the diagram visibility to make it visible on the UI.
          *
          * <p>This is useful to avoid the diagram from flickering during loading.
          * The styles that hide the diagram are in the file `_sass/base/_diagram.scss`.

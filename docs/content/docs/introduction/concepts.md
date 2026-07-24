@@ -19,7 +19,7 @@ Terms extending the industry-set terminology are designated as such.
 
 ### Command
 
-Commands are messages that instruct an entity within Spine framework to perform a certain action.
+Commands are messages that instruct an entity within the Spine framework to perform a certain action.
 Compared with events, a command is not a statement of fact. They are a request, and, thus, can be
 refused. A typical way to convey refusal is to throw an error or rejection. 
 
@@ -35,7 +35,7 @@ In Spine, events are defined as Protobuf messages in the file which name ends wi
  
 ### Rejection
 
-Rejections is a special “negative” kind of events that we introduce to differentiate them from 
+Rejections are a special “negative” kind of events that we introduce to differentiate them from 
 regular events. If an event is a fact of something that happened to a domain model, a rejection is
 a fact that states the reason why a command was not handled.  
 
@@ -58,11 +58,11 @@ It tells whether the Command has been accepted for handling.
 
 ### Command Handler
 
-Command Handler is an object which receives commands, modifies the state of the application, and
+Command Handler is an object that receives commands, modifies the state of the application, and
 generates events if the modification was successful.
 
 [`Aggregate`](#aggregate) and [`ProcessManager`](#process-manager) are examples one of such classes. 
-The code snippet below given an example of handling a command by an aggregate:
+The code snippet below gives an example of handling a command by an aggregate:
 
 ```java
 final class TaskAggregate
@@ -83,7 +83,7 @@ final class TaskAggregate
 
 ### Event Subscriber
 
-Event Subscriber is an object which subscribes to receive events.
+Event Subscriber is an object that subscribes to receive events.
 
 The example below shows how a [Projection](#projection) class subscribed 
 to the {{< code "event" "TaskCompleted" >}} event.
@@ -101,12 +101,12 @@ final class TaskProjection
 
 ### Event Reactor
 
-Event Reactor is an object which usually produces one or more events in response to an incoming
+Event Reactor is an object that usually produces one or more events in response to an incoming
 event. Unlike [Event Subscriber](#event-subscriber), which always consumes events, a reacting object
 generates events in response to changes in the domain.
 
 {{% note-block class="note" %}}
-In some cases, Event Reactor may ignore the event, returning `Nothing`.
+In some cases, an Event Reactor may ignore the event, returning `Nothing`.
     It usually happens when a method returns one of the
     [`Either`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.tuple/-either/) types, with `Nothing` as
     one of the possible options: `EitherOf2<TaskReAssigned, Nothing>`.
@@ -114,7 +114,7 @@ In some cases, Event Reactor may ignore the event, returning `Nothing`.
 
 ## Value Objects
 
-Value Object describe things in a domain model and do not have identity. 
+Value Objects describe things in a domain model and do not have identity. 
 Value Objects are also immutable. Some examples are:
   * `PhoneNumber`
   * `EmailAddress`
@@ -147,13 +147,13 @@ We highly recommend using message-based IDs to make your API strongly pronounced
 
 Aggregate is the main building block of a business model. 
 From the application point of view it consists of the following:
-1. Commands which arrive to it. 
-2. Events which appear in response to these commands. 
+1. Commands that arrive to it. 
+2. Events that appear in response to these commands. 
 3. How these events influence the state of an aggregate.
 
 [Aggregates](http://martinfowler.com/bliki/DDD_Aggregate.html) guarantee consistency of data
 modifications in response to commands they receive. Aggregate is the most common case of
-Command Handler.  In response to a command, it produces one or more events modifying own state.
+a Command Handler. In response to a command, it produces one or more events modifying own state.
 These events are used later to restore the state of the aggregate.
 
 In Spine, aggregates are defined as Java classes, and their states are defined as Protobuf messages.
@@ -164,8 +164,8 @@ Process Manager is an independent component that manages the cross-aggregate bus
 It serves as a mediator by remembering the state of the flow and choosing the next step 
 based on the intermediate results.
 
-To do so, a Process Manager can be both [Command Handler](#command-handler) 
-and [Event Reactor](#event-reactor). Also, it can emit Commands to other Aggregates 
+To do so, a Process Manager can be both a [Command Handler](#command-handler) 
+and an [Event Reactor](#event-reactor). Also, it can emit Commands to other Aggregates 
 and Process Managers.
 
 In Spine, Process Managers are defined as Java classes, and their states are defined as
@@ -173,7 +173,7 @@ Protobuf messages.
 
 ### Projection
 
-Projection is an [Event Subscriber](#event-subscriber) which transforms multiple events data into
+Projection is an [Event Subscriber](#event-subscriber) that transforms multiple events data into
 a structural representation. Projections are the main building blocks of the Query side of
 the application.
 
@@ -217,12 +217,12 @@ the command is not [acknowledged](#acknowledgement).
 Query Service returns data to the client applications in response to a query. 
 The query is a request for the following: 
 * state of one or more aggregates or their fragments; 
-* one or more projection states or their fragments.
+* one or more projection states or their fragments;
 * one or more process manager states or their fragments.
 
 ### Subscription Service
 
-Subscription Service allows to subscribe to something happening inside a Bounded Context.
+Subscription Service allows subscribing to something happening inside a Bounded Context.
 
 There are two options for subscription:
 * receive changes of an Entity state for Projections, Process Managers and Aggregates; 
@@ -261,7 +261,7 @@ their execution.
 
 #### Event Store
 
-This store keeps all the events of the application in the chronological order, which also called
+This store keeps all the events of the application in chronological order, which also called
 Event Stream. This is the main “database” of the Bounded Context. 
 
 New projections are built by passing the event stream “through” them.

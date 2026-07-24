@@ -22,7 +22,7 @@ Commands and events reference model entities using their identifiers.
 Having typed identifiers makes a model type safe.
 Although the framework also supports `String`, `Integer`, and `Long` as valid ID types, 
 we strongly recommend defining custom ID types like `CustomerId`, `OrderId`, `ShipmentId`,
-and others. You can find similar cases in the framework API which has `EventId`, `CommandId`,
+and others. You can find similar cases in the framework API that has `EventId`, `CommandId`,
 `UserId`, `TenantId`, and others. 
 
 We find it convenient to define ID types in one file called `identifiers.proto`. 
@@ -92,8 +92,8 @@ an event, and it is likely there are conditions under which a command cannot be 
 
 We recommend gathering definition of related entity states in a file named after a business model
 thing. Suppose we have a {{< code "aggregate" "Task" >}} aggregate, {{< code "projection" "TaskItem" >}} 
-and {{< code "projection" "TaskDetails" >}} projections, and a Process Manager which is responsible for 
-movement of a task from one project to another, there would be `task.proto` file, with all Task-related 
+and {{< code "projection" "TaskDetails" >}} projections, and a Process Manager that is responsible for 
+movement of a task from one project to another; there would be a `task.proto` file, with all Task-related 
 data types definitions. The project-related data types would be defined in a `project.proto` file. 
 
 As it was already mentioned, `TaskId` and `ProjectId` are defined in the `identifiers.proto` file,
@@ -111,13 +111,13 @@ Identifiers are usually defined after the name of the entity with the `Id` suffi
   * `TaskId`
   * `CommentId`
   
-You will find such naming pattern in the framework API. For example, `EventId`, `CommandId`,
+You will find such a naming pattern in the framework API. For example, `EventId`, `CommandId`,
 `UserId`, `TenantId`, and others.    
 
 {{% note-block class="note" %}}
-This convention is not a requirement. We find `Id` suffix short yet meaningful for
+This convention is not a requirement. We find the `Id` suffix short yet meaningful for
 building a rich type-safe API. You can also select another convention that fits your domain
-best. Please note that future version of the framework tools will use the `Id` suffix of the
+best. Please note that a future version of the framework tools will use the `Id` suffix of the
 types for code scaffolding and improving intelligence of code generation.
 {{% /note-block %}}
 
@@ -179,16 +179,16 @@ message CreateTask {
 ### `repeated` and `map` fields
 
 We recommend naming `repeated` and `map` fields using singular nouns as such a naming appears 
-to be closer to the language we speak. It also provides easier to use generated code.
+to be closer to the language we speak. It also provides easier-to-use generated code.
 
 {{% note-block class="note" %}}
 This convention contradicts with the official 
 [Protobuf Style Guide](https://developers.google.com/protocol-buffers/docs/style#repeated_fields 
-"Protocol Buffers Style Guide") which suggests naming `map` and `repeated` fields after plural
+"Protocol Buffers Style Guide") that suggests naming `map` and `repeated` fields after plural
 nouns. Knowing this, we still recommend singular because of the following.
 
 The code generated for a `repeated` and `map` field named after a singular noun is closer to 
-real English. For the code related to the Domain-Driven Design this is far more important than 
+real English. For the code related to Domain-Driven Design this is far more important than 
 the consistency with the style guide.
 {{% /note-block %}}
 
@@ -236,7 +236,7 @@ Events are named as facts formulated as past participles, for example:
 
 ### Rejections
 
-A rejection is named after a reason of why a command cannot be handled. In fact, rejection notifies
+A rejection is named after a reason of why a command cannot be handled. In fact, a rejection notifies
 on a state of the domain model, for example:
 
   * {{< code "rejection" "TaskAlreadyExists" >}}
@@ -254,14 +254,14 @@ Protobuf messages for entity states are defined using nouns, for example:
 Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defining a proto type for
 the following reasons:
 
- 1. You may want to use such a word when creating an entity Java class which _uses_ 
+ 1. You may want to use such a word when creating an entity Java class that _uses_ 
     a generated data type for holding the state of the entity.
- 2. Such data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
+ 2. Such a data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
     It is just data.
  
 ## Packages
 
-Packages allow to form namespaces for types and avoid clashes. It is customary to have a “root” 
+Packages allow forming namespaces for types and avoiding clashes. It is customary to have a “root” 
 package for an organization or a service name. Most likely each Bounded Context would have 
 a dedicated package.
 
@@ -269,7 +269,7 @@ Examples in this guide assume that a fictitious company called
 [Acme Corporation](https://en.wikipedia.org/wiki/Acme_Corporation) creates a SaaS solution.
 The company has a web presence site with the domain name `acme.io`.
 The solution is a task management application called "Todo List" 
-which will be hosted at `todolist.acme.io`.    
+that will be hosted at `todolist.acme.io`.    
 
 ### Proto packages
 
@@ -289,7 +289,7 @@ Java does not have the notion of package nesting. Packages in Java are separated
 which seem hierarchical for convenience. When it comes to placing source code files
 in a project, there is usually nesting formed by the directories in a file system.
 
-Spine framework uses this notion of “nesting” for marking multiple packages of a server-side code 
+The Spine framework uses this notion of “nesting” for marking multiple packages of server-side code 
 [belonging to a Bounded Context]({{% get-site-data "repositories.core_api_doc" %}}/core/core/io.spine.core/-bounded-context/)
 easier. But this is a convenience feature, not a requirement.
    
@@ -304,12 +304,12 @@ It is easier to see everything related to a type, if all the generated code come
  * `io.acme.todolist.project`
  * `io.acme.todolist.comment` 
 
-This package would be a part of API shared between client- and server-side code of your 
+This package would be a part of the API shared between client- and server-side code of your 
 application.
 
 #### Commands
 
-We recommend putting command classes under a package which ends with `command`:
+We recommend putting command classes under a package that ends with `command`:
 
  * `io.acme.todolist.task.command`
  * `io.acme.todolist.project.command`
@@ -339,9 +339,9 @@ Unlike commands and events, rejection messages are generated under a file named 
 The class is placed into a `rejection` package of the corresponding type.
  
 The package also contains generated `Throwable` _top-level_ classes that match rejection messages. 
-These classes are used in the `throws` clause of command handling methods.
+These classes are used in the `throws` clause of command-handling methods.
 
-The arrangement with message classes nested under `Rejections` class and top-level `Throwable`s
+The arrangement with message classes nested under the `Rejections` class and top-level `Throwable`s
 is required to avoid name clashes while keeping these generated classes under the same package.
 
 {{% note-block class="note" %}}
@@ -362,7 +362,7 @@ a sub-package called `server` with sub-packages for corresponding entity types:
 ### Entities 
 
 When naming entities we find it natural to start with a name of a state class and then
-add a suffix which tells the type of the entity:
+add a suffix that tells the type of the entity:
 
   * `ProjectAggregate`
   * `OrderProcessManager`
@@ -374,7 +374,7 @@ For process managers it may be enough to have the `Process` suffix dropping `Man
 which frequently worked for us too. Other options for suffixes are `Pm` or `Procman`.
  
 {{% note-block class="note" %}}
-It would be a good idea to decide on such suffix as a team standard before you
+It would be a good idea to decide on such a suffix as a team standard before you
     start coding.
 {{% /note-block %}}  
   
