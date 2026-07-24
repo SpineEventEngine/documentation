@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2020, TeamDev. All rights reserved.
+# Copyright 2026, TeamDev. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,4 +52,36 @@ else
 fi
 
 # Check code samples.
-"$TOOL" -config-path="../_settings/v1.embed-code.yml" -mode="check"
+#
+# The embed-code binary is not a reliable exit-code citizen: on argument-
+# validation errors (for example, a `docs-path` that does not exist) it prints
+# an `ERROR` line but still exits 0. Relying on the exit code alone therefore
+# let a misconfigured check pass silently — CI stayed green while checking
+# nothing. See https://github.com/SpineEventEngine/embed-code-go.
+#
+# We fail closed: the check passes ONLY when the tool exits 0 AND prints its
+# explicit success sentinel. Any other outcome — a non-zero exit (stale
+# embeddings, a missing code file) or a zero exit without the sentinel (an
+# argument error) — is treated as a failure. If a future embed-code release
+# changes the success wording this guard will fail loudly rather than silently;
+# update SUCCESS_SENTINEL below to match.
+SUCCESS_SENTINEL="documentation files are up-to-date with code files"
+
+if OUTPUT="$("$TOOL" -config-path="../_settings/v1.embed-code.yml" -mode="check" 2>&1)"; then
+  STATUS=0
+else
+  STATUS=$?
+fi
+
+echo "$OUTPUT"
+
+if [ "$STATUS" -ne 0 ] || ! printf '%s\n' "$OUTPUT" | grep -qF "$SUCCESS_SENTINEL"; then
+  echo "" >&2
+  echo "ERROR: embed-code check did not confirm success (exit status ${STATUS})." >&2
+  echo "Either the embedded code samples are out of date, or embed-code was" >&2
+  echo "misconfigured (for example, an invalid path in" >&2
+  echo "docs/_settings/v1.embed-code.yml)." >&2
+  echo "Run './gradlew embedCode', review the changes per EMBEDDING.md, and" >&2
+  echo "commit them; or fix the configuration." >&2
+  exit 1
+fi
