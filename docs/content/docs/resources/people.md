@@ -18,7 +18,7 @@ The creators and drivers of the DDD ideas.
         {"url":"https://x.com/ericevans0", "icon":"fab fa-twitter"}
     ]`>}}
 The author of the DDD methodology. Domain linguist. The author
-of&nbsp;“Domain-Driven Design: Tackling Complexity in Software”.
+of&nbsp;“Domain-Driven Design: Tackling Complexity in the Heart of Software”.
 {{< /person-card >}}
 
 {{< person-card
