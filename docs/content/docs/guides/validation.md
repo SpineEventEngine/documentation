@@ -85,7 +85,7 @@ at the level of a corresponding message type.
 
 ## Required fields
 
-When modelling a domain, we often come up to certain data points which cannot be skipped. Those are
+When modelling a domain, we often come up to certain data points that cannot be skipped. Those are
 represented by required fields of an entity state, a Command, an Event, etc. 
 
 {{% note-block class="note" %}}
