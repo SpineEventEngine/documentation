@@ -129,7 +129,7 @@ domain language with another, add a dependency between them. This way, the downs
 use Protobuf definitions of the upstream context.
 ```groovy
 dependencies {
-    implemetation(project(':model-users'))
+    implementation(project(':users-model'))
 }
 ```
 

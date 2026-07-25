@@ -115,7 +115,7 @@ to the documentation files using the tool. The most important points here are:
 
 If you encounter an error indicating that the executable file cannot be run,
 it likely does not have execution permissions. To grant execution rights 
-on Linux or macOS, run the following command from the `_code` directory:
+on Linux or macOS, run the following command from the `docs/_bin` directory:
 
 ```shell
 chmod +x embed-code-macos
