@@ -127,7 +127,7 @@ We put this step aside because in [Reactive DDD][ReactiveDDD] entities reference
 the typed [identifiers][identifier-concept].
 
 {{% note-block class="note" %}}
-Consider following the [Vaughn Vernon][VaughnVernon]’s rule on Aggregates from 
+Consider following [Vaughn Vernon][VaughnVernon]’s rule on Aggregates from 
 the “Effective Aggregate Design Part II” that is applicable to **any** entity: 
 <i>“Reference other Aggregates by Identity”</i>
 {{% /note-block %}}
@@ -147,10 +147,10 @@ and polish the code of this important development step.
 
 ### Events
 
-When the IDs are defined it’s time to define [event][event-concept] messages. The events are named 
+When the IDs are defined, it’s time to define [event][event-concept] messages. The events are named 
 as facts formulated as past participles, e.g. {{< code "event" "RepositoryRegistered" >}} or {{< code "event" "TaskCreated" >}}. 
 They are defined in files with the [`_events.proto`][events-proto] suffix (e.g. `order_events.proto`, 
-`customer_events.proto`). If your context is small it can be just `events.proto`.
+`customer_events.proto`). If your context is small, it can be just `events.proto`.
 
 Create a Pull Request with the event definitions when they are ready.
 
@@ -158,7 +158,7 @@ Create a Pull Request with the event definitions when they are ready.
 
 Similar to events, [command][command-concept] messages are defined in files having the names ending 
 with the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
-Commands are defined as imperative in a form of “do something”, e.g. 
+Commands are defined as imperative in the form of “do something”, e.g. 
 {{< code "command" "RegisterRepository" >}} or {{< code "command" "CreateTask" >}}.
 
 Finalize defining commands with a Pull Request.
@@ -205,10 +205,10 @@ the business logic the same way it works in the application.
  See https://github.com/SpineEventEngine/SpineEventEngine.github.io/issues/339.
  -->
 
-All the code must conform to your standards of the code and documentation quality 
+All the code must conform to your standards of code and documentation quality 
 and be tested thoroughly.
 
-When a backend for the scenario is done a new PR is created and&nbsp;reviewed.
+When a backend for the scenario is done, a new PR is created and&nbsp;reviewed.
 
 ### Fulfilling the vertical
 
@@ -235,7 +235,7 @@ As soon as you are done with the Bounded Context, move on to the next one.
 While developing a project, make sure to split the development by Bounded Contexts. Pick up 
 a context and split it into scenarios. Make sure each of the development steps results 
 in a separate Pull Request with dedicated artifacts in the source code repository. 
-Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated ones.
+Opt for smaller, fine-grained Pull Requests instead of cluttered and complicated ones.
 
 [introduction]: docs/introduction/ "Check the Introduction"
 [project-structure]: docs/introduction/project-structure#example "Check out the Example Project structure"

@@ -14,10 +14,10 @@ which allows creating class names inside the exported SVG.
 Add a layer or group name like `.g-caption`. 
 The resulting SVG markup will contain `class="g-caption"`.
 
-To have several classes for the one element add `.g-caption.command-dispatcher`. 
+To have several classes for one element add `.g-caption.command-dispatcher`. 
 The result will be `class="g-caption command-dispatcher"`.
 
-A layer name without a prefixed period will be used as ID.
+A layer name without a prefixed period will be used as an ID.
 For example, `g-caption.command-dispatcher` will result `id="g-caption" class="command-dispatcher"`.
 
 ## Export SVG

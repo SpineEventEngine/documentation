@@ -49,8 +49,8 @@ describe the listed three patterns, because they are the most commonly used.
 ![Big picture domain](img/docs/integrating-with-a-third-party/domain.jpg)
 
 For the sake of an example, let’s consider airport management software. An airport is a complex
-system which relies on many people and much software working together. Let’s consider the system
-which helps the flight dispatchers make decisions on **Takeoffs and Landings**. The system
+system that relies on many people and much software working together. Let’s consider the system
+that helps the flight dispatchers make decisions on **Takeoffs and Landings**. The system
 integrates with the software responsible for **Security Checks**, **Airplane Supplies**, and
 **Weather**. All of these systems are independent of **Takeoffs and Landings** as well as of each
 other. Thus, each of them can be treated as a third party.
@@ -70,10 +70,10 @@ This decision requires data on the supplies, which are provided for the *Aircraf
 knowledge, the system integrates with the **Airplane Supplies** Context. Note the language
 difference between the *Aircraft* and an *Airplane*. Apparently, the two Contexts view the same
 entity of the real world from different perspectives.
-**Airplane Supplies** Context is an integral part of the airport software. Thus, by communicating
+The **Airplane Supplies** Context is an integral part of the airport software. Thus, by communicating
 with the developers responsible for **Airplane Supplies**, we are able to build a Customer/Supplier
 relationship between the **Airplane Supplies** Context and our system. The **Airplane Supplies**
-Context does not implement an Event-based messaging internally. However, it still acts as
+Context does not implement Event-based messaging internally. However, it still acts as
 a Supplier. Specially for **Takeoffs and Landings**, the Supplier Context generates Events and
 publishes them to a shared channel. **Takeoffs and Landings**, the Customer, subscribes to those
 Events. 
@@ -139,7 +139,7 @@ public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
 The event producer obtains cached historical events, matches them to the received subscription,
 and sends them to the client. The **Takeoffs and Landings** system implements 
 an&nbsp;[event consumer]({{% get-site-data "repositories.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
-which constructs a subscription and maintains it as long as the system needs to receive more events.
+that constructs a subscription and maintains it as long as the system needs to receive more events.
 The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`]({{% get-site-data "repositories.core_api_doc" %}}/server/server/io.spine.server.integration/-third-party-context/):
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java" 
@@ -190,7 +190,7 @@ update are important to **Takeoffs and Landings**. The **Weather** Context force
 ![Conformist diagram](img/docs/integrating-with-a-third-party/conformist-diagram.svg)
 
 The schema of the conformist relation looks somewhat like the Customer/Supplier schema. Similar to
-the Customer/Supplier, **Takeoffs and Landings** Context is downstream from another Context, in this
+the Customer/Supplier, the **Takeoffs and Landings** Context is downstream from another Context, in this
 case from **Weather**. Unlike the Customer/Supplier, **Weather** does not provide a specific
 Event Producer, which would adapt **Weather** Events to the needs of **Takeoffs and Landings**.
 Also, the Event Consumer on the **Takeoffs and Landings** side is rather thin and devoid of logic.
@@ -251,7 +251,7 @@ public void receiveNew(WeatherMeasurement measurement) {
 }
 ```
 The [`FlightAggregate`]({{% get-site-data "repositories.examples" %}}/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
-reacts on those events and changes its state as the result:
+reacts on those events and changes its state as a result:
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java" 
             fragment="TemperatureChanged"></embed-code>
@@ -271,9 +271,9 @@ EitherOf2<FlightRescheduled, Nothing> on(@External TemperatureChanged event) {
 
 ![ACL domain](img/docs/integrating-with-a-third-party/acl.jpg)
 
-**Security Checks** Context has a rich model of its own. The system happens not to use domain Events
-at all. The **Security Checks** software,  used in our airport, must go through a complex audit and
-certification process upon each change. Thus, the cost of  changing it is too high. However,
+The **Security Checks** Context has a rich model of its own. The system happens not to use domain Events
+at all. The **Security Checks** software, used in our airport, must go through a complex audit and
+certification process upon each change. Thus, the cost of changing it is too high. However,
 the **Security Checks** also happens to expose an API for fetching the current internal state of
 the system. The fetched state has a consistency lag, which never exceeds a known value
 (e.g. 2 minutes). In other words, the client of the **Security Checks** API can be sure that
@@ -352,7 +352,7 @@ EitherOf2<BoardingComplete, Nothing> on(@External PassengerDeniedBoarding event)
 
 An integration job may seem complicated or even overwhelming. However, with a strong understanding
 of the domain and good tooling, the process boils down to a few simple steps. Indeed, it does not
-matter, whether you want to integrate  with an outside system, your own legacy system, or reorganize
+matter, whether you want to integrate with an outside system, your own legacy system, or reorganize
 your current system to work in an event-driven manner. A correct integration strategy will help you
 isolate and perfect your own domain language while on the work of many external systems. Read more
 about Bounded Contexts and their interactions in the "Domain-Driven Design" book by Eric Evans.

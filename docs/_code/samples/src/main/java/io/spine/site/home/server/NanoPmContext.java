@@ -1,11 +1,11 @@
 /*
- * Copyright 2020, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -40,7 +40,7 @@ public final class NanoPmContext {
     private NanoPmContext() {
     }
 
-    /** Creates a builder for single-tenant context filled in with entity types. */
+    /** Creates a builder for a single-tenant context filled in with entity types. */
     public static BoundedContextBuilder newBuilder() {
         return BoundedContext.singleTenant(NAME)
                 .add(TaskAggregate.class)

@@ -1,4 +1,4 @@
-Release new version of the documentation
+Release a new version of the documentation
 ========
 
 **Table of Contents**
@@ -74,7 +74,7 @@ Where:
 
 ### Content
 
-The documentation content should be placed under `content/docs/<version_id>/` directory.
+The documentation content should be placed under the `content/docs/<version_id>/` directory.
 
 For the main version, content can either be under its version directory or at
 the root – this is controlled by the `content_path`.
@@ -115,8 +115,8 @@ Each version should have its own sidenav configuration file, located either in:
 ## Release new version
 
 1. Create a new directory for the documentation inside the `content/docs/<new-version>/`.
-2. Create the `sidenav.yml` inside `data/docs/<new-version>/` directory.
-3. Add the new version to `data/versions.yml` config.
+2. Create the `sidenav.yml` inside the `data/docs/<new-version>/` directory.
+3. Add the new version to the `data/versions.yml` config.
 
 ### Change the current main version
 
@@ -156,7 +156,7 @@ versioned folder and configured via `module.mounts`.
          item_visible: false
    ```
 
-Now the version 2 will be available at the `https://spine.io/docs/` URL.
+Now version 2 will be available at the `https://spine.io/docs/` URL.
 
 Get updates into the main website:
 
@@ -188,8 +188,8 @@ The link above will be automatically rendered as:
 - `"<baseurl>/docs/validation/guides/requirements/"` – for main version.
 - `"<baseurl>/docs/validation/2-0-x/guides/requirements/"` – for the version `2-0-x`. 
 
-To render the current documentation full version inside API URL,
-use `{{% version %}}` shortcode:
+To render the current documentation full version inside an API URL,
+use the `{{% version %}}` shortcode:
 
 ```markdown
 
@@ -219,4 +219,4 @@ To use a specific version for example in FAQ or Release Notes, provide the `vers
 {{% version "1" %}}
 ```
 
-It will always render the latest “full” label version of `1`, for example now it is `1.9.0`.
+It will always render the latest “full” label version of `1`; for example, now it is `1.9.0`.
