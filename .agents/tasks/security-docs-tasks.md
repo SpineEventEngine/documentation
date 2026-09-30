@@ -43,9 +43,9 @@ README section shrinks to a pointer to the same page.
 
 ### 1. `documentation` repository
 
-- [ ] **Create the Security section** under Documentation, with the three pages below in the
+- [x] **Create the Security section** under Documentation, with the three pages below in the
       section's navigation, in the order given in the table above.
-- [ ] **Security policy page.** Decide during implementation between:
+- [x] **Security policy page.** Decide during implementation between:
   - **Embed the content** of `.github/SECURITY.md`, pulled from that repository at build
     time or by a sync job, so `.github` stays the single source and the two can't drift.
     Headings and relative links need adapting to the site.
@@ -53,7 +53,9 @@ README section shrinks to a pointer to the same page.
     plus a link to `SECURITY.md` on GitHub. Nothing to sync, but readers leave the site.
 
   If we embed, don't let a copy edited by hand on the site become a second source.
-- [ ] **Verifying artifacts page.** Adapt the `config` README section "Verifying published
+
+  Done: embedded, fetched at build time by the `remote-markdown` shortcode (see Log).
+- [x] **Verifying artifacts page.** Adapt the `config` README section "Verifying published
       artifacts" for consumers, and leave out the internals that only maintainers need:
   - What is attested: every file of every Maven publication, SBOMs included. The provenance
     format is SLSA v1.0, built on GitHub-hosted runners by the reusable workflow in
@@ -81,10 +83,10 @@ README section shrinks to a pointer to the same page.
   - Optional strict pinning with `--signer-digest <config commit>`.
   - Reword the maintainer-facing parts of the README text, such as re-running the `attest`
     job and `migrate`.
-- [ ] **CVD policy page.** Move the content of https://spine.io/cvd-policy/ to
+- [x] **CVD policy page.** Move the content of https://spine.io/cvd-policy/ to
       `/docs/security/cvd-policy/` unchanged. It's a policy document, so a move shouldn't
       change its wording.
-- [ ] **Redirect** https://spine.io/cvd-policy/ to https://spine.io/docs/security/cvd-policy/.
+- [x] **Redirect** https://spine.io/cvd-policy/ to https://spine.io/docs/security/cvd-policy/.
   - First find which repository serves `/cvd-policy/` today. It may be the main site
     repository rather than `documentation`. The redirect goes wherever the old page lives.
   - Prefer a permanent (301) redirect. If the site is on GitHub Pages, it can't send HTTP
@@ -93,8 +95,18 @@ README section shrinks to a pointer to the same page.
     a trailing slash and the one without.
   - Keep the redirect indefinitely: `/cvd-policy/` is referenced from `SECURITY.md` in every
     repository of the organization, and from outside.
-- [ ] **Update internal links** on the site that point to `/cvd-policy/` (footer, other docs
+- [x] **Update internal links** on the site that point to `/cvd-policy/` (footer, other docs
       pages) to the new URL.
+
+The redirect, the link updates, and the removal of the old page are on the `security-section`
+branch of `SpineEventEngine.github.io` (the spine.io repository), because that repository
+serves `/cvd-policy/` today. Merge order:
+
+1. The `documentation` PR.
+2. The spine.io PR, after adding to it a bump of the `documentation` module pin
+   (`hugo mod get github.com/SpineEventEngine/documentation/docs@<merged commit>` in `site/`).
+   Without the bump, the PR deletes the old page before the new one exists, and
+   `/cvd-policy/` redirects to a missing page.
 
 ### 2. `.github` repository
 
@@ -159,10 +171,34 @@ These aren't tasks for the repositories above, but the published text depends on
   - The ruleset must cover the `v*.x` pattern, including creating such branches.
   - The caller template `.github-workflows/publish.yml` in `config` needs `'v*.x'` added to
     its `push.branches` trigger. Today it's `[master]` only.
-
-## Log
+- **A ruleset on `master` of `.github`.** The Security policy page renders that branch's
+  `SECURITY.md` into spine.io, and the site renders raw HTML in Markdown. Whoever can push to
+  that branch can change a page of the site.
 
 - 2026-09-30 — drafted from the `config` session on attestation verification. Decided:
   standalone task document; the Security policy page's embed-vs-link choice is left to
   implementation; the `config` README shrinks to a pointer once the site page exists; the
   repository serving `/cvd-policy/` is to be determined.
+- 2026-09-30 — part 1 implemented, uncommitted, on `security-section` in `documentation` and
+  spine.io; parts 2 and 3 wait for go-live. Decided:
+  - Security policy page: fetched at build time. It's a real `policy.md` whose body is the
+    `remote-markdown` shortcode, not a content adapter: adapter pages have no `.File`, and
+    the site-commons sidenav finds the current section from `.File.Path`. A failed fetch
+    fails the build; under `hugo server` it's a warning. Both projects set
+    `[caches.getresource] maxAge = '1h'`: Hugo's default is to never refetch, and the
+    `check-links` workflows restore the Hugo cache between runs.
+  - `/cvd-policy/` is served by spine.io, so the redirect is a static page there
+    (`site/static/cvd-policy/index.html`), not `aliases` in `documentation`. lychee checks the
+    `rel=canonical` link of a redirect page, and a canonical URL that isn't live yet would
+    fail the `documentation` link check. The page uses site-relative URLs for the same reason.
+  - Security comes last in the navigation, after the Validation guides. The main sidenav
+    always precedes the sidenavs of the documentation modules, so Security has a sidenav of
+    its own, `data/docs/security/sidenav.yml`, placed last by `moduleOrder` in `hugo.toml`.
+  - Numbered headings: the CVD page keeps `has_numbered_headings: true`, and spine.io's docs
+    layout now honours it, as the privacy layout does. The local preview shows them
+    unnumbered, since it has no such styles.
+  - The preview gets its own `date` shortcode. spine.io's shortcode of the same name takes
+    precedence there.
+  - spine.io also got: `security.txt` `Policy:` pointing to the new URL, its `Expires:` fixed
+    (a stray space made it invalid under RFC 9116), and a `workflow_dispatch` trigger for
+    the deploy, limited to `master`, to publish `SECURITY.md` changes.

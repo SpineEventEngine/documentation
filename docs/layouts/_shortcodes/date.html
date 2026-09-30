@@ -1,0 +1,19 @@
+{{- /*
+Renders the page `lastmod` date.
+
+Usage:
+{{< date label="Last updated:" >}}
+
+The spine.io site has a shortcode of the same name and output, which takes
+precedence there. This one lets the preview render the pages that use it.
+*/ -}}
+
+{{- $label := .Get "label" -}}
+{{- $formattedDate := .Page.Lastmod | time.Format ":date_long" -}}
+{{- $isoDate := .Page.Lastmod | time.Format "2006-01-02" -}}
+<p class="date">
+    {{- with $label -}}
+        <span>{{ . }}&nbsp;</span>
+    {{- end -}}
+    <time datetime="{{ $isoDate }}">{{ $formattedDate }}</time>
+</p>

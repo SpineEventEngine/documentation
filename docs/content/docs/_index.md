@@ -35,3 +35,7 @@ the [example applications]({{% get-site-data "repositories.examples" %}}).
 
 ## [DDD Resources](docs/resources/)
 A brief selection of learning materials we recommend to the colleagues in DDD.
+
+## [Security](docs/security/policy/)
+This section explains how to report a vulnerability, how we handle reports, and how to check
+that an artifact you downloaded was built by us.

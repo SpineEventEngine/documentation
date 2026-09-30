@@ -1,0 +1,16 @@
+# The Security section has a sidenav of its own, rather than an entry in
+# `docs/data/docs/1/sidenav.yml`, so that it comes after the sidenavs of the documentation
+# modules (such as Validation), which follow the main one. `moduleOrder` in `docs/hugo.toml`
+# sets its place among them.
+#
+# The `file_path` is relative to `docs/content/docs/security`.
+
+- page: Security
+  key: security
+  children:
+    - page: Security policy
+      file_path: policy
+    - page: Verifying artifacts
+      file_path: verifying-artifacts
+    - page: CVD Policy
+      file_path: cvd-policy

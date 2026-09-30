@@ -1,0 +1,36 @@
+{{- /*
+Renders a Markdown file fetched from a URL when the site is built.
+
+Usage:
+{{% remote-markdown url="https://raw.githubusercontent.com/<owner>/<repo>/<branch>/<file>.md" %}}
+
+Call it with `%` delimiters, on a line of its own between blank lines. The fetched
+text is then rendered as part of the page, and its headings appear in the page TOC.
+
+If the file cannot be fetched, the build fails, so the page is never published
+without its content. Under `hugo server`, the failure is only a warning, and the
+page shows a link to the file instead, so the site can still be authored offline.
+*/ -}}
+
+{{- $url := .Get "url" -}}
+{{- $markdown := "" -}}
+{{- $failure := "" -}}
+{{- with try (resources.GetRemote $url) -}}
+    {{- with .Err -}}
+        {{- $failure = . -}}
+    {{- else with .Value -}}
+        {{- $markdown = .Content -}}
+    {{- else -}}
+        {{- /* `GetRemote` returns nothing, not an error, for HTTP 404. */ -}}
+        {{- $failure = "not found" -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if not $failure -}}
+    {{- $markdown | safeHTML -}}
+{{- else if hugo.IsServer -}}
+    {{- warnf "%s: cannot fetch %s: %s" .Position $url $failure -}}
+    {{- printf "This content could not be loaded; see [the source file](%s)." $url | safeHTML -}}
+{{- else -}}
+    {{- errorf "%s: cannot fetch %s: %s" .Position $url $failure -}}
+{{- end -}}
