@@ -27,7 +27,7 @@ This section provides detailed instructions on the framework use.
 This section provides language-specific guides for building client-side applications.
 
 ## [API Reference](docs/reference/)
-This sections provides links to the generated documentation.
+This section provides links to the generated documentation.
 
 ## [Examples](docs/examples/)
 This page is the entry point for learning from the code of
@@ -35,3 +35,7 @@ the [example applications]({{% get-site-data "repositories.examples" %}}).
 
 ## [DDD Resources](docs/resources/)
 A brief selection of learning materials we recommend to the colleagues in DDD.
+
+## [Security](docs/security/policy/)
+This section explains how to report a vulnerability, how we handle reports, and how to check
+that an artifact you downloaded was built by us.

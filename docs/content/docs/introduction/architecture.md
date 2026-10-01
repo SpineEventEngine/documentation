@@ -12,7 +12,7 @@ with the server-side via `CommandService`, `QueryService`, and `SubscriptionServ
 The diagram below shows <span id="display-all-components">all server-side components</span>
 of a cloud application. When developing with Spine, you will be interacting
 with only <em><span id="display-user-facing-components">some of them</span></em>, which
-are not shaded on the diagram. The rest is handled by the framework.
+are not shaded in the diagram. The rest is handled by the framework.
 
 Click on a component to navigate to its definition from the 
 [Concepts](docs/introduction/concepts/)&nbsp;page.

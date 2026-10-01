@@ -6,7 +6,7 @@ headline: Documentation
 # Project Structure
 
 {{% note-block class="lead" %}}
-This document describes standard structure of a Spine-based project. 
+This document describes the standard structure of a Spine-based project. 
 It assumes that you are familiar with [Gradle](https://gradle.org).
 {{% /note-block %}}
 
@@ -16,10 +16,10 @@ the code generation done by Protobuf Compiler and Spine Model Compiler.
 
 ## Handcrafted code
 
-Following standard Gradle conventions a manually written code is created under the 
+Following standard Gradle conventions manually written code is created under the 
 `src/main/` directory with subdirectories `proto`, `java`, etc. for corresponding languages.
 
-After a project is defined in Gradle, a work on a module usually starts in 
+After a project is defined in Gradle, work on a module usually starts in 
 the `proto` directory.
 
 ## Generated code
@@ -34,7 +34,7 @@ The sub-directories are:
 ### Excluding from version control
 
 The generated code is created and updated during build time. Directories with the generated 
-code files should <strong>NOT</strong> be added to version control system of your project.
+code files should <strong>NOT</strong> be added to the version control system of your project.
 This makes a commit to contain only essential changes relevant to the update of the model, 
 in particular:
 
@@ -43,7 +43,7 @@ in particular:
  2) Updated calls from the application code to the generated data model API.
 
 By not including the generated code into the version control we minimise the “noise”
-for developer eyes when a model changes.  So, if you are using Git, for example, consider adding
+for developer eyes when a model changes. So, if you are using Git, for example, consider adding
  the following line to your `.gitignore` file:
 
 ```text

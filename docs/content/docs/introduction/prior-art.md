@@ -13,7 +13,7 @@ while bringing some important differences into play.
 Spine is created for applications that follow the [CQRS](http://martinfowler.com/bliki/CQRS.html) 
 and [Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) architectural patterns.
 
-Spine didn’t appear out of the blue. While working on our own CQRS/ES based projects we were 
+Spine didn’t appear out of the blue. While working on our own CQRS/ES-based projects we were 
 alarmed at how much manual effort is spent on creating events and commands, delivering events and data
 to the web and mobile clients. It takes time, does not require much creativity from a developer,
 whilst this energy could have been spent on productive 
@@ -38,7 +38,7 @@ the business domain allows us to make this language
 but in communication of computing devices too.
 
 **Immutability** is another major concept we follow.
-Spine uses typed commands and events. Having commands and events as first class citizens in the 
+Spine uses typed commands and events. Having commands and events as first-class citizens in the 
 applications gives a lot of benefits in terms of business logic. Not having to convert back and 
 forth with Json gives some performance advantage at the same time.
 
@@ -76,8 +76,8 @@ But as [Martin Fowler](http://www.martinfowler.com/books/eaa.html) notes:
  >Frameworks still require you to make decisions about how to use them, 
  >and knowing the underlying patterns is essential if you are to make wise choices.
 
-Systems built on top of Spine framework are flexible, loosely-coupled, scalable and open to change.
-Here we should thank [Reactive Manifesto](http://www.reactivemanifesto.org/), 
+Systems built on top of the Spine framework are flexible, loosely-coupled, scalable and open to change.
+Here we should thank the [Reactive Manifesto](http://www.reactivemanifesto.org/), 
 which became one the corner stones and drivers of the Spine philosophy.
 
 We are yet at the beginning of our journey of using Spine in the wild.
