@@ -156,6 +156,18 @@ versioned folder and configured via `module.mounts`.
          item_visible: false
    ```
 
+3. If you moved the content in step 1, update `docs-path` in
+   `docs/_settings/v1.embed-code.yml`, the code embedding config for version 1,
+   so that it follows the moved content:
+
+   ```yml
+   code-path: "../_code"
+   docs-path: "../content/docs/1"   # Change the path from `../content/docs` to `../content/docs/1`.
+   ```
+
+   The `checkSamples` and `embedCode` Gradle tasks read this file and fail
+   if `docs-path` points to a folder that does not exist.
+
 Now version 2 will be available at the `https://spine.io/docs/` URL.
 
 Get updates into the main website:
