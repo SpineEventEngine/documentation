@@ -18,6 +18,40 @@ plugins {
 
 spine.enableJava().server()
 
+// Spine Bootstrap 1.7.0 (released 2020) injects the now-defunct JCenter as the
+// repository for third-party artifacts such as `protoc`. JCenter is shut down, so
+// nothing resolves from it. Replace it with Maven Central. Spine's own artifacts
+// keep resolving from the `spine.mycloudrepo.io` repositories that Bootstrap also
+// injects, so only the third-party source needs repointing.
+repositories {
+    removeIf { it.name == 'BintrayJCenter' }
+    mavenCentral()
+}
+
+// protoc 3.13.0 and the gRPC codegen plugin 1.28.1 both predate Apple Silicon:
+// no `osx-aarch_64` build of either was ever published to any repository, so
+// resolution fails on arm64 Macs even with a live repo. Force the x86_64 binaries
+// there — they run under Rosetta 2 and keep the tools pinned at exactly the
+// Bootstrap-selected versions, so generated code is identical to every other
+// platform. Everywhere else, keep Bootstrap's auto-detected native binaries.
+def osName = System.getProperty('os.name').toLowerCase()
+def osArch = System.getProperty('os.arch').toLowerCase()
+def appleSilicon = osName.contains('mac') && (osArch == 'aarch64' || osArch == 'arm64')
+protobuf {
+    protoc {
+        if (appleSilicon) {
+            artifact = 'com.google.protobuf:protoc:3.13.0:osx-x86_64@exe'
+        }
+    }
+    plugins {
+        grpc {
+            if (appleSilicon) {
+                artifact = 'io.grpc:protoc-gen-grpc-java:1.28.1:osx-x86_64@exe'
+            }
+        }
+    }
+}
+
 ext {
     junitVersion = '5.7.0'
 }
