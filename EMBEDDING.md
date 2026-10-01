@@ -14,7 +14,7 @@ Originally, this tool was written as a plugin for Jekyll, but now it is also
 available as a binary executable written in Go.
 
 1. Open [embed-code][embed-code-repo] repository.
-2. Go to the `bin` directory and download an executable suitable for you OS.
+2. Go to the `bin` directory and download an executable suitable for your OS.
 3. Put it in the `docs/_bin` directory of this repository.
 
 ### Download code snippets
@@ -70,7 +70,7 @@ to the documentation files using the tool. The most important points here are:
    and multi-module Gradle example projects that are going to be used for 
    embedding into this site.
 
-   See the declaration of `buildAll` task for more details.
+   See the declaration of the `buildAll` task for more details.
 
 2. Add the example code as a submodule for this project:
 
@@ -78,7 +78,7 @@ to the documentation files using the tool. The most important points here are:
    git submodule add https://github.com/spine-examples/<example-name> docs/_code/examples/<example-name>
    ```
    Please make sure the new submodule goes under the `docs/_code/examples` directory, 
-   as shown in the command line template above.
+   as shown in the command-line template above.
 
 3. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
    file.
@@ -93,7 +93,7 @@ to the documentation files using the tool. The most important points here are:
 
 ### Adding a new small piece
 
-1. Add the code under `docs/_code/samples/src` directory.
+1. Add the code under the `docs/_code/samples/src` directory.
 2. Make sure tests for the new code pass.
 3. Add the new piece using the [`embed-code` guide][embed-code-readme].
 4. Include the build of the added project into the [`settings.gradle.kts`](settings.gradle.kts)
@@ -115,7 +115,7 @@ to the documentation files using the tool. The most important points here are:
 
 If you encounter an error indicating that the executable file cannot be run,
 it likely does not have execution permissions. To grant execution rights 
-on Linux or macOS, run the following command from the `_code` directory:
+on Linux or macOS, run the following command from the `docs/_bin` directory:
 
 ```shell
 chmod +x embed-code-macos

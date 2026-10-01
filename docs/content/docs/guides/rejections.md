@@ -14,7 +14,7 @@ are defined differently. Here is the summary of the differences:
     outer class. 
     Spine Model Compiler for Java generates `ThrowableMessage` classes for all these messages. 
     These classes will be named after the classes of rejection messages.
-    Putting rejection message classes under an outer class avoids name clash inside the package.
+    Putting rejection message classes under an outer class avoids a name clash inside the package.
 
 2. Omit `java_outer_classname` option
 

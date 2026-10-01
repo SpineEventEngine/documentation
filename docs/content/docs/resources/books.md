@@ -16,7 +16,7 @@ Key works to get familiar with the approach.
     subtitle="Tackling Complexity in the Heart of Software"
     author="Eric Evans"
     book_url="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215" >}}
-The Big Blue Book which lay the basics of Domain-Driven Design methodology.
+The Big Blue Book that lays the basics of the Domain-Driven Design methodology.
 It provides a broad framework for making design decisions and a vocabulary for
 discussing domain design.
 {{< /book-card >}}
