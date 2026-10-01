@@ -11,10 +11,10 @@ Other tools that help with DDD in code
 {{% /note-block %}}
 
 - [Axon](https://axoniq.io/).
-Open source framework for event-driven microservices and domain-driven design.
+Open-source framework for event-driven microservices and domain-driven design.
 
 - [Vlingo](https://vlingo.io/).
-The open source toolkit by Vaughn Vernon for fluent reactive, event-driven, 
+The open-source toolkit by Vaughn Vernon for fluent reactive, event-driven, 
 and microservices architectures.
 
 - [EventStore](https://eventstore.com/).

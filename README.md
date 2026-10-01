@@ -6,7 +6,7 @@ This repository serves for three purposes:
 2. Gathering issues improving the documentation of the framework and tasks on writing articles at spine.io and other web resources.
 3. Storing documentation files that are added as a Hugo module to the [spine.io][spine-repo] repository.
 
-We have repository for the code of [spine.io](https://spine.io) site. 
+We have a repository for the code of the [spine.io](https://spine.io) site. 
 Issues there are for improving the site features. 
 
 Tasks for the content of the [spine.io](https://spine.io) site should belong 
@@ -185,7 +185,7 @@ the [`AUTHORING.md`][authoring-guide] file.
 
 1. If you are getting the terminal `prompts disabled error` when trying to get
    theme updates, make sure you have allowed 2FA to do its job. Also, if you have
-   authentication issues during submodules update. You can resolve it with this
+   authentication issues during submodules update, you can resolve it with this
    command:
 
    ```shell

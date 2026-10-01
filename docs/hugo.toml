@@ -1,6 +1,7 @@
 [params]
-  # Specifies the order of the sidenav modules.
-  moduleOrder = ["framework", "validation", "compiler"]
+  # Specifies the order of the sidenav modules. `security` is not a module, but its sidenav
+  # is ordered like a module's, so that it comes last. See `docs/data/docs/security/sidenav.yml`.
+  moduleOrder = ["framework", "validation", "compiler", "security"]
 
 [module]
   [[module.imports]]
