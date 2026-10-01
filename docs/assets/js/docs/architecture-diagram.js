@@ -15,7 +15,7 @@
 /**
  * This is a JavaScript file that backs the Spine architecture diagram.
  *
- * Please see `/docs/1/introduction/architecture.md` for usage.
+ * Please see `/docs/introduction/architecture.md` for usage.
  */
 
 $(
