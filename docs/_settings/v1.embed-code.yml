@@ -1,5 +1,2 @@
 code-path: "../_code"
-docs-path: "../content/docs/1"
-embed-mappings:
-  - code-path: "../_code"
-    docs-path: "../content/docs/1"
+docs-path: "../content/docs"
