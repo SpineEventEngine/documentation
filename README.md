@@ -19,9 +19,9 @@ are working as intended. It allows making changes more convenient for authors.
 ## Prerequisites
 
 1. JDK 8 (x86_64).
-2. [Go][go] `1.22` or newer (matches `docs/go.mod`).
+2. [Go][go] `1.27.3` or newer (matches `docs/_preview/go.mod`).
 3. [Node.js][nodejs] `18+`.
-4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
+4. [Hugo Extended][hugo-quick-start] in version `v0.169.0` or higher.
 
 ## Configuration
 
