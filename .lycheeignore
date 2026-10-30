@@ -5,6 +5,7 @@
 # These links are broken in the docs of `SpineEventEngine/validation`, which
 # `docs/hugo.toml` imports as a module, so they can only be fixed there.
 # Remove a pattern once the module update that fixes its link lands here.
+# See https://github.com/SpineEventEngine/documentation/issues/97.
 ^https://github\.com/SpineEventEngine/validation/blob/master/\.agents/running-builds\.md$
 ^https://github\.com/SpineEventEngine/validation/blob/master/\.agents/documentation-guidelines\.md$
 ^https://github\.com/SpineEventEngine/embed-code-go/blob/master/EMBEDDING\.md$
