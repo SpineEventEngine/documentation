@@ -22,6 +22,14 @@ are working as intended. It allows making changes more convenient for authors.
 2. [Go][go] `1.27.3` or newer (matches `docs/_preview/go.mod`).
 3. [Node.js][nodejs] `18+`.
 4. [Hugo Extended][hugo-quick-start] in version `v0.169.0` or higher.
+5. [Dart Sass][dart-sass] in version `1.99.0` or higher. On macOS, install it with Homebrew:
+
+   ```shell
+   brew install sass/sass/sass
+   ```
+
+   Hugo looks for the `sass` executable on `PATH`. When Hugo finds it,
+   `hugo env` lists `github.com/sass/dart-sass/...` entries.
 
 ## Configuration
 
@@ -202,6 +210,7 @@ the [`AUTHORING.md`][authoring-guide] file.
 [go]: https://go.dev/doc/install
 [nodejs]: https://nodejs.org/en/download/current
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
+[dart-sass]: https://gohugo.io/functions/css/sass/#dart-sass
 [site-commons]: https://github.com/SpineEventEngine/site-commons
 [embed-code]: https://github.com/SpineEventEngine/embed-code-go
 [authoring-guide]: https://github.com/SpineEventEngine/SpineEventEngine.github.io/blob/master/AUTHORING.md
