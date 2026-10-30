@@ -91,7 +91,7 @@ represented by required fields of an entity state, a Command, an Event, etc.
 {{% note-block class="note" %}}
 Protobuf 2 used to have native support for required fields. 
 However, from the serialization perspective, that proved to be
-a [design mistake](https://stackoverflow.com/a/31814967/3183076). If a required field was missing,
+a [design mistake](https://stackoverflow.com/questions/31801257/why-were-required-and-optional-removed-in-protocol-buffers-3/31814967#31814967). If a required field was missing,
 the message could not be serialized and sent over the wire. Also, it is often too easy to add a new
 required field, thereby breaking backwards-compatibility of the message type. In Protobuf 3 all
 the fields are optional.
