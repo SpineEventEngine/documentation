@@ -36,7 +36,7 @@ and CI checks links with the same Hugo version.
 - [x] Check the full-screen diagram page: URL, back link, JS, PDF link.
 - [x] Check the code-theme toggle in the preview (#93).
 - [x] Check that `spine.io` builds with the same `security` setting (local only).
-- [ ] Run link check.
+- [x] Run link check.
 
 ## Log
 
@@ -45,3 +45,8 @@ and CI checks links with the same Hugo version.
   site-commons#37 intends. Full-screen diagram and code-theme toggle checked
   in the browser. A clone of `spine.io` fails on v0.169.0 without
   `allowContent` and builds with it (`--minify`, updated theme).
+- 2026-10-30 — link check: the Lychee run passes, but it extracts only the
+  `<head>` URLs, because of the inline jQuery block in every page's `<head>`.
+  CI has the same blind spot. With that block stripped, 13 body links are
+  broken, the same on `master`: 12 in `validation/docs`, and one Stack Overflow
+  link that answers 403 to bots. None comes from this branch.
