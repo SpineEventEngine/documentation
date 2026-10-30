@@ -22,6 +22,13 @@ disableKinds = ['taxonomy', 'term']
   [caches.getresource]
     maxAge = '1h'
 
+# Since v0.162.0, Hugo denies HTML content files by default. The full-screen architecture
+# diagram in `docs/content` is one, so HTML is allowed here; Org mode stays denied.
+# Hugo ignores `security` in the config of an imported module, so `docs/hugo.toml` can't
+# carry this, and each site importing `docs` needs the same setting.
+[security]
+  allowContent = ['! ^text/org$']
+
 # Enables HTML rendering in markdown files.
 [markup]
   [markup.goldmark]
