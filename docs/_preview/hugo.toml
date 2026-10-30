@@ -22,6 +22,14 @@ disableKinds = ['taxonomy', 'term']
   [caches.getresource]
     maxAge = '1h'
 
+# Since v0.162.0, Hugo denies HTML content files by default. The full-screen architecture
+# diagram, `spine-architecture-diagram-full-screen.html`, is such a file, so HTML is allowed.
+# Org mode stays denied. Hugo ignores the `security` settings of an imported module, so
+# `docs/hugo.toml` cannot carry this setting. Each site that imports `docs`, such as
+# spine.io, needs it too.
+[security]
+  allowContent = ['! ^text/org$']
+
 # Enables HTML rendering in markdown files.
 [markup]
   [markup.goldmark]
