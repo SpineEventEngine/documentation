@@ -18,6 +18,8 @@ env:
   # SHA256 of the above tarball, pinned at download time. Update alongside
   # LYCHEE_VERSION_TAG whenever the binary is upgraded.
   LYCHEE_SHA256: "1f4e0ef7f6554a6ed33dd7ac144fb2e1bbed98598e7af973042fc5cd43951c9a"
+  # Pinned to the release the Spine sites were checked with. Newer releases
+  # add Sass deprecations, which nobody has checked against those sites yet.
   DART_SASS_VERSION: 1.99.0
   # SHA256 of `dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz`, from the GitHub release.
   # Update alongside DART_SASS_VERSION.
@@ -83,6 +85,13 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
+      # The Spine Hugo theme compiles its SCSS with Dart Sass, because Hugo
+      # deprecated LibSass in v0.153.0 and will remove it. Hugo does not
+      # bundle Dart Sass: it runs the `sass` binary it finds on `PATH`, and
+      # a site on that theme fails to build without one. The release
+      # tarball is standalone, so no Node or Dart setup is needed. The
+      # checksum guards the download, as it does for Lychee below. Sites
+      # still on LibSass ignore the binary.
       - name: Install Dart Sass
         if: steps.docs.outputs.present == 'true'
         run: |
@@ -94,6 +103,9 @@ jobs:
           echo "${RUNNER_TEMP}/dart-sass" >> "${GITHUB_PATH}"
 
       # Hugo finds Dart Sass on `PATH`. `hugo env` lists it when it does.
+      # `GITHUB_PATH` only takes effect from the next step on, so this check
+      # cannot live in the install step above. It fails here, rather than
+      # mid-build, if the install did not put `sass` where Hugo looks.
       - name: Check Dart Sass
         if: steps.docs.outputs.present == 'true'
         run: hugo env | grep 'github.com/sass/dart-sass'
