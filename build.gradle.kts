@@ -36,9 +36,17 @@ task<Exec>("installDependencies") {
 }
 
 /**
+ * Checks out the example submodules that the code samples come from, if they are missing.
+ */
+task<Exec>("checkOutExamples") {
+    commandLine("./docs/_script/check-out-examples")
+}
+
+/**
  * Embeds the code samples into pages of the site.
  */
 task<Exec>("embedCode") {
+    dependsOn("checkOutExamples")
     commandLine("./docs/_script/embed-code")
 }
 
@@ -46,6 +54,7 @@ task<Exec>("embedCode") {
  * Verifies that the source code samples embedded into the pages are up-to-date.
  */
 task<Exec>("checkSamples") {
+    dependsOn("checkOutExamples")
     commandLine("./docs/_script/check-samples")
 }
 

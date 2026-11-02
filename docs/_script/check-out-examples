@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Checks out the example submodules under `docs/_code/examples` that are not
+# checked out yet, at the commits this repository pins.
+#
+# The embedded code samples come from these examples, but a fresh clone or
+# worktree starts without them. Examples that are already checked out stay as
+# they are, so this never rewinds one that `embed-code` moved to a newer commit.
+
+set -e
+
+git submodule status -- docs/_code/examples | while read -r status path _; do
+  # `git submodule status` marks a submodule that is not initialized with `-`.
+  case "$status" in
+    -*) ;;
+    *) continue ;;
+  esac
+
+  # `settings.gradle.kts` includes some examples as builds, and Gradle writes its
+  # `.gradle` directory even into an empty one. Git does not clone into a
+  # directory that is not empty, so remove `.gradle` when it is all there is.
+  if [ "$(ls -A "$path")" = ".gradle" ]; then
+    rm -rf "${path:?}/.gradle"
+  fi
+
+  git submodule update --init -- "$path"
+done
