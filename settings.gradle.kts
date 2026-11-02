@@ -12,7 +12,7 @@
  * and limitations under the License.
  */
 
-rootProject.name = "spine-docs"
+rootProject.name = "documentation"
 
 includeBuild("./docs/_code/samples")
 

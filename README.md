@@ -180,6 +180,9 @@ To verify that the source code samples embedded into the pages are up-to-date, r
 ./gradlew :checkSamples
 ```
 
+Both tasks first check out the example submodules under `docs/_code/examples`
+that are missing, at the commits this repository pins.
+
 ## Product release
 
 To release a new version of Spine documentation, see the [SPINE_RELEASE.md](SPINE_RELEASE.md).
